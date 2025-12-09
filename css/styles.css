@@ -334,7 +334,7 @@ ul {
 
 .what-we-do .hero-trust {
     margin-top: 0;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: calc(var(--spacing-2xl) * 2);
     animation: none;
 }
 
@@ -377,6 +377,13 @@ ul {
     color: var(--text-dark);
 }
 
+.method .section-title:first-of-type {
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
 .section-subtitle {
     text-align: center;
     color: var(--text-gray);
@@ -394,7 +401,7 @@ ul {
    Ce que fait concrètement Formation Compétences
    ======================================== */
 .what-we-do {
-    padding: var(--spacing-2xl) 0;
+    padding: calc(var(--spacing-2xl) * 2) 0 var(--spacing-2xl) 0;
     background: var(--bg-white);
 }
 
@@ -493,8 +500,9 @@ ul {
    Quote Banner
    ======================================== */
 .quote-banner {
-    padding: var(--spacing-md) 0;
-    background: #5e77bb;
+    padding: var(--spacing-xl) 0;
+    /* background: linear-gradient(135deg, #4f7df3 0%, #3b5fc7 100%); */
+    background: linear-gradient(135deg, #003fe1 0%, #00000000 100%);
     position: relative;
     overflow: hidden;
 }
@@ -502,18 +510,19 @@ ul {
 .quote-banner-content {
     max-width: 700px;
     margin: 0 auto;
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0;
     position: relative;
     text-align: center;
 }
 
 .quote-line {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
+    font-family: var(--font-heading);
     color: white;
     line-height: 1.6;
     margin-bottom: 0.25rem;
-    font-style: italic;
+    font-style: normal;
 }
 
 .quote-line:last-child {
@@ -543,7 +552,7 @@ ul {
    Méthode en 3 temps
    ======================================== */
 .method {
-    padding: var(--spacing-2xl) 0;
+    padding: calc(var(--spacing-2xl) * 1.5) 0 calc(var(--spacing-2xl) * 2) 0;
     background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 50% 90%, rgba(37, 99, 235, 0.1) 0%, transparent 40%);
@@ -574,21 +583,21 @@ ul {
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
-    border-radius: 12px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.card-icon i {
-    font-size: 1.5rem;
+    margin: 0 auto var(--spacing-md) auto;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: white;
+    font-family: var(--font-heading);
 }
 
 .method-card h3 {
     margin-bottom: var(--spacing-md);
     color: var(--text-dark);
+    text-align: center;
 }
 
 .method-card ul {
@@ -651,8 +660,10 @@ ul {
 }
 
 .approach-tagline {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    color: var(--text-gray);
     margin-bottom: var(--spacing-xl);
+    font-weight: 400;
 }
 
 .approach-features {
@@ -717,7 +728,7 @@ ul {
 .approach-conclusion {
     text-align: center;
     padding: var(--spacing-lg);
-    background: var(--bg-light);
+    background: #ffffff;
     border-radius: 12px;
 }
 
@@ -737,7 +748,7 @@ ul {
    ======================================== */
 .testimonials {
     padding: var(--spacing-2xl) 0;
-    background: var(--bg-light);
+    background: #ffffff;
 }
 
 .testimonials-grid {
@@ -747,7 +758,7 @@ ul {
 }
 
 .testimonial-card {
-    background: white;
+    background: #d2ffed8f;
     padding: var(--spacing-lg);
     border-radius: 12px;
     box-shadow: var(--shadow-md);
@@ -795,7 +806,9 @@ ul {
 .testimonial-content {
     margin-bottom: var(--spacing-md);
     font-style: italic;
-    color: var(--text-gray);
+    color: rgb(41, 41, 41);
+    font-weight: 500;
+    /* color: var(--text-gray); */
     line-height: 1.8;
 }
 
@@ -967,12 +980,14 @@ ul {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
     font-family: var(--font-primary);
     background-color: white;
+    box-sizing: border-box;
+    width: 100%;
     transition: var(--transition);
 }
 
@@ -990,7 +1005,10 @@ ul {
 }
 
 .checkbox-group {
-    flex-direction: row;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: var(--spacing-sm);
 }
 
 .checkbox-group label {
@@ -998,11 +1016,21 @@ ul {
     align-items: flex-start;
     gap: var(--spacing-xs);
     font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.5;
     cursor: pointer;
+    margin: 0;
 }
 
 .checkbox-group input[type="checkbox"] {
-    margin-top: 4px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-group span {
+    flex: 1;
 }
 
 .form-success {
