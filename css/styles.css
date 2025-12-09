@@ -687,7 +687,7 @@ ul {
     width: 80px;
     height: 80px;
     margin: 0 auto var(--spacing-md);
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    background: var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -714,7 +714,7 @@ ul {
     position: relative;
     padding-left: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
-    color: var(--text-gray);
+    color: #4b5563;
 }
 
 .feature li:before {
@@ -784,11 +784,14 @@ ul {
 .testimonial-avatar {
     width: 60px;
     height: 60px;
-    background: var(--primary-color);
+    min-width: 60px;
+    min-height: 60px;
+    background: #1f2937;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .testimonial-avatar i {
@@ -811,7 +814,7 @@ ul {
     margin-bottom: var(--spacing-md);
     font-style: italic;
     /* color: rgb(41, 41, 41); */
-    color: rgb(36 86 66);
+    color: #1f2937;
     font-weight: 500;
     /* color: var(--text-gray); */
     line-height: 1.8;
