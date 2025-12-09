@@ -105,3 +105,4 @@ Le site peut être déployé sur n'importe quel serveur web statique :
 ## 📞 Contact
 
 Pour toute question ou demande d'information, contactez-nous via le formulaire sur le site.
+

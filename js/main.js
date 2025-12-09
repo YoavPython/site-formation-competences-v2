@@ -184,10 +184,10 @@ style.textContent = `
 document.head.appendChild(style);
 
 // ========================================
-// Navbar sticky avec changement de style
+// Navbar sticky avec changement de style et parallaxe hero
 // ========================================
-let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
+const hero = document.querySelector('.hero');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
@@ -198,26 +198,36 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
     
-    // Hide/show navbar on scroll
-    if (currentScroll > lastScroll && currentScroll > 500) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
-    }
+    // La navbar reste toujours visible
+    navbar.style.transform = 'translateY(0)';
     
-    lastScroll = currentScroll;
+    // Effet parallaxe sur le hero
+    if (hero && currentScroll < 800) {
+        hero.style.backgroundPositionY = `${50 + currentScroll * 0.5}%`;
+    }
 });
 
 // Style pour navbar scrolled
 const navbarStyle = document.createElement('style');
 navbarStyle.textContent = `
-    .navbar {
-        transition: all 0.3s ease;
+    .navbar.scrolled {
+        box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+        padding: 0.5rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
     }
     
-    .navbar.scrolled {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        padding: 0.5rem 0;
+    .navbar.scrolled .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .navbar.scrolled .logo-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .navbar.scrolled .logo-subtitle {
+        font-size: 1rem;
     }
     
     .mobile-menu-toggle.active span:nth-child(1) {
@@ -284,3 +294,4 @@ console.log('Site Groupe Formation Compétences chargé avec succès');
 
 // Ajout d'une classe au body une fois le DOM chargé
 document.body.classList.add('loaded');
+
