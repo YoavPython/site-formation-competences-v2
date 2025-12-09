@@ -271,7 +271,7 @@ ul {
    Hero Section
    ======================================== */
 .hero {
-    padding: calc(100px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+    padding: calc(180px + var(--spacing-2xl)) 0 var(--spacing-2xl);
     /* background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.95) 100%),
                 url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; */
     color: #1d4ed8;
@@ -411,7 +411,7 @@ ul {
 
 .process-step {
     background: var(--bg-light);
-    background: #ffdaa3; 
+    background: #d2ffed8f; 
     padding: var(--spacing-lg);
     border-radius: 12px;
     position: relative;
@@ -494,7 +494,7 @@ ul {
    ======================================== */
 .quote-banner {
     padding: var(--spacing-md) 0;
-    background: #fafbfc;
+    background: #5e77bb;
     position: relative;
     overflow: hidden;
 }
@@ -508,9 +508,9 @@ ul {
 }
 
 .quote-line {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    color: var(--text-gray);
+    color: white;
     line-height: 1.6;
     margin-bottom: 0.25rem;
     font-style: italic;
@@ -531,11 +531,23 @@ ul {
 }
 
 /* ========================================
+   Wrapper pour transition fluide
+   ======================================== */
+.method-approach-wrapper {
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ========================================
    Méthode en 3 temps
    ======================================== */
 .method {
     padding: var(--spacing-2xl) 0;
-    background: var(--bg-light);
+    background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(37, 99, 235, 0.1) 0%, transparent 40%);
+    position: relative;
 }
 
 .method-cards {
@@ -616,14 +628,14 @@ ul {
 .method-note {
     text-align: center;
     padding: var(--spacing-md);
-    background: white;
+    background: #363636;
     border-radius: 8px;
-    color: var(--text-gray);
-    font-style: italic;
+    color: white;
+    /* font-style: italic; */
 }
 
 .method-note i {
-    color: var(--primary-color);
+    color: white;
     margin-right: var(--spacing-xs);
 }
 
@@ -631,8 +643,11 @@ ul {
    Approche différente
    ======================================== */
 .approach {
-    padding: var(--spacing-2xl) 0;
-    background: white;
+    padding: 0 0 var(--spacing-2xl) 0;
+    background: radial-gradient(circle at 70% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 30% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    position: relative;
+    margin-top: -30px;
 }
 
 .approach-tagline {
@@ -956,7 +971,14 @@ ul {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
+    font-family: var(--font-primary);
+    background-color: white;
     transition: var(--transition);
+}
+
+.form-group textarea::placeholder {
+    font-family: var(--font-primary);
+    color: #9ca3af;
 }
 
 .form-group input:focus,
