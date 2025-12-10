@@ -183,40 +183,35 @@ ul {
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
     text-decoration: none;
 }
 
-.logo-icon {
+.logo-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    transition: all 0.3s ease;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
 }
 
-.logo-icon svg {
-    width: 45px;
-    height: 45px;
-    color: var(--primary-color);
+.logo-groupe-text {
+    font-family: 'POPPINS'!important;
+    font-size: 1.4rem!important;
+    font-weight: 300!important;
+    color: #170682!important;
+    letter-spacing: 1.5px!important;
+    text-transform: uppercase!important;
+    margin-bottom: -13px!important;
+    margin-left: 1px!important;
 }
 
-.logo:hover .logo-icon {
-    transform: rotate(-10deg) scale(1.1);
+.logo-svg {
+    width: 140px;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-.logo:hover .logo-icon svg {
-    color: var(--primary-dark);
-}
-
-.logo-subtitle {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.5px;
-    transition: all 0.3s ease;
+.logo:hover .logo-svg {
+    transform: scale(1.05);
 }
 
 .nav-menu {
@@ -1188,17 +1183,14 @@ ul {
         display: flex;
     }
     
-    .logo-icon {
-        width: 40px;
-        height: 40px;
+    .logo-groupe-text {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+        margin-left: 2px;
     }
     
-    .logo-icon i {
-        font-size: 1.25rem;
-    }
-    
-    .logo-subtitle {
-        font-size: 0.95rem;
+    .logo-svg {
+        width: 120px;
     }
     
     .hero-title {
@@ -1269,6 +1261,16 @@ ul {
 }
 
 @media (max-width: 480px) {
+    .logo-groupe-text {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+        margin-left: 1px;
+    }
+    
+    .logo-svg {
+        width: 100px;
+    }
+    
     .hero-title {
         font-size: 1.75rem;
     }
