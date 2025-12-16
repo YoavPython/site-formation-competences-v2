@@ -1,0 +1,16 @@
+# Redirections Netlify
+
+# Routes principales
+/                          /index.html                 200
+/bilan-de-competences      /bilan-competences.html     200
+/vae                       /vae.html                   200
+
+# Redirection des assets (pour s'assurer qu'ils sont trouvés)
+/css/*                     /css/:splat                 200
+/js/*                      /js/:splat                  200
+/components/*              /components/:splat          200
+/pages/*                   /pages/:splat               200
+/assets/*                  /assets/:splat              200
+
+# Fallback pour toutes les autres routes
+/*                         /index.html                 200

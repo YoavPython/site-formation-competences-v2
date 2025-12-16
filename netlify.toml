@@ -1,0 +1,54 @@
+[build]
+  publish = "."
+  
+[[redirects]]
+  from = "/"
+  to = "/public/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/bilan-de-competences"
+  to = "/public/bilan-competences.html"
+  status = 200
+
+[[redirects]]
+  from = "/vae"
+  to = "/public/vae.html"
+  status = 200
+
+# Servir les fichiers statiques depuis leur emplacement
+[[redirects]]
+  from = "/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/js/*"
+  to = "/js/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/components/*"
+  to = "/components/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/pages/*"
+  to = "/pages/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/favicon.svg"
+  to = "/public/favicon.svg"
+  status = 200
+
+# Fallback
+[[redirects]]
+  from = "/*"
+  to = "/public/index.html"
+  status = 200
