@@ -25,14 +25,14 @@ export class BilanCompetencesPage extends Component {
                     <div class="container">
                         <div class="hero-wrapper">
                             <div class="hero-content">
-                                <h1 class="hero-title">Préparez votre bilan de compétences avec un accompagnement expert et structuré</h1>
+                                <h1 class="hero-title">Clarifiez votre parcours professionnel avec un accompagnement expert et personnalisé</h1>
                                 <p class="hero-subtitle">
-                                    Nous clarifions votre situation, structurons votre projet et vous aidons à choisir, 
-                                    en toute sécurité, le bon bilan, avec le bon organisme.
+                                    Nous vous aidons à structurer votre projet, identifier vos besoins réels et choisir 
+                                    le dispositif d'accompagnement le plus adapté à votre situation.
                                 </p>
                                 <div class="hero-cta">
                                     <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller expert</a>
-                                    <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre méthode en 3 phases</a>
+                                    <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre approche personnalisée</a>
                                 </div>
                             </div>
                             <div class="hero-image-container">
@@ -54,7 +54,7 @@ export class BilanCompetencesPage extends Component {
                             </div>
                             <div class="reassurance-card scale-in">
                                 <i class="fas fa-balance-scale"></i>
-                                <p>Respect d'une charte déontologique bilan & accompagnement</p>
+                                <p>Respect d'une charte déontologique stricte</p>
                             </div>
                             <div class="reassurance-card scale-in">
                                 <i class="fas fa-star"></i>
@@ -74,13 +74,17 @@ export class BilanCompetencesPage extends Component {
                         <div class="section-header">
                             <h2 class="section-title fade-in">Ce que fait concrètement Formation Compétences</h2>
                             <div class="section-intro slide-up">
-                                <p class="highlight">Nous ne réalisons pas le Bilan de Compétences à votre place.</p>
-                                <p>Nous faisons le travail amont qui sécurise votre démarche : clarifier votre besoin, structurer votre projet, puis vous orienter vers le bon dispositif et le bon organisme partenaire.</p>
+                                <p class="highlight">Nous ne réalisons pas l'accompagnement à votre place.</p>
+                                <p>Nous faisons le travail amont qui sécurise votre démarche : clarifier vos besoins réels, structurer votre projet professionnel, puis vous orienter vers le dispositif et l'organisme partenaire les plus adaptés.</p>
                             </div>
                         </div>
 
                         <div class="steps-grid">
                             ${this.renderSteps()}
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Je veux clarifier mon projet professionnel</a>
                         </div>
                     </div>
                 </section>
@@ -89,8 +93,8 @@ export class BilanCompetencesPage extends Component {
                 <section class="quote-banner">
                     <div class="container">
                         <blockquote class="fade-in">
-                            <p>Vous n'avez pas besoin d'un "bilan de compétences de plus".</p>
-                            <p>Vous avez besoin de comprendre lequel est fait pour vous.</p>
+                            <p>Vous n'avez pas besoin d'un accompagnement de plus.</p>
+                            <p>Vous avez besoin de comprendre lequel est vraiment fait pour vous.</p>
                         </blockquote>
                     </div>
                 </section>
@@ -102,16 +106,24 @@ export class BilanCompetencesPage extends Component {
                         <div class="method-cards">
                             ${this.renderMethodCards()}
                         </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-primary btn-lg">Démarrer mon accompagnement personnalisé</a>
+                        </div>
                     </div>
                 </section>
 
                 <!-- Témoignages -->
                 <section class="testimonials" id="temoignages">
                     <div class="container">
-                        <h2 class="section-title fade-in">Témoignages & preuve sociale</h2>
+                        <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
                         <div class="testimonials-grid">
                             ${this.renderTestimonials()}
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
                         </div>
                     </div>
                 </section>
@@ -132,6 +144,10 @@ export class BilanCompetencesPage extends Component {
                                 pour que l'argent ne soit ni un tabou, ni un piège.
                             </p>
                         </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options de financement</a>
+                        </div>
                     </div>
                 </section>
 
@@ -140,13 +156,12 @@ export class BilanCompetencesPage extends Component {
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
-                                <h3 class="fade-in">Rappel bénéfices</h3>
+                                <h3 class="fade-in">Pourquoi nous choisir ?</h3>
                                 <ul class="slide-up">
-                                    <li>Vous savez exactement ce que vous venez chercher dans un bilan.</li>
-                                    <li>Vous ne choisissez plus votre organisme au hasard.</li>
-                                    <li>Vous êtes accompagné(e) par un expert amont neutre, qui connaît les dispositifs et les acteurs du marché.</li>
+                                    <li><strong>Clarté totale :</strong> Vous savez exactement quel accompagnement correspond à vos besoins réels</li>
+                                    <li><strong>Choix éclairé :</strong> Plus de sélection au hasard, nous vous orientons vers l'organisme idéal</li>
+                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui maîtrise tous les dispositifs du marché</li>
                                 </ul>
-                                <a href="#contact-form" class="btn btn-orange scale-in">Je souhaite être rappelé(e) par un conseiller</a>
                             </div>
 
                             <div class="contact-form-wrapper" id="contact-form">
@@ -173,13 +188,13 @@ export class BilanCompetencesPage extends Component {
                     "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
                     "Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…"
                 ],
-                result: "Objectif : poser des bases solides pour éviter le bilan ou la formation \"par défaut\"."
+                result: "Objectif : poser des bases solides pour éviter un accompagnement \"par défaut\"."
             },
             {
                 number: 2,
                 title: "Vous aider à y voir clair (pour de vrai)",
                 content: [
-                    "cadrons votre besoin : bilan ? formation ? VAE ? autre dispositif ?",
+                    "cadrons votre besoin réel : quel type d'accompagnement pour quel objectif ?",
                     "mettons à plat des pistes réalistes",
                     "vérifions la cohérence globale : contraintes, prérequis, modalités et options de financement."
                 ],
@@ -193,7 +208,7 @@ export class BilanCompetencesPage extends Component {
                     "nous vous aidons à choisir le dispositif le plus adapté",
                     "si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
                 ],
-                result: "Résultat : quand vous démarrez votre bilan ou votre formation, vous savez où vous allez, avec qui, et pourquoi."
+                result: "Résultat : quand vous démarrez votre parcours d'accompagnement, vous savez exactement où vous allez, avec qui, et pourquoi."
             }
         ];
 
@@ -300,8 +315,10 @@ export class BilanCompetencesPage extends Component {
                     <option value="">Votre objectif principal *</option>
                     <option value="reconversion">Reconversion professionnelle</option>
                     <option value="evolution">Évolution de carrière</option>
+                    <option value="validation">Validation d'acquis (VAE)</option>
                     <option value="creation">Création d'entreprise</option>
-                    <option value="bilan">Faire le point</option>
+                    <option value="bilan">Faire le point sur mes compétences</option>
+                    <option value="formation">Monter en compétences</option>
                     <option value="autre">Autre</option>
                 </select>
             </div>

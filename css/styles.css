@@ -1633,6 +1633,54 @@ ul {
 }
 
 /* ========================================
+   Footer Logo Styles
+   ======================================== */
+.footer-logo-container {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-logo-groupe-text {
+    font-family: 'POPPINS' !important;
+    font-size: 0.9rem !important;
+    font-weight: bold;
+    color: #170682 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    margin-bottom: -8px !important;
+    margin-left: 1px !important;
+}
+
+.footer-logo-svg {
+    width: 100px;
+    height: 45px;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-wrapper {
+        padding: 10px 14px;
+    }
+    
+    .footer-logo-groupe-text {
+        font-size: 0.8rem !important;
+    }
+    
+    .footer-logo-svg {
+        width: 90px;
+        height: 40px;
+    }
+}
+
+/* ========================================
    CTA Benefits Section
    ======================================== */
 .cta-benefits {
