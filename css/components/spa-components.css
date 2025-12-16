@@ -1,0 +1,405 @@
+/* ========================================
+   Styles pour l'architecture SPA
+   ======================================== */
+
+/* Loading State */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: 2rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--color-orange, #ff6900);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error 404 */
+.error-404 {
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-404 h1 {
+    font-size: 6rem;
+    color: var(--color-orange, #ff6900);
+    margin: 0;
+}
+
+.error-404 p {
+    font-size: 1.5rem;
+    color: #666;
+    margin: 1rem 0 2rem;
+}
+
+/* Page Heroes */
+.page-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-hero .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Legal Pages */
+.legal-page {
+    min-height: 60vh;
+}
+
+.legal-content {
+    padding: 3rem 0;
+}
+
+.legal-content .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-content h2 {
+    color: var(--color-primary, #170682);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.legal-content h3 {
+    color: var(--color-dark, #1f2937);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.legal-content p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.legal-content ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.legal-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-content .intro {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* VAE Page Specific */
+.vae-method-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vae-method-card .method-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vae-method-card .method-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-orange, #ff6900);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.vae-method-card .method-subtitle {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.vae-method-card .method-content {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.vae-method-card .method-result {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* VAE Testimonials */
+.vae-testimonial .testimonial-role {
+    color: var(--color-orange, #ff6900);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Diplomas Grid */
+.diplomas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.diploma-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.diploma-card:hover {
+    border-color: var(--color-orange, #ff6900);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 105, 0, 0.15);
+}
+
+.diploma-card .diploma-code {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-orange, #ff6900);
+    margin-bottom: 0.5rem;
+}
+
+.diploma-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-dark, #1f2937);
+}
+
+.diploma-card .diploma-sector {
+    display: inline-block;
+    background: #f3f4f6;
+    color: #666;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Process Cards */
+.process-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.process-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+}
+
+.process-card .process-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary, #170682);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.process-card h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary, #170682);
+}
+
+/* FAQ Section */
+.faq-section {
+    background: #f9fafb;
+    padding: 3rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    color: var(--color-primary, #170682);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.faq-answer {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Benefits Section */
+.benefits-section {
+    margin: 3rem 0;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.benefits-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-success, #10b981);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* CTA Sections */
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.cta-section h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease forwards;
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation delays for staggered effects */
+.slide-up:nth-child(1) { animation-delay: 0.1s; }
+.slide-up:nth-child(2) { animation-delay: 0.2s; }
+.slide-up:nth-child(3) { animation-delay: 0.3s; }
+.slide-up:nth-child(4) { animation-delay: 0.4s; }
+.slide-up:nth-child(5) { animation-delay: 0.5s; }
+
+.scale-in:nth-child(1) { animation-delay: 0.1s; }
+.scale-in:nth-child(2) { animation-delay: 0.2s; }
+.scale-in:nth-child(3) { animation-delay: 0.3s; }
+.scale-in:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .process-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .diplomas-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}

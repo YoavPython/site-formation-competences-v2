@@ -4,8 +4,9 @@
   "description": "Site web pour Groupe Formation Compétences - Accompagnement expert pour votre bilan de compétences",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --port=8080",
-    "dev": "live-server --port=8080"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "old-start": "http-server . -p 8080 -c-1"
   },
   "keywords": [
     "bilan de compétences",
@@ -16,10 +17,10 @@
   "author": "GFC",
   "license": "ISC",
   "devDependencies": {
+    "http-server": "^14.1.1",
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
-
-
-
-
