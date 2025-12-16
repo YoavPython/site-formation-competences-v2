@@ -2,20 +2,31 @@
    Variables CSS
    ======================================== */
 :root {
-    /* Couleurs principales */
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary-color: #10b981;
-    --secondary-dark: #059669;
+    /* Nouveau système de couleurs */
+    --primary-orange: #ff6900;
+    --primary-orange-dark: #e55a00;
+    --primary-orange-light: #ff8533;
+    --primary-blue: #2b325e;
+    --primary-blue-dark: #1f2444;
+    --primary-blue-light: #3d4573;
+    --accent-blue: #2563eb;
+    --accent-blue-light: #60a5fa;
     
-    /* Couleurs neutres */
-    --text-dark: #1f2937;
-    --text-gray: #6b7280;
-    --text-light: #9ca3af;
-    --bg-light: #f9fafb;
+    /* Couleurs principales (compatibilité) */
+    --primary-color: #2b325e;
+    --primary-dark: #1f2444;
+    --primary-light: #3d4573;
+    --secondary-color: #ff6900;
+    --secondary-dark: #e55a00;
+    
+    /* Couleurs neutres améliorées */
+    --text-dark: #1a1a1a;
+    --text-gray: #4a5568;
+    --text-light: #718096;
+    --bg-light: #f7fafc;
+    --bg-gray: #edf2f7;
     --bg-white: #ffffff;
-    --border-color: #e5e7eb;
+    --border-color: #e2e8f0;
     
     /* Ombres */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -128,15 +139,17 @@ ul {
 }
 
 .btn-primary {
-    background: #363636;
+    background: var(--primary-orange);
     color: white;
+    box-shadow: 0 4px 14px rgba(255, 105, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background: #0a0a0a;
+    background: var(--primary-orange-dark);
     color: white;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 30px rgba(255, 105, 0, 0.35);
 }
 
 /* Section CTAs */
@@ -153,15 +166,18 @@ ul {
 
 /* Orange CTA Buttons (Contact/Form) */
 .btn-orange {
-    background: #ff6900;
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-light));
     color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(255, 105, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .btn-orange:hover {
-    background: #e55a00;
+    background: linear-gradient(135deg, var(--primary-orange-dark), var(--primary-orange));
     color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 105, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 0, 0.35);
 }
 
 /* Form Submit Button - Orange */
@@ -186,17 +202,18 @@ ul {
 }
 
 .btn-secondary {
-    background: var(--primary-color);
+    background: var(--primary-blue);
     color: white;
-    border: 2px solid var(--primary-color);
+    border: none;
+    box-shadow: 0 4px 14px rgba(43, 51, 94, 0.25);
+    transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-    background: var(--primary-dark);
+    background: var(--primary-blue-dark);
     color: white;
-    border-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 30px rgba(43, 51, 94, 0.35);
 }
 
 .btn-block {
@@ -423,7 +440,10 @@ ul {
    ======================================== */
 .hero {
     padding: calc(150px + var(--spacing-2xl)) 0 var(--spacing-md);
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, 
+        rgba(43, 51, 94, 0.03) 0%, 
+        rgba(255, 105, 0, 0.05) 50%, 
+        rgba(43, 51, 94, 0.08) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -727,10 +747,36 @@ ul {
    ======================================== */
 .quote-banner {
     padding: var(--spacing-xl) 0;
-    /* background: linear-gradient(135deg, #4f7df3 0%, #3b5fc7 100%); */
-    background: linear-gradient(135deg, #003fe1 0%, #00000000 100%);
+    background: linear-gradient(135deg, 
+        rgba(255, 105, 0, 0.95) 0%, 
+        rgba(43, 51, 94, 0.95) 100%);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 40px rgba(43, 51, 94, 0.15);
+}
+
+.quote-banner blockquote {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.quote-banner blockquote p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.quote-banner blockquote p:first-child {
+    font-size: 1.3rem;
+    opacity: 0.95;
+}
+
+.quote-banner blockquote p:last-child {
+    font-size: 1.75rem;
 }
 
 .quote-banner-content {
@@ -795,14 +841,34 @@ ul {
 .method-card {
     background: white;
     padding: var(--spacing-lg);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    border-radius: 16px;
+    border: 1px solid rgba(43, 51, 94, 0.1);
+    box-shadow: 0 4px 20px rgba(43, 51, 94, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.method-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-blue));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .method-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(43, 51, 94, 0.15);
+    border-color: var(--primary-blue-light);
+}
+
+.method-card:hover::before {
+    transform: scaleX(1);
 }
 
 .card-icon {
@@ -988,16 +1054,30 @@ ul {
 }
 
 .testimonial-card {
-    background: #d2ffed8f;
+    background: linear-gradient(135deg, rgba(255, 105, 0, 0.05), rgba(43, 51, 94, 0.03));
     padding: var(--spacing-lg);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
+    border-radius: 16px;
+    border: 1px solid rgba(43, 51, 94, 0.08);
+    box-shadow: 0 4px 20px rgba(43, 51, 94, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.testimonial-card::after {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: var(--primary-orange);
+    opacity: 0.2;
+    font-family: Georgia, serif;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(43, 51, 94, 0.12);
+    background: linear-gradient(135deg, rgba(255, 105, 0, 0.08), rgba(43, 51, 94, 0.05));
 }
 
 .testimonial-header {
@@ -1012,12 +1092,13 @@ ul {
     height: 60px;
     min-width: 60px;
     min-height: 60px;
-    background: #1f2937;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(43, 51, 94, 0.2);
 }
 
 .testimonial-avatar i {
@@ -1216,15 +1297,16 @@ ul {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid rgba(43, 51, 94, 0.1);
+    border-radius: 12px;
     font-size: 1rem;
     font-family: var(--font-primary);
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     box-sizing: border-box;
     width: 100%;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(43, 51, 94, 0.04);
 }
 
 .form-group textarea::placeholder {
@@ -1236,8 +1318,10 @@ ul {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: var(--primary-orange);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(255, 105, 0, 0.1), 0 4px 12px rgba(43, 51, 94, 0.08);
+    transform: translateY(-2px);
 }
 
 .checkbox-group {
@@ -1535,6 +1619,54 @@ ul {
 }
 
 /* ========================================
+   Section Financements
+   ======================================== */
+.financing {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, rgba(43, 51, 94, 0.02), rgba(255, 105, 0, 0.03));
+}
+
+.financing-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(43, 51, 94, 0.08);
+    border: 1px solid rgba(43, 51, 94, 0.05);
+}
+
+.financing-content ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-md) 0;
+}
+
+.financing-content li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.financing-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-orange);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.financing-objective {
+    background: linear-gradient(135deg, rgba(255, 105, 0, 0.08), rgba(43, 51, 94, 0.05));
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-orange);
+    margin-top: var(--spacing-lg);
+}
+
+/* ========================================
    Cartes de Réassurance (Styles additionnels)
    ======================================== */
 .reassurance-cards {
@@ -1551,24 +1683,48 @@ ul {
 }
 
 .reassurance-card {
-    background: white;
+    background: linear-gradient(135deg, white, rgba(43, 51, 94, 0.02));
     padding: var(--spacing-md);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    border: 1px solid rgba(43, 51, 94, 0.08);
+    box-shadow: 0 4px 12px rgba(43, 51, 94, 0.06);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.reassurance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-orange), var(--primary-blue));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom;
 }
 
 .reassurance-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px rgba(43, 51, 94, 0.12);
+    background: linear-gradient(135deg, white, rgba(255, 105, 0, 0.03));
+}
+
+.reassurance-card:hover::before {
+    transform: scaleY(1);
 }
 
 .reassurance-card i {
     font-size: 1.5rem;
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     flex-shrink: 0;
 }
 
@@ -1612,24 +1768,27 @@ ul {
 }
 
 .step-card {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
+    background: linear-gradient(135deg, white, rgba(43, 51, 94, 0.02));
+    border: 1px solid rgba(43, 51, 94, 0.08);
+    border-radius: 16px;
     padding: var(--spacing-lg);
     position: relative;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(43, 51, 94, 0.05);
 }
 
 .step-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(43, 51, 94, 0.12);
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, white, rgba(255, 105, 0, 0.03));
+    border-color: rgba(255, 105, 0, 0.2);
 }
 
 .step-number {
     position: absolute;
     top: -20px;
     left: 30px;
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
     color: white;
     width: 40px;
     height: 40px;
@@ -1639,6 +1798,7 @@ ul {
     justify-content: center;
     font-weight: bold;
     font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3);
 }
 
 .step-card h3 {

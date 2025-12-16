@@ -81,6 +81,10 @@ export class HomePage extends Component {
                         <div class="steps-grid">
                             ${this.renderSteps()}
                         </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Je veux clarifier mon projet professionnel</a>
+                        </div>
                     </div>
                 </section>
 
@@ -101,6 +105,10 @@ export class HomePage extends Component {
                         <div class="method-cards">
                             ${this.renderMethodCards()}
                         </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-primary btn-lg">Démarrer mon accompagnement personnalisé</a>
+                        </div>
                     </div>
                 </section>
 
@@ -111,6 +119,10 @@ export class HomePage extends Component {
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
                         <div class="testimonials-grid">
                             ${this.renderTestimonials()}
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
                         </div>
                     </div>
                 </section>
@@ -130,6 +142,10 @@ export class HomePage extends Component {
                                 <strong>Objectif :</strong> vous donner une vision claire des grandes options de financement, 
                                 pour que l'argent ne soit ni un tabou, ni un piège.
                             </p>
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options de financement</a>
                         </div>
                     </div>
                 </section>
