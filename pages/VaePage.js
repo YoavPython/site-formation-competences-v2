@@ -29,7 +29,7 @@ export class VaePage extends Component {
                         </div>
                         
                         <div class="method-note slide-up">
-                            <p><strong>L'accompagnement VAE (dossier de validation + préparation au jury) est ensuite réalisé avec l'organisme / l'accompagnateur choisi.</strong></p>
+                            <p>L'accompagnement VAE <strong>(dossier de validation + préparation au jury)</strong> est ensuite réalisé avec l'organisme choisi.</p>
                         </div>
                     </div>
                 </section>

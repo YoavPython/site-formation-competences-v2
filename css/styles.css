@@ -928,15 +928,41 @@ ul {
 
 .method-note {
     text-align: center;
-    padding: var(--spacing-md);
-    background: #363636;
-    border-radius: 8px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(43, 51, 94, 0.05), rgba(255, 105, 0, 0.03));
+    border-radius: 12px;
+    border-left: 3px solid var(--primary-orange);
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    margin-top: var(--spacing-lg);
+    position: relative;
+}
+
+.method-note::before {
+    content: 'ℹ';
+    position: absolute;
+    left: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--primary-orange);
     color: white;
-    /* font-style: italic; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.method-note strong {
+    color: var(--primary-blue);
+    font-weight: 500;
 }
 
 .method-note i {
-    color: white;
+    color: var(--primary-orange);
     margin-right: var(--spacing-xs);
 }
 
