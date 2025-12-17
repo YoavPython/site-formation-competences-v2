@@ -3,9 +3,9 @@
    ======================================== */
 :root {
     /* Nouveau système de couleurs */
-    --primary-orange: #ff6900;
-    --primary-orange-dark: #e55a00;
-    --primary-orange-light: #ff8533;
+    --primary-orange: #ff6a4a;
+    --primary-orange-dark: #e54f35;
+    --primary-orange-light: #ff8570;
     --primary-blue: #2b325e;
     --primary-blue-dark: #1f2444;
     --primary-blue-light: #3d4573;
@@ -16,7 +16,7 @@
     --primary-color: #2b325e;
     --primary-dark: #1f2444;
     --primary-light: #3d4573;
-    --secondary-color: #ff6900;
+    --secondary-color: #ff6a4a;
     --secondary-dark: #e55a00;
     
     /* Couleurs neutres améliorées */
@@ -182,7 +182,7 @@ ul {
 
 /* Form Submit Button - Orange */
 .btn-form-submit {
-    background: #ff6900;
+    background: #ff6a4a;
     color: white;
     padding: 1rem 2.5rem;
     border: none;
@@ -258,7 +258,7 @@ ul {
 
 .logo-groupe-text {
     font-family: 'Sacramento', cursive !important;
-    font-size: 1.2rem !important;
+    font-size: 1.5rem !important;
     font-weight: 400 !important;
     color: #464646 !important;
     letter-spacing: 0.5px !important;
@@ -362,7 +362,7 @@ ul {
 }
 
 .nav-cta {
-    background: #ff6900;
+    background: #ff6a4a;
     color: white !important;
     padding: var(--spacing-xs) var(--spacing-md) !important;
     border-radius: 6px;
