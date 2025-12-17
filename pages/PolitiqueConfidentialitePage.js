@@ -81,3 +81,4 @@ export class PolitiqueConfidentialitePage extends Component {
         `;
     }
 }
+

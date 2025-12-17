@@ -91,3 +91,4 @@ export class Component {
         return this.element ? this.element.querySelectorAll(selector) : [];
     }
 }
+

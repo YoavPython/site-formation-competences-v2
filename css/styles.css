@@ -257,13 +257,14 @@ ul {
 }
 
 .logo-groupe-text {
-    font-family: 'POPPINS' !important;
-    font-size: 1.05rem !important;
-    font-weight: bold;
-    color: #170682 !important;
-    letter-spacing: 1px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 0.7rem !important;
+    /* font-style: oblique; */
+    /* font-weight: 600; */
+    color: #464646 !important;
+    letter-spacing: 0.8px !important;
     text-transform: uppercase !important;
-    margin-bottom: -10px !important;
+    margin-bottom: -7.5px !important;
     margin-left: 1px !important;
 }
 

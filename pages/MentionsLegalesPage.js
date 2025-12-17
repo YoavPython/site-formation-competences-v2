@@ -61,3 +61,4 @@ export class MentionsLegalesPage extends Component {
         `;
     }
 }
+

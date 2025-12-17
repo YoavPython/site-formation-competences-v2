@@ -235,3 +235,4 @@ export class Form extends Component {
         this.setState({ values, errors: {}, isSubmitting: false });
     }
 }
+

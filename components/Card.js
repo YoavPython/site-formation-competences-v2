@@ -115,3 +115,4 @@ export class Card extends Component {
         return content;
     }
 }
+
