@@ -1881,8 +1881,17 @@ ul {
 
 .reassurance-card p {
     margin: 0;
-    font-size: 0.95rem;
+    font-family: 'Sacramento', cursive;
+    font-size: 1.3rem;
     color: var(--text-dark);
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .reassurance-card p {
+        font-size: 1.1rem;
+    }
 }
 
 /* ========================================
