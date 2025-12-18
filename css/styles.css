@@ -633,7 +633,7 @@ ul {
    ======================================== */
 .section-title {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 0.75rem; /* Réduit l'espace avec le sous-titre */
     color: var(--text-dark);
 }
 
@@ -2032,19 +2032,18 @@ ul {
 }
 
 .step-number {
-    position: absolute;
-    top: -20px;
-    left: 30px;
+    position: relative;
+    margin: 0 auto 1rem auto; /* Centré horizontalement */
     background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     box-shadow: 0 4px 12px rgba(255, 106, 74, 0.3);
 }
 
@@ -2052,6 +2051,7 @@ ul {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
     color: var(--text-dark);
+    text-align: center; /* Centre le titre */
 }
 
 .step-card ul {
