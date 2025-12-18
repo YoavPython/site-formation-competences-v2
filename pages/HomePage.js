@@ -241,8 +241,8 @@ export class HomePage extends Component {
             }
         ];
 
-        return methods.map(method => `
-            <div class="method-card scale-in">
+        return methods.map((method, index) => `
+            <div class="method-card scale-in" id="method-card-${index + 1}">
                 <div class="method-icon">
                     <i class="fas ${method.icon}"></i>
                 </div>

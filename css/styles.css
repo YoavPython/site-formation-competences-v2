@@ -865,11 +865,13 @@ ul {
 }
 
 .method-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 3rem;
     margin-bottom: var(--spacing-xl);
     position: relative;
+    padding: 4rem 0;
 }
 
 .method-card {
@@ -883,6 +885,69 @@ ul {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: visible;
+    flex: 1;
+    max-width: 380px;
+}
+
+/* Effet zigzag : positions décalées */
+#method-card-1 {
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+#method-card-2 {
+    align-self: center;
+    margin-top: 3rem;
+}
+
+#method-card-3 {
+    align-self: flex-end;
+    margin-top: 6rem;
+}
+
+/* Lignes de connexion zigzag entre les cartes */
+#method-card-1::after,
+#method-card-2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -1.5rem;
+    width: 3rem;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--primary-orange) 0%, 
+        var(--primary-orange) 85%, 
+        transparent 100%);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Flèche à la fin de chaque ligne */
+#method-card-1::before,
+#method-card-2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -1.5rem;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid var(--primary-orange);
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Angle de la ligne 1 (monte) */
+#method-card-1::after {
+    transform: translateY(-50%) rotate(-25deg);
+    transform-origin: right center;
+}
+
+/* Angle de la ligne 2 (monte encore plus) */
+#method-card-2::after {
+    transform: translateY(-50%) rotate(-35deg);
+    transform-origin: right center;
 }
 
 .method-card::before {
@@ -909,7 +974,8 @@ ul {
     opacity: 0.1;
 }
 
-.card-icon {
+.card-icon,
+.method-icon {
     width: 70px;
     height: 70px;
     background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
@@ -927,7 +993,8 @@ ul {
     transition: all 0.3s ease;
 }
 
-.method-card:hover .card-icon {
+.method-card:hover .card-icon,
+.method-card:hover .method-icon {
     transform: rotate(0deg) scale(1.1);
     box-shadow: 0 12px 35px rgba(255, 106, 74, 0.4);
 }
@@ -1659,7 +1726,26 @@ ul {
     }
     
     .method-cards {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 3rem;
+    }
+    
+    /* Reset des positions en zigzag sur mobile */
+    #method-card-1,
+    #method-card-2,
+    #method-card-3 {
+        align-self: stretch;
+        margin-top: 0 !important;
+        max-width: 100%;
+    }
+    
+    /* Masquer les lignes de connexion sur mobile */
+    #method-card-1::after,
+    #method-card-2::after,
+    #method-card-1::before,
+    #method-card-2::before {
+        display: none;
     }
     
     .approach-features {
