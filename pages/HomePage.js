@@ -210,8 +210,8 @@ export class HomePage extends Component {
             }
         ];
 
-        return steps.map(step => `
-            <div class="step-card slide-up">
+        return steps.map((step, index) => `
+            <div class="step-card slide-up" id="step-card-${index + 1}">
                 <div class="step-number">${step.number}</div>
                 <h3>${step.title}</h3>
                 <ul>

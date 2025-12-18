@@ -1888,7 +1888,7 @@ ul {
     padding: var(--spacing-md);
     border-radius: 14px;
     border: 1px solid rgba(43, 51, 94, 0.08);
-    box-shadow: 0 4px 12px rgba(43, 51, 94, 0.288);
+    box-shadow: 0 4px 4px rgba(43, 51, 94, 0.288);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
@@ -1969,20 +1969,66 @@ ul {
 }
 
 .step-card {
-    background: linear-gradient(135deg, white, rgba(43, 51, 94, 0.02));
-    border: 1px solid rgba(43, 51, 94, 0.08);
     border-radius: 16px;
     padding: var(--spacing-lg);
     position: relative;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(43, 51, 94, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
 }
 
-.step-card:hover {
-    box-shadow: 0 12px 40px rgba(43, 51, 94, 0.12);
-    transform: translateY(-8px);
-    background: linear-gradient(135deg, white, rgba(255, 106, 74, 0.03));
-    border-color: rgba(160, 182, 37, 0.2);
+/* Première carte - Bleu doux */
+#step-card-1 {
+    background: linear-gradient(135deg, #e6f2ff, #cce7ff);
+    border-color: rgba(122, 171, 255, 0.3);
+}
+
+#step-card-1:hover {
+    background: linear-gradient(135deg, #d4e8ff, #b3daff);
+    box-shadow: 0 12px 40px rgba(122, 171, 255, 0.25);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(122, 171, 255, 0.5);
+}
+
+#step-card-1 .step-number {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+}
+
+/* Deuxième carte - Vert menthe */
+#step-card-2 {
+    background: linear-gradient(135deg, #e6fff2, #ccffe5);
+    border-color: rgba(140, 255, 197, 0.3);
+}
+
+#step-card-2:hover {
+    background: linear-gradient(135deg, #d4ffea, #b3ffd9);
+    box-shadow: 0 12px 40px rgba(140, 255, 197, 0.35);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(140, 255, 197, 0.5);
+}
+
+#step-card-2 .step-number {
+    background: linear-gradient(135deg, #4ae290, #35bd75);
+    color: white;
+}
+
+/* Troisième carte - Corail doux */
+#step-card-3 {
+    background: linear-gradient(135deg, #fff0e6, #ffe4d1);
+    border-color: rgba(255, 160, 122, 0.3);
+}
+
+#step-card-3:hover {
+    background: linear-gradient(135deg, #ffe8d4, #ffd6b3);
+    box-shadow: 0 12px 40px rgba(255, 160, 122, 0.35);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 160, 122, 0.5);
+}
+
+#step-card-3 .step-number {
+    background: linear-gradient(135deg, #ff8a65, #ff6b45);
+    color: white;
 }
 
 .step-number {
