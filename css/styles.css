@@ -1971,6 +1971,7 @@ ul {
 .step-card {
     border-radius: 16px;
     padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 30px); /* Espace pour le chiffre au-dessus */
     position: relative;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -1991,7 +1992,7 @@ ul {
 }
 
 #step-card-1 .step-number {
-    background: linear-gradient(135deg, #4a90e2, #357abd);
+    background: var(--primary-orange); /* Rouge du site */
     color: white;
 }
 
@@ -2009,7 +2010,7 @@ ul {
 }
 
 #step-card-2 .step-number {
-    background: linear-gradient(135deg, #4ae290, #35bd75);
+    background: var(--primary-orange); /* Rouge du site */
     color: white;
 }
 
@@ -2027,14 +2028,16 @@ ul {
 }
 
 #step-card-3 .step-number {
-    background: linear-gradient(135deg, #ff8a65, #ff6b45);
+    background: var(--primary-orange); /* Rouge du site */
     color: white;
 }
 
 .step-number {
-    position: relative;
-    margin: 0 auto 1rem auto; /* Centré horizontalement */
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+    position: absolute;
+    top: -25px; /* Plus haut que le titre */
+    left: 50%;
+    transform: translateX(-50%); /* Centré horizontalement */
+    background: var(--primary-orange); /* Rouge du site */
     color: white;
     width: 50px;
     height: 50px;
@@ -2044,7 +2047,7 @@ ul {
     justify-content: center;
     font-weight: bold;
     font-size: 1.5rem;
-    box-shadow: 0 4px 12px rgba(255, 106, 74, 0.3);
+    /* Ombre supprimée */
 }
 
 .step-card h3 {
