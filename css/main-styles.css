@@ -1,0 +1,236 @@
+/* ========================================
+   Styles principaux du site
+   ======================================== */
+
+/* Variables CSS */
+:root {
+    --primary-orange: #ff6a4a;
+    --primary-orange-dark: #e54f35;
+    --primary-orange-light: #ff8570;
+    --primary-blue: #2b325e;
+    --primary-blue-light: #4a538a;
+    --primary-blue-dark: #1f2442;
+    --text-dark: #1f2937;
+    --text-gray: #4b5563;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+}
+
+/* Titres de sections */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.75rem; /* Réduit l'espace avec le sous-titre */
+    color: var(--text-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Sous-titres de sections */
+.section-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem; /* Espace avant le contenu */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
+    border-radius: 2px;
+}
+
+/* Method Cards (Une méthode en 3 temps) */
+.method-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.method-card {
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: visible;
+}
+
+.method-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-blue));
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 106, 74, 0.15),
+                0 10px 30px rgba(43, 51, 94, 0.1);
+}
+
+.method-card:hover::before {
+    opacity: 0.1;
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-dark));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -35px auto 1.5rem auto;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-shadow: 0 8px 25px rgba(255, 106, 74, 0.3);
+    transform: rotate(-5deg);
+    transition: all 0.3s ease;
+}
+
+.method-card:hover .card-icon {
+    transform: rotate(0deg) scale(1.1);
+    box-shadow: 0 12px 35px rgba(255, 106, 74, 0.4);
+}
+
+.method-card h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* Step Cards (Ce que fait concrètement) */
+.step-card {
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto; /* Centré horizontalement */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step-card h3 {
+    text-align: center; /* Centre le titre */
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Première carte - Bleu doux */
+#step-card-1 {
+    background: linear-gradient(135deg, #e6f2ff, #cce7ff);
+    border-color: rgba(122, 171, 255, 0.3);
+}
+
+#step-card-1:hover {
+    background: linear-gradient(135deg, #d4e8ff, #b3daff);
+    box-shadow: 0 12px 40px rgba(122, 171, 255, 0.25);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(122, 171, 255, 0.5);
+}
+
+#step-card-1 .step-number {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+/* Deuxième carte - Vert menthe */
+#step-card-2 {
+    background: linear-gradient(135deg, #e6fff2, #ccffe5);
+    border-color: rgba(140, 255, 197, 0.3);
+}
+
+#step-card-2:hover {
+    background: linear-gradient(135deg, #d4ffea, #b3ffd9);
+    box-shadow: 0 12px 40px rgba(140, 255, 197, 0.35);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(140, 255, 197, 0.5);
+}
+
+#step-card-2 .step-number {
+    background: linear-gradient(135deg, #4ae290, #35bd75);
+}
+
+/* Troisième carte - Corail doux */
+#step-card-3 {
+    background: linear-gradient(135deg, #fff0e6, #ffe4d1);
+    border-color: rgba(255, 160, 122, 0.3);
+}
+
+#step-card-3:hover {
+    background: linear-gradient(135deg, #ffe8d4, #ffd6b3);
+    box-shadow: 0 12px 40px rgba(255, 160, 122, 0.35);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 160, 122, 0.5);
+}
+
+#step-card-3 .step-number {
+    background: linear-gradient(135deg, #ff8a65, #ff6b45);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .method-cards {
+        grid-template-columns: 1fr;
+    }
+}
