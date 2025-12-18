@@ -648,7 +648,28 @@ ul {
     text-align: center;
     color: var(--text-gray);
     font-size: 1.125rem;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: calc(var(--spacing-xl) * 1.5);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.section-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
+    border-radius: 2px;
 }
 
 .section-intro {
@@ -1961,7 +1982,7 @@ ul {
     box-shadow: 0 12px 40px rgba(43, 51, 94, 0.12);
     transform: translateY(-8px);
     background: linear-gradient(135deg, white, rgba(255, 106, 74, 0.03));
-    border-color: rgba(255, 106, 74, 0.2);
+    border-color: rgba(160, 182, 37, 0.2);
 }
 
 .step-number {

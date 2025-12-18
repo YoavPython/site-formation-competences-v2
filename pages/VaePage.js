@@ -23,6 +23,7 @@ export class VaePage extends Component {
                 <section class="method" id="methode">
                     <div class="container">
                         <h2 class="section-title fade-in">Notre méthode VAE en 3 temps</h2>
+                        <p class="section-subtitle slide-up">Un parcours clair pour transformer votre expérience en diplôme reconnu.</p>
                         
                         <div class="method-cards">
                             ${this.renderVaeMethod()}

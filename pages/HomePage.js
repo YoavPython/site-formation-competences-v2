@@ -72,9 +72,7 @@ export class HomePage extends Component {
                     <div class="container">
                         <div class="section-header">
                             <h2 class="section-title fade-in">Ce que fait concrètement Formation Compétences</h2>
-                            <div class="section-intro slide-up">
-                                <p>Nous faisons le travail amont qui sécurise votre démarche : clarifier vos besoins réels, structurer votre projet professionnel, puis vous orienter vers le dispositif et l'organisme partenaire les plus adaptés.</p>
-                            </div>
+                            <p class="section-subtitle slide-up">Nous faisons le travail amont qui sécurise votre démarche pour garantir votre réussite.</p>
                         </div>
 
                         <div class="steps-grid">
@@ -101,6 +99,7 @@ export class HomePage extends Component {
                 <section class="method" id="approche">
                     <div class="container">
                         <h2 class="section-title fade-in">Une méthode en 3 temps</h2>
+                        <p class="section-subtitle slide-up">Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.</p>
                         <div class="method-cards">
                             ${this.renderMethodCards()}
                         </div>
@@ -130,6 +129,7 @@ export class HomePage extends Component {
                 <section class="financing">
                     <div class="container">
                         <h2 class="section-title fade-in">Financements</h2>
+                        <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
                         <div class="financing-content slide-up">
                             <p>Nous vous expliquons :</p>
                             <ul>
