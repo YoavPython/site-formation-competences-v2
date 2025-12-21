@@ -50,9 +50,15 @@ export class Footer extends Component {
                             <h5>Informations légales</h5>
                             <ul>
                                 <li><a href="/mentions-legales" data-link>Mentions légales</a></li>
-                                <li><a href="/politique-confidentialite" data-link>Politique de confidentialité</a></li>
+                                <li><a href="/politique-confidentialite" data-link>Politique de confidentialite</a></li>
                                 <li><a href="/cgv" data-link>CGV</a></li>
                             </ul>
+                        </div>
+                        <div class="footer-certification">
+                            <h5>Certification</h5>
+                            <a href="/assets/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
+                                <img src="/assets/images/qualiopi.jpeg" alt="Certification Qualiopi" class="qualiopi-logo">
+                            </a>
                         </div>
                     </div>
                     <div class="footer-bottom">

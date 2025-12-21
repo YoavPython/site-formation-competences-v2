@@ -1484,7 +1484,7 @@ ul {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
     position: relative;
@@ -1533,6 +1533,41 @@ ul {
     color: white;
     transform: translateX(5px);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Certification Qualiopi */
+.footer-certification h5 {
+    color: white;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.qualiopi-link {
+    display: inline-block;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.qualiopi-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.qualiopi-logo {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.qualiopi-link:hover .qualiopi-logo {
+    opacity: 0.9;
 }
 
 .footer-bottom {
