@@ -1346,7 +1346,7 @@ ul {
    ======================================== */
 .hero-banner {
     position: relative;
-    height: 200px;
+    height: 350px;
     background: url('/assets/images/hero.png') center center / cover no-repeat;
     display: flex;
     align-items: center;
