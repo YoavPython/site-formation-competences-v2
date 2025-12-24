@@ -57,7 +57,7 @@
 
 /* Section Témoignages - fond rosé très léger rgba(255, 106, 74, 0.03) */
 .wave-testimonials {
-    fill: #fff9f8;
+    fill: rgba(43, 50, 94, 0.18);
 }
 
 /* Section Financement - fond vert clair */
