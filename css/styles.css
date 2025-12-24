@@ -2728,7 +2728,7 @@ ul {
     margin-top: auto;
     padding: var(--spacing-md);
     padding-left: var(--spacing-md);
-    background: transparent;
+    background: rgba(43, 50, 94, 0.06);
     border-left: 4px solid var(--primary-orange);
     font-style: normal;
     font-weight: 500;
@@ -2748,10 +2748,12 @@ ul {
     display: block;
     text-align: center;
     color: var(--primary-blue);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-orange);
+    text-underline-offset: 4px;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
