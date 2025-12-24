@@ -40,18 +40,22 @@ export class VaePage extends Component {
                     <div class="container">
                         <h2 class="section-title fade-in">Témoignages VAE</h2>
                         <p class="section-subtitle slide-up">Des parcours de réussite avec notre accompagnement</p>
-                        
-                        <div class="testimonials-carousel">
-                            <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <div class="testimonials-track">
-                                ${this.renderVaeTestimonials()}
-                            </div>
-                            <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
+                    </div>
+                    
+                    <!-- Carrousel en pleine largeur -->
+                    <div class="testimonials-carousel">
+                        <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="testimonials-track">
+                            ${this.renderVaeTestimonials()}
                         </div>
+                        <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="container">
                         <div class="carousel-dots"></div>
                     </div>
                 </section>

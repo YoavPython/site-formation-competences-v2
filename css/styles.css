@@ -1909,9 +1909,10 @@ ul {
    ======================================== */
 .testimonials-carousel {
     position: relative;
-    max-width: 100%;
+    width: 100%; /* Pleine largeur de l'écran */
+    max-width: none; /* Pas de limite */
     overflow: hidden;
-    padding: 2rem 3rem;
+    padding: 2rem 5rem; /* Plus de padding sur les côtés pour les flèches */
 }
 
 .testimonials-track {
@@ -1951,21 +1952,25 @@ ul {
 }
 
 .carousel-btn-prev {
-    left: -70px; /* Encore plus à gauche */
+    left: 1rem; /* À l'intérieur du padding */
 }
 
 .carousel-btn-next {
-    right: -70px; /* Encore plus à droite */
+    right: 1rem; /* À l'intérieur du padding */
 }
 
-/* Sur tablette/petit écran, rapprocher les boutons */
-@media (max-width: 1400px) {
+/* Sur tablette/petit écran */
+@media (max-width: 1024px) {
+    .testimonials-carousel {
+        padding: 2rem 3.5rem;
+    }
+    
     .carousel-btn-prev {
-        left: 10px;
+        left: 0.5rem;
     }
     
     .carousel-btn-next {
-        right: 10px;
+        right: 0.5rem;
     }
 }
 
