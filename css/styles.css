@@ -2720,28 +2720,33 @@ ul {
 
 .step-result {
     margin-top: auto;
-    margin-left: calc(-1 * var(--spacing-lg));
-    margin-right: calc(-1 * var(--spacing-lg));
-    margin-bottom: calc(-1 * var(--spacing-lg));
-    padding: var(--spacing-md) var(--spacing-lg);
-    background: #2b325e;
-    border-radius: 0 0 28px 32px;
+    padding: var(--spacing-md) 0;
+    background: transparent;
     border-top: none;
-    color: white;
     font-style: normal;
     font-weight: 600;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.8;
     text-align: center;
+}
+
+.step-result strong {
+    background: #2b325e;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 .step-result-label {
     display: block;
+    background: #2b325e;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
 }
