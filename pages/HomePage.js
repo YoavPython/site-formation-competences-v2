@@ -216,7 +216,7 @@ export class HomePage extends Component {
                     "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
                     "Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…"
                 ],
-                result: "Objectif Poser des bases solides pour éviter un accompagnement \"par défaut\"."
+                result: "Résultat Poser des bases solides pour éviter un accompagnement \"par défaut\"."
             },
             {
                 number: 2,
