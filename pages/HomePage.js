@@ -71,6 +71,18 @@ export class HomePage extends Component {
                     </div>
                 </section>
 
+                <!-- Section description du besoin -->
+                <section class="need-description">
+                    <div class="container">
+                        <h2 class="need-title fade-in">Vous êtes à un tournant de votre carrière ?</h2>
+                        <div class="need-content slide-up">
+                            <p>Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer dans votre vie professionnelle ?</p>
+                            <p>Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong> avec un bilan, nous comprenons que ce n'est pas toujours facile de savoir par où commencer.</p>
+                            <p class="need-highlight"><strong>C'est exactement pour cela que nous sommes là.</strong> Nous vous aidons à y voir clair, à identifier le bon dispositif, et à construire un parcours qui a du sens pour vous.</p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Wave → Section what-we-do (fond blanc) -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">

@@ -1642,7 +1642,8 @@ ul {
     background: #2b325e;
     color: white;
     position: relative;
-    border-radius: 40px 45px 0 0; /* Coins irréguliers en haut seulement, pas en bas */
+    border-radius: 0; /* Wave gère la transition */
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .footer::before {
@@ -2368,6 +2369,63 @@ ul {
     font-weight: 500;
     color: var(--text-dark);
     line-height: 1.4;
+}
+
+/* ========================================
+   Section Description du besoin
+   ======================================== */
+.need-description {
+    padding: var(--spacing-2xl) 0;
+    background: #ffffff;
+}
+
+.need-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.need-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.need-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.need-content strong {
+    color: var(--primary-orange);
+}
+
+.need-highlight {
+    background: rgba(255, 106, 74, 0.08);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 16px;
+    border-left: 4px solid var(--primary-orange);
+    margin-top: var(--spacing-lg);
+}
+
+.need-highlight strong {
+    color: var(--primary-blue);
+}
+
+@media (max-width: 768px) {
+    .need-title {
+        font-size: 1.8rem;
+    }
+    
+    .need-content p {
+        font-size: 1.05rem;
+    }
 }
 
 /* ========================================
