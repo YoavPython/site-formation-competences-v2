@@ -2165,8 +2165,8 @@ ul {
     background: white;
     padding: 1.25rem 1.5rem;
     border-radius: 30px 25px 28px 26px; /* Coins irréguliers pour effet sketched */
-    border: 3px solid var(--primary-orange);
-    box-shadow: 4px 4px 0px rgba(255, 106, 74, 0.2); /* Ombre décalée style cartoon */
+    border: 3px solid var(--primary-blue); /* Bordure bleue en standard */
+    box-shadow: 4px 4px 0px rgba(43, 51, 94, 0.2); /* Ombre bleue cartoon */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2207,7 +2207,7 @@ ul {
     transform: translateY(-8px) rotate(0deg) scale(1.05); /* Redresse et agrandit au hover */
     box-shadow: 6px 6px 0px rgba(255, 106, 74, 0.35);
     background: linear-gradient(135deg, #fff5f0, white);
-    border-color: var(--primary-blue);
+    border-color: var(--primary-orange); /* Devient orange au hover */
 }
 
 .reassurance-card i {
