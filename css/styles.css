@@ -1346,8 +1346,7 @@ ul {
 .testimonials {
     padding: calc(var(--spacing-2xl) * 1.5) 0;
     background: linear-gradient(180deg, 
-        rgba(255, 106, 74, 0.1) 0%, 
-        rgba(43, 51, 94, 0.08) 50%,
+        rgba(255, 106, 74, 0.15) 0%, 
         #ffffff 100%);
 }
 
