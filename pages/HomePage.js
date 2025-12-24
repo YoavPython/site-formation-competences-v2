@@ -19,10 +19,19 @@ export class HomePage extends Component {
     template() {
         return `
             <div class="home-page">
-                <!-- Hero Section avec image -->
-                <section class="hero">
+                <!-- Hero Section avec vidéo -->
+                <section class="hero hero-video-bg">
+                    <!-- Vidéo en arrière-plan -->
+                    <div class="hero-video-container">
+                        <video autoplay muted loop playsinline class="hero-video">
+                            <source src="/assets/videos/hero-video.webm" type="video/webm">
+                            <source src="/assets/videos/Création_Vidéo_Bilan_Compétences_France.mp4" type="video/mp4">
+                        </video>
+                        <div class="hero-video-overlay"></div>
+                    </div>
+                    
                     <div class="container">
-                        <div class="hero-wrapper">
+                        <div class="hero-wrapper hero-centered">
                             <div class="hero-content">
                                 <h1 class="hero-title">Clarifiez votre parcours professionnel avec un accompagnement expert et personnalisé</h1>
                                 <p class="hero-subtitle">
@@ -32,11 +41,6 @@ export class HomePage extends Component {
                                 <div class="hero-cta">
                                     <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller expert</a>
                                     <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre approche personnalisée</a>
-                                </div>
-                            </div>
-                            <div class="hero-image-container">
-                                <div class="hero-image-circle">
-                                    <img src="/assets/images/hero.png" alt="Bilan de compétences" class="hero-image">
                                 </div>
                             </div>
                         </div>
