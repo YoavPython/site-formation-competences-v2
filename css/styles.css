@@ -2731,7 +2731,7 @@ ul {
     margin-right: calc(-1 * var(--spacing-lg));
     margin-bottom: calc(-1 * var(--spacing-lg));
     padding: var(--spacing-md) var(--spacing-lg);
-    background: var(--primary-blue);
+    background: #2b325e;
     border-radius: 0 0 28px 32px;
     border-top: none;
     color: white;
@@ -2746,9 +2746,9 @@ ul {
 .step-result-label {
     display: block;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
     text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
 }
