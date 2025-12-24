@@ -72,6 +72,7 @@ export class BilanCompetencesPage extends Component {
                 <section class="what-we-do" id="methode">
                     <div class="container">
                         <div class="section-header">
+                            <span class="section-badge badge-purple">💼 EXPERTISE PROFESSIONNELLE</span>
                             <h2 class="section-title fade-in">Ce que nous proposons</h2>
                             <p class="section-subtitle slide-up">Nous faisons le travail amont qui sécurise votre démarche pour garantir votre réussite.</p>
                         </div>
@@ -99,6 +100,7 @@ export class BilanCompetencesPage extends Component {
                 <!-- Une méthode en 3 temps -->
                 <section class="method" id="approche">
                     <div class="container">
+                        <span class="section-badge badge-blue">⚡ PROCESSUS SIMPLE</span>
                         <h2 class="section-title fade-in">Une méthode en 3 temps</h2>
                         <p class="section-subtitle slide-up">Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.</p>
                         <div class="method-cards">
@@ -114,6 +116,7 @@ export class BilanCompetencesPage extends Component {
                 <!-- Témoignages -->
                 <section class="testimonials" id="temoignages">
                     <div class="container">
+                        <span class="section-badge badge-green">⭐ VOS AVANTAGES</span>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
                         <div class="testimonials-grid">

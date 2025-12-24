@@ -879,16 +879,27 @@ ul {
 }
 
 .method-card {
-    background: linear-gradient(145deg, #ffffff, #fafafa);
+    background: white;
     padding: 2rem;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px;
+    border-top: 4px solid var(--primary-orange); /* Bordure orange en haut */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     position: relative;
     overflow: visible;
+}
+
+/* Couleurs de bordures différentes pour chaque carte */
+#method-card-1 {
+    border-top-color: #ff6a4a; /* Rouge/Orange */
+}
+
+#method-card-2 {
+    border-top-color: #0891b2; /* Cyan/Turquoise */
+}
+
+#method-card-3 {
+    border-top-color: #10b981; /* Vert */
 }
 
 .method-card::before {
@@ -1542,6 +1553,37 @@ ul {
     color: white;
     transform: translateX(5px);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Contact Info */
+.footer-contact-info {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-contact-info p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.footer-contact-info i {
+    color: var(--primary-orange);
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.footer-contact-info a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+    color: white;
 }
 
 /* Footer Social Links */
