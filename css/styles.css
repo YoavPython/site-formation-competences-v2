@@ -2555,14 +2555,14 @@ ul {
 
 /* Première carte - Bleu doux */
 #step-card-1 {
-    background: #2b325e;
-    border-color: #1a1f3d;
+    background: #ffffff;
+    border-color: #2b325e;
     transform: rotate(-1deg);
-    color: white;
+    color: #2b325e;
 }
 
 #step-card-1:hover {
-    background: #3a4270;
+    background: #fafafa;
     box-shadow: 6px 6px 0px rgba(43, 50, 94, 0.35);
     transform: translateY(-8px) rotate(0deg) scale(1.03);
 }
@@ -2570,11 +2570,11 @@ ul {
 #step-card-1 .step-title,
 #step-card-1 li,
 #step-card-1 .step-result {
-    color: white;
+    color: #2b325e;
 }
 
 #step-card-1 li:before {
-    color: white;
+    color: #2b325e;
 }
 
 #step-card-1 .step-number {
