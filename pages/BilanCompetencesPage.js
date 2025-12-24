@@ -217,8 +217,9 @@ export class BilanCompetencesPage extends Component {
         return steps.map((step, index) => `
             <div class="step-card slide-up" id="step-card-${index + 1}">
                 <div class="step-number">${step.number}</div>
-                <div class="step-icon">
-                    <i class="fas ${step.icon}"></i>
+                <div class="step-image-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <span>Image ${index + 1}</span>
                 </div>
                 <h3>${step.title}</h3>
                 <ul>
