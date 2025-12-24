@@ -332,6 +332,7 @@ ul {
     padding: 0.5rem 0;
     list-style: none;
     white-space: nowrap; /* Empêche le retour à la ligne */
+    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -356,7 +357,7 @@ ul {
 .dropdown-menu a:hover {
     background: #f3f4f6;
     color: var(--primary-color);
-    transform: translateX(5px);
+    padding-left: 2rem;
 }
 
 .nav-cta {
