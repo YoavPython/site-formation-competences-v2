@@ -500,14 +500,14 @@ ul {
 
 .hero-centered .hero-content {
     text-align: left;
-    max-width: 650px;
+    max-width: 900px; /* Plus large pour étaler le titre */
     margin: 0;
 }
 
 .hero-video-bg .hero-title {
     color: #ffffff;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    font-size: 3rem;
+    font-size: 3.5rem;
     line-height: 1.15;
 }
 
