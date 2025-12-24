@@ -201,6 +201,13 @@ export class HomePage extends Component {
                         </div>
                     </div>
                 </section>
+
+                <!-- Wave → Footer -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-footer"></path>
+                    </svg>
+                </div>
             </div>
         `;
     }

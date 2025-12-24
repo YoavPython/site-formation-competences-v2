@@ -37,8 +37,8 @@ export class Footer extends Component {
                             </div>
                             <p>Votre partenaire pour une reconversion réussie</p>
                             <div class="footer-contact-info">
-                                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></p>
-                                <p><i class="fas fa-map-marker-alt"></i> 16 RUE CUVIER, 69006 LYON</p>
+                                <p><a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></p>
+                                <p>16 rue Cuvier, 69006 Lyon</p>
                             </div>
                             <div class="footer-social">
                                 <a href="https://www.linkedin.com/company/groupe-formation-compétences" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="Suivez-nous sur LinkedIn">
@@ -65,7 +65,7 @@ export class Footer extends Component {
                         </div>
                         <div class="footer-certification">
                             <h5>Certification</h5>
-                            <a href="/assets/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
+                            <a href="/assets/documents/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
                                 <img src="/assets/images/qualiopi.jpeg" alt="Certification Qualiopi" class="qualiopi-logo">
                             </a>
                         </div>
