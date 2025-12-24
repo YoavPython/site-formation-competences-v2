@@ -2167,7 +2167,7 @@ ul {
    CTA Benefits Section
    ======================================== */
 .cta-benefits {
-    background: linear-gradient(145deg, #fff8dc 0%, #ffe74480 100%); /* Dégradé jaune chaleureux */
+    background: #ffe74461; /* Jaune uni (même que section what-we-do) */
     padding: var(--spacing-xl);
     border-radius: 30px 34px 28px 32px; /* Coins irréguliers effet sketched */
     box-shadow: 5px 5px 0px rgba(255, 167, 38, 0.3); /* Ombre orange */
