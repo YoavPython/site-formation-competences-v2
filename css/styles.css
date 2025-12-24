@@ -542,15 +542,14 @@ ul {
     background: rgba(255, 255, 255, 0.95);
     border: 2px solid #ffffff;
     color: var(--primary-blue);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    box-shadow: 4px 4px 0px rgba(255, 255, 255, 0.35);
 }
 
 .hero-video-bg .btn-secondary:hover {
     background: #ffffff;
     color: var(--primary-blue);
     border-color: #ffffff;
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.45);
 }
 
 /* Cartes de réassurance dans le hero */
