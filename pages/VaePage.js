@@ -149,6 +149,7 @@ export class VaePage extends Component {
                 title: "VAE DEAS (Aide-soignant)",
                 name: "Claire",
                 age: 42,
+                avatarColor: "#a8d5ff", // Bleu clair
                 role: "ASH en EHPAD (nuit) → VAE DEAS",
                 text: "Je tournais autour de la VAE depuis des mois sans savoir par où commencer. En deux échanges avec Laurence, ma conseillère VAE on a clarifié ce qui était recevable dans mon parcours, les 5 blocs DEAS à viser et le bon organisme pour m'accompagner au jury. On a monté le dossier de faisabilité en 1 semaine, j'ai eu la recevabilité et j'ai enchaîné sur la préparation. En 5 mois, j'ai validé la VAE 5/5 blocs. Aujourd'hui je suis en poste d'aide-soignante en journée, avec un CDI dans le même EHPAD."
             },
@@ -156,6 +157,7 @@ export class VaePage extends Component {
                 title: "VAE DEAS (Aide-soignant)",
                 name: "Yanis",
                 age: 35,
+                avatarColor: "#c7f5d9", // Vert menthe clair
                 role: "Auxiliaire de vie (SSIAD) → VAE DEAS",
                 text: "Je ne voulais pas \"tout lâcher\" pour retourner en école. Mr Vincent Cotti de Formation Compétences m'a aidé à cadrer le bon parcours VAE, poser un timing réaliste avec mes interventions, et choisir un organisme partenaire solide. J'ai compris ce qu'attendait le jury et comment documenter mes situations-pro. J'ai pu valider ma VAE ce qui m'a permis d'évoluer en service sans perdre mes heures d'intervention."
             },
@@ -163,6 +165,7 @@ export class VaePage extends Component {
                 title: "VAE – Petite enfance (CAP AEPE)",
                 name: "Anaïs",
                 age: 29,
+                avatarColor: "#ffd4a3", // Pêche clair
                 role: "Assistante maternelle agréée → VAE CAP AEPE",
                 text: "J'avais des années de pratique avec des tout-petits, mais rien sur le papier. On a fait le tri entre ce qui relevait vraiment des blocs du CAP AEPE et ce qui ne comptait pas. J'ai su comment présenter mes preuves (projets d'éveil, sécurité, relation aux parents), et vers quel organisme aller. En Septembre j'ai validé la VAE et j'ai pu ouvrir des créneaux dans une MAM à Lyon avec une vraie reconnaissance de mon métier. Un grand merci à Mme Debussy pour son aide et professionnalisme."
             },
@@ -170,6 +173,7 @@ export class VaePage extends Component {
                 title: "VAE DEAP (Auxiliaire de puériculture)",
                 name: "Léa",
                 age: 33,
+                avatarColor: "#ffb3d9", // Rose clair
                 role: "Agent petite enfance en crèche → VAE DEAP",
                 text: "Je ne savais pas si mon expérience couvrait les 5 blocs DEAP. L'équipe m'a aidée à vérifier les prérequis, à sécuriser le financement et à choisir un organisme qui connaît le terrain crèche/hôpital. J'ai préparé des situations professionnelles précises (hygiène, alimentation, éveil, lien aux familles). VAE validée la semaine dernière. J'ai pu candidater en néonat' et Suis même parvenue à négocier mon salaire."
             },
@@ -177,15 +181,42 @@ export class VaePage extends Component {
                 title: "VAE DEAP (Auxiliaire de puériculture)",
                 name: "Hugo",
                 age: 40,
+                avatarColor: "#d4b3ff", // Violet clair
                 role: "Animateur périscolaire (orientation petite enfance) → VAE DEAP",
                 text: "J'hésitais entre formation longue et VAE. On a posé ma réalité : contraintes horaires, maturité du projet, et ce qui était finançable. La mise en relation avec un organisme fiable et expérimenté dans le domaine en question m'a aidé à structurer mon dossier sans perdre de temps. J'ai pu valider tous les blocs. Aujourd'hui je travaille en service maternité et enfin sur un contrat stable."
+            },
+            {
+                title: "VAE DEAS (Aide-soignant)",
+                name: "Marie",
+                age: 38,
+                avatarColor: "#ffc4c4", // Rose corail clair
+                role: "Agent de service hospitalier → VAE DEAS",
+                text: "Après 10 ans à l'hôpital, je voulais enfin avoir mon diplôme d'aide-soignante. L'accompagnement m'a permis de structurer mon dossier avec des situations concrètes de mon quotidien. La préparation au jury était excellente. Résultat : validation totale en 6 mois ! Je suis maintenant AS avec une augmentation de salaire."
+            },
+            {
+                title: "VAE CAP AEPE (Petite enfance)",
+                name: "Sophie",
+                age: 31,
+                avatarColor: "#b3f0ff", // Cyan clair
+                role: "Garde d'enfants à domicile → VAE CAP AEPE",
+                text: "Je gardais des enfants depuis 8 ans mais sans diplôme. Grâce à l'accompagnement, j'ai compris comment valoriser mon expérience quotidienne. Le dossier était clair et structuré. J'ai validé ma VAE du premier coup et maintenant je peux postuler en crèche avec un vrai statut."
+            },
+            {
+                title: "VAE DEAES (Accompagnant éducatif et social)",
+                name: "Thomas",
+                age: 45,
+                avatarColor: "#fff4b3", // Jaune clair
+                role: "Aide médico-psychologique → VAE DEAES",
+                text: "Je travaillais auprès de personnes handicapées depuis 15 ans. La VAE m'a permis d'obtenir enfin la reconnaissance officielle de mes compétences. L'équipe m'a aidé à choisir la bonne spécialité et à préparer un dossier solide. Validation complète en 4 mois !"
             }
         ];
 
         return testimonials.map(testimonial => `
             <div class="testimonial-card vae-testimonial slide-up">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">${testimonial.name[0]}</div>
+                    <div class="testimonial-avatar" style="background: ${testimonial.avatarColor}; color: #333;">
+                        ${testimonial.name[0]}
+                    </div>
                     <div class="testimonial-info">
                         <h4>${testimonial.name} – ${testimonial.age} ans</h4>
                         <p class="testimonial-role">${testimonial.role}</p>

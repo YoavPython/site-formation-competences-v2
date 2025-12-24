@@ -1951,11 +1951,22 @@ ul {
 }
 
 .carousel-btn-prev {
-    left: 0;
+    left: -70px; /* Encore plus à gauche */
 }
 
 .carousel-btn-next {
-    right: 0;
+    right: -70px; /* Encore plus à droite */
+}
+
+/* Sur tablette/petit écran, rapprocher les boutons */
+@media (max-width: 1400px) {
+    .carousel-btn-prev {
+        left: 10px;
+    }
+    
+    .carousel-btn-next {
+        right: 10px;
+    }
 }
 
 .carousel-dots {
