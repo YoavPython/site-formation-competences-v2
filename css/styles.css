@@ -2178,7 +2178,7 @@ ul {
     padding: 1.25rem 1.5rem;
     border-radius: 30px 25px 28px 26px; /* Coins irréguliers pour effet sketched */
     border: 3px solid var(--primary-blue); /* Bordure bleue en standard */
-    box-shadow: 4px 4px 0px rgba(43, 51, 94, 0.2); /* Ombre bleue cartoon */
+    box-shadow: 4px 4px 0px rgba(255, 106, 74, 0.25); /* Ombre ORANGE cartoon */
     display: flex;
     flex-direction: column;
     align-items: center;
