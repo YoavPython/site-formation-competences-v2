@@ -2603,36 +2603,23 @@ ul {
     /* Ombre supprimée */
 }
 
-.step-image-placeholder {
+.step-image {
     width: 100%;
     height: 180px;
-    background: linear-gradient(135deg, rgba(255, 106, 74, 0.1), rgba(43, 51, 94, 0.08));
     border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     margin-bottom: 1.5rem;
-    border: 2px dashed rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
 }
 
-.step-image-placeholder i {
-    font-size: 2.5rem;
-    color: rgba(0, 0, 0, 0.3);
-    margin-bottom: 0.5rem;
+.step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.step-image-placeholder span {
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.4);
-    font-weight: 500;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.step-card:hover .step-image-placeholder {
-    background: linear-gradient(135deg, rgba(255, 106, 74, 0.15), rgba(43, 51, 94, 0.12));
-    border-color: var(--primary-orange);
+.step-card:hover .step-image img {
+    transform: scale(1.05);
 }
 
 .step-card h3 {

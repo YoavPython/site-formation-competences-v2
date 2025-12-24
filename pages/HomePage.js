@@ -253,9 +253,8 @@ export class HomePage extends Component {
         return steps.map((step, index) => `
             <div class="step-card slide-up" id="step-card-${index + 1}">
                 <div class="step-number">${step.number}</div>
-                <div class="step-image-placeholder">
-                    <i class="fas fa-camera"></i>
-                    <span>Image ${index + 1}</span>
+                <div class="step-image">
+                    <img src="/assets/images/step${index + 1}.png" alt="Étape ${index + 1}">
                 </div>
                 <h3>${step.title}</h3>
                 <ul>
