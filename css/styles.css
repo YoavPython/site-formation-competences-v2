@@ -860,10 +860,10 @@ ul {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary-orange), transparent);
-    border-radius: 2px;
+    width: 100px;
+    height: 5px;
+    background: var(--primary-orange);
+    border-radius: 3px;
 }
 
 .section-intro {
