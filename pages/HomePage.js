@@ -125,27 +125,21 @@ export class HomePage extends Component {
                     </div>
                 </section>
 
-                <!-- Wave haut banderole -->
-                <div class="wave-divider wave-flip">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z" class="wave-banner"></path>
-                    </svg>
-                </div>
-
                 <!-- Banderole avec image hero -->
                 <section class="hero-banner">
                     <div class="hero-banner-overlay"></div>
+                    <!-- Bordure courbée blanche en haut -->
+                    <svg class="banner-wave-top" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,80 C300,20 600,60 900,30 C1050,15 1150,50 1200,40 L1200,0 L0,0 Z" fill="white"/>
+                    </svg>
                     <div class="hero-banner-content">
                         <p><span class="text-orange">Chaque parcours est unique.</span> Le votre commence ici.</p>
                     </div>
-                </section>
-
-                <!-- Wave bas banderole -->
-                <div class="wave-divider">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z" class="wave-white"></path>
+                    <!-- Bordure courbée blanche en bas -->
+                    <svg class="banner-wave-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,0 C300,60 600,20 900,50 C1050,65 1150,30 1200,40 L1200,80 L0,80 Z" fill="white"/>
                     </svg>
-                </div>
+                </section>
 
                 <!-- Témoignages -->
                 <section class="testimonials" id="temoignages">
