@@ -1921,7 +1921,8 @@ ul {
 }
 
 .testimonials-track .vae-testimonial {
-    min-width: calc(100% - 4rem); /* Une carte visible à la fois */
+    min-width: 400px; /* Largeur fixe pour garder les proportions */
+    max-width: 450px;
     flex-shrink: 0;
 }
 

@@ -281,7 +281,7 @@ export class VaePage extends Component {
         if (!track || !cards.length) return;
         
         let currentIndex = 0;
-        const cardWidth = cards[0].offsetWidth + 32; // largeur + gap
+        const cardWidth = cards[0].offsetWidth + 32; // largeur + gap (2rem = 32px)
         
         // Créer les dots
         cards.forEach((_, index) => {
