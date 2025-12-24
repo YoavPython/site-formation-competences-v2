@@ -128,16 +128,16 @@ export class HomePage extends Component {
                 <!-- Banderole avec image hero -->
                 <section class="hero-banner">
                     <div class="hero-banner-overlay"></div>
-                    <!-- Bordure courbée blanche en haut (descend de gauche à droite) -->
+                    <!-- Bordure courbée blanche en haut -->
                     <svg class="banner-wave-top" viewBox="0 0 1200 80" preserveAspectRatio="none">
-                        <path d="M0,20 C300,35 500,25 700,45 C900,55 1100,50 1200,65 L1200,0 L0,0 Z" fill="white"/>
+                        <path d="M0,60 C200,30 400,70 600,40 C800,10 1000,50 1200,30 L1200,0 L0,0 Z" fill="white"/>
                     </svg>
                     <div class="hero-banner-content">
                         <p><span class="text-orange">Chaque parcours est unique.</span> Le votre commence ici.</p>
                     </div>
-                    <!-- Bordure courbée blanche en bas (même pente, parallèle) -->
+                    <!-- Bordure courbée blanche en bas (même zigzag, inversé) -->
                     <svg class="banner-wave-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
-                        <path d="M0,15 C300,30 500,20 700,40 C900,50 1100,45 1200,60 L1200,80 L0,80 Z" fill="white"/>
+                        <path d="M0,20 C200,50 400,10 600,40 C800,70 1000,30 1200,50 L1200,80 L0,80 Z" fill="white"/>
                     </svg>
                 </section>
 
