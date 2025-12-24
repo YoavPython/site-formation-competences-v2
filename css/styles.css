@@ -1717,8 +1717,9 @@ ul {
     background: #2b325e;
     color: white;
     position: relative;
-    border-radius: 0; /* Wave gère la transition */
+    border-radius: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: -2px; /* Colle le footer à la wave */
 }
 
 .footer::before {
