@@ -1058,12 +1058,9 @@ ul {
    Méthode en 3 temps
    ======================================== */
 .method {
-    padding: calc(var(--spacing-2xl) * 1.5) 0 calc(var(--spacing-2xl) * 1.5) 0;
+    padding: calc(var(--spacing-2xl) * 1.5) 0 0 0;
     margin-bottom: 0;
-    background: linear-gradient(180deg, 
-        #ffffff 0%, 
-        #ffffff 66%,
-        #f0f0f0 100%);
+    background: #ffffff;
     /* background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 50% 90%, rgba(37, 99, 235, 0.1) 0%, transparent 40%); */

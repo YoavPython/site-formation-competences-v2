@@ -125,14 +125,7 @@ export class HomePage extends Component {
                     </div>
                 </section>
 
-                <!-- Wave → Section testimonials -->
-                <div class="wave-divider">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,40 C200,80 400,20 600,50 C800,80 1000,30 1200,60 L1200,120 L0,120 Z" class="wave-testimonials"></path>
-                    </svg>
-                </div>
-
-                <!-- Témoignages -->
+                <!-- Témoignages (collé à method, le gradient fait la transition) -->
                 <section class="testimonials" id="temoignages">
                     <div class="container">
                         <h2 class="section-title fade-in">Témoignages</h2>
