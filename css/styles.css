@@ -494,6 +494,10 @@ ul {
     );
 }
 
+.hero-wrapper.hero-centered {
+    justify-content: flex-start; /* Aligne tout à gauche */
+}
+
 .hero-centered .hero-content {
     text-align: left;
     max-width: 650px;
