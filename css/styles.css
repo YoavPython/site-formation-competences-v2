@@ -2576,7 +2576,7 @@ ul {
 }
 
 #step-card-1 .step-result {
-    color: var(--primary-blue);
+    color: white;
 }
 
 #step-card-1 li:before {
@@ -2608,7 +2608,7 @@ ul {
 }
 
 #step-card-2 .step-result {
-    color: var(--primary-blue);
+    color: white;
 }
 
 #step-card-2 li:before {
@@ -2640,7 +2640,7 @@ ul {
 }
 
 #step-card-3 .step-result {
-    color: var(--primary-blue);
+    color: white;
 }
 
 #step-card-3 li:before {
@@ -2731,20 +2731,24 @@ ul {
     margin-right: calc(-1 * var(--spacing-lg));
     margin-bottom: calc(-1 * var(--spacing-lg));
     padding: var(--spacing-md) var(--spacing-lg);
-    background: rgba(255, 106, 74, 0.15);
+    background: var(--primary-blue);
     border-radius: 0 0 28px 32px;
     border-top: none;
-    color: var(--primary-blue);
+    color: white;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.6;
+    text-align: center;
 }
 
 .step-result-label {
-    color: var(--primary-blue);
-    text-decoration: underline;
-    text-decoration-color: var(--primary-orange);
-    text-underline-offset: 3px;
+    display: block;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    text-decoration: none;
 }
