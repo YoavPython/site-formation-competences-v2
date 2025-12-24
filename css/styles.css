@@ -548,16 +548,16 @@ ul {
 /* Cartes de réassurance dans le hero */
 .hero-reassurance {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
     position: absolute;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     padding: 0 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .hero-card {
