@@ -685,10 +685,10 @@ ul {
    Ce que fait concrètement Formation Compétences
    ======================================== */
 .what-we-do {
-    margin-top: 5rem;
-    padding: 0 0 var(--spacing-2xl) 0; /* Supprime le padding top pour rapprocher du hero */
+    margin-top: 0; /* Wave collée */
+    padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
     /* background: var(--bg-white); */
-    background: #ffe74461
+    background: #ffe74461;
 }
 
 .intro-text {

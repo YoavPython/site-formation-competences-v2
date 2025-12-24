@@ -9,6 +9,8 @@
     line-height: 0;
     margin: 0;
     padding: 0;
+    /* Colle la wave à la section suivante */
+    margin-bottom: -1px;
 }
 
 .wave-divider svg {
@@ -18,15 +20,42 @@
     position: relative;
 }
 
-/* Couleurs des waves */
-.wave-yellow {
-    fill: #fff8e1;
+/* ===========================================
+   Couleurs des waves - Matchent les sections
+   Les waves ont la couleur de la section qui SUIT
+   =========================================== */
+
+/* Section "Ce que nous proposons" - fond jaune clair #ffe74461 */
+.wave-what-we-do {
+    fill: #fff8dc;
 }
 
-.wave-light-blue {
-    fill: #e8f4fc;
+/* Section "Une méthode en 3 temps" - fond blanc */
+.wave-method {
+    fill: #ffffff;
 }
 
+/* Section Témoignages - fond rosé très léger rgba(255, 106, 74, 0.03) */
+.wave-testimonials {
+    fill: #fff9f8;
+}
+
+/* Section Financement - fond gradient grisé/rosé léger */
+.wave-financing {
+    fill: #fafafa;
+}
+
+/* Section Contact/CTA Final - fond blanc */
+.wave-contact {
+    fill: #ffffff;
+}
+
+/* Footer - fond bleu foncé */
+.wave-footer {
+    fill: #2b325e;
+}
+
+/* Couleurs génériques si besoin */
 .wave-white {
     fill: #ffffff;
 }
@@ -35,8 +64,8 @@
     fill: #fffbf5;
 }
 
-.wave-footer {
-    fill: #2b325e;
+.wave-light-blue {
+    fill: #e8f4fc;
 }
 
 /* Responsive - waves plus petites sur mobile */

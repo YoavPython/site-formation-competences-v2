@@ -71,7 +71,7 @@ export class BilanCompetencesPage extends Component {
                 <!-- Wave transition -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,0 C300,100 600,20 900,60 C1050,80 1150,40 1200,50 L1200,120 L0,120 Z" class="wave-yellow"></path>
+                        <path d="M0,0 C300,100 600,20 900,60 C1050,80 1150,40 1200,50 L1200,120 L0,120 Z" class="wave-what-we-do"></path>
                     </svg>
                 </div>
 
@@ -93,15 +93,12 @@ export class BilanCompetencesPage extends Component {
                     </div>
                 </section>
 
-                <!-- Quote Banner -->
-                // <section class="quote-banner">
-                //     <div class="container">
-                //         <blockquote class="fade-in">
-                //             <p>Vous n'avez pas besoin d'un accompagnement de plus.</p>
-                //             <p>Vous avez besoin de comprendre lequel est vraiment fait pour vous.</p>
-                //         </blockquote>
-                //     </div>
-                // </section>
+                <!-- Wave → Section method (fond blanc) -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,80 C200,30 400,90 600,50 C800,10 1000,70 1200,40 L1200,120 L0,120 Z" class="wave-method"></path>
+                    </svg>
+                </div>
 
                 <!-- Une méthode en 3 temps -->
                 <section class="method" id="approche">
@@ -121,7 +118,7 @@ export class BilanCompetencesPage extends Component {
                 <!-- Wave transition -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,40 C200,80 400,20 600,50 C800,80 1000,30 1200,60 L1200,120 L0,120 Z" class="wave-light-blue"></path>
+                        <path d="M0,40 C200,80 400,20 600,50 C800,80 1000,30 1200,60 L1200,120 L0,120 Z" class="wave-testimonials"></path>
                     </svg>
                 </div>
 
@@ -139,6 +136,13 @@ export class BilanCompetencesPage extends Component {
                         </div>
                     </div>
                 </section>
+
+                <!-- Wave → Section financing (fond grisé léger) -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,20 C150,80 350,10 500,60 C700,100 900,30 1200,70 L1200,120 L0,120 Z" class="wave-financing"></path>
+                    </svg>
+                </div>
 
                 <!-- Financements -->
                 <section class="financing">
@@ -164,10 +168,10 @@ export class BilanCompetencesPage extends Component {
                     </div>
                 </section>
 
-                <!-- Wave transition -->
+                <!-- Wave → Section contact (fond blanc) -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-white"></path>
+                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-contact"></path>
                     </svg>
                 </div>
 
