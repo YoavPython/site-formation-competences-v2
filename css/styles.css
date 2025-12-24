@@ -500,7 +500,7 @@ ul {
 
 .hero-centered .hero-content {
     text-align: left;
-    max-width: 900px; /* Plus large pour étaler le titre */
+    max-width: 70%; /* 70% de la largeur de l'écran */
     margin: 0;
 }
 
