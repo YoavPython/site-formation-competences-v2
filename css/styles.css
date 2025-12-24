@@ -1719,7 +1719,7 @@ ul {
     position: relative;
     border-radius: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    margin-top: -2px; /* Colle le footer à la wave */
+    margin-top: -5px; /* Colle le footer à la wave */
 }
 
 .footer::before {
