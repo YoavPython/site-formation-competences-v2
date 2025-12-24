@@ -44,26 +44,22 @@ export class HomePage extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-
-                <!-- Cartes de réassurance -->
-                <section class="reassurance-cards">
-                    <div class="container">
-                        <div class="cards-grid">
-                            <div class="reassurance-card scale-in">
+                        
+                        <!-- Cartes de réassurance dans le hero -->
+                        <div class="hero-reassurance">
+                            <div class="hero-card">
                                 <i class="fas fa-network-wired"></i>
                                 <p>Réseau d'organismes partenaires certifiés Qualiopi</p>
                             </div>
-                            <div class="reassurance-card scale-in">
+                            <div class="hero-card">
                                 <i class="fas fa-balance-scale"></i>
                                 <p>Respect d'une charte déontologique stricte</p>
                             </div>
-                            <div class="reassurance-card scale-in">
+                            <div class="hero-card">
                                 <i class="fas fa-check"></i>
                                 <p>Avis clients vérifiés</p>
                             </div>
-                            <div class="reassurance-card scale-in">
+                            <div class="hero-card">
                                 <i class="fas fa-laptop"></i>
                                 <p>Accompagnement possible 100% à distance</p>
                             </div>
