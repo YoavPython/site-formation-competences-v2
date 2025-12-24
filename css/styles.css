@@ -2671,7 +2671,7 @@ ul {
 
 .step-image {
     width: calc(100% + 2 * var(--spacing-lg));
-    height: 200px;
+    height: 280px;
     border-radius: 27px 31px 0 0;
     overflow: hidden;
     margin-bottom: 1.5rem;
