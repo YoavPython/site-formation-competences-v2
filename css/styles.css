@@ -2665,6 +2665,8 @@ ul {
     padding-left: 1.5rem;
     position: relative;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
 
 .step-card li:before {
@@ -2681,4 +2683,6 @@ ul {
     color: var(--text-gray);
     font-style: italic;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
 }
