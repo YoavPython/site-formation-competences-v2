@@ -2490,11 +2490,11 @@ ul {
     border-radius: 0;
     border-left: none;
     margin-top: var(--spacing-sm);
-    color: var(--primary-blue);
+    color: var(--primary-blue) !important;
 }
 
 .need-highlight strong {
-    color: var(--primary-blue);
+    color: var(--primary-blue) !important;
 }
 
 @media (max-width: 768px) {
