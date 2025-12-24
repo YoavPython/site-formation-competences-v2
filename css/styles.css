@@ -2705,4 +2705,7 @@ ul {
 
 .step-result-label {
     color: var(--primary-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--primary-orange);
+    text-underline-offset: 3px;
 }
