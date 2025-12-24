@@ -879,8 +879,7 @@ ul {
 .what-we-do {
     margin-top: 0; /* Wave collée */
     padding: var(--spacing-xl) 0 var(--spacing-2xl) 0;
-    /* background: var(--bg-white); */
-    background: #ffe74461;
+    background: #ffffff;
 }
 
 .intro-text {
