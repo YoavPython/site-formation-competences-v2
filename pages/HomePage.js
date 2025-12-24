@@ -245,7 +245,7 @@ export class HomePage extends Component {
                     "nous vous aidons à choisir le dispositif le plus adapté",
                     "si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
                 ],
-                result: "Résultat : quand vous démarrez votre parcours d'accompagnement, vous savez exactement où vous allez, avec qui, et pourquoi."
+                result: "Résultat : vous savez exactement où vous allez, avec qui, et pourquoi."
             }
         ];
 
