@@ -216,7 +216,7 @@ export class HomePage extends Component {
                     "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
                     "Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…"
                 ],
-                result: "Objectif : poser des bases solides pour éviter un accompagnement \"par défaut\"."
+                result: "Objectif : Poser des bases solides pour éviter un accompagnement \"par défaut\"."
             },
             {
                 number: 2,
@@ -227,7 +227,7 @@ export class HomePage extends Component {
                     "mettons à plat des pistes réalistes",
                     "vérifions la cohérence globale : contraintes, prérequis, modalités et options de financement."
                 ],
-                result: "Résultat : vous savez où vous en êtes, ce qui est possible, et ce qui ne l'est pas (encore)."
+                result: "Résultat : Vous savez où vous en êtes, ce qui est possible, et ce qui ne l'est pas (encore)."
             },
             {
                 number: 3,
@@ -238,7 +238,7 @@ export class HomePage extends Component {
                     "nous vous aidons à choisir le dispositif le plus adapté",
                     "si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
                 ],
-                result: "Résultat : vous savez exactement où vous allez, avec qui, et pourquoi."
+                result: "Résultat : Vous savez exactement où vous allez, avec qui, et pourquoi."
             }
         ];
 
