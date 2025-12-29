@@ -48,7 +48,6 @@ export class Navbar extends Component {
                             <span></span>
                         </button>
                         <ul class="nav-menu ${this.state.mobileMenuOpen ? 'active' : ''}">
-                            <!-- Menu Nos offres masqué pour le moment
                             <li class="dropdown">
                                 <span class="dropdown-toggle">Nos offres</span>
                                 <ul class="dropdown-menu">
@@ -56,7 +55,6 @@ export class Navbar extends Component {
                                     <li><a href="/vae">VAE</a></li>
                                 </ul>
                             </li>
-                            -->
                             <li><a href="/#approche">Notre approche</a></li>
                             <li><a href="/#temoignages">Témoignages</a></li>
                             <li><a href="/#contact" class="nav-cta">Contact</a></li>
