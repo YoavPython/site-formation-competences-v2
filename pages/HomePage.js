@@ -73,12 +73,28 @@ export class HomePage extends Component {
                         <div class="need-icon bounce-in">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h2 class="need-title fade-in">Vous n'avez pas besoin d'un "bilan de plus"</h2>
+                        <h2 class="need-title fade-in">Vous êtes à un tournant de votre carrière ?</h2>
                         <div class="need-content slide-up">
-                            <p>Vous avez besoin de <strong>comprendre lequel est fait pour vous</strong>. Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong>, nous savons que ce n'est pas toujours facile de savoir par où commencer.</p>
-                            <div class="need-highlight-box">
-                                <i class="fas fa-hand-point-right"></i>
-                                <p class="need-highlight"><strong>Nous ne réalisons pas le Bilan de Compétences à votre place.</strong> Nous faisons le travail amont qui sécurise votre démarche : clarifier votre besoin, structurer votre projet, puis vous orienter vers le bon dispositif et le bon organisme partenaire.</p>
+                            <p>Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer dans votre vie professionnelle ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong> avec un bilan, nous comprenons que ce n'est pas toujours facile de savoir par où commencer.</p>
+                            <p class="need-highlight"><strong>C'est exactement pour cela que nous sommes là.</strong> Nous vous aidons à y voir clair, à identifier le bon dispositif, et à construire un parcours qui a du sens pour vous.</p>
+                        </div>
+                        
+                        <div class="trust-badges slide-up">
+                            <div class="trust-badge">
+                                <i class="fas fa-award"></i>
+                                <span>Certifié Qualiopi</span>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Données sécurisées</span>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-user-check"></i>
+                                <span>Conseillers certifiés</span>
+                            </div>
+                            <div class="trust-badge">
+                                <i class="fas fa-hand-holding-heart"></i>
+                                <span>100% gratuit</span>
                             </div>
                         </div>
                     </div>
@@ -98,8 +114,8 @@ export class HomePage extends Component {
                             <div class="section-icon bounce-in">
                                 <i class="fas fa-drafting-compass"></i>
                             </div>
-                            <h2 class="section-title fade-in">Ce que fait concrètement Formation Compétences</h2>
-                            <p class="section-subtitle slide-up">Nous sommes l'architecte amont de votre parcours. Notre objectif n'est pas de remplir une formation, c'est que votre projet soit cohérent et tienne la route.</p>
+                            <h2 class="section-title fade-in">3 entretiens pour y voir clair.</h2>
+                            <p class="section-subtitle slide-up">Un accompagnement 100% personnalisé pour choisir le bon dispositif et le bon organisme.</p>
                         </div>
 
                         <div class="steps-grid">
@@ -113,14 +129,14 @@ export class HomePage extends Component {
                             </a>
                         </div>
                     </div>
+                    
+                    <!-- Wave jaune au milieu de la section -->
+                    <div class="wave-middle">
+                        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M0,40 C200,70 400,10 600,50 C800,90 1000,30 1200,80 L1200,0 L0,0 Z" fill="#ffe74461"></path>
+                        </svg>
+                    </div>
                 </section>
-
-                <!-- Wave jaune inversée (bas de what-we-do) -->
-                <div class="wave-divider wave-inverted">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,40 C200,70 400,10 600,50 C800,90 1000,30 1200,80 L1200,0 L0,0 Z" class="wave-yellow-inverted"></path>
-                    </svg>
-                </div>
 
                 <!-- Une méthode en 3 temps -->
                 <section class="method" id="approche">
@@ -169,8 +185,21 @@ export class HomePage extends Component {
                         </div>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
-                        <div class="testimonials-grid">
-                            ${this.renderTestimonials()}
+                        <div class="testimonials-carousel">
+                            <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="testimonials-track">
+                                ${this.renderTestimonials()}
+                            </div>
+                            <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="carousel-dots">
+                            <button class="carousel-dot active" data-index="0"></button>
+                            <button class="carousel-dot" data-index="1"></button>
+                            <button class="carousel-dot" data-index="2"></button>
                         </div>
                         
                         <div class="section-cta">
@@ -198,22 +227,70 @@ export class HomePage extends Component {
                             </div>
                             <h2 class="section-title fade-in">Financements</h2>
                             <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
-                            <div class="financing-options slide-up">
-                                <div class="financing-option scale-in" style="animation-delay: 0.1s">
-                                    <i class="fas fa-id-card"></i>
-                                    <span>CPF</span>
+                            <div class="financing-cards slide-up">
+                                <div class="financing-card" style="animation-delay: 0.1s">
+                                    <div class="financing-card-inner">
+                                        <div class="financing-card-front">
+                                            <div class="financing-card-icon">
+                                                <i class="fas fa-id-card"></i>
+                                            </div>
+                                            <span class="financing-card-title">CPF</span>
+                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
+                                        </div>
+                                        <div class="financing-card-back">
+                                            <h4>Compte Personnel de Formation</h4>
+                                            <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion.</p>
+                                            <span class="financing-card-tag"><i class="fas fa-check"></i> Le plus courant</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="financing-option scale-in" style="animation-delay: 0.2s">
-                                    <i class="fas fa-building"></i>
-                                    <span>Plan entreprise</span>
+                                <div class="financing-card" style="animation-delay: 0.2s">
+                                    <div class="financing-card-inner">
+                                        <div class="financing-card-front">
+                                            <div class="financing-card-icon">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <span class="financing-card-title">Plan entreprise</span>
+                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
+                                        </div>
+                                        <div class="financing-card-back">
+                                            <h4>Plan de développement</h4>
+                                            <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne.</p>
+                                            <span class="financing-card-tag"><i class="fas fa-building"></i> Salariés</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="financing-option scale-in" style="animation-delay: 0.3s">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                    <span>OPCO</span>
+                                <div class="financing-card" style="animation-delay: 0.3s">
+                                    <div class="financing-card-inner">
+                                        <div class="financing-card-front">
+                                            <div class="financing-card-icon">
+                                                <i class="fas fa-hand-holding-usd"></i>
+                                            </div>
+                                            <span class="financing-card-title">OPCO</span>
+                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
+                                        </div>
+                                        <div class="financing-card-back">
+                                            <h4>Opérateurs de Compétences</h4>
+                                            <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre.</p>
+                                            <span class="financing-card-tag"><i class="fas fa-users"></i> TPE/PME</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="financing-option scale-in" style="animation-delay: 0.4s">
-                                    <i class="fas fa-briefcase"></i>
-                                    <span>Pôle emploi</span>
+                                <div class="financing-card" style="animation-delay: 0.4s">
+                                    <div class="financing-card-inner">
+                                        <div class="financing-card-front">
+                                            <div class="financing-card-icon">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div>
+                                            <span class="financing-card-title">France Travail</span>
+                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
+                                        </div>
+                                        <div class="financing-card-back">
+                                            <h4>Aide France Travail</h4>
+                                            <p>Pour les demandeurs d'emploi : AIF ou abondement CPF possible selon votre projet et votre conseiller.</p>
+                                            <span class="financing-card-tag"><i class="fas fa-search"></i> Demandeurs d'emploi</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="financing-content slide-up">
@@ -487,6 +564,55 @@ export class HomePage extends Component {
                 this.handleFormSubmit();
             });
         }
+        
+        // Initialiser le carrousel
+        this.initCarousel();
+    }
+    
+    initCarousel() {
+        const carousel = this.find('.testimonials-carousel');
+        if (!carousel) return;
+        
+        const track = carousel.querySelector('.testimonials-track');
+        const cards = track.querySelectorAll('.testimonial-card');
+        const prevBtn = carousel.querySelector('.carousel-btn-prev');
+        const nextBtn = carousel.querySelector('.carousel-btn-next');
+        const dots = this.findAll('.carousel-dot');
+        
+        let currentIndex = 0;
+        const totalCards = cards.length;
+        
+        const updateCarousel = () => {
+            const cardWidth = cards[0].offsetWidth + 32; // width + gap
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        };
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-play optionnel
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        }, 6000);
     }
 
     handleFormSubmit() {

@@ -36,7 +36,7 @@ export class VaePage extends Component {
                                 <i class="fas fa-certificate"></i>
                                 <span>Certification officielle</span>
                             </div>
-                            <h1 class="hero-title fade-in">Validation des Acquis de l'Expérience</h1>
+                            <h1 class="hero-title hero-title-orange fade-in">Validation des Acquis de l'Expérience</h1>
                             <p class="hero-page-subtitle slide-up">Faites reconnaître officiellement vos compétences acquises sur le terrain</p>
                             <div class="hero-cta slide-up">
                                 <a href="#contact" class="btn btn-primary btn-lg pulse-hover">
@@ -62,10 +62,6 @@ export class VaePage extends Component {
                                 </div>
                                 <h2 class="fade-in">Votre expérience vaut un diplôme.</h2>
                                 <p class="intro-highlight slide-up">La VAE vous permet d'obtenir une certification RNCP (titre, diplôme, blocs de compétences) <strong>sans repartir en formation</strong>, en faisant valider les compétences acquises sur le terrain.</p>
-                                <div class="intro-warning slide-up">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    <p>Mais attention : le risque n°1, c'est de partir sur une certification "qui sonne bien"… mais impossible à démontrer. <strong>Nous sécurisons votre démarche dès le départ.</strong></p>
-                                </div>
                                 <div class="intro-stats slide-up">
                                     <div class="stat-item">
                                         <i class="fas fa-check-circle"></i>
@@ -521,5 +517,34 @@ export class VaePage extends Component {
 
     onMount() {
         console.log('VaePage montée');
+        this.initNavbarScroll();
+    }
+
+    initNavbarScroll() {
+        const navbar = document.querySelector('.navbar');
+        const hero = document.querySelector('.hero-page');
+        
+        if (!navbar || !hero) return;
+        
+        // État initial : fond blanc sur le hero
+        navbar.classList.add('navbar-hero');
+        
+        const handleScroll = () => {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            const scrollY = window.scrollY + navbar.offsetHeight;
+            
+            if (scrollY > heroBottom - 50) {
+                // On a dépassé le hero → glass effect
+                navbar.classList.remove('navbar-hero');
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                // On est sur le hero → fond blanc
+                navbar.classList.add('navbar-hero');
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial
     }
 }

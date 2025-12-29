@@ -614,5 +614,34 @@ export class BilanCompetencesPage extends Component {
 
     onMount() {
         console.log('BilanCompetencesPage montée');
+        this.initNavbarScroll();
+    }
+
+    initNavbarScroll() {
+        const navbar = document.querySelector('.navbar');
+        const hero = document.querySelector('.hero-page');
+        
+        if (!navbar || !hero) return;
+        
+        // État initial : fond blanc sur le hero
+        navbar.classList.add('navbar-hero');
+        
+        const handleScroll = () => {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            const scrollY = window.scrollY + navbar.offsetHeight;
+            
+            if (scrollY > heroBottom - 50) {
+                // On a dépassé le hero → glass effect
+                navbar.classList.remove('navbar-hero');
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                // On est sur le hero → fond blanc
+                navbar.classList.add('navbar-hero');
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial
     }
 }
