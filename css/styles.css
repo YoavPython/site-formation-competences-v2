@@ -949,7 +949,7 @@ ul {
     left: 0;
     right: 0;
     height: 70%;
-    background: linear-gradient(180deg, #ffe74461 0%, #ffe74440 40%, #ffe74420 60%, transparent 100%);
+    background: linear-gradient(180deg, #ffe74435 0%, #ffe74425 40%, #ffe74415 60%, transparent 100%);
     z-index: 0;
 }
 
@@ -1150,7 +1150,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
     position: relative;
 }
 
@@ -2409,8 +2409,8 @@ ul {
 
 .cta-benefits h3 {
     color: var(--primary-blue);
-    font-size: 2rem;
-    margin-bottom: var(--spacing-lg);
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
     text-align: center;
 }
 
@@ -2421,30 +2421,28 @@ ul {
 }
 
 .cta-benefits li {
-    position: relative;
-    padding: var(--spacing-sm) 0 var(--spacing-sm) 3rem;
-    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: var(--spacing-sm) 0;
     color: var(--text-dark);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .cta-benefits li::before {
     content: '✓';
-    position: absolute;
-    left: 0;
-    top: var(--spacing-sm);
-    width: 2rem;
-    height: 2rem;
-    background: linear-gradient(135deg, var(--primary-orange), var(--primary-orange-light));
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background: var(--accent-mint-dark);
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(255, 106, 74, 0.2);
+    font-size: 0.9rem;
 }
 
 .cta-benefits li strong {
@@ -2506,6 +2504,207 @@ ul {
     border-radius: 12px;
     border-left: 4px solid var(--primary-orange);
     margin-top: var(--spacing-lg);
+}
+
+/* ========================================
+   Section Financements - Design Moderne
+   ======================================== */
+.financing-modern {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, #cbffea 0%, #e8fff5 100%);
+    position: relative;
+}
+
+.financing-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.financing-label {
+    display: inline-block;
+    background: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.financing-hero h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, #ff8a65 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.financing-tagline {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.financing-options-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.financing-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 60px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+}
+
+.financing-pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.pill-icon {
+    font-size: 1.5rem;
+}
+
+.pill-text {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 1rem;
+}
+
+.pill-badge {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    background: var(--primary-orange);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.financing-pill {
+    cursor: pointer;
+}
+
+.financing-pill.active {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(43, 50, 94, 0.25);
+}
+
+.financing-pill.active .pill-text {
+    color: white;
+}
+
+.financing-details-panel {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    min-height: 0;
+    overflow: hidden;
+}
+
+.financing-detail {
+    display: none;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    animation: slideDown 0.3s ease;
+    text-align: center;
+}
+
+.financing-detail.active {
+    display: block;
+}
+
+.financing-detail h4 {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.financing-detail p {
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.detail-tag {
+    display: inline-block;
+    background: var(--accent-mint);
+    color: var(--accent-mint-dark);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.financing-promise {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: white;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.promise-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    background: var(--accent-mint-dark);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.promise-text {
+    color: var(--text-dark);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.promise-text strong {
+    color: var(--primary-blue);
 }
 
 /* ========================================
@@ -2727,6 +2926,7 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
 }
 
 .step-card {
@@ -2872,6 +3072,7 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top;
     transition: transform 0.3s ease;
 }
 
@@ -2915,7 +3116,7 @@ ul {
 .step-result {
     margin-top: auto;
     padding: var(--spacing-md);
-    background: linear-gradient(135deg, rgba(255, 56, 13, 0.08) 0%, rgba(255, 150, 100, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(94, 212, 165, 0.15) 0%, rgba(203, 255, 234, 0.25) 100%);
     border-radius: 12px;
     border: none;
     font-style: normal;
@@ -2945,6 +3146,23 @@ ul {
     letter-spacing: 1.5px;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
+}
+
+.step-result-objectif {
+    background: var(--accent-mint-dark);
+}
+
+.step-result-resultat {
+    background: var(--accent-mint-dark);
+}
+
+/* Fond des vignettes selon le type */
+.step-result-bg-objectif {
+    background: linear-gradient(135deg, rgba(94, 212, 165, 0.15) 0%, rgba(203, 255, 234, 0.25) 100%) !important;
+}
+
+.step-result-bg-resultat {
+    background: linear-gradient(135deg, rgba(94, 212, 165, 0.15) 0%, rgba(203, 255, 234, 0.25) 100%) !important;
 }
 
 /* ========================================
@@ -4661,7 +4879,7 @@ ul {
     right: 15px;
     width: 40px;
     height: 40px;
-    background: var(--primary-orange);
+    background: #4a5568;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -4670,7 +4888,7 @@ ul {
     transform: translateX(-10px);
     transition: all 0.3s ease;
     color: white;
-    box-shadow: 0 4px 12px rgba(255, 56, 13, 0.3);
+    box-shadow: 0 4px 12px rgba(74, 85, 104, 0.3);
 }
 
 .method-card:hover .method-arrow {

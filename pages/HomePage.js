@@ -114,7 +114,7 @@ export class HomePage extends Component {
                             <div class="section-icon bounce-in">
                                 <i class="fas fa-drafting-compass"></i>
                             </div>
-                            <h2 class="section-title fade-in">3 entretiens pour y voir clair.</h2>
+                            <h2 class="section-title fade-in">3 entretiens pour y voir clair...<br>pour changer le cours de votre vie.</h2>
                             <p class="section-subtitle slide-up">Un accompagnement 100% personnalisé pour choisir le bon dispositif et le bon organisme.</p>
                         </div>
 
@@ -168,7 +168,7 @@ export class HomePage extends Component {
                     </svg>
                     <div class="hero-banner-content">
                         <i class="fas fa-quote-left banner-quote-icon"></i>
-                        <p><span class="text-orange">Chaque parcours est unique.</span> Le vôtre commence ici.</p>
+                        <p><span class="text-orange">Chaque parcours est unique.</span> Le votre commence ici.</p>
                         <i class="fas fa-quote-right banner-quote-icon"></i>
                     </div>
                     <!-- Bordure courbée blanche en bas (même zigzag, inversé) -->
@@ -185,28 +185,12 @@ export class HomePage extends Component {
                         </div>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
-                        <div class="testimonials-carousel">
-                            <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <div class="testimonials-track">
-                                ${this.renderTestimonials()}
-                            </div>
-                            <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                        <div class="carousel-dots">
-                            <button class="carousel-dot active" data-index="0"></button>
-                            <button class="carousel-dot" data-index="1"></button>
-                            <button class="carousel-dot" data-index="2"></button>
+                        <div class="testimonials-grid">
+                            ${this.renderTestimonials()}
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-secondary btn-lg">
-                                <i class="fas fa-users"></i>
-                                Rejoindre nos clients satisfaits
-                            </a>
+                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
                         </div>
                     </div>
                 </section>
@@ -219,102 +203,69 @@ export class HomePage extends Component {
                 </div>
 
                 <!-- Financements -->
-                <section class="financing">
+                <section class="financing-modern">
                     <div class="container">
-                        <div class="financing-wrapper">
-                            <div class="financing-icon-main bounce-in">
-                                <i class="fas fa-wallet"></i>
+                        <div class="financing-hero slide-up">
+                            <div class="financing-hero-content">
+                                <span class="financing-label">💰 Financement</span>
+                                <h2>Votre bilan peut être <span class="text-gradient">100% financé</span></h2>
+                                <p class="financing-tagline">Pas de mauvaise surprise. On vous explique tout.</p>
                             </div>
-                            <h2 class="section-title fade-in">Financements</h2>
-                            <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
-                            <div class="financing-cards slide-up">
-                                <div class="financing-card" style="animation-delay: 0.1s">
-                                    <div class="financing-card-inner">
-                                        <div class="financing-card-front">
-                                            <div class="financing-card-icon">
-                                                <i class="fas fa-id-card"></i>
-                                            </div>
-                                            <span class="financing-card-title">CPF</span>
-                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
-                                        </div>
-                                        <div class="financing-card-back">
-                                            <h4>Compte Personnel de Formation</h4>
-                                            <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion.</p>
-                                            <span class="financing-card-tag"><i class="fas fa-check"></i> Le plus courant</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="financing-card" style="animation-delay: 0.2s">
-                                    <div class="financing-card-inner">
-                                        <div class="financing-card-front">
-                                            <div class="financing-card-icon">
-                                                <i class="fas fa-building"></i>
-                                            </div>
-                                            <span class="financing-card-title">Plan entreprise</span>
-                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
-                                        </div>
-                                        <div class="financing-card-back">
-                                            <h4>Plan de développement</h4>
-                                            <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne.</p>
-                                            <span class="financing-card-tag"><i class="fas fa-building"></i> Salariés</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="financing-card" style="animation-delay: 0.3s">
-                                    <div class="financing-card-inner">
-                                        <div class="financing-card-front">
-                                            <div class="financing-card-icon">
-                                                <i class="fas fa-hand-holding-usd"></i>
-                                            </div>
-                                            <span class="financing-card-title">OPCO</span>
-                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
-                                        </div>
-                                        <div class="financing-card-back">
-                                            <h4>Opérateurs de Compétences</h4>
-                                            <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre.</p>
-                                            <span class="financing-card-tag"><i class="fas fa-users"></i> TPE/PME</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="financing-card" style="animation-delay: 0.4s">
-                                    <div class="financing-card-inner">
-                                        <div class="financing-card-front">
-                                            <div class="financing-card-icon">
-                                                <i class="fas fa-briefcase"></i>
-                                            </div>
-                                            <span class="financing-card-title">France Travail</span>
-                                            <span class="financing-card-hint"><i class="fas fa-hand-pointer"></i> Cliquez</span>
-                                        </div>
-                                        <div class="financing-card-back">
-                                            <h4>Aide France Travail</h4>
-                                            <p>Pour les demandeurs d'emploi : AIF ou abondement CPF possible selon votre projet et votre conseiller.</p>
-                                            <span class="financing-card-tag"><i class="fas fa-search"></i> Demandeurs d'emploi</span>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        
+                        <div class="financing-options-row slide-up">
+                            <div class="financing-pill active" data-target="cpf">
+                                <span class="pill-icon">🎯</span>
+                                <span class="pill-text">CPF</span>
+                                <span class="pill-badge">Le + utilisé</span>
                             </div>
-                            <div class="financing-content slide-up">
-                                <p>Nous vous expliquons :</p>
-                                <ul class="financing-list">
-                                    <li><i class="fas fa-check-circle"></i> les principales sources de financement possibles</li>
-                                    <li><i class="fas fa-check-circle"></i> comment vérifier vos droits et éviter les mauvaises surprises</li>
-                                    <li><i class="fas fa-check-circle"></i> comment parler de votre projet à votre employeur</li>
-                                </ul>
-                                <div class="financing-objective-box">
-                                    <i class="fas fa-bullseye"></i>
-                                    <p class="financing-objective">
-                                        <strong>Objectif :</strong> vous donner une vision claire des grandes options de financement, 
-                                        pour que l'argent ne soit ni un tabou, ni un piège.
-                                    </p>
-                                </div>
+                            <div class="financing-pill" data-target="plan">
+                                <span class="pill-icon">🏢</span>
+                                <span class="pill-text">Plan entreprise</span>
                             </div>
-                            
-                            <div class="section-cta">
-                                <a href="#contact" class="btn btn-orange btn-lg pulse-hover">
-                                    <i class="fas fa-coins"></i>
-                                    Découvrir mes options de financement
-                                </a>
+                            <div class="financing-pill" data-target="opco">
+                                <span class="pill-icon">🤝</span>
+                                <span class="pill-text">OPCO</span>
                             </div>
+                            <div class="financing-pill" data-target="france-travail">
+                                <span class="pill-icon">📋</span>
+                                <span class="pill-text">France Travail</span>
+                            </div>
+                        </div>
+                        
+                        <div class="financing-details-panel" id="financing-details">
+                            <div class="financing-detail active" id="detail-cpf">
+                                <h4>💳 Compte Personnel de Formation (CPF)</h4>
+                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion.</p>
+                                <span class="detail-tag">✓ Pour tous les actifs</span>
+                            </div>
+                            <div class="financing-detail" id="detail-plan">
+                                <h4>🏢 Plan de développement des compétences</h4>
+                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne.</p>
+                                <span class="detail-tag">✓ Salariés en poste</span>
+                            </div>
+                            <div class="financing-detail" id="detail-opco">
+                                <h4>🤝 OPCO - Opérateurs de Compétences</h4>
+                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre.</p>
+                                <span class="detail-tag">✓ TPE/PME</span>
+                            </div>
+                            <div class="financing-detail" id="detail-france-travail">
+                                <h4>📋 Aide France Travail</h4>
+                                <p>Pour les demandeurs d'emploi : AIF ou abondement CPF possible selon votre projet et votre conseiller.</p>
+                                <span class="detail-tag">✓ Demandeurs d'emploi</span>
+                            </div>
+                        </div>
+                        
+                        <div class="financing-promise slide-up">
+                            <div class="promise-icon">✓</div>
+                            <div class="promise-text">
+                                <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                pour que l'argent ne soit ni un tabou, ni un frein.
+                            </div>
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options</a>
                         </div>
                     </div>
                 </section>
@@ -331,14 +282,11 @@ export class HomePage extends Component {
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
-                                <div class="cta-icon bounce-in">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h3 class="fade-in">Ce que vous gagnez avec nous</h3>
+                                <h3 class="fade-in">Nos engagements pour votre réussite</h3>
                                 <ul class="slide-up">
-                                    <li><i class="fas fa-check"></i> <strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
-                                    <li><i class="fas fa-check"></i> <strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
-                                    <li><i class="fas fa-check"></i> <strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
+                                    <li><strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
+                                    <li><strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
+                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
                                 </ul>
                                 <div class="cta-reassurance slide-up">
                                     <div class="reassurance-item">
@@ -354,7 +302,6 @@ export class HomePage extends Component {
 
                             <div class="contact-form-wrapper" id="contact-form">
                                 <div class="form-header">
-                                    <i class="fas fa-envelope-open-text"></i>
                                     <h3 class="fade-in">Parlez-nous de votre situation</h3>
                                 </div>
                                 <p class="slide-up">Quelques questions pour nous permettre de vous orienter vers le bon type de parcours.</p>
@@ -381,7 +328,8 @@ export class HomePage extends Component {
             {
                 number: 1,
                 icon: "fa-user-circle",
-                title: "Comprendre finement votre situation",
+                title: "Comprendre votre situation",
+                image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop",
                 content: [
                     "Vous n'êtes pas qu'un CV : nous reprenons votre contexte actuel, votre parcours et vos transitions passées.",
                     "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
@@ -392,7 +340,8 @@ export class HomePage extends Component {
             {
                 number: 2,
                 icon: "fa-lightbulb",
-                title: "Vous aider à y voir clair (pour de vrai)",
+                title: "Vous aider à y voir clair",
+                image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=600&h=400&fit=crop",
                 content: [
                     "Nous cadrons votre besoin : bilan ? formation ? VAE ? autre dispositif ?",
                     "Nous mettons à plat des pistes réalistes, pas des rêves.",
@@ -404,6 +353,7 @@ export class HomePage extends Component {
                 number: 3,
                 icon: "fa-route",
                 title: "Vous orienter vers le bon dispositif et le bon partenaire",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
                 content: [
                     "Nous formalisons vos critères de choix (objectifs, modalités, timing, contraintes).",
                     "Nous vous aidons à choisir le dispositif le plus adapté à votre situation.",
@@ -417,13 +367,13 @@ export class HomePage extends Component {
             <div class="step-card slide-up" id="step-card-${index + 1}">
                 <div class="step-number">${step.number}</div>
                 <div class="step-image">
-                    <img src="/assets/images/hero.png" alt="Étape ${index + 1}">
+                    <img src="${step.image}" alt="${step.title}">
                 </div>
                 <h3>${step.title}</h3>
                 <ul>
                     ${step.content.map(item => `<li>${item}</li>`).join('')}
                 </ul>
-                <p class="step-result"><strong>${step.result.replace(/^(Objectif|Résultat) /, '<span class="step-result-label">$1</span> ')}</strong></p>
+                <p class="step-result step-result-bg-${step.result.startsWith('Objectif') ? 'objectif' : 'resultat'}"><strong>${step.result.replace(/^(Objectif|Résultat) /, (match, label) => `<span class="step-result-label step-result-${label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')}">${label}</span> `)}</strong></p>
             </div>
         `).join('');
     }
@@ -565,8 +515,27 @@ export class HomePage extends Component {
             });
         }
         
-        // Initialiser le carrousel
-        this.initCarousel();
+        // Initialiser les pills de financement
+        this.initFinancingPills();
+    }
+    
+    initFinancingPills() {
+        const pills = this.findAll('.financing-pill');
+        const details = this.findAll('.financing-detail');
+        
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const target = pill.dataset.target;
+                
+                // Change active state (toujours un ouvert)
+                pills.forEach(p => p.classList.remove('active'));
+                details.forEach(d => d.classList.remove('active'));
+                
+                pill.classList.add('active');
+                const detail = this.find(`#detail-${target}`);
+                if (detail) detail.classList.add('active');
+            });
+        });
     }
     
     initCarousel() {
