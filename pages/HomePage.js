@@ -70,10 +70,16 @@ export class HomePage extends Component {
                 <!-- Section description du besoin -->
                 <section class="need-description">
                     <div class="container">
+                        <div class="need-icon bounce-in">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
                         <h2 class="need-title fade-in">Vous n'avez pas besoin d'un "bilan de plus"</h2>
                         <div class="need-content slide-up">
                             <p>Vous avez besoin de <strong>comprendre lequel est fait pour vous</strong>. Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong>, nous savons que ce n'est pas toujours facile de savoir par où commencer.</p>
-                            <p class="need-highlight"><strong>Nous ne réalisons pas le Bilan de Compétences à votre place.</strong> Nous faisons le travail amont qui sécurise votre démarche : clarifier votre besoin, structurer votre projet, puis vous orienter vers le bon dispositif et le bon organisme partenaire.</p>
+                            <div class="need-highlight-box">
+                                <i class="fas fa-hand-point-right"></i>
+                                <p class="need-highlight"><strong>Nous ne réalisons pas le Bilan de Compétences à votre place.</strong> Nous faisons le travail amont qui sécurise votre démarche : clarifier votre besoin, structurer votre projet, puis vous orienter vers le bon dispositif et le bon organisme partenaire.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -89,6 +95,9 @@ export class HomePage extends Component {
                 <section class="what-we-do" id="methode">
                     <div class="container">
                         <div class="section-header">
+                            <div class="section-icon bounce-in">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
                             <h2 class="section-title fade-in">Ce que fait concrètement Formation Compétences</h2>
                             <p class="section-subtitle slide-up">Nous sommes l'architecte amont de votre parcours. Notre objectif n'est pas de remplir une formation, c'est que votre projet soit cohérent et tienne la route.</p>
                         </div>
@@ -98,7 +107,10 @@ export class HomePage extends Component {
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-orange btn-lg">Je veux clarifier mon projet professionnel</a>
+                            <a href="#contact" class="btn btn-orange btn-lg pulse-hover">
+                                <i class="fas fa-arrow-right"></i>
+                                Je veux clarifier mon projet professionnel
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -113,6 +125,9 @@ export class HomePage extends Component {
                 <!-- Une méthode en 3 temps -->
                 <section class="method" id="approche">
                     <div class="container">
+                        <div class="section-icon bounce-in">
+                            <i class="fas fa-route"></i>
+                        </div>
                         <h2 class="section-title fade-in">Une méthode en 3 temps</h2>
                         <p class="section-subtitle slide-up">Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.</p>
                         <div class="method-cards">
@@ -120,7 +135,10 @@ export class HomePage extends Component {
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-primary btn-lg">Démarrer mon accompagnement personnalisé</a>
+                            <a href="#contact" class="btn btn-primary btn-lg pulse-hover">
+                                <i class="fas fa-rocket"></i>
+                                Démarrer mon accompagnement personnalisé
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -133,7 +151,9 @@ export class HomePage extends Component {
                         <path d="M0,60 C200,30 400,70 600,40 C800,10 1000,50 1200,30 L1200,0 L0,0 Z" fill="white"/>
                     </svg>
                     <div class="hero-banner-content">
-                        <p><span class="text-orange">Chaque parcours est unique.</span> Le votre commence ici.</p>
+                        <i class="fas fa-quote-left banner-quote-icon"></i>
+                        <p><span class="text-orange">Chaque parcours est unique.</span> Le vôtre commence ici.</p>
+                        <i class="fas fa-quote-right banner-quote-icon"></i>
                     </div>
                     <!-- Bordure courbée blanche en bas (même zigzag, inversé) -->
                     <svg class="banner-wave-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
@@ -144,6 +164,9 @@ export class HomePage extends Component {
                 <!-- Témoignages -->
                 <section class="testimonials" id="temoignages">
                     <div class="container">
+                        <div class="section-icon bounce-in">
+                            <i class="fas fa-comments"></i>
+                        </div>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
                         <div class="testimonials-grid">
@@ -151,7 +174,10 @@ export class HomePage extends Component {
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
+                            <a href="#contact" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-users"></i>
+                                Rejoindre nos clients satisfaits
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -166,23 +192,52 @@ export class HomePage extends Component {
                 <!-- Financements -->
                 <section class="financing">
                     <div class="container">
-                        <h2 class="section-title fade-in">Financements</h2>
-                        <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
-                        <div class="financing-content slide-up">
-                            <p>Nous vous expliquons :</p>
-                            <ul>
-                                <li>les principales sources de financement possibles (CPF, plan de développement des compétences, OPCO, Pôle emploi, etc.)</li>
-                                <li>comment vérifier vos droits et éviter les mauvaises surprises</li>
-                                <li>comment parler de votre projet à votre employeur le cas échéant</li>
-                            </ul>
-                            <p class="financing-objective">
-                                <strong>Objectif :</strong> vous donner une vision claire des grandes options de financement, 
-                                pour que l'argent ne soit ni un tabou, ni un piège.
-                            </p>
-                        </div>
-                        
-                        <div class="section-cta">
-                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options de financement</a>
+                        <div class="financing-wrapper">
+                            <div class="financing-icon-main bounce-in">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h2 class="section-title fade-in">Financements</h2>
+                            <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
+                            <div class="financing-options slide-up">
+                                <div class="financing-option scale-in" style="animation-delay: 0.1s">
+                                    <i class="fas fa-id-card"></i>
+                                    <span>CPF</span>
+                                </div>
+                                <div class="financing-option scale-in" style="animation-delay: 0.2s">
+                                    <i class="fas fa-building"></i>
+                                    <span>Plan entreprise</span>
+                                </div>
+                                <div class="financing-option scale-in" style="animation-delay: 0.3s">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <span>OPCO</span>
+                                </div>
+                                <div class="financing-option scale-in" style="animation-delay: 0.4s">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>Pôle emploi</span>
+                                </div>
+                            </div>
+                            <div class="financing-content slide-up">
+                                <p>Nous vous expliquons :</p>
+                                <ul class="financing-list">
+                                    <li><i class="fas fa-check-circle"></i> les principales sources de financement possibles</li>
+                                    <li><i class="fas fa-check-circle"></i> comment vérifier vos droits et éviter les mauvaises surprises</li>
+                                    <li><i class="fas fa-check-circle"></i> comment parler de votre projet à votre employeur</li>
+                                </ul>
+                                <div class="financing-objective-box">
+                                    <i class="fas fa-bullseye"></i>
+                                    <p class="financing-objective">
+                                        <strong>Objectif :</strong> vous donner une vision claire des grandes options de financement, 
+                                        pour que l'argent ne soit ni un tabou, ni un piège.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="section-cta">
+                                <a href="#contact" class="btn btn-orange btn-lg pulse-hover">
+                                    <i class="fas fa-coins"></i>
+                                    Découvrir mes options de financement
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -199,16 +254,32 @@ export class HomePage extends Component {
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
+                                <div class="cta-icon bounce-in">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
                                 <h3 class="fade-in">Ce que vous gagnez avec nous</h3>
                                 <ul class="slide-up">
-                                    <li><strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
-                                    <li><strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
-                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
+                                    <li><i class="fas fa-check"></i> <strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
+                                    <li><i class="fas fa-check"></i> <strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
+                                    <li><i class="fas fa-check"></i> <strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
                                 </ul>
+                                <div class="cta-reassurance slide-up">
+                                    <div class="reassurance-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Sans engagement</span>
+                                    </div>
+                                    <div class="reassurance-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Réponse sous 24h</span>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="contact-form-wrapper" id="contact-form">
-                                <h3 class="fade-in">Parlez-nous de votre situation, nous vous aidons à y voir clair.</h3>
+                                <div class="form-header">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                    <h3 class="fade-in">Parlez-nous de votre situation</h3>
+                                </div>
                                 <p class="slide-up">Quelques questions pour nous permettre de vous orienter vers le bon type de parcours.</p>
                                 <form class="contact-form" onsubmit="return false;">
                                     ${this.renderForm()}
@@ -284,28 +355,35 @@ export class HomePage extends Component {
         const methods = [
             {
                 icon: "fa-compass",
+                number: "01",
                 title: "Mettre votre demande au clair",
                 content: "Vous arrivez avec des questions floues, parfois contradictoires. Nous vous aidons à formuler LA question centrale : \"Qu'est-ce que je veux vraiment que ce bilan change pour moi ?\""
             },
             {
                 icon: "fa-lock",
+                number: "02",
                 title: "Verrouiller le bon format",
                 content: "Nous positionnons votre entrée avec une grille claire basée sur 3 critères : parcours professionnel, disponibilités réelles, maturité du projet. Résultat : une formule recommandée et justifiée noir sur blanc."
             },
             {
                 icon: "fa-rocket",
+                number: "03",
                 title: "Lancer la suite sans perte de temps",
                 content: "On sécurise le démarrage sans interférer avec le travail du consultant : compte rendu de pré-inscription, brief de démarrage, et mise en relation avec un organisme partenaire Qualiopi."
             }
         ];
 
-        return methods.map(method => `
-            <div class="method-card scale-in">
+        return methods.map((method, index) => `
+            <div class="method-card scale-in" style="animation-delay: ${0.1 + index * 0.15}s">
+                <div class="method-number">${method.number}</div>
                 <div class="method-icon">
                     <i class="fas ${method.icon}"></i>
                 </div>
                 <h3>${method.title}</h3>
                 <p>${method.content}</p>
+                <div class="method-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </div>
         `).join('');
     }
@@ -316,24 +394,34 @@ export class HomePage extends Component {
                 name: "Paul",
                 age: 38,
                 role: "cadre en entreprise",
-                text: "Je savais que j'avais besoin de changement, mais impossible de savoir par où commencer. En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule et quel cadre de bilan demander. Formation Compétences m'a orienté vers un organisme hyper sérieux, adapté à mon profil. Je n'ai plus eu l'impression de \"jouer ma carrière à pile ou face\"."
+                text: "Je savais que j'avais besoin de changement, mais impossible de savoir par où commencer. En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule et quel cadre de bilan demander. Formation Compétences m'a orienté vers un organisme hyper sérieux, adapté à mon profil. Je n'ai plus eu l'impression de \"jouer ma carrière à pile ou face\".",
+                rating: 5
             },
             {
                 name: "Sylvie",
                 age: 45,
                 role: "salariée depuis 20 ans dans la même structure",
-                text: "J'avais peur de tout envoyer valser, peur de me tromper de formation, peur de \"ne pas être légitime\". Ma conseillère m'a aidée à poser les choses calmement, à préciser mon projet et à choisir un bilan adapté. Aujourd'hui, je sais où je vais, avec un organisme partenaire qui connaît vraiment mon secteur."
+                text: "J'avais peur de tout envoyer valser, peur de me tromper de formation, peur de \"ne pas être légitime\". Ma conseillère m'a aidée à poser les choses calmement, à préciser mon projet et à choisir un bilan adapté. Aujourd'hui, je sais où je vais, avec un organisme partenaire qui connaît vraiment mon secteur.",
+                rating: 5
             },
             {
                 name: "Eve",
                 age: 32,
                 role: "en réflexion de reconversion",
-                text: "J'avais repéré plein de formations en ligne, toutes avaient l'air géniales… et c'est justement ça le problème. La Prépa avec Formation Compétences m'a permis de trier, de vérifier ce qui était finançable, réaliste, et cohérent avec ma vie perso. Résultat : un parcours construit, pas un coup de tête."
+                text: "J'avais repéré plein de formations en ligne, toutes avaient l'air géniales… et c'est justement ça le problème. La Prépa avec Formation Compétences m'a permis de trier, de vérifier ce qui était finançable, réaliste, et cohérent avec ma vie perso. Résultat : un parcours construit, pas un coup de tête.",
+                rating: 5
             }
         ];
 
-        return testimonials.map(testimonial => `
-            <div class="testimonial-card slide-up">
+        return testimonials.map((testimonial, index) => `
+            <div class="testimonial-card slide-up" style="animation-delay: ${0.1 + index * 0.15}s">
+                <div class="testimonial-quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="testimonial-rating">
+                    ${Array(testimonial.rating).fill('<i class="fas fa-star"></i>').join('')}
+                </div>
+                <blockquote>${testimonial.text}</blockquote>
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">${testimonial.name[0]}</div>
                     <div class="testimonial-info">
@@ -341,7 +429,6 @@ export class HomePage extends Component {
                         <p>${testimonial.role}</p>
                     </div>
                 </div>
-                <blockquote>${testimonial.text}</blockquote>
             </div>
         `).join('');
     }
