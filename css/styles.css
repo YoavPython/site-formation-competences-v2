@@ -2329,6 +2329,9 @@ ul {
 .footer-tagline .tagline-sub {
     color: white;
     font-size: 0.9rem;
+}
+
+.footer-tagline .tagline-item {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
