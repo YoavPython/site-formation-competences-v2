@@ -165,13 +165,28 @@ ul {
 /* Section CTAs */
 .section-cta {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     padding-top: 1rem;
 }
 
 .section-cta .btn {
     font-size: 1.1rem;
     padding: 1rem 2.5rem;
+}
+
+.method .section-cta .btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+    box-shadow: 4px 4px 0px rgba(43, 51, 94, 0.3);
+}
+
+.method .section-cta .btn-primary:hover {
+    background: #1e3a8a;
+    border-color: #1e3a8a;
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 0px rgba(43, 51, 94, 0.4);
 }
 
 /* Orange CTA Buttons (Contact/Form) */
@@ -962,6 +977,34 @@ ul {
     display: none;
 }
 
+/* Wave dividers styles */
+.wave-divider {
+    line-height: 0;
+    margin-top: -1px;
+}
+
+.wave-divider svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+
+.wave-financing {
+    fill: #cbffea;
+}
+
+.wave-contact {
+    fill: #f8fafc;
+}
+
+.wave-footer {
+    fill: #2b325e;
+}
+
+.wave-what-we-do {
+    fill: white;
+}
+
 .intro-text {
     margin-bottom: var(--spacing-xl);
 }
@@ -1483,7 +1526,7 @@ ul {
    Témoignages
    ======================================== */
 .testimonials {
-    padding: calc(var(--spacing-2xl) * 1.5) 0;
+    padding: var(--spacing-xl) 0 calc(var(--spacing-2xl) * 1.5) 0;
     margin-top: 0;
     background: #ffffff;
 }
@@ -1891,20 +1934,25 @@ ul {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.footer-offers h5,
 .footer-links h5,
 .footer-legal h5 {
     color: white;
-    margin-bottom: var(--spacing-md);
-    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+.footer-offers ul,
 .footer-links ul,
 .footer-legal ul {
     list-style: none;
 }
 
+.footer-offers a,
 .footer-links a,
 .footer-legal a {
     color: rgba(255, 255, 255, 0.9);
@@ -1914,10 +1962,11 @@ ul {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+.footer-offers a:hover,
 .footer-links a:hover,
 .footer-legal a:hover {
     color: white;
-    transform: translateX(5px);
+    font-weight: 600;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -1986,10 +2035,11 @@ ul {
 /* Footer Certification Qualiopi */
 .footer-certification h5 {
     color: white;
-    margin-bottom: var(--spacing-md);
-    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .qualiopi-link {
@@ -2032,13 +2082,15 @@ ul {
 }
 
 .footer-linkedin {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-linkedin:hover {
     color: white;
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
 /* ========================================
@@ -2217,21 +2269,32 @@ ul {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    background: white;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Utilise les mêmes styles que la navbar */
+/* Logo footer en blanc */
 .footer-logo-wrapper .logo-groupe-text {
-    color: #464646 !important;
-    /* Les autres styles sont hérités de .logo-groupe-text */
+    color: white !important;
 }
 
 .footer-logo-wrapper .logo-svg {
-    width: 100px;
-    height: 45px;
+    width: 140px;
+    height: 60px;
+    filter: brightness(1.1);
+}
+
+.footer-tagline .tagline-main {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.footer-tagline .tagline-sub {
+    color: #FF6B4A;
+    font-size: 0.9rem;
+}
+
+.footer-offers h5:not(:first-child) {
+    margin-top: 1.5rem;
 }
 
 @media (max-width: 768px) {
@@ -2271,6 +2334,7 @@ ul {
     min-width: 350px;
     max-width: 400px;
     flex-shrink: 0;
+    width: calc((100% - 4rem) / 3);
 }
 
 .carousel-btn {
@@ -2311,12 +2375,28 @@ ul {
         padding: 2rem 3.5rem;
     }
     
+    .testimonials-track .testimonial-card {
+        width: calc((100% - 2rem) / 2);
+        min-width: 300px;
+    }
+    
     .carousel-btn-prev {
         left: 0.5rem;
     }
     
     .carousel-btn-next {
         right: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-carousel {
+        padding: 2rem 3rem;
+    }
+    
+    .testimonials-track .testimonial-card {
+        width: calc(100% - 2rem);
+        min-width: 280px;
     }
 }
 
@@ -2393,24 +2473,18 @@ ul {
 .cta-benefits {
     background: white;
     padding: var(--spacing-xl);
-    border-radius: 30px 34px 28px 32px; /* Coins irréguliers effet sketched */
-    box-shadow: 5px 5px 0px rgba(43, 51, 94, 0.2); /* Ombre cartoon */
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 3px solid var(--primary-blue);
     margin-bottom: var(--spacing-xl);
     font-family: 'Plus Jakarta Sans', sans-serif;
-    transform: rotate(-0.5deg);
-    transition: all 0.3s ease;
-}
-
-.cta-benefits:hover {
-    transform: rotate(0deg) scale(1.02);
-    box-shadow: 7px 7px 0px rgba(43, 51, 94, 0.25);
 }
 
 .cta-benefits h3 {
     color: var(--primary-blue);
-    font-size: 1.75rem;
-    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
     text-align: center;
 }
 
@@ -2511,7 +2585,7 @@ ul {
    ======================================== */
 .financing-modern {
     padding: var(--spacing-2xl) 0;
-    background: linear-gradient(135deg, #cbffea 0%, #e8fff5 100%);
+    background: linear-gradient(180deg, #cbffea 0%, #e8fff5 100%);
     position: relative;
 }
 
@@ -2617,7 +2691,7 @@ ul {
 }
 
 .financing-details-panel {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto var(--spacing-lg);
     min-height: 0;
     overflow: hidden;
@@ -2626,7 +2700,7 @@ ul {
 .financing-detail {
     display: none;
     background: white;
-    padding: 1.5rem 2rem;
+    padding: 2.5rem 3rem;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     animation: slideDown 0.3s ease;
@@ -2639,22 +2713,24 @@ ul {
 
 .financing-detail h4 {
     color: var(--primary-blue);
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.25rem;
 }
 
 .financing-detail p {
     color: var(--text-dark);
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
 }
 
 .detail-tag {
     display: inline-block;
-    background: var(--accent-mint);
-    color: var(--accent-mint-dark);
-    padding: 0.35rem 0.75rem;
+    background: var(--accent-mint-dark);
+    color: white;
+    padding: 0.4rem 0.85rem;
     border-radius: 20px;
+    font-weight: 600;
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -2681,6 +2757,20 @@ ul {
     padding: 1.5rem 2rem;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.financing-promise-inline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #cbffea;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.financing-promise-inline .promise-text {
+    text-align: left;
 }
 
 .promise-icon {
@@ -4602,6 +4692,7 @@ ul {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--border-color);
+    justify-content: flex-end;
 }
 
 .reassurance-item {

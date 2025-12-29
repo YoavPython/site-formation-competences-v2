@@ -39,8 +39,8 @@ export class HomePage extends Component {
                                     le dispositif d'accompagnement le plus adapté à votre situation.
                                 </p>
                                 <div class="hero-cta">
-                                    <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller expert</a>
-                                    <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre approche personnalisée</a>
+                                    <a href="/bilan-competences" class="btn btn-primary btn-lg">Réservez un bilan de compétences</a>
+                                    <a href="/vae" class="btn btn-secondary btn-lg">Valider vos acquis</a>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ export class HomePage extends Component {
                             <div class="section-icon bounce-in">
                                 <i class="fas fa-drafting-compass"></i>
                             </div>
-                            <h2 class="section-title fade-in">3 entretiens pour y voir clair...<br>pour changer le cours de votre vie.</h2>
+                            <h2 class="section-title fade-in">3 entretiens pour changer le cours de votre vie.</h2>
                             <p class="section-subtitle slide-up">Un accompagnement 100% personnalisé pour choisir le bon dispositif et le bon organisme.</p>
                         </div>
 
@@ -185,9 +185,14 @@ export class HomePage extends Component {
                         </div>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
-                        <div class="testimonials-grid">
-                            ${this.renderTestimonials()}
+                        <div class="testimonials-carousel">
+                            <button class="carousel-btn carousel-btn-prev"><i class="fas fa-chevron-left"></i></button>
+                            <div class="testimonials-track">
+                                ${this.renderTestimonials()}
+                            </div>
+                            <button class="carousel-btn carousel-btn-next"><i class="fas fa-chevron-right"></i></button>
                         </div>
+                        <div class="carousel-dots"></div>
                         
                         <div class="section-cta">
                             <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
@@ -236,31 +241,51 @@ export class HomePage extends Component {
                         <div class="financing-details-panel" id="financing-details">
                             <div class="financing-detail active" id="detail-cpf">
                                 <h4>💳 Compte Personnel de Formation (CPF)</h4>
-                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion.</p>
+                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion. Connectez-vous sur moncompteformation.gouv.fr pour connaître votre solde et réserver votre bilan directement en ligne. Le CPF est un dispositif universel qui accumule des droits à la formation tout au long de votre vie professionnelle, à raison de 500€ par an (800€ pour les personnes peu qualifiées), dans la limite de 5000€. Ces droits restent acquis même en cas de changement d'employeur ou de période de chômage. La procédure est entièrement digitalisée : vous créez votre compte, consultez votre solde disponible, choisissez votre organisme de formation certifié Qualiopi, et validez votre inscription en quelques clics. Le paiement est direct et vous n'avez aucune avance de frais à faire. C'est la solution la plus simple et la plus autonome pour financer votre bilan de compétences. Vous gardez la maîtrise totale de votre projet sans avoir besoin de l'accord de votre employeur.</p>
                                 <span class="detail-tag">✓ Pour tous les actifs</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
                             </div>
                             <div class="financing-detail" id="detail-plan">
                                 <h4>🏢 Plan de développement des compétences</h4>
-                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne.</p>
+                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne ou préparer une mobilité professionnelle. Parlez-en à votre service RH pour connaître les modalités de prise en charge. Le plan de développement des compétences est un outil stratégique qui permet aux entreprises d'accompagner leurs collaborateurs dans leur évolution professionnelle. Ce dispositif peut être mobilisé pour un projet de reconversion interne, une montée en compétences ou une réflexion sur votre orientation professionnelle. L'avantage principal : vous gardez votre statut de salarié et continuez à être rémunéré pendant votre bilan. Votre employeur peut même prévoir des aménagements d'horaires pour faciliter vos rendez-vous. Cette démarche témoigne d'un engagement mutuel dans votre développement professionnel et renforce la relation de confiance avec votre entreprise. N'hésitez pas à discuter de votre projet avec votre manager ou votre service RH pour explorer ensemble les possibilités offertes par ce dispositif.</p>
                                 <span class="detail-tag">✓ Salariés en poste</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
                             </div>
                             <div class="financing-detail" id="detail-opco">
                                 <h4>🤝 OPCO - Opérateurs de Compétences</h4>
-                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre.</p>
+                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre et à monter le dossier de demande. Un accompagnement personnalisé pour maximiser vos chances d'obtenir le financement. Les OPCO sont des organismes agréés par l'État qui collectent les contributions des entreprises et financent les actions de formation. Il existe 11 OPCO en France, chacun correspondant à un secteur d'activité spécifique (commerce, industrie, services, etc.). Les TPE et PME peuvent bénéficier d'une prise en charge totale ou partielle du coût du bilan de compétences. Les critères et montants varient selon votre OPCO et la taille de votre entreprise. Nous vous accompagnons dans toutes les étapes : identification de votre OPCO, constitution du dossier administratif, suivi de la demande et gestion des échanges. Notre expérience avec ces organismes nous permet de vous conseiller sur les meilleures pratiques pour optimiser votre demande et respecter les délais de traitement.</p>
                                 <span class="detail-tag">✓ TPE/PME</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
                             </div>
                             <div class="financing-detail" id="detail-france-travail">
                                 <h4>📋 Aide France Travail</h4>
-                                <p>Pour les demandeurs d'emploi : AIF ou abondement CPF possible selon votre projet et votre conseiller.</p>
+                                <p>Pour les demandeurs d'emploi : AIF (Aide Individuelle à la Formation) ou abondement CPF possible selon votre projet. Votre conseiller France Travail peut vous orienter vers la solution la plus adaptée à votre situation. L'AIF est une aide financière individuelle qui peut prendre en charge tout ou partie du coût de votre bilan de compétences lorsque les autres dispositifs ne suffisent pas. Si vous disposez déjà de droits CPF mais que votre solde est insuffisant, France Travail peut abonder votre compte pour compléter le financement manquant. La décision dépend de plusieurs critères : votre projet professionnel, la pertinence du bilan dans votre parcours de retour à l'emploi, et votre situation personnelle. Il est essentiel de présenter votre projet de manière structurée à votre conseiller pour maximiser vos chances d'obtenir un financement. Nous pouvons vous aider à préparer cette demande et à constituer les justificatifs nécessaires. N'attendez pas pour en discuter avec votre conseiller lors de votre prochain rendez-vous.</p>
                                 <span class="detail-tag">✓ Demandeurs d'emploi</span>
-                            </div>
-                        </div>
-                        
-                        <div class="financing-promise slide-up">
-                            <div class="promise-icon">✓</div>
-                            <div class="promise-text">
-                                <strong>Notre promesse :</strong> vous donner une vision claire des options, 
-                                pour que l'argent ne soit ni un tabou, ni un frein.
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -437,11 +462,46 @@ export class HomePage extends Component {
                 role: "en réflexion de reconversion",
                 text: "J'avais repéré plein de formations en ligne, toutes avaient l'air géniales… et c'est justement ça le problème. La Prépa avec Formation Compétences m'a permis de trier, de vérifier ce qui était finançable, réaliste, et cohérent avec ma vie perso. Résultat : un parcours construit, pas un coup de tête.",
                 rating: 5
+            },
+            {
+                name: "Marc",
+                age: 41,
+                role: "manager dans l'industrie",
+                text: "Après 15 ans dans le même secteur, je sentais qu'il était temps de changer. Mais changer pour quoi ? La préparation m'a permis de clarifier mes envies, mes compétences transférables et de construire un projet réaliste. Aujourd'hui, je suis serein dans ma transition.",
+                rating: 5
+            },
+            {
+                name: "Caroline",
+                age: 29,
+                role: "en questionnement professionnel",
+                text: "Je me sentais perdue entre tous les conseils contradictoires qu'on me donnait. L'accompagnement m'a aidée à faire le tri, à identifier ce qui comptait vraiment pour moi et à bâtir un plan d'action concret. Merci pour cette clarté !",
+                rating: 5
+            },
+            {
+                name: "Thomas",
+                age: 52,
+                role: "commercial depuis 25 ans",
+                text: "À mon âge, se reconvertir fait peur. L'équipe m'a montré que mon expérience était une richesse, pas un frein. Ils m'ont aidé à valoriser mon parcours et à trouver une nouvelle voie qui me ressemble. Je repars confiant.",
+                rating: 5
+            },
+            {
+                name: "Laura",
+                age: 35,
+                role: "mère de famille en reconversion",
+                text: "Concilier vie de famille et projet professionnel semblait impossible. La prépa m'a permis de construire un projet adapté à ma réalité, avec des solutions de financement que je ne connaissais pas. C'est exactement ce dont j'avais besoin.",
+                rating: 5
+            },
+            {
+                name: "Ahmed",
+                age: 44,
+                role: "technicien dans le bâtiment",
+                text: "Je voulais évoluer mais je ne savais pas vers quoi. Les entretiens m'ont permis de découvrir des pistes que je n'avais jamais envisagées et qui collent parfaitement à mon profil. Un vrai déclic !",
+                rating: 5
             }
         ];
 
         return testimonials.map((testimonial, index) => `
-            <div class="testimonial-card slide-up" style="animation-delay: ${0.1 + index * 0.15}s">
+            <div class="testimonial-card">
                 <div class="testimonial-quote-icon">
                     <i class="fas fa-quote-left"></i>
                 </div>
@@ -517,6 +577,9 @@ export class HomePage extends Component {
         
         // Initialiser les pills de financement
         this.initFinancingPills();
+        
+        // Initialiser le carrousel
+        this.initCarousel();
     }
     
     initFinancingPills() {
@@ -546,42 +609,103 @@ export class HomePage extends Component {
         const cards = track.querySelectorAll('.testimonial-card');
         const prevBtn = carousel.querySelector('.carousel-btn-prev');
         const nextBtn = carousel.querySelector('.carousel-btn-next');
-        const dots = this.findAll('.carousel-dot');
+        const dotsContainer = this.find('.carousel-dots');
         
         let currentIndex = 0;
         const totalCards = cards.length;
+        let autoplayInterval;
+        
+        // Détermine le nombre de cartes à afficher selon la largeur
+        const getCardsToShow = () => {
+            if (window.innerWidth < 768) return 1;
+            if (window.innerWidth < 1024) return 2;
+            return 3;
+        };
+        
+        let cardsToShow = getCardsToShow();
+        
+        // Fonction pour créer/mettre à jour les dots
+        const updateDots = () => {
+            dotsContainer.innerHTML = '';
+            const numDots = Math.max(1, totalCards - cardsToShow + 1);
+            for (let i = 0; i < numDots; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                    stopAutoplay();
+                    startAutoplay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        };
+        
+        updateDots();
+        const getDots = () => dotsContainer.querySelectorAll('.carousel-dot');
         
         const updateCarousel = () => {
-            const cardWidth = cards[0].offsetWidth + 32; // width + gap
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 32;
+            const offset = currentIndex * (cardWidth + gap);
+            track.style.transform = `translateX(-${offset}px)`;
             
+            const dots = getDots();
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
         };
         
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % (totalCards - cardsToShow + 1);
             updateCarousel();
+        };
+        
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + (totalCards - cardsToShow + 1)) % (totalCards - cardsToShow + 1);
+            updateCarousel();
+        };
+        
+        // Démarrer l'autoplay
+        const startAutoplay = () => {
+            autoplayInterval = setInterval(nextSlide, 4000); // Change toutes les 4 secondes
+        };
+        
+        const stopAutoplay = () => {
+            clearInterval(autoplayInterval);
+        };
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoplay();
+            startAutoplay();
         });
         
         nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalCards;
-            updateCarousel();
+            nextSlide();
+            stopAutoplay();
+            startAutoplay();
         });
         
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                currentIndex = i;
+        // Gestion du resize
+        window.addEventListener('resize', () => {
+            const newCardsToShow = getCardsToShow();
+            if (newCardsToShow !== cardsToShow) {
+                cardsToShow = newCardsToShow;
+                currentIndex = Math.min(currentIndex, totalCards - cardsToShow);
+                updateDots();
                 updateCarousel();
-            });
+            }
         });
         
-        // Auto-play optionnel
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalCards;
-            updateCarousel();
-        }, 6000);
+        // Pause au survol
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        
+        // Démarrer l'autoplay
+        startAutoplay();
+        updateCarousel();
     }
 
     handleFormSubmit() {
