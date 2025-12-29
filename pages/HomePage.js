@@ -215,7 +215,7 @@ export class HomePage extends Component {
                     <div class="container">
                         <div class="financing-hero slide-up">
                             <div class="financing-hero-content">
-                                <span class="financing-label"><i class="fas fa-piggy-bank"></i> Financement</span>
+                                <span class="financing-label">💰 Financement</span>
                                 <h2>Votre bilan peut être <span class="text-gradient">100% financé</span></h2>
                                 <p class="financing-tagline">Pas de mauvaise surprise. On vous explique tout.</p>
                             </div>
@@ -223,7 +223,7 @@ export class HomePage extends Component {
                         
                         <div class="financing-options-row slide-up">
                             <div class="financing-pill active" data-target="cpf">
-                                <span class="pill-icon">🎯</span>
+                                <span class="pill-icon">💳</span>
                                 <span class="pill-text">CPF</span>
                                 <span class="pill-badge">Le + utilisé</span>
                             </div>
