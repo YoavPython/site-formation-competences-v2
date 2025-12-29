@@ -217,7 +217,7 @@ export class HomePage extends Component {
                             <div class="financing-hero-content">
                                 <span class="financing-label"><i class="fas fa-piggy-bank"></i> Financement</span>
                                 <h2>Votre bilan peut être <span class="text-gradient">100% financé</span></h2>
-                                <p class="financing-tagline"><i class="fas fa-piggy-bank"></i> Pas de mauvaise surprise. On vous explique tout.</p>
+                                <p class="financing-tagline">Pas de mauvaise surprise. On vous explique tout.</p>
                             </div>
                         </div>
                         
