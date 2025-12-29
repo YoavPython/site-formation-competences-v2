@@ -635,7 +635,7 @@ ul {
     backdrop-filter: blur(5px);
     padding: 0.75rem 1rem;
     border-radius: 3px;
-    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border: none;
     box-shadow: none;
     display: flex;
     align-items: center;
@@ -1198,16 +1198,17 @@ ul {
 }
 
 .method-card {
-    background: white;
+    background: linear-gradient(135deg, #2b335e 0%, #1e2847 100%);
     padding: 2rem;
     border-radius: 28px 32px 30px 34px; /* Coins irréguliers effet sketched */
-    border: 3px solid var(--primary-orange);
-    box-shadow: 5px 5px 0px rgba(255, 106, 74, 0.25); /* Ombre cartoon */
+    border: 2px solid rgba(94, 221, 193, 0.3);
+    box-shadow: 5px 5px 0px rgba(94, 221, 193, 0.2); /* Ombre cartoon */
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bounce effect */
     position: relative;
     overflow: visible;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transform: rotate(-1deg); /* Rotation légère */
+    color: white;
 }
 
 /* Rotations alternées pour effet plus fun */
@@ -1217,14 +1218,14 @@ ul {
 
 #method-card-2 {
     transform: rotate(1deg);
-    border-color: #0891b2; /* Cyan/Turquoise */
-    box-shadow: 5px 5px 0px rgba(8, 145, 178, 0.25);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 5px 5px 0px rgba(96, 165, 250, 0.2);
 }
 
 #method-card-3 {
     transform: rotate(-0.5deg);
-    border-color: #10b981; /* Vert */
-    box-shadow: 5px 5px 0px rgba(16, 185, 129, 0.25);
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 5px 5px 0px rgba(251, 191, 36, 0.2);
 }
 
 .method-card::before {
@@ -1243,15 +1244,15 @@ ul {
 
 .method-card:hover {
     transform: translateY(-8px) rotate(0deg) scale(1.05); /* Redresse et agrandit */
-    box-shadow: 7px 7px 0px rgba(255, 106, 74, 0.35); /* Ombre cartoon plus grande */
+    box-shadow: 7px 7px 0px rgba(94, 221, 193, 0.35); /* Ombre cartoon plus grande */
 }
 
 #method-card-2:hover {
-    box-shadow: 7px 7px 0px rgba(8, 145, 178, 0.35);
+    box-shadow: 7px 7px 0px rgba(96, 165, 250, 0.35);
 }
 
 #method-card-3:hover {
-    box-shadow: 7px 7px 0px rgba(16, 185, 129, 0.35);
+    box-shadow: 7px 7px 0px rgba(251, 191, 36, 0.35);
 }
 
 .card-icon {
@@ -1274,12 +1275,12 @@ ul {
 
 .method-card:hover .card-icon {
     transform: rotate(0deg) scale(1.1);
-    box-shadow: 0 12px 35px rgba(255, 106, 74, 0.4);
+    box-shadow: 0 12px 35px rgba(94, 221, 193, 0.4);
 }
 
 .method-card h3 {
     margin-bottom: 1.5rem;
-    color: var(--text-dark);
+    color: white;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 700;
@@ -1547,6 +1548,48 @@ ul {
     position: relative;
     font-family: 'Plus Jakarta Sans', sans-serif;
     transform: rotate(0.5deg); /* Rotation légère */
+}
+
+/* Variantes de couleurs pour les cartes de témoignages */
+.testimonial-card.card-color-mauve {
+    background: linear-gradient(145deg, #f3e8ff 0%, #faf5ff 100%);
+    border-color: #a78bfa;
+    box-shadow: 5px 5px 0px rgba(167, 139, 250, 0.25);
+}
+
+.testimonial-card.card-color-yellow {
+    background: linear-gradient(145deg, #fef9c3 0%, #fefce8 100%);
+    border-color: #fbbf24;
+    box-shadow: 5px 5px 0px rgba(251, 191, 36, 0.25);
+}
+
+.testimonial-card.card-color-mint {
+    background: linear-gradient(145deg, #d1fae5 0%, #ecfdf5 100%);
+    border-color: #5EDDC1;
+    box-shadow: 5px 5px 0px rgba(94, 221, 193, 0.25);
+}
+
+.testimonial-card.card-color-blue {
+    background: linear-gradient(145deg, #dbeafe 0%, #eff6ff 100%);
+    border-color: #60a5fa;
+    box-shadow: 5px 5px 0px rgba(96, 165, 250, 0.25);
+}
+
+/* Hover states pour les variantes de couleur */
+.testimonial-card.card-color-mauve:hover {
+    box-shadow: 7px 7px 0px rgba(167, 139, 250, 0.35);
+}
+
+.testimonial-card.card-color-yellow:hover {
+    box-shadow: 7px 7px 0px rgba(251, 191, 36, 0.35);
+}
+
+.testimonial-card.card-color-mint:hover {
+    box-shadow: 7px 7px 0px rgba(94, 221, 193, 0.35);
+}
+
+.testimonial-card.card-color-blue:hover {
+    box-shadow: 7px 7px 0px rgba(96, 165, 250, 0.35);
 }
 
 .testimonial-card:nth-child(odd) {
@@ -2286,11 +2329,16 @@ ul {
     color: white;
     font-weight: 600;
     font-size: 1.1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .footer-tagline .tagline-sub {
-    color: #FF6B4A;
+    color: rgba(255, 107, 74, 0.4);
     font-size: 0.9rem;
+}
+
+.footer-tagline .bullet {
+    color: white;
 }
 
 .footer-offers h5:not(:first-child) {
@@ -2587,6 +2635,7 @@ ul {
     padding: var(--spacing-2xl) 0;
     background: linear-gradient(180deg, #cbffea 0%, #e8fff5 100%);
     position: relative;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .financing-hero {
@@ -3400,7 +3449,7 @@ ul {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.benefit-icon {
+.benefit-card .benefit-icon {
     width: 70px;
     height: 70px;
     background: linear-gradient(135deg, var(--primary-orange) 0%, #ff6b4a 100%);
@@ -3411,7 +3460,7 @@ ul {
     margin: 0 auto var(--spacing-md);
 }
 
-.benefit-icon i {
+.benefit-card .benefit-icon i {
     font-size: 1.8rem;
     color: white;
 }
@@ -4669,22 +4718,6 @@ ul {
     color: white;
 }
 
-.cta-benefits ul {
-    list-style: none;
-    padding: 0;
-}
-
-.cta-benefits li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-xs) 0;
-}
-
-.cta-benefits li i {
-    color: #22c55e;
-    margin-top: 0.2rem;
-}
 
 .cta-reassurance {
     display: flex;
@@ -4951,7 +4984,7 @@ ul {
     right: 15px;
     font-size: 4rem;
     font-weight: 800;
-    color: rgba(255, 56, 13, 0.15);
+    color: rgba(255, 255, 255, 0.25);
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -4961,7 +4994,7 @@ ul {
 
 .method-icon i {
     font-size: 1.8rem;
-    color: var(--accent-mint-dark);
+    color: #5EDDC1;
 }
 
 .method-arrow {

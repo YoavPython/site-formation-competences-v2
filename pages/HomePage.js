@@ -40,7 +40,7 @@ export class HomePage extends Component {
                                 </p>
                                 <div class="hero-cta">
                                     <a href="/bilan-competences" class="btn btn-primary btn-lg">Réservez un bilan de compétences</a>
-                                    <a href="/vae" class="btn btn-secondary btn-lg">Valider vos acquis</a>
+                                    <a href="/vae" class="btn btn-secondary btn-lg">Validez vos acquis avec une V.A.E</a>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@ export class HomePage extends Component {
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-primary btn-lg pulse-hover">
+                            <a href="#contact" class="btn btn-secondary btn-lg pulse-hover">
                                 <i class="fas fa-rocket"></i>
                                 Démarrer mon accompagnement personnalisé
                             </a>
@@ -185,17 +185,20 @@ export class HomePage extends Component {
                         </div>
                         <h2 class="section-title fade-in">Témoignages</h2>
                         <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
-                        <div class="testimonials-carousel">
-                            <button class="carousel-btn carousel-btn-prev"><i class="fas fa-chevron-left"></i></button>
-                            <div class="testimonials-track">
-                                ${this.renderTestimonials()}
-                            </div>
-                            <button class="carousel-btn carousel-btn-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div class="testimonials-carousel">
+                        <button class="carousel-btn carousel-btn-prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="testimonials-track">
+                            ${this.renderTestimonials()}
                         </div>
-                        <div class="carousel-dots"></div>
-                        
+                        <button class="carousel-btn carousel-btn-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="carousel-dots"></div>
+                    
+                    <div class="container">
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
+                            <a href="#contact" class="btn btn-secondary btn-lg"><i class="fas fa-arrow-right"></i> Rejoindre nos clients satisfaits</a>
                         </div>
                     </div>
                 </section>
@@ -241,7 +244,11 @@ export class HomePage extends Component {
                         <div class="financing-details-panel" id="financing-details">
                             <div class="financing-detail active" id="detail-cpf">
                                 <h4>💳 Compte Personnel de Formation (CPF)</h4>
-                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion. Connectez-vous sur moncompteformation.gouv.fr pour connaître votre solde et réserver votre bilan directement en ligne. Le CPF est un dispositif universel qui accumule des droits à la formation tout au long de votre vie professionnelle, à raison de 500€ par an (800€ pour les personnes peu qualifiées), dans la limite de 5000€. Ces droits restent acquis même en cas de changement d'employeur ou de période de chômage. La procédure est entièrement digitalisée : vous créez votre compte, consultez votre solde disponible, choisissez votre organisme de formation certifié Qualiopi, et validez votre inscription en quelques clics. Le paiement est direct et vous n'avez aucune avance de frais à faire. C'est la solution la plus simple et la plus autonome pour financer votre bilan de compétences. Vous gardez la maîtrise totale de votre projet sans avoir besoin de l'accord de votre employeur.</p>
+                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion. Connectez-vous sur moncompteformation.gouv.fr pour connaître votre solde et réserver votre bilan directement en ligne.</p>
+                                
+                                <p>Le CPF est un dispositif universel qui accumule des droits à la formation tout au long de votre vie professionnelle, à raison de 500€ par an (800€ pour les personnes peu qualifiées), dans la limite de 5000€. Ces droits restent acquis même en cas de changement d'employeur ou de période de chômage.</p>
+                                
+                                <p>La procédure est entièrement digitalisée : vous créez votre compte, consultez votre solde disponible, choisissez votre organisme de formation certifié Qualiopi, et validez votre inscription en quelques clics. Le paiement est direct et vous n'avez aucune avance de frais à faire. C'est la solution la plus simple et la plus autonome pour financer votre bilan de compétences.</p>
                                 <span class="detail-tag">✓ Pour tous les actifs</span>
                                 <div class="financing-promise-inline">
                                     <div class="promise-icon">✓</div>
@@ -253,7 +260,11 @@ export class HomePage extends Component {
                             </div>
                             <div class="financing-detail" id="detail-plan">
                                 <h4>🏢 Plan de développement des compétences</h4>
-                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne ou préparer une mobilité professionnelle. Parlez-en à votre service RH pour connaître les modalités de prise en charge. Le plan de développement des compétences est un outil stratégique qui permet aux entreprises d'accompagner leurs collaborateurs dans leur évolution professionnelle. Ce dispositif peut être mobilisé pour un projet de reconversion interne, une montée en compétences ou une réflexion sur votre orientation professionnelle. L'avantage principal : vous gardez votre statut de salarié et continuez à être rémunéré pendant votre bilan. Votre employeur peut même prévoir des aménagements d'horaires pour faciliter vos rendez-vous. Cette démarche témoigne d'un engagement mutuel dans votre développement professionnel et renforce la relation de confiance avec votre entreprise. N'hésitez pas à discuter de votre projet avec votre manager ou votre service RH pour explorer ensemble les possibilités offertes par ce dispositif.</p>
+                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne ou préparer une mobilité professionnelle. Parlez-en à votre service RH pour connaître les modalités de prise en charge.</p>
+                                
+                                <p>Le plan de développement des compétences est un outil stratégique qui permet aux entreprises d'accompagner leurs collaborateurs dans leur évolution professionnelle. Ce dispositif peut être mobilisé pour un projet de reconversion interne, une montée en compétences ou une réflexion sur votre orientation professionnelle.</p>
+                                
+                                <p>L'avantage principal : vous gardez votre statut de salarié et continuez à être rémunéré pendant votre bilan. Votre employeur peut même prévoir des aménagements d'horaires pour faciliter vos rendez-vous. Cette démarche témoigne d'un engagement mutuel dans votre développement professionnel.</p>
                                 <span class="detail-tag">✓ Salariés en poste</span>
                                 <div class="financing-promise-inline">
                                     <div class="promise-icon">✓</div>
@@ -265,7 +276,11 @@ export class HomePage extends Component {
                             </div>
                             <div class="financing-detail" id="detail-opco">
                                 <h4>🤝 OPCO - Opérateurs de Compétences</h4>
-                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre et à monter le dossier de demande. Un accompagnement personnalisé pour maximiser vos chances d'obtenir le financement. Les OPCO sont des organismes agréés par l'État qui collectent les contributions des entreprises et financent les actions de formation. Il existe 11 OPCO en France, chacun correspondant à un secteur d'activité spécifique (commerce, industrie, services, etc.). Les TPE et PME peuvent bénéficier d'une prise en charge totale ou partielle du coût du bilan de compétences. Les critères et montants varient selon votre OPCO et la taille de votre entreprise. Nous vous accompagnons dans toutes les étapes : identification de votre OPCO, constitution du dossier administratif, suivi de la demande et gestion des échanges. Notre expérience avec ces organismes nous permet de vous conseiller sur les meilleures pratiques pour optimiser votre demande et respecter les délais de traitement.</p>
+                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre et à monter le dossier de demande. Un accompagnement personnalisé pour maximiser vos chances d'obtenir le financement.</p>
+                                
+                                <p>Les OPCO sont des organismes agréés par l'État qui collectent les contributions des entreprises et financent les actions de formation. Il existe 11 OPCO en France, chacun correspondant à un secteur d'activité spécifique (commerce, industrie, services, etc.).</p>
+                                
+                                <p>Les TPE et PME peuvent bénéficier d'une prise en charge totale ou partielle du coût du bilan de compétences. Nous vous accompagnons dans toutes les étapes : identification de votre OPCO, constitution du dossier administratif, suivi de la demande et gestion des échanges.</p>
                                 <span class="detail-tag">✓ TPE/PME</span>
                                 <div class="financing-promise-inline">
                                     <div class="promise-icon">✓</div>
@@ -277,7 +292,11 @@ export class HomePage extends Component {
                             </div>
                             <div class="financing-detail" id="detail-france-travail">
                                 <h4>📋 Aide France Travail</h4>
-                                <p>Pour les demandeurs d'emploi : AIF (Aide Individuelle à la Formation) ou abondement CPF possible selon votre projet. Votre conseiller France Travail peut vous orienter vers la solution la plus adaptée à votre situation. L'AIF est une aide financière individuelle qui peut prendre en charge tout ou partie du coût de votre bilan de compétences lorsque les autres dispositifs ne suffisent pas. Si vous disposez déjà de droits CPF mais que votre solde est insuffisant, France Travail peut abonder votre compte pour compléter le financement manquant. La décision dépend de plusieurs critères : votre projet professionnel, la pertinence du bilan dans votre parcours de retour à l'emploi, et votre situation personnelle. Il est essentiel de présenter votre projet de manière structurée à votre conseiller pour maximiser vos chances d'obtenir un financement. Nous pouvons vous aider à préparer cette demande et à constituer les justificatifs nécessaires. N'attendez pas pour en discuter avec votre conseiller lors de votre prochain rendez-vous.</p>
+                                <p>Pour les demandeurs d'emploi : AIF (Aide Individuelle à la Formation) ou abondement CPF possible selon votre projet. Votre conseiller France Travail peut vous orienter vers la solution la plus adaptée à votre situation.</p>
+                                
+                                <p>L'AIF est une aide financière individuelle qui peut prendre en charge tout ou partie du coût de votre bilan de compétences lorsque les autres dispositifs ne suffisent pas. Si vous disposez déjà de droits CPF mais que votre solde est insuffisant, France Travail peut abonder votre compte pour compléter le financement manquant.</p>
+                                
+                                <p>La décision dépend de plusieurs critères : votre projet professionnel, la pertinence du bilan dans votre parcours de retour à l'emploi, et votre situation personnelle. Il est essentiel de présenter votre projet de manière structurée à votre conseiller pour maximiser vos chances d'obtenir un financement. Nous pouvons vous aider à préparer cette demande.</p>
                                 <span class="detail-tag">✓ Demandeurs d'emploi</span>
                                 <div class="financing-promise-inline">
                                     <div class="promise-icon">✓</div>
@@ -290,7 +309,7 @@ export class HomePage extends Component {
                         </div>
                         
                         <div class="section-cta">
-                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options</a>
+                            <a href="#contact" class="btn btn-orange btn-lg"><i class="fas fa-compass"></i> Découvrir mes options</a>
                         </div>
                     </div>
                 </section>
@@ -309,9 +328,9 @@ export class HomePage extends Component {
                             <div class="cta-benefits">
                                 <h3 class="fade-in">Nos engagements pour votre réussite</h3>
                                 <ul class="slide-up">
-                                    <li><strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
-                                    <li><strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
-                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
+                                    <li><strong>Clarté totale</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
+                                    <li><strong>Choix éclairé</strong> Vous ne choisissez plus votre organisme au hasard</li>
+                                    <li><strong>Expertise neutre</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
                                 </ul>
                                 <div class="cta-reassurance slide-up">
                                     <div class="reassurance-item">
@@ -497,11 +516,62 @@ export class HomePage extends Component {
                 role: "technicien dans le bâtiment",
                 text: "Je voulais évoluer mais je ne savais pas vers quoi. Les entretiens m'ont permis de découvrir des pistes que je n'avais jamais envisagées et qui collent parfaitement à mon profil. Un vrai déclic !",
                 rating: 5
+            },
+            {
+                name: "Sophie",
+                age: 38,
+                role: "responsable RH",
+                text: "J'étais dans le flou total sur mon avenir professionnel. L'accompagnement m'a permis de prendre du recul, d'identifier mes vraies motivations et de construire un projet aligné avec mes valeurs. Aujourd'hui, je sais où je vais.",
+                rating: 5
+            },
+            {
+                name: "Julien",
+                age: 31,
+                role: "développeur web",
+                text: "Changer de voie après des années dans le même domaine, c'est intimidant. Mais l'équipe m'a guidé pas à pas, m'a aidé à valoriser mes compétences et à trouver un projet qui me passionne vraiment. Merci !",
+                rating: 5
+            },
+            {
+                name: "Marie",
+                age: 47,
+                role: "assistante administrative",
+                text: "Je pensais qu'il était trop tard pour me reconvertir. L'accompagnement m'a prouvé le contraire et m'a donné les clés pour réussir ma transition. Je me sens enfin épanouie professionnellement.",
+                rating: 5
+            },
+            {
+                name: "David",
+                age: 39,
+                role: "entrepreneur",
+                text: "Après l'échec de mon entreprise, j'avais besoin de rebondir. Le bilan m'a aidé à identifier mes forces, à apprendre de mes erreurs et à repartir sur des bases solides. Une vraie renaissance professionnelle.",
+                rating: 5
+            },
+            {
+                name: "Nathalie",
+                age: 43,
+                role: "infirmière en questionnement",
+                text: "Épuisée par mon métier, je ne savais pas vers quoi me tourner. L'accompagnement m'a permis de découvrir des alternatives que je n'avais jamais envisagées. Aujourd'hui, j'ai un nouveau projet qui me motive chaque jour.",
+                rating: 5
+            },
+            {
+                name: "Olivier",
+                age: 55,
+                role: "cadre supérieur",
+                text: "À l'approche de la retraite, je voulais donner un nouveau sens à ma carrière. Le bilan m'a aidé à identifier mes priorités et à construire un projet de transmission qui me ressemble. Une démarche enrichissante.",
+                rating: 5
+            },
+            {
+                name: "Céline",
+                age: 28,
+                role: "jeune diplômée",
+                text: "Perdue après mes études, je ne savais pas quelle direction prendre. L'équipe m'a aidée à clarifier mes aspirations et à construire un plan de carrière cohérent. Je me sens enfin sur la bonne voie.",
+                rating: 5
             }
         ];
 
+        const colorClasses = ['card-color-mauve', 'card-color-yellow', 'card-color-mint', 'card-color-blue'];
+
         return testimonials.map((testimonial, index) => `
-            <div class="testimonial-card">
+            <div class="testimonial-card ${colorClasses[index % colorClasses.length]}">
                 <div class="testimonial-quote-icon">
                     <i class="fas fa-quote-left"></i>
                 </div>

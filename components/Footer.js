@@ -35,7 +35,7 @@ export class Footer extends Component {
                                     </svg>
                                 </div>
                             </div>
-                            <p class="footer-tagline"><span class="tagline-main">Révélez votre potentiel professionnel</span><br><span class="tagline-sub">Bilan de compétences • Validation d'acquis • Évolution de carrière</span></p>
+                            <p class="footer-tagline"><span class="tagline-main">Révélez votre potentiel professionnel</span><br><span class="tagline-sub">Bilan de compétences <span class="bullet">•</span> Validation d'acquis <span class="bullet">•</span> Évolution de carrière</span></p>
                             <div class="footer-contact-info">
                                 <p><i class="fas fa-envelope"></i> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></p>
                                 <p><i class="fas fa-phone"></i> <a href="tel:0186658299">01 86 65 82 99</a></p>
