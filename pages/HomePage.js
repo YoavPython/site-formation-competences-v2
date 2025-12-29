@@ -70,10 +70,10 @@ export class HomePage extends Component {
                 <!-- Section description du besoin -->
                 <section class="need-description">
                     <div class="container">
-                        <h2 class="need-title fade-in">Vous êtes à un tournant de votre carrière ?</h2>
+                        <h2 class="need-title fade-in">Vous n'avez pas besoin d'un "bilan de plus"</h2>
                         <div class="need-content slide-up">
-                            <p>Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer dans votre vie professionnelle ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong> avec un bilan, nous comprenons que ce n'est pas toujours facile de savoir par où commencer.</p>
-                            <p class="need-highlight"><strong>C'est exactement pour cela que nous sommes là.</strong> Nous vous aidons à y voir clair, à identifier le bon dispositif, et à construire un parcours qui a du sens pour vous.</p>
+                            <p>Vous avez besoin de <strong>comprendre lequel est fait pour vous</strong>. Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong>, nous savons que ce n'est pas toujours facile de savoir par où commencer.</p>
+                            <p class="need-highlight"><strong>Nous ne réalisons pas le Bilan de Compétences à votre place.</strong> Nous faisons le travail amont qui sécurise votre démarche : clarifier votre besoin, structurer votre projet, puis vous orienter vers le bon dispositif et le bon organisme partenaire.</p>
                         </div>
                     </div>
                 </section>
@@ -89,8 +89,8 @@ export class HomePage extends Component {
                 <section class="what-we-do" id="methode">
                     <div class="container">
                         <div class="section-header">
-                            <h2 class="section-title fade-in">Ce que nous proposons</h2>
-                            <p class="section-subtitle slide-up">Nous faisons le travail amont qui sécurise votre démarche pour garantir votre réussite.</p>
+                            <h2 class="section-title fade-in">Ce que fait concrètement Formation Compétences</h2>
+                            <p class="section-subtitle slide-up">Nous sommes l'architecte amont de votre parcours. Notre objectif n'est pas de remplir une formation, c'est que votre projet soit cohérent et tienne la route.</p>
                         </div>
 
                         <div class="steps-grid">
@@ -199,11 +199,11 @@ export class HomePage extends Component {
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
-                                <h3 class="fade-in">Pourquoi nous choisir ?</h3>
+                                <h3 class="fade-in">Ce que vous gagnez avec nous</h3>
                                 <ul class="slide-up">
-                                    <li><strong>Clarté totale :</strong> Vous savez exactement quel accompagnement correspond à vos besoins réels</li>
-                                    <li><strong>Choix éclairé :</strong> Plus de sélection au hasard, nous vous orientons vers l'organisme idéal</li>
-                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui maîtrise tous les dispositifs du marché</li>
+                                    <li><strong>Clarté totale :</strong> Vous savez exactement ce que vous venez chercher dans un bilan</li>
+                                    <li><strong>Choix éclairé :</strong> Vous ne choisissez plus votre organisme au hasard</li>
+                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</li>
                                 </ul>
                             </div>
 
@@ -233,22 +233,22 @@ export class HomePage extends Component {
             {
                 number: 1,
                 icon: "fa-user-circle",
-                title: "Comprendre votre situation",
+                title: "Comprendre finement votre situation",
                 content: [
-                    "Vous n'êtes pas qu'un CV : Nous reprenons votre contexte actuel, votre parcours et vos transitions passées.",
+                    "Vous n'êtes pas qu'un CV : nous reprenons votre contexte actuel, votre parcours et vos transitions passées.",
                     "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
                     "Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…"
                 ],
-                result: "Résultat Poser des bases solides pour éviter un accompagnement \"par défaut\"."
+                result: "Objectif Poser des bases solides pour éviter le bilan ou la formation \"par défaut\"."
             },
             {
                 number: 2,
                 icon: "fa-lightbulb",
                 title: "Vous aider à y voir clair (pour de vrai)",
                 content: [
-                    "cadrons votre besoin réel : quel type d'accompagnement pour quel objectif ?",
-                    "mettons à plat des pistes réalistes",
-                    "vérifions la cohérence globale : contraintes, prérequis, modalités et options de financement."
+                    "Nous cadrons votre besoin : bilan ? formation ? VAE ? autre dispositif ?",
+                    "Nous mettons à plat des pistes réalistes, pas des rêves.",
+                    "Nous vérifions la cohérence globale : contraintes, prérequis, modalités et financement."
                 ],
                 result: "Résultat Vous savez où vous en êtes, ce qui est possible, et ce qui ne l'est pas (encore)."
             },
@@ -257,11 +257,11 @@ export class HomePage extends Component {
                 icon: "fa-route",
                 title: "Vous orienter vers le bon dispositif et le bon partenaire",
                 content: [
-                    "nous formalisons vos critères de choix (objectifs, modalités, timing, contraintes)",
-                    "nous vous aidons à choisir le dispositif le plus adapté",
-                    "si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
+                    "Nous formalisons vos critères de choix (objectifs, modalités, timing, contraintes).",
+                    "Nous vous aidons à choisir le dispositif le plus adapté à votre situation.",
+                    "Si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
                 ],
-                result: "Résultat Vous savez exactement où vous allez, avec qui, et pourquoi."
+                result: "Résultat Quand vous démarrez, vous savez où vous allez, avec qui, et pourquoi."
             }
         ];
 
@@ -285,17 +285,17 @@ export class HomePage extends Component {
             {
                 icon: "fa-compass",
                 title: "Mettre votre demande au clair",
-                content: "Vous arrivez avec des questions floues, parfois contradictoires. Nous vous aidons à formuler la question centrale de votre démarche."
+                content: "Vous arrivez avec des questions floues, parfois contradictoires. Nous vous aidons à formuler LA question centrale : \"Qu'est-ce que je veux vraiment que ce bilan change pour moi ?\""
             },
             {
                 icon: "fa-lock",
-                title: "Verrouiller le bon format de bilan",
-                content: "Nous positionnons votre entrée en BDC avec une grille claire basée sur 3 critères : parcours, disponibilités, maturité du projet."
+                title: "Verrouiller le bon format",
+                content: "Nous positionnons votre entrée avec une grille claire basée sur 3 critères : parcours professionnel, disponibilités réelles, maturité du projet. Résultat : une formule recommandée et justifiée noir sur blanc."
             },
             {
                 icon: "fa-rocket",
                 title: "Lancer la suite sans perte de temps",
-                content: "On sécurise le démarrage avec un compte rendu clair, un brief de démarrage, et une mise en relation avec un organisme partenaire Qualiopi."
+                content: "On sécurise le démarrage sans interférer avec le travail du consultant : compte rendu de pré-inscription, brief de démarrage, et mise en relation avec un organisme partenaire Qualiopi."
             }
         ];
 

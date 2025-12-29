@@ -1,62 +1,202 @@
 import { Component } from '../js/core/Component.js';
 
-// Page VAE avec le contenu spécifique fourni par l'utilisateur
 export class VaePage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            formData: {
+                name: '',
+                email: '',
+                phone: '',
+                situation: '',
+                objectif: '',
+                message: '',
+                consent: false
+            }
+        };
+    }
+
     template() {
         return `
             <div class="vae-page">
                 <!-- Hero Section -->
-                <section class="hero">
+                <section class="hero hero-page hero-vae">
+                    <div class="hero-page-overlay"></div>
                     <div class="container">
-                        <div class="hero-content">
-                            <div class="hero-text">
-                                <h1 class="fade-in">VAE - Validation des Acquis de l'Expérience</h1>
-                                <p class="hero-subtitle slide-up">
-                                    Transformez votre expérience en diplôme reconnu avec notre accompagnement structuré
-                                </p>
+                        <div class="hero-page-content">
+                            <h1 class="hero-title fade-in">Validation des Acquis de l'Expérience</h1>
+                            <p class="hero-page-subtitle slide-up">Faites reconnaître officiellement vos compétences acquises sur le terrain</p>
+                            <div class="hero-cta slide-up">
+                                <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller</a>
+                                <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre méthode VAE</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Notre méthode VAE en 3 temps -->
-                <section class="method" id="methode">
+                <!-- Introduction -->
+                <section class="page-intro">
                     <div class="container">
-                        <h2 class="section-title fade-in">Notre méthode VAE en 3 temps</h2>
-                        <p class="section-subtitle slide-up">Un parcours clair pour transformer votre expérience en diplôme reconnu.</p>
-                        
-                        <div class="method-cards">
-                            ${this.renderVaeMethod()}
-                        </div>
-                        
-                        <div class="method-note slide-up">
-                            <p>L'accompagnement VAE <strong>(dossier de validation + préparation au jury)</strong> est ensuite réalisé avec l'organisme choisi.</p>
+                        <div class="intro-content">
+                            <h2 class="fade-in">Votre expérience vaut un diplôme.</h2>
+                            <p class="intro-highlight slide-up">La VAE vous permet d'obtenir une certification RNCP (titre, diplôme, blocs de compétences) <strong>sans repartir en formation</strong>, en faisant valider les compétences que vous avez déjà acquises sur le terrain.</p>
+                            <p class="slide-up">Mais attention : le risque n°1, c'est de partir sur une certification "qui sonne bien"… mais impossible à démontrer. <strong>Nous sécurisons votre démarche dès le départ.</strong></p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Témoignages VAE -->
-                <section class="testimonials" id="temoignages">
+                <!-- Wave divider -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,0 C300,100 600,20 1200,60 L1200,120 L0,120 Z" class="wave-what-we-do"></path>
+                    </svg>
+                </div>
+
+                <!-- Notre méthode VAE en 3 temps -->
+                <section class="what-we-do" id="methode">
                     <div class="container">
-                        <h2 class="section-title fade-in">Témoignages VAE</h2>
-                        <p class="section-subtitle slide-up">Des parcours de réussite avec notre accompagnement</p>
-                    </div>
-                    
-                    <!-- Carrousel en pleine largeur -->
-                    <div class="testimonials-carousel">
-                        <button class="carousel-btn carousel-btn-prev" aria-label="Précédent">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <div class="testimonials-track">
-                            ${this.renderVaeTestimonials()}
+                        <div class="section-header">
+                            <h2 class="section-title fade-in">Notre méthode VAE en 3 temps</h2>
+                            <p class="section-subtitle slide-up">Un accompagnement structuré pour maximiser vos chances de validation.</p>
                         </div>
-                        <button class="carousel-btn carousel-btn-next" aria-label="Suivant">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+
+                        <div class="vae-steps">
+                            ${this.renderVaeSteps()}
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg">Vérifier si la VAE est faite pour moi</a>
+                        </div>
                     </div>
-                    
+                </section>
+
+                <!-- Wave inverted -->
+                <div class="wave-divider wave-inverted">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,40 C200,70 400,10 600,50 C800,90 1000,30 1200,80 L1200,0 L0,0 Z" class="wave-yellow-inverted"></path>
+                    </svg>
+                </div>
+
+                <!-- Ce que nous faisons pour la VAE -->
+                <section class="method" id="accompagnement">
                     <div class="container">
-                        <div class="carousel-dots"></div>
+                        <h2 class="section-title fade-in">Si vous visez une VAE, nous vous aidons à</h2>
+                        <div class="vae-services-grid">
+                            <div class="vae-service-card scale-in">
+                                <div class="service-icon">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                </div>
+                                <h3>Cartographier vos expériences</h3>
+                                <p>Mise en regard de vos missions, responsabilités et réalisations avec les blocs de compétences du diplôme ou titre visé.</p>
+                            </div>
+                            <div class="vae-service-card scale-in">
+                                <div class="service-icon">
+                                    <i class="fas fa-chess"></i>
+                                </div>
+                                <h3>Définir la faisabilité & stratégie</h3>
+                                <p>VAE totale, par blocs, ou parcours mixte ? Options de financement étudiées, calendrier réaliste établi.</p>
+                            </div>
+                            <div class="vae-service-card scale-in">
+                                <div class="service-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3>Préparer le passage de relais</h3>
+                                <p>Pré-brief au partenaire pour lancer la recevabilité et l'accompagnement VAE sans repartir de zéro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Banderole -->
+                <section class="hero-banner">
+                    <div class="hero-banner-overlay"></div>
+                    <svg class="banner-wave-top" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,60 C200,30 400,70 600,40 C800,10 1000,50 1200,30 L1200,0 L0,0 Z" fill="white"/>
+                    </svg>
+                    <div class="hero-banner-content">
+                        <p><span class="text-orange">Votre expérience parle.</span> Nous vous aidons à la faire entendre.</p>
+                    </div>
+                    <svg class="banner-wave-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,20 C200,50 400,10 600,40 C800,70 1000,30 1200,50 L1200,80 L0,80 Z" fill="white"/>
+                    </svg>
+                </section>
+
+                <!-- À qui s'adresse la VAE -->
+                <section class="target-audience">
+                    <div class="container">
+                        <h2 class="section-title fade-in">La VAE est faite pour vous si…</h2>
+                        <div class="audience-grid slide-up">
+                            <div class="audience-item">
+                                <i class="fas fa-award"></i>
+                                <p>Vos compétences sont <strong>déjà prouvées sur le terrain</strong></p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <p>Vous voulez <strong>obtenir un diplôme/titre/bloc reconnu</strong></p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-rocket"></i>
+                                <p>Vous souhaitez <strong>accélérer une évolution ou mobilité</strong></p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-briefcase"></i>
+                                <p>Vous avez une <strong>expérience solide</strong> à faire reconnaître</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wave divider -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,20 C150,80 350,10 500,60 C700,100 900,30 1200,70 L1200,120 L0,120 Z" class="wave-financing"></path>
+                    </svg>
+                </div>
+
+                <!-- Nos engagements -->
+                <section class="financing" id="engagements">
+                    <div class="container">
+                        <h2 class="section-title fade-in">Nos engagements</h2>
+                        <div class="engagements-grid slide-up">
+                            <div class="engagement-card">
+                                <div class="engagement-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h3>Neutralité & transparence</h3>
+                                <p>Nous n'avons pas d'intérêt à "remplir une formation". Notre boussole, c'est la cohérence de votre projet dans la durée.</p>
+                            </div>
+                            <div class="engagement-card">
+                                <div class="engagement-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3>Efficacité</h3>
+                                <p>Des échanges cadrés, un livrable utile, et un passage de relais propre vers le bon organisme.</p>
+                            </div>
+                            <div class="engagement-card">
+                                <div class="engagement-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Qualité vérifiable</h3>
+                                <p>Partenaires Qualiopi, démarche conforme à une charte déontologique et avis clients vérifiés.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Wave divider -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-contact"></path>
+                    </svg>
+                </div>
+
+                <!-- Important à savoir -->
+                <section class="important-note">
+                    <div class="container">
+                        <div class="note-box slide-up">
+                            <i class="fas fa-info-circle"></i>
+                            <p><strong>Important :</strong> L'accompagnement VAE (dossier de validation + préparation au jury) est ensuite réalisé avec l'organisme / l'accompagnateur choisi. Notre rôle est de sécuriser votre démarche en amont.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -65,18 +205,18 @@ export class VaePage extends Component {
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
-                                <h3 class="fade-in">Prêt à transformer votre expérience en diplôme ?</h3>
+                                <h3 class="fade-in">Prêt à faire reconnaître votre expérience ?</h3>
+                                <p class="slide-up">Un premier échange permet de :</p>
                                 <ul class="slide-up">
-                                    <li>Identification du bon diplôme à viser</li>
-                                    <li>Vérification de la faisabilité de votre projet VAE</li>
-                                    <li>Mise en relation avec un accompagnateur spécialisé</li>
+                                    <li>Clarifier votre objectif (diplôme complet, blocs, évolution)</li>
+                                    <li>Vérifier la faisabilité de votre projet VAE</li>
+                                    <li>Identifier la certification la plus pertinente</li>
                                 </ul>
-                                <a href="#contact-form" class="btn btn-orange scale-in">Je souhaite être rappelé(e) par un conseiller VAE</a>
                             </div>
 
                             <div class="contact-form-wrapper" id="contact-form">
-                                <h3 class="fade-in">Parlez-nous de votre projet VAE</h3>
-                                <p class="slide-up">Quelques questions pour évaluer la faisabilité de votre VAE.</p>
+                                <h3 class="fade-in">Parlez-nous de votre expérience</h3>
+                                <p class="slide-up">Nous vous aidons à choisir la bonne voie.</p>
                                 <form class="contact-form" onsubmit="return false;">
                                     ${this.renderForm()}
                                 </form>
@@ -84,150 +224,67 @@ export class VaePage extends Component {
                         </div>
                     </div>
                 </section>
+
+                <!-- Wave → Footer -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-footer"></path>
+                    </svg>
+                </div>
             </div>
         `;
     }
 
-    renderVaeMethod() {
-        const methods = [
+    renderVaeSteps() {
+        const steps = [
             {
-                number: "1",
-                title: "Mettre votre objectif au clair (et éviter la VAE \"au mauvais diplôme\")",
-                content: `
-                    <p>Vous arrivez souvent avec une envie simple : faire reconnaître votre expérience… mais sans certitude sur quoi viser ni comment y arriver.</p>
-                    <p><strong>Nous vous aidons à :</strong></p>
-                    <ul>
-                        <li>clarifier votre objectif réel : diplôme complet, blocs de compétences, évolution, sécurisation</li>
-                        <li>identifier ce qui, dans votre expérience, est vraiment "validable" (missions, responsabilités, contexte)</li>
-                        <li>poser la question centrale : "Quelle certification doit prouver quoi, à partir de mon vécu réel ?"</li>
-                    </ul>
-                    <p class="result"><strong>Résultat :</strong> un cap clair, avant de vous lancer dans des mois de dossier.</p>
-                `
+                number: 1,
+                title: "Mettre votre objectif au clair",
+                subtitle: "(et éviter la VAE \"au mauvais diplôme\")",
+                content: [
+                    "Clarifier votre objectif réel : diplôme complet, blocs de compétences, évolution, sécurisation",
+                    "Identifier ce qui, dans votre expérience, est vraiment \"validable\" (missions, responsabilités, contexte)",
+                    "Poser la question centrale : \"Quelle certification doit prouver quoi, à partir de mon vécu réel ?\""
+                ],
+                result: "Résultat : un cap clair, avant de vous lancer dans des mois de dossier."
             },
             {
-                number: "2",
-                title: "Verrouiller la bonne certification (référentiel + faisabilité + stratégie)",
-                content: `
-                    <p>En VAE, le risque n°1, c'est de partir sur une certification "qui sonne bien"… mais impossible à démontrer.</p>
-                    <p><strong>Nous verrouillons le choix avec une grille simple basée sur 3 critères :</strong></p>
-                    <ul>
-                        <li><strong>Alignement expérience ↔ référentiel</strong> (ce que le jury attend, ce que vous pouvez prouver)</li>
-                        <li><strong>Périmètre de validation</strong> (total vs blocs, niveau, spécialité)</li>
-                        <li><strong>Faisabilité concrète</strong> (preuves disponibles, temps, rythme, contraintes, financement)</li>
-                    </ul>
-                    <p class="result"><strong>Résultat :</strong> une recommandation argumentée noir sur blanc : certification + stratégie de validation.</p>
-                `
+                number: 2,
+                title: "Verrouiller la bonne certification",
+                subtitle: "(référentiel + faisabilité + stratégie)",
+                content: [
+                    "Alignement expérience ↔ référentiel (ce que le jury attend, ce que vous pouvez prouver)",
+                    "Périmètre de validation (total vs blocs, niveau, spécialité)",
+                    "Faisabilité concrète (preuves disponibles, temps, rythme, contraintes, financement)"
+                ],
+                result: "Résultat : une recommandation argumentée noir sur blanc : certification + stratégie de validation."
             },
             {
-                number: "3",
-                title: "Lancer la suite sans vous perdre (plan de route + dossier + mise en relation)",
-                content: `
-                    <p>Une VAE réussie n'est pas "un dossier administratif". C'est une démonstration structurée de compétences.</p>
-                    <p><strong>On sécurise le démarrage sans écrire à votre place :</strong></p>
-                    <ul>
-                        <li>une <strong>feuille de route</strong> (étapes, timing, jalons, points de vigilance)</li>
-                        <li>un <strong>plan de preuves</strong> (ce qu'il faut rassembler, documenter, illustrer)</li>
-                        <li>et, si vous le souhaitez, une <strong>mise en relation</strong> avec un accompagnateur / organisme partenaire adapté (selon la certification et votre situation)</li>
-                    </ul>
-                    <p class="result"><strong>Résultat :</strong> vous démarrez votre VAE dans de bonnes conditions, sans repartir de zéro, avec une trajectoire claire jusqu'au jury.</p>
-                `
+                number: 3,
+                title: "Lancer la suite sans vous perdre",
+                subtitle: "(plan de route + dossier + mise en relation)",
+                content: [
+                    "Une feuille de route (étapes, timing, jalons, points de vigilance)",
+                    "Un plan de preuves (ce qu'il faut rassembler, documenter, illustrer)",
+                    "Une mise en relation avec un accompagnateur / organisme partenaire adapté"
+                ],
+                result: "Résultat : vous démarrez votre VAE avec une trajectoire claire jusqu'au jury."
             }
         ];
 
-        return methods.map(method => `
-            <div class="method-card vae-method-card slide-up">
-                <div class="method-header">
-                    <span class="method-number">${method.number}</span>
-                    <h3>${method.title}</h3>
-                </div>
-                <div class="method-content">
-                    ${method.content}
-                </div>
-            </div>
-        `).join('');
-    }
-
-    renderVaeTestimonials() {
-        const testimonials = [
-            {
-                title: "VAE DEAS (Aide-soignant)",
-                name: "Claire",
-                age: 42,
-                avatarColor: "#a8d5ff", // Bleu clair
-                role: "ASH en EHPAD (nuit) → VAE DEAS",
-                text: "Je tournais autour de la VAE depuis des mois sans savoir par où commencer. En deux échanges avec Laurence, ma conseillère VAE on a clarifié ce qui était recevable dans mon parcours, les 5 blocs DEAS à viser et le bon organisme pour m'accompagner au jury. On a monté le dossier de faisabilité en 1 semaine, j'ai eu la recevabilité et j'ai enchaîné sur la préparation. En 5 mois, j'ai validé la VAE 5/5 blocs. Aujourd'hui je suis en poste d'aide-soignante en journée, avec un CDI dans le même EHPAD."
-            },
-            {
-                title: "VAE DEAS (Aide-soignant)",
-                name: "Yanis",
-                age: 35,
-                avatarColor: "#c7f5d9", // Vert menthe clair
-                role: "Auxiliaire de vie (SSIAD) → VAE DEAS",
-                text: "Je ne voulais pas \"tout lâcher\" pour retourner en école. Mr Vincent Cotti de Formation Compétences m'a aidé à cadrer le bon parcours VAE, poser un timing réaliste avec mes interventions, et choisir un organisme partenaire solide. J'ai compris ce qu'attendait le jury et comment documenter mes situations-pro. J'ai pu valider ma VAE ce qui m'a permis d'évoluer en service sans perdre mes heures d'intervention."
-            },
-            {
-                title: "VAE – Petite enfance (CAP AEPE)",
-                name: "Anaïs",
-                age: 29,
-                avatarColor: "#ffd4a3", // Pêche clair
-                role: "Assistante maternelle agréée → VAE CAP AEPE",
-                text: "J'avais des années de pratique avec des tout-petits, mais rien sur le papier. On a fait le tri entre ce qui relevait vraiment des blocs du CAP AEPE et ce qui ne comptait pas. J'ai su comment présenter mes preuves (projets d'éveil, sécurité, relation aux parents), et vers quel organisme aller. En Septembre j'ai validé la VAE et j'ai pu ouvrir des créneaux dans une MAM à Lyon avec une vraie reconnaissance de mon métier. Un grand merci à Mme Debussy pour son aide et professionnalisme."
-            },
-            {
-                title: "VAE DEAP (Auxiliaire de puériculture)",
-                name: "Léa",
-                age: 33,
-                avatarColor: "#ffb3d9", // Rose clair
-                role: "Agent petite enfance en crèche → VAE DEAP",
-                text: "Je ne savais pas si mon expérience couvrait les 5 blocs DEAP. L'équipe m'a aidée à vérifier les prérequis, à sécuriser le financement et à choisir un organisme qui connaît le terrain crèche/hôpital. J'ai préparé des situations professionnelles précises (hygiène, alimentation, éveil, lien aux familles). VAE validée la semaine dernière. J'ai pu candidater en néonat' et Suis même parvenue à négocier mon salaire."
-            },
-            {
-                title: "VAE DEAP (Auxiliaire de puériculture)",
-                name: "Hugo",
-                age: 40,
-                avatarColor: "#d4b3ff", // Violet clair
-                role: "Animateur périscolaire (orientation petite enfance) → VAE DEAP",
-                text: "J'hésitais entre formation longue et VAE. On a posé ma réalité : contraintes horaires, maturité du projet, et ce qui était finançable. La mise en relation avec un organisme fiable et expérimenté dans le domaine en question m'a aidé à structurer mon dossier sans perdre de temps. J'ai pu valider tous les blocs. Aujourd'hui je travaille en service maternité et enfin sur un contrat stable."
-            },
-            {
-                title: "VAE DEAS (Aide-soignant)",
-                name: "Marie",
-                age: 38,
-                avatarColor: "#ffc4c4", // Rose corail clair
-                role: "Agent de service hospitalier → VAE DEAS",
-                text: "Après 10 ans à l'hôpital, je voulais enfin avoir mon diplôme d'aide-soignante. L'accompagnement m'a permis de structurer mon dossier avec des situations concrètes de mon quotidien. La préparation au jury était excellente. Résultat : validation totale en 6 mois ! Je suis maintenant AS avec une augmentation de salaire."
-            },
-            {
-                title: "VAE CAP AEPE (Petite enfance)",
-                name: "Sophie",
-                age: 31,
-                avatarColor: "#b3f0ff", // Cyan clair
-                role: "Garde d'enfants à domicile → VAE CAP AEPE",
-                text: "Je gardais des enfants depuis 8 ans mais sans diplôme. Grâce à l'accompagnement, j'ai compris comment valoriser mon expérience quotidienne. Le dossier était clair et structuré. J'ai validé ma VAE du premier coup et maintenant je peux postuler en crèche avec un vrai statut."
-            },
-            {
-                title: "VAE DEAES (Accompagnant éducatif et social)",
-                name: "Thomas",
-                age: 45,
-                avatarColor: "#fff4b3", // Jaune clair
-                role: "Aide médico-psychologique → VAE DEAES",
-                text: "Je travaillais auprès de personnes handicapées depuis 15 ans. La VAE m'a permis d'obtenir enfin la reconnaissance officielle de mes compétences. L'équipe m'a aidé à choisir la bonne spécialité et à préparer un dossier solide. Validation complète en 4 mois !"
-            }
-        ];
-
-        return testimonials.map(testimonial => `
-            <div class="testimonial-card vae-testimonial slide-up">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: ${testimonial.avatarColor}; color: #333;">
-                        ${testimonial.name[0]}
-                    </div>
-                    <div class="testimonial-info">
-                        <h4>${testimonial.name} – ${testimonial.age} ans</h4>
-                        <p class="testimonial-role">${testimonial.role}</p>
-                        <p class="testimonial-title">${testimonial.title}</p>
+        return steps.map(step => `
+            <div class="vae-step-card slide-up">
+                <div class="vae-step-header">
+                    <span class="vae-step-number">${step.number}</span>
+                    <div class="vae-step-titles">
+                        <h3>${step.title}</h3>
+                        <span class="vae-step-subtitle">${step.subtitle}</span>
                     </div>
                 </div>
-                <blockquote>${testimonial.text}</blockquote>
+                <ul class="vae-step-content">
+                    ${step.content.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+                <p class="vae-step-result"><strong>${step.result}</strong></p>
             </div>
         `).join('');
     }
@@ -244,18 +301,17 @@ export class VaePage extends Component {
                 <input type="tel" name="phone" placeholder="Votre téléphone *" required>
             </div>
             <div class="form-group">
-                <select name="diplome" required>
-                    <option value="">Diplôme visé *</option>
-                    <option value="deas">DEAS - Diplôme d'État d'Aide-Soignant</option>
-                    <option value="deap">DEAP - Diplôme d'État d'Auxiliaire de Puériculture</option>
-                    <option value="cap-aepe">CAP AEPE - Accompagnant Éducatif Petite Enfance</option>
-                    <option value="deaes">DEAES - Diplôme d'État d'Accompagnant Éducatif et Social</option>
-                    <option value="autre">Autre diplôme</option>
+                <select name="situation" required>
+                    <option value="">Votre situation actuelle *</option>
+                    <option value="salarie">Salarié(e)</option>
+                    <option value="demandeur-emploi">Demandeur d'emploi</option>
+                    <option value="independant">Indépendant(e)</option>
+                    <option value="autre">Autre</option>
                 </select>
             </div>
             <div class="form-group">
                 <select name="experience" required>
-                    <option value="">Années d'expérience dans le domaine *</option>
+                    <option value="">Années d'expérience dans votre domaine *</option>
                     <option value="1-3">1 à 3 ans</option>
                     <option value="3-5">3 à 5 ans</option>
                     <option value="5-10">5 à 10 ans</option>
@@ -263,20 +319,19 @@ export class VaePage extends Component {
                 </select>
             </div>
             <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Décrivez brièvement votre expérience professionnelle"></textarea>
+                <textarea name="message" rows="4" placeholder="Décrivez brièvement votre expérience et le diplôme/titre visé (facultatif)"></textarea>
             </div>
             <div class="form-group checkbox-group">
                 <label>
                     <input type="checkbox" name="consent" required>
-                    <span>J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande VAE.</span>
+                    <span>J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.</span>
                 </label>
             </div>
-            <button type="submit" class="btn btn-orange">Envoyer ma demande VAE</button>
+            <button type="submit" class="btn btn-orange">Vérifier ma faisabilité VAE</button>
         `;
     }
 
     attachEvents() {
-        // Gérer la soumission du formulaire
         const form = this.find('.contact-form');
         if (form) {
             form.addEventListener('submit', (e) => {
@@ -287,74 +342,14 @@ export class VaePage extends Component {
     }
 
     handleFormSubmit() {
-        // Récupérer les données du formulaire
         const formData = new FormData(this.find('.contact-form'));
         const data = Object.fromEntries(formData);
-        
-        // Ici, vous pouvez envoyer les données à votre backend
         console.log('Données du formulaire VAE:', data);
-        
-        // Afficher un message de succès
-        alert('Merci pour votre demande VAE ! Un conseiller spécialisé vous contactera dans les plus brefs délais.');
-        
-        // Réinitialiser le formulaire
+        alert('Merci pour votre demande ! Un conseiller vous contactera pour étudier votre projet VAE.');
         this.find('.contact-form').reset();
     }
 
     onMount() {
         console.log('VaePage montée');
-        this.initCarousel();
-    }
-    
-    initCarousel() {
-        const track = this.find('.testimonials-track');
-        const prevBtn = this.find('.carousel-btn-prev');
-        const nextBtn = this.find('.carousel-btn-next');
-        const cards = this.findAll('.vae-testimonial');
-        const dotsContainer = this.find('.carousel-dots');
-        
-        if (!track || !cards.length) return;
-        
-        let currentIndex = 0;
-        const cardWidth = cards[0].offsetWidth + 32; // largeur + gap (2rem = 32px)
-        
-        // Créer les dots
-        cards.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-        
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        
-        const updateDots = () => {
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        };
-        
-        const goToSlide = (index) => {
-            currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-            updateDots();
-        };
-        
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) goToSlide(currentIndex - 1);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) goToSlide(currentIndex + 1);
-        });
-        
-        // Défilement automatique toutes les 5 secondes
-        setInterval(() => {
-            if (currentIndex < cards.length - 1) {
-                goToSlide(currentIndex + 1);
-            } else {
-                goToSlide(0); // Retour au début
-            }
-        }, 5000);
     }
 }

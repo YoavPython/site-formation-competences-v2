@@ -1,6 +1,5 @@
 import { Component } from '../js/core/Component.js';
 
-// Page Bilan de Compétences - Copie exacte de la page d'accueil
 export class BilanCompetencesPage extends Component {
     constructor() {
         super();
@@ -19,177 +18,272 @@ export class BilanCompetencesPage extends Component {
 
     template() {
         return `
-            <div class="home-page">
-                <!-- Hero Section avec image -->
-                <section class="hero">
+            <div class="bilan-page">
+                <!-- Hero Section -->
+                <section class="hero hero-page">
+                    <div class="hero-page-overlay"></div>
                     <div class="container">
-                        <div class="hero-wrapper">
-                            <div class="hero-content">
-                                <h1 class="hero-title">Clarifiez votre parcours professionnel avec un accompagnement expert et personnalisé</h1>
-                                <p class="hero-subtitle">
-                                    Nous vous aidons à structurer votre projet, identifier vos besoins réels et choisir 
-                                    le dispositif d'accompagnement le plus adapté à votre situation.
-                                </p>
-                                <div class="hero-cta">
-                                    <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller expert</a>
-                                    <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre approche personnalisée</a>
-                                </div>
-                            </div>
-                            <div class="hero-image-container">
-                                <div class="hero-image-circle">
-                                    <img src="/assets/images/hero.png" alt="Bilan de compétences" class="hero-image">
-                                </div>
+                        <div class="hero-page-content">
+                            <h1 class="hero-title fade-in">Bilan de compétences</h1>
+                            <p class="hero-page-subtitle slide-up">Un accompagnement réellement sur-mesure, pensé pour être juste pour vous</p>
+                            <div class="hero-cta slide-up">
+                                <a href="#contact" class="btn btn-primary btn-lg">Être rappelé par un conseiller</a>
+                                <a href="#methode" class="btn btn-secondary btn-lg">Découvrir notre méthode</a>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Cartes de réassurance -->
-                <section class="reassurance-cards">
+                <!-- Introduction -->
+                <section class="page-intro">
                     <div class="container">
-                        <div class="cards-grid">
-                            <div class="reassurance-card scale-in">
-                                <i class="fas fa-network-wired"></i>
-                                <p>Réseau d'organismes partenaires certifiés Qualiopi</p>
-                            </div>
-                            <div class="reassurance-card scale-in">
-                                <i class="fas fa-balance-scale"></i>
-                                <p>Respect d'une charte déontologique stricte</p>
-                            </div>
-                            <div class="reassurance-card scale-in">
-                                <i class="fas fa-check"></i>
-                                <p>Avis clients vérifiés</p>
-                            </div>
-                            <div class="reassurance-card scale-in">
-                                <i class="fas fa-laptop"></i>
-                                <p>Accompagnement possible 100% à distance</p>
-                            </div>
+                        <div class="intro-content">
+                            <h2 class="fade-in">Pas un produit catalogue.</h2>
+                            <p class="intro-highlight slide-up">Un bilan construit à partir de votre situation réelle, de vos contraintes et de votre projet professionnel.</p>
+                            <p class="slide-up">Chez <strong>Formation Compétences</strong>, nous considérons qu'un bilan de compétences n'a de valeur que s'il constitue <strong>un véritable pivot dans une carrière</strong>. C'est pourquoi nous avons conçu une méthode qui part de vous — et non d'un programme standard à "remplir".</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave transition -->
+                <!-- Wave divider -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M0,0 C300,100 600,20 1200,60 L1200,120 L0,120 Z" class="wave-what-we-do"></path>
                     </svg>
                 </div>
 
-                <!-- Ce que fait concrètement Formation Compétences -->
-                <section class="what-we-do" id="methode">
+                <!-- Ce que vous avez vu ailleurs -->
+                <section class="what-we-do" id="difference">
                     <div class="container">
                         <div class="section-header">
-                            <h2 class="section-title fade-in">Ce que nous proposons</h2>
-                            <p class="section-subtitle slide-up">Nous faisons le travail amont qui sécurise votre démarche pour garantir votre réussite.</p>
+                            <h2 class="section-title fade-in">Ce que vous avez probablement déjà vu ailleurs</h2>
                         </div>
-
-                        <div class="steps-grid">
-                            ${this.renderSteps()}
-                        </div>
-                        
-                        <div class="section-cta">
-                            <a href="#contact" class="btn btn-orange btn-lg">Je veux clarifier mon projet professionnel</a>
+                        <div class="comparison-content slide-up">
+                            <p>Avant d'arriver ici, il est fort probable que vous ayez consulté :</p>
+                            <ul class="elsewhere-list">
+                                <li>Des réseaux nationaux proposant des formules "Essentiel / Classique / Premium", souvent basées sur un programme identique décliné en volumes horaires</li>
+                                <li>Des bilans 100 % en ligne, très outillés technologiquement, avec plateformes digitales, ateliers collectifs et communautés</li>
+                                <li>Des parcours hybrides mêlant outils digitaux et accompagnement de coachs</li>
+                            </ul>
+                            <p>Ces approches ont leurs qualités et peuvent convenir à certains profils.</p>
+                            <div class="highlight-box">
+                                <p><strong>Notre choix est différent.</strong></p>
+                                <p>Nous avons fait le pari inverse : <strong>ne pas partir d'un programme standard</strong>, mais <strong>dimensionner le bilan à partir de votre besoin réel</strong>.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave → Section method (fond blanc) -->
-                <div class="wave-divider">
+                <!-- Wave inverted -->
+                <div class="wave-divider wave-inverted">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,80 C200,30 400,90 600,50 C800,10 1000,70 1200,40 L1200,120 L0,120 Z" class="wave-method"></path>
+                        <path d="M0,40 C200,70 400,10 600,50 C800,90 1000,30 1200,80 L1200,0 L0,0 Z" class="wave-yellow-inverted"></path>
                     </svg>
                 </div>
 
-                <!-- Une méthode en 3 temps -->
-                <section class="method" id="approche">
+                <!-- À quoi sert un bilan -->
+                <section class="method" id="utilite">
                     <div class="container">
-                        <h2 class="section-title fade-in">Une méthode en 3 temps</h2>
-                        <p class="section-subtitle slide-up">Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.</p>
-                        <div class="method-cards">
-                            ${this.renderMethodCards()}
-                        </div>
-                        
-                        <div class="section-cta">
-                            <a href="#contact" class="btn btn-primary btn-lg">Démarrer mon accompagnement personnalisé</a>
+                        <h2 class="section-title fade-in">À quoi sert concrètement un bilan de compétences ?</h2>
+                        <p class="section-subtitle slide-up">Au-delà du cadre légal, un bon bilan de compétences doit vous permettre de :</p>
+                        <div class="benefits-grid">
+                            ${this.renderBenefits()}
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave transition -->
-                <div class="wave-divider">
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                        <path d="M0,40 C200,80 400,20 600,50 C800,80 1000,30 1200,60 L1200,120 L0,120 Z" class="wave-testimonials"></path>
+                <!-- Banderole -->
+                <section class="hero-banner">
+                    <div class="hero-banner-overlay"></div>
+                    <svg class="banner-wave-top" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,60 C200,30 400,70 600,40 C800,10 1000,50 1200,30 L1200,0 L0,0 Z" fill="white"/>
                     </svg>
-                </div>
+                    <div class="hero-banner-content">
+                        <p><span class="text-orange">Notre promesse :</span> le "bilan juste"</p>
+                    </div>
+                    <svg class="banner-wave-bottom" viewBox="0 0 1200 80" preserveAspectRatio="none">
+                        <path d="M0,20 C200,50 400,10 600,40 C800,70 1000,30 1200,50 L1200,80 L0,80 Z" fill="white"/>
+                    </svg>
+                </section>
 
-                <!-- Témoignages -->
-                <section class="testimonials" id="temoignages">
+                <!-- Notre promesse -->
+                <section class="promise-section">
                     <div class="container">
-                        <h2 class="section-title fade-in">Témoignages</h2>
-                        <p class="section-subtitle slide-up">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
-                        <div class="testimonials-grid">
-                            ${this.renderTestimonials()}
-                        </div>
-                        
-                        <div class="section-cta">
-                            <a href="#contact" class="btn btn-secondary btn-lg">Rejoindre nos clients satisfaits</a>
+                        <div class="promise-content slide-up">
+                            <p class="promise-intro">Nous partons d'un <strong>socle maximal de ressources possibles</strong>, puis nous retirons ce qui n'est pas utile à votre situation.</p>
+                            <div class="promise-grid">
+                                <div class="promise-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h4>Juste en contenu</h4>
+                                    <p>Vous ne payez pas pour des outils ou des tests superflus</p>
+                                </div>
+                                <div class="promise-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Juste en durée</h4>
+                                    <p>10h, 12h, 18h ou 24h selon une analyse objectivée de votre situation</p>
+                                </div>
+                                <div class="promise-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <h4>Juste en méthode</h4>
+                                    <p>Plus votre situation est complexe, plus l'ingénierie est adaptée</p>
+                                </div>
+                                <div class="promise-item">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <h4>Juste en coût</h4>
+                                    <p>Le tarif reflète les moyens réellement engagés, pas une formule figée</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave → Section financing (fond grisé léger) -->
+                <!-- Wave divider -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M0,20 C150,80 350,10 500,60 C700,100 900,30 1200,70 L1200,120 L0,120 Z" class="wave-financing"></path>
                     </svg>
                 </div>
 
-                <!-- Financements -->
-                <section class="financing">
+                <!-- Étapes du bilan -->
+                <section class="financing" id="methode">
                     <div class="container">
-                        <h2 class="section-title fade-in">Financements</h2>
-                        <p class="section-subtitle slide-up">Des solutions adaptées pour financer votre accompagnement selon votre situation.</p>
-                        <div class="financing-content slide-up">
-                            <p>Nous vous expliquons :</p>
-                            <ul>
-                                <li>les principales sources de financement possibles (CPF, plan de développement des compétences, OPCO, Pôle emploi, etc.)</li>
-                                <li>comment vérifier vos droits et éviter les mauvaises surprises</li>
-                                <li>comment parler de votre projet à votre employeur le cas échéant</li>
-                            </ul>
-                            <p class="financing-objective">
-                                <strong>Objectif :</strong> vous donner une vision claire des grandes options de financement, 
-                                pour que l'argent ne soit ni un tabou, ni un piège.
-                            </p>
-                        </div>
+                        <h2 class="section-title fade-in">Notre méthode en 2 étapes</h2>
                         
-                        <div class="section-cta">
-                            <a href="#contact" class="btn btn-orange btn-lg">Découvrir mes options de financement</a>
+                        <div class="etape-card slide-up">
+                            <div class="etape-header">
+                                <span class="etape-number">1</span>
+                                <h3>Le pré-bilan Formation Compétences</h3>
+                            </div>
+                            <p>Avant toute proposition d'heures, de formule ou de financement, nous réalisons un <strong>pré-bilan structuré</strong>, basé sur :</p>
+                            <ul>
+                                <li>Des formulaires avancés adaptés à votre statut (salarié, cadre, indépendant, demandeur d'emploi…)</li>
+                                <li>L'analyse de votre contexte professionnel</li>
+                                <li>Vos objectifs réels (faire le point, évoluer, se reconvertir, sécuriser, préparer une VAE…)</li>
+                                <li>Vos contraintes de rythme, de disponibilité et de calendrier</li>
+                                <li>Votre niveau de maturité de projet (idée floue, pistes identifiées, projet déjà ciblé)</li>
+                            </ul>
+                            <p class="etape-result"><strong>Objectif :</strong> ne pas vous "vendre un bilan", mais vous proposer <strong>le bon niveau d'accompagnement</strong>.</p>
+                        </div>
+
+                        <div class="etape-card slide-up">
+                            <div class="etape-header">
+                                <span class="etape-number">2</span>
+                                <h3>La Marge de Personnalisation Encadrée (MPE)</h3>
+                            </div>
+                            <p>Pour éviter le "sur-mesure au ressenti", nous utilisons un modèle interne appelé <strong>Marge de Personnalisation Encadrée</strong>. Votre situation est analysée selon <strong>7 critères opérationnels</strong> :</p>
+                            <div class="criteria-grid">
+                                <div class="criteria-item"><span>1</span> Contraintes d'exécution et de délais</div>
+                                <div class="criteria-item"><span>2</span> Niveau d'expertise et de séniorité requis</div>
+                                <div class="criteria-item"><span>3</span> Complexité du projet et du parcours</div>
+                                <div class="criteria-item"><span>4</span> Outillage d'évaluation et de restitution</div>
+                                <div class="criteria-item"><span>5</span> Investigation et validation terrain</div>
+                                <div class="criteria-item"><span>6</span> Besoins d'accessibilité et d'aménagements</div>
+                                <div class="criteria-item"><span>7</span> Charge de travail inter-séances et suivi</div>
+                            </div>
+                            <p class="etape-result"><strong>C'est ce modèle qui justifie objectivement la durée de votre bilan</strong>, sans inflation artificielle.</p>
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave → Section contact (fond blanc) -->
+                <!-- Wave divider -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-contact"></path>
                     </svg>
                 </div>
 
+                <!-- Ce que comprend votre bilan -->
+                <section class="what-includes">
+                    <div class="container">
+                        <h2 class="section-title fade-in">Ce que comprend concrètement votre bilan</h2>
+                        <p class="section-subtitle slide-up">Selon votre situation, votre bilan peut inclure :</p>
+                        <div class="includes-grid slide-up">
+                            <div class="include-item">
+                                <i class="fas fa-video"></i>
+                                <p>Entretiens individuels en visio ou en présentiel</p>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-brain"></i>
+                                <p>Tests psychométriques et d'intérêts choisis avec discernement</p>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-puzzle-piece"></i>
+                                <p>Outils de clarification personnelle</p>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-search"></i>
+                                <p>Enquêtes métiers structurées</p>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Analyse du marché de l'emploi</p>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-file-signature"></i>
+                                <p>Synthèse écrite complète et plan d'action</p>
+                            </div>
+                        </div>
+                        <p class="includes-note slide-up"><strong>Vous ne mobilisez pas tout systématiquement.</strong> C'est précisément ce qui garantit la pertinence du bilan.</p>
+                    </div>
+                </section>
+
+                <!-- À qui s'adresse -->
+                <section class="target-audience">
+                    <div class="container">
+                        <h2 class="section-title fade-in">À qui s'adresse notre bilan ?</h2>
+                        <div class="audience-grid slide-up">
+                            <div class="audience-item">
+                                <i class="fas fa-user-times"></i>
+                                <p>Personnes qui <strong>refusent les bilans standardisés</strong></p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-question-circle"></i>
+                                <p>Personnes qui <strong>hésitent entre plusieurs orientations</strong> possibles</p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>Personnes vivant une <strong>situation complexe ou contrainte</strong></p>
+                            </div>
+                            <div class="audience-item">
+                                <i class="fas fa-search-dollar"></i>
+                                <p>Personnes souhaitant <strong>comprendre précisément</strong> ce qu'elles achètent</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financements -->
+                <section class="financing-section">
+                    <div class="container">
+                        <h2 class="section-title fade-in">Financements et CPF</h2>
+                        <div class="financing-content slide-up">
+                            <p>Nos bilans de compétences sont finançables selon les dispositifs existants (CPF, plan de développement des compétences, autres aides possibles selon votre situation).</p>
+                            <p>Nous vous aidons à :</p>
+                            <ul>
+                                <li>Comprendre vos options</li>
+                                <li>Vérifier vos droits</li>
+                                <li>Articuler votre bilan avec un éventuel projet de formation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- CTA Final + Formulaire -->
                 <section class="final-cta" id="contact">
                     <div class="container">
                         <div class="cta-content">
                             <div class="cta-benefits">
-                                <h3 class="fade-in">Pourquoi nous choisir ?</h3>
+                                <h3 class="fade-in">Et maintenant ?</h3>
+                                <p class="slide-up">Un premier échange permet de :</p>
                                 <ul class="slide-up">
-                                    <li><strong>Clarté totale :</strong> Vous savez exactement quel accompagnement correspond à vos besoins réels</li>
-                                    <li><strong>Choix éclairé :</strong> Plus de sélection au hasard, nous vous orientons vers l'organisme idéal</li>
-                                    <li><strong>Expertise neutre :</strong> Un conseiller indépendant qui maîtrise tous les dispositifs du marché</li>
+                                    <li>Comprendre votre contexte</li>
+                                    <li>Vérifier si un bilan est réellement pertinent</li>
+                                    <li>Vous indiquer, en toute transparence, vers quelle durée nous nous orienterions — et pourquoi</li>
                                 </ul>
                             </div>
 
                             <div class="contact-form-wrapper" id="contact-form">
-                                <h3 class="fade-in">Parlez-nous de votre situation, nous vous aidons à y voir clair.</h3>
+                                <h3 class="fade-in">Parlez-nous de votre situation</h3>
                                 <p class="slide-up">Quelques questions pour nous permettre de vous orienter vers le bon type de parcours.</p>
                                 <form class="contact-form" onsubmit="return false;">
                                     ${this.renderForm()}
@@ -198,124 +292,48 @@ export class BilanCompetencesPage extends Component {
                         </div>
                     </div>
                 </section>
+
+                <!-- Wave → Footer -->
+                <div class="wave-divider">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-footer"></path>
+                    </svg>
+                </div>
             </div>
         `;
     }
 
-    renderSteps() {
-        const steps = [
+    renderBenefits() {
+        const benefits = [
             {
-                number: 1,
-                icon: "fa-user-circle",
-                title: "Comprendre votre situation",
-                content: [
-                    "Vous n'êtes pas qu'un CV : Nous reprenons votre contexte actuel, votre parcours et vos transitions passées.",
-                    "Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).",
-                    "Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…"
-                ],
-                result: "Objectif : poser des bases solides pour éviter un accompagnement \"par défaut\"."
-            },
-            {
-                number: 2,
                 icon: "fa-lightbulb",
-                title: "Vous aider à y voir clair (pour de vrai)",
-                content: [
-                    "cadrons votre besoin réel : quel type d'accompagnement pour quel objectif ?",
-                    "mettons à plat des pistes réalistes",
-                    "vérifions la cohérence globale : contraintes, prérequis, modalités et options de financement."
-                ],
-                result: "Résultat : vous savez où vous en êtes, ce qui est possible, et ce qui ne l'est pas (encore)."
+                title: "Comprendre votre situation",
+                content: "Ce qui se joue dans votre situation actuelle (poste, environnement, fatigue, envies de changement)"
             },
             {
-                number: 3,
-                icon: "fa-route",
-                title: "Vous orienter vers le bon dispositif et le bon partenaire",
-                content: [
-                    "nous formalisons vos critères de choix (objectifs, modalités, timing, contraintes)",
-                    "nous vous aidons à choisir le dispositif le plus adapté",
-                    "si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié."
-                ],
-                result: "Résultat : quand vous démarrez votre parcours d'accompagnement, vous savez exactement où vous allez, avec qui, et pourquoi."
-            }
-        ];
-
-        return steps.map((step, index) => `
-            <div class="step-card slide-up" id="step-card-${index + 1}">
-                <div class="step-number">${step.number}</div>
-                <div class="step-image">
-                    <img src="/assets/images/step${index + 1}.png" alt="Étape ${index + 1}">
-                </div>
-                <h3>${step.title}</h3>
-                <ul>
-                    ${step.content.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-                <p class="step-result"><strong>${step.result}</strong></p>
-            </div>
-        `).join('');
-    }
-
-    renderMethodCards() {
-        const methods = [
+                icon: "fa-gem",
+                title: "Identifier vos atouts",
+                content: "Vos véritables atouts : compétences, ressources, modes de fonctionnement, talents parfois sous-estimés"
+            },
             {
                 icon: "fa-compass",
-                title: "Mettre votre demande au clair",
-                content: "Vous arrivez avec des questions floues, parfois contradictoires. Nous vous aidons à formuler la question centrale de votre démarche."
+                title: "Explorer des pistes",
+                content: "Des pistes crédibles (évolution, reconversion, formation, VAE, sécurisation de parcours)"
             },
             {
-                icon: "fa-lock",
-                title: "Verrouiller le bon format de bilan",
-                content: "Nous positionnons votre entrée en BDC avec une grille claire basée sur 3 critères : parcours, disponibilités, maturité du projet."
-            },
-            {
-                icon: "fa-rocket",
-                title: "Lancer la suite sans perte de temps",
-                content: "On sécurise le démarrage avec un compte rendu clair, un brief de démarrage, et une mise en relation avec un organisme partenaire Qualiopi."
+                icon: "fa-map",
+                title: "Définir un plan d'action",
+                content: "Un plan d'action concret, structuré et applicable dans votre réalité"
             }
         ];
 
-        return methods.map(method => `
-            <div class="method-card scale-in">
-                <div class="method-icon">
-                    <i class="fas ${method.icon}"></i>
+        return benefits.map(benefit => `
+            <div class="benefit-card scale-in">
+                <div class="benefit-icon">
+                    <i class="fas ${benefit.icon}"></i>
                 </div>
-                <h3>${method.title}</h3>
-                <p>${method.content}</p>
-            </div>
-        `).join('');
-    }
-
-    renderTestimonials() {
-        const testimonials = [
-            {
-                name: "Paul",
-                age: 38,
-                role: "cadre en entreprise",
-                text: "Je savais que j'avais besoin de changement, mais impossible de savoir par où commencer. En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule et quel cadre de bilan demander. Formation Compétences m'a orienté vers un organisme hyper sérieux, adapté à mon profil. Je n'ai plus eu l'impression de \"jouer ma carrière à pile ou face\"."
-            },
-            {
-                name: "Sylvie",
-                age: 45,
-                role: "salariée depuis 20 ans dans la même structure",
-                text: "J'avais peur de tout envoyer valser, peur de me tromper de formation, peur de \"ne pas être légitime\". Ma conseillère m'a aidée à poser les choses calmement, à préciser mon projet et à choisir un bilan adapté. Aujourd'hui, je sais où je vais, avec un organisme partenaire qui connaît vraiment mon secteur."
-            },
-            {
-                name: "Eve",
-                age: 32,
-                role: "en réflexion de reconversion",
-                text: "J'avais repéré plein de formations en ligne, toutes avaient l'air géniales… et c'est justement ça le problème. La Prépa avec Formation Compétences m'a permis de trier, de vérifier ce qui était finançable, réaliste, et cohérent avec ma vie perso. Résultat : un parcours construit, pas un coup de tête."
-            }
-        ];
-
-        return testimonials.map(testimonial => `
-            <div class="testimonial-card slide-up">
-                <div class="testimonial-header">
-                    <div class="testimonial-avatar">${testimonial.name[0]}</div>
-                    <div class="testimonial-info">
-                        <h4>${testimonial.name} – ${testimonial.age} ans</h4>
-                        <p>${testimonial.role}</p>
-                    </div>
-                </div>
-                <blockquote>${testimonial.text}</blockquote>
+                <h3>${benefit.title}</h3>
+                <p>${benefit.content}</p>
             </div>
         `).join('');
     }
@@ -343,12 +361,10 @@ export class BilanCompetencesPage extends Component {
             <div class="form-group">
                 <select name="objectif" required>
                     <option value="">Votre objectif principal *</option>
-                    <option value="reconversion">Reconversion professionnelle</option>
-                    <option value="evolution">Évolution de carrière</option>
-                    <option value="validation">Validation d'acquis (VAE)</option>
-                    <option value="creation">Création d'entreprise</option>
-                    <option value="bilan">Faire le point sur mes compétences</option>
-                    <option value="formation">Monter en compétences</option>
+                    <option value="faire-le-point">Faire le point sur ma carrière</option>
+                    <option value="evoluer">Évoluer dans mon entreprise</option>
+                    <option value="reconversion">Me reconvertir</option>
+                    <option value="securiser">Sécuriser une décision</option>
                     <option value="autre">Autre</option>
                 </select>
             </div>
@@ -361,12 +377,11 @@ export class BilanCompetencesPage extends Component {
                     <span>J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.</span>
                 </label>
             </div>
-            <button type="submit" class="btn btn-orange">Envoyer ma demande</button>
+            <button type="submit" class="btn btn-orange">Je souhaite être rappelé(e)</button>
         `;
     }
 
     attachEvents() {
-        // Gérer la soumission du formulaire
         const form = this.find('.contact-form');
         if (form) {
             form.addEventListener('submit', (e) => {
@@ -377,22 +392,14 @@ export class BilanCompetencesPage extends Component {
     }
 
     handleFormSubmit() {
-        // Récupérer les données du formulaire
         const formData = new FormData(this.find('.contact-form'));
         const data = Object.fromEntries(formData);
-        
-        // Ici, vous pouvez envoyer les données à votre backend
         console.log('Données du formulaire:', data);
-        
-        // Afficher un message de succès
         alert('Merci pour votre demande ! Un conseiller vous contactera dans les plus brefs délais.');
-        
-        // Réinitialiser le formulaire
         this.find('.contact-form').reset();
     }
 
     onMount() {
-        // Initialiser les animations au scroll si nécessaire
         console.log('BilanCompetencesPage montée');
     }
 }
