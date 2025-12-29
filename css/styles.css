@@ -300,6 +300,7 @@ ul {
 .dropdown-toggle {
     position: relative;
     padding-right: 20px !important;
+    cursor: pointer;
 }
 
 .dropdown-toggle::after {

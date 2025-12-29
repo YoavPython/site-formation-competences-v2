@@ -70,6 +70,36 @@ function initAnimations() {
     document.querySelectorAll('.fade-in, .slide-up, .scale-in').forEach(el => {
         observer.observe(el);
     });
+    
+    // Gestion de la vidéo hero - relancer quand elle redevient visible
+    initHeroVideo();
+}
+
+/**
+ * Gère la lecture de la vidéo hero en fonction de sa visibilité
+ * Les navigateurs mettent en pause les vidéos hors viewport pour économiser les ressources
+ */
+function initHeroVideo() {
+    const heroVideo = document.querySelector('.hero-video');
+    if (!heroVideo) return;
+    
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // La vidéo est visible, on la relance
+                heroVideo.play().catch(() => {
+                    // Ignorer les erreurs (ex: autoplay bloqué)
+                });
+            } else {
+                // La vidéo est hors écran, on la met en pause pour économiser les ressources
+                heroVideo.pause();
+            }
+        });
+    }, {
+        threshold: 0.1 // Déclencher quand 10% de la vidéo est visible
+    });
+    
+    videoObserver.observe(heroVideo);
 }
 
 // Lancer l'application quand le DOM est prêt
