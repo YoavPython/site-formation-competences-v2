@@ -26,7 +26,7 @@ export class PolitiqueConfidentialitePage extends Component {
                         <div class="legal-section">
                             <h2>2. Responsable du traitement</h2>
                             <div class="legal-info-grid">
-                                <div class="info-item"><strong>Raison sociale :</strong> GROUPE FORMATION COMPETENCES</div>
+                                <div class="info-item"><strong>Raison sociale :</strong> FORMATION COMPETENCES</div>
                                 <div class="info-item"><strong>Forme juridique :</strong> SASU</div>
                                 <div class="info-item"><strong>Siège social :</strong> 16 RUE CUVIER, 69006 LYON</div>
                                 <div class="info-item"><strong>SIREN :</strong> 918 325 796</div>
@@ -61,7 +61,7 @@ export class PolitiqueConfidentialitePage extends Component {
 
                         <div class="legal-section">
                             <h2>5. Destinataires et transferts</h2>
-                            <p>Vos données sont destinées aux services internes habilités de Groupe Formation Compétences. Elles peuvent être transmises à :</p>
+                            <p>Vos données sont destinées aux services internes habilités de Formation Compétences. Elles peuvent être transmises à :</p>
                             <ul class="cookies-list">
                                 <li>Des organismes partenaires (formation, bilan, VAE) avec votre accord explicite</li>
                                 <li>Des organismes de financement (CPF, OPCO, France Travail) dans le cadre strict de votre dossier</li>
@@ -94,7 +94,7 @@ export class PolitiqueConfidentialitePage extends Component {
                                 <li><strong>Droit à la portabilité</strong> (art. 20 RGPD) : recevoir vos données dans un format structuré et couramment utilisé</li>
                                 <li><strong>Droit de retirer votre consentement</strong> à tout moment lorsque le traitement est fondé sur le consentement</li>
                             </ul>
-                            <p><strong>Exercice des droits :</strong> adressez votre demande par email à <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a> ou par courrier à GROUPE FORMATION COMPETENCES, 16 RUE CUVIER, 69006 LYON.</p>
+                            <p><strong>Exercice des droits :</strong> adressez votre demande par email à <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a> ou par courrier à FORMATION COMPETENCES, 16 RUE CUVIER, 69006 LYON.</p>
                             <p>Conformément au RGPD (art. 12), nous nous engageons à vous répondre <strong>dans un délai d'un mois</strong> à compter de la réception de votre demande. Ce délai peut être prolongé de deux mois en cas de demandes complexes ou nombreuses ; vous serez alors informé.</p>
                             <p><strong>Spécificité française – Directives relatives au sort des données après le décès :</strong> conformément à l'article 40-1 de la loi 78-17, vous pouvez définir des directives relatives au sort de vos données personnelles après votre décès (transmission à un tiers désigné ou suppression). Ces directives peuvent être enregistrées auprès d'un tiers de confiance certifié par la CNIL.</p>
                         </div>

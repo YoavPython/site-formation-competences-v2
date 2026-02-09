@@ -1,6 +1,6 @@
 # Intégration Avis Vérifiés sur le site
 
-Ce guide explique comment connecter votre compte Avis Vérifiés au site Groupe Formation Compétences.
+Ce guide explique comment connecter votre compte Avis Vérifiés au site Formation Compétences.
 
 ## 1. Créer un compte et récupérer les identifiants
 

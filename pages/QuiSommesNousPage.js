@@ -15,10 +15,10 @@ export class QuiSommesNousPage extends Component {
                         <div class="hero-page-content">
                             <div class="hero-badge fade-in">
                                 <i class="fas fa-building"></i>
-                                <span>Le Groupe</span>
+                                <span>À propos</span>
                             </div>
                             <h1 class="hero-title fade-in">Qui sommes-nous ?</h1>
-                            <p class="hero-page-subtitle slide-up">Groupe Formation Compétences : votre partenaire pour clarifier votre parcours professionnel</p>
+                            <p class="hero-page-subtitle slide-up">Formation Compétences : votre partenaire pour clarifier votre parcours professionnel</p>
                         </div>
                     </div>
                 </section>
@@ -35,7 +35,7 @@ export class QuiSommesNousPage extends Component {
                                 <p class="slide-up">Nous agissons comme un partenaire de confiance : nous vous aidons à structurer votre projet, identifier vos besoins et vous orienter vers des organismes certifiés Qualiopi.</p>
                             </div>
                             <div class="intro-image scale-in">
-                                <img src="/assets/images/hero.png" alt="Groupe Formation Compétences">
+                                <img src="/assets/images/hero.png" alt="Formation Compétences">
                                 <div class="image-decoration">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
@@ -143,7 +143,7 @@ export class QuiSommesNousPage extends Component {
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <h2 class="section-title fade-in">La confiance, ça se mesure</h2>
-                            <p class="section-subtitle slide-up">Chiffres clés du réseau Groupe Formation Compétences</p>
+                            <p class="section-subtitle slide-up">Chiffres clés du réseau Formation Compétences</p>
                         </div>
                         <div class="stats-grid-qui slide-up">
                             <div class="stat-card-qui scale-in">

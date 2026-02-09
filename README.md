@@ -1,4 +1,4 @@
-# Groupe Formation Compétences
+# Formation Compétences
 
 Site web pour accompagner les personnes dans leur bilan de compétences avec une approche structurée et personnalisée.
 
@@ -115,7 +115,7 @@ Le site peut être déployé sur n'importe quel serveur web statique :
 
 ## 📄 Licence
 
-© 2024 Groupe Formation Compétences. Tous droits réservés.
+© 2024 Formation Compétences. Tous droits réservés.
 
 ## 📞 Contact
 

@@ -58,14 +58,18 @@ async function initApp() {
  */
 function updatePageTitle(path) {
     const titles = {
-        '/': 'Accueil - Groupe Formation Compétences',
-        '/bilan-competences': 'Bilan de Compétences - Groupe Formation Compétences',
-        '/vae': 'VAE - Validation des Acquis de l\'Expérience - Groupe Formation Compétences',
-        '/mentions-legales': 'Mentions Légales - Groupe Formation Compétences',
-        '/politique-confidentialite': 'Politique de Confidentialité - Groupe Formation Compétences'
+        '/': 'Accueil - Formation Compétences',
+        '/bilan-competences': 'Bilan de Compétences - Formation Compétences',
+        '/vae': 'VAE - Validation des Acquis de l\'Expérience - Formation Compétences',
+        '/qui-sommes-nous': 'Qui sommes-nous ? - Formation Compétences',
+        '/blog': 'Blog - Formation Compétences',
+        '/faq': 'FAQ - Formation Compétences',
+        '/actu': 'Bilan de compétences gratuit - Formation Compétences',
+        '/mentions-legales': 'Mentions Légales - Formation Compétences',
+        '/politique-confidentialite': 'Politique de Confidentialité - Formation Compétences'
     };
     
-    document.title = titles[path] || 'Groupe Formation Compétences';
+    document.title = titles[path] || 'Formation Compétences';
 }
 
 /**

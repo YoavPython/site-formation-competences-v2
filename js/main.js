@@ -264,7 +264,7 @@ contactForm?.addEventListener('submit', function(e) {
 // ========================================
 // Initialisation
 // ========================================
-console.log('Site Groupe Formation Compétences chargé avec succès');
+console.log('Site Formation Compétences chargé avec succès');
 
 // Ajout d'une classe au body une fois le DOM chargé
 document.body.classList.add('loaded');

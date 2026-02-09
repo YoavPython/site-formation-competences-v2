@@ -39,7 +39,7 @@ export class Navbar extends Component {
                                     <path d="M106.636 33.2884C108.741 33.2884 110.193 32.0832 110.193 30.3407C110.193 28.9032 109.308 27.9884 107.551 27.4656L105.677 26.9139C104.53 26.5799 103.906 25.8684 103.906 24.9681C103.906 23.8645 104.821 23.1385 106.2 23.1385C107.565 23.1385 108.582 23.85 109.046 25.1859L110.092 24.7067C109.612 23.2982 108.16 22.1221 106.186 22.1221C104.182 22.1221 102.744 23.3418 102.744 25.0552C102.744 26.3621 103.615 27.4656 105.314 27.9593L107.289 28.5402C108.48 28.8887 109.032 29.4404 109.032 30.4424C109.032 31.5314 108.059 32.272 106.636 32.272C105.111 32.272 103.979 31.4588 103.47 29.9341L102.425 30.3843C102.933 31.9815 104.516 33.2884 106.636 33.2884Z" fill="#170682"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M108.653 37.8845C89.3766 36.3071 63.673 36.2995 41.1652 38.8854C25.9165 40.6384 12.126 43.5783 2.64474 47.9814C1.82939 48.3612 2.02323 48.8574 3.07587 49.091C4.12864 49.3278 5.64035 49.2088 6.45569 48.8291C15.2542 44.7393 28.1076 42.0364 42.2699 40.4107C63.8836 37.9284 88.5443 37.9397 107.036 39.459C108.295 39.559 109.675 39.2912 110.122 38.859C110.558 38.424 109.903 37.9881 108.653 37.8845Z" fill="#FF380D"/>
                                 </svg>
-                                <span class="logo-groupe-text">Groupe Formation Compétences</span>
+                                <span class="logo-groupe-text">Formation Compétences</span>
                             </div>
                         </a>
                         <button class="mobile-menu-toggle" aria-label="Menu">
@@ -57,7 +57,7 @@ export class Navbar extends Component {
                             </li>
                             <li><a href="/#approche">Notre approche</a></li>
                             <li class="dropdown">
-                                <span class="dropdown-toggle">Le Groupe</span>
+                                <span class="dropdown-toggle">À propos</span>
                                 <ul class="dropdown-menu">
                                     <li><a href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
                                     <li><a href="/blog">Blog</a></li>

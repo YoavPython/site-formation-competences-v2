@@ -1,7 +1,7 @@
 {
   "name": "gfc-formation-competences",
   "version": "1.0.0",
-  "description": "Site web pour Groupe Formation Compétences - Accompagnement expert pour votre bilan de compétences",
+  "description": "Site web Formation Compétences - Accompagnement expert pour votre bilan de compétences",
   "main": "index.js",
 "scripts": {
     "start": "node server.js",
@@ -14,7 +14,7 @@
     "accompagnement",
     "reconversion"
   ],
-  "author": "GFC",
+  "author": "Formation Compétences",
   "license": "ISC",
   "devDependencies": {
     "http-server": "^14.1.1",

@@ -3,7 +3,7 @@ import BasePage from './BasePage.js';
 export class CgvPage extends BasePage {
     constructor() {
         super();
-        this.title = 'Conditions Générales de Vente - Groupe Formation Compétences';
+        this.title = 'Conditions Générales de Vente - Formation Compétences';
     }
 
     render() {
@@ -22,7 +22,7 @@ export class CgvPage extends BasePage {
                     <div class="container">
                         <div class="legal-section">
                             <h2>1. Objet</h2>
-                            <p>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Groupe Formation Compétences et ses clients dans le cadre de la fourniture de prestations de bilan de compétences, de validation des acquis de l'expérience (VAE) et d'accompagnement à l'orientation professionnelle.</p>
+                            <p>Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre Formation Compétences et ses clients dans le cadre de la fourniture de prestations de bilan de compétences, de validation des acquis de l'expérience (VAE) et d'accompagnement à l'orientation professionnelle.</p>
                             <p>Toute commande de prestation implique l'acceptation sans réserve des présentes CGV.</p>
                         </div>
 
@@ -95,7 +95,7 @@ export class CgvPage extends BasePage {
                             <h3>7.2 Report de rendez-vous</h3>
                             <p>Un report est possible sans frais si notifié au moins 48h à l'avance. Au-delà, la séance peut être facturée.</p>
 
-                            <h3>7.3 Annulation par Groupe Formation Compétences</h3>
+                            <h3>7.3 Annulation par Formation Compétences</h3>
                             <p>En cas d'annulation de notre fait, vous serez informé dans les meilleurs délais et un remboursement intégral sera effectué si aucune solution de remplacement n'est trouvée.</p>
                         </div>
 
@@ -111,7 +111,7 @@ export class CgvPage extends BasePage {
                         </div>
 
                         <div class="legal-section">
-                            <h2>9. Obligations de Groupe Formation Compétences</h2>
+                            <h2>9. Obligations de Formation Compétences</h2>
                             <p>Nous nous engageons à :</p>
                             <ul class="cookies-list">
                                 <li>Respecter la confidentialité des informations partagées</li>
@@ -124,13 +124,13 @@ export class CgvPage extends BasePage {
 
                         <div class="legal-section">
                             <h2>10. Propriété intellectuelle</h2>
-                            <p>Les documents, outils et méthodes utilisés restent la propriété de Groupe Formation Compétences. Le client s'engage à ne pas les reproduire, diffuser ou exploiter commercialement sans autorisation écrite.</p>
+                            <p>Les documents, outils et méthodes utilisés restent la propriété de Formation Compétences. Le client s'engage à ne pas les reproduire, diffuser ou exploiter commercialement sans autorisation écrite.</p>
                             <p>La synthèse finale remise au client lui appartient et peut être utilisée librement dans le cadre de son projet professionnel.</p>
                         </div>
 
                         <div class="legal-section">
                             <h2>11. Responsabilité</h2>
-                            <p>Groupe Formation Compétences met en œuvre tous les moyens pour fournir une prestation de qualité mais ne saurait être tenu responsable :</p>
+                            <p>Formation Compétences met en œuvre tous les moyens pour fournir une prestation de qualité mais ne saurait être tenu responsable :</p>
                             <ul class="cookies-list">
                                 <li>Des décisions prises par le client suite au bilan</li>
                                 <li>De la non-obtention d'un financement ou d'une certification</li>
@@ -143,7 +143,7 @@ export class CgvPage extends BasePage {
                             <p>Toute réclamation doit être adressée par écrit à :</p>
                             <div class="data-info">
                                 <p><strong>Email :</strong> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></p>
-                                <p><strong>Courrier :</strong> GROUPE FORMATION COMPETENCES - 16 RUE CUVIER, 69006 LYON</p>
+                                <p><strong>Courrier :</strong> FORMATION COMPETENCES - 16 RUE CUVIER, 69006 LYON</p>
                             </div>
                             <p>Nous nous engageons à traiter votre réclamation dans un délai de 15 jours.</p>
                             <p>En cas de litige non résolu à l'amiable, le client peut recourir à la médiation de la consommation ou saisir les juridictions compétentes.</p>

@@ -13,7 +13,7 @@ export class Footer extends Component {
                         <div class="footer-brand">
                             <div class="footer-logo-container">
                                 <div class="footer-logo-wrapper">
-                                    <span class="logo-groupe-text" style="color: white;">Groupe</span>
+                                    <span class="logo-groupe-text" style="color: white;">Formation Compétences</span>
                                     <svg class="logo-svg" width="112" height="50" viewBox="0 0 112 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.42188 18.6973H4.21508V13.5434H9.71137V11.1106H4.21508V7.7047H10.6124V5.27191H1.42188V18.6973Z" fill="#FF6B4A"/>
                                         <path d="M18.5429 18.9135C22.5975 18.9135 25.6611 15.9221 25.6611 11.9756C25.6611 8.02907 22.6156 5.05566 18.5429 5.05566C14.4702 5.05566 11.4247 8.02907 11.4247 11.9756C11.4247 15.9221 14.4883 18.9135 18.5429 18.9135ZM18.5429 16.3907C16.0921 16.3907 14.2179 14.5706 14.2179 11.9756C14.2179 9.38062 16.0921 7.57855 18.5429 7.57855C20.9937 7.57855 22.8679 9.38062 22.8679 11.9756C22.8679 14.5706 20.9937 16.3907 18.5429 16.3907Z" fill="#FF6B4A"/>
@@ -59,7 +59,7 @@ export class Footer extends Component {
                             </ul>
                         </div>
                         <div class="footer-links">
-                            <h5>Le Groupe</h5>
+                            <h5>À propos</h5>
                             <ul>
                                 <li><a href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -87,7 +87,7 @@ export class Footer extends Component {
                         </div>
                     </div>
                     <div class="footer-bottom">
-                        <p>&copy; ${new Date().getFullYear()} Groupe Formation Compétences. Tous droits réservés.</p>
+                        <p>&copy; ${new Date().getFullYear()} Formation Compétences. Tous droits réservés.</p>
                         <a href="https://www.linkedin.com/company/groupe-formation-compétences" target="_blank" rel="noopener noreferrer" class="footer-linkedin" title="Suivez-nous sur LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
