@@ -59,9 +59,9 @@ export class Navbar extends Component {
                             <li class="dropdown">
                                 <span class="dropdown-toggle">Le Groupe</span>
                                 <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)">Qui sommes-nous ?</a></li>
-                                    <li><a href="javascript:void(0)">Blog</a></li>
-                                    <li><a href="javascript:void(0)">FAQ</a></li>
+                                    <li><a href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/faq">FAQ</a></li>
                                 </ul>
                             </li>
                             <li><a href="/#contact" class="nav-cta"><i class="fas fa-phone-alt"></i> Être rappelé</a></li>

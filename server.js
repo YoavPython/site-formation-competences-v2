@@ -32,6 +32,18 @@ app.get('/mentions-legales', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'mentions-legales.html'));
 });
 
+app.get('/qui-sommes-nous', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'qui-sommes-nous.html'));
+});
+
+app.get('/faq', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'faq.html'));
+});
+
+app.get('/blog', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+});
+
 // Servir les fichiers du dossier public si besoin
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
@@ -42,4 +54,7 @@ app.listen(PORT, () => {
     console.log('  http://localhost:' + PORT + '/              → Page d\'accueil');
     console.log('  http://localhost:' + PORT + '/bilan-de-competences → Page Bilan de compétences');
     console.log('  http://localhost:' + PORT + '/vae           → Page VAE');
+    console.log('  http://localhost:' + PORT + '/qui-sommes-nous → Qui sommes-nous');
+    console.log('  http://localhost:' + PORT + '/faq          → FAQ');
+    console.log('  http://localhost:' + PORT + '/blog         → Blog');
 });

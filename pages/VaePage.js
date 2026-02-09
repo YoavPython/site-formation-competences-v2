@@ -235,78 +235,123 @@ export class VaePage extends Component {
                     </div>
                 </section>
 
-                <!-- Wave divider -->
+                <!-- Wave → Section financing (fond grisé léger) -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M0,20 C150,80 350,10 500,60 C700,100 900,30 1200,70 L1200,120 L0,120 Z" class="wave-financing"></path>
                     </svg>
                 </div>
 
-                <!-- Nos engagements -->
-                <section class="financing" id="engagements">
+                <!-- Financements (identique à l'accueil) -->
+                <section class="financing-modern">
                     <div class="container">
-                        <div class="section-icon bounce-in">
-                            <i class="fas fa-shield-alt"></i>
+                        <div class="financing-hero slide-up">
+                            <div class="financing-hero-content">
+                                <span class="financing-label">💰 Financement</span>
+                                <h2>Votre bilan peut être <span class="text-gradient">100% financé</span></h2>
+                                <p class="financing-tagline">Pas de mauvaise surprise. On vous explique tout.</p>
+                            </div>
                         </div>
-                        <h2 class="section-title fade-in">Nos engagements</h2>
-                        <div class="engagements-grid">
-                            <div class="engagement-card scale-in" style="animation-delay: 0.1s">
-                                <div class="engagement-icon">
-                                    <i class="fas fa-balance-scale"></i>
-                                </div>
-                                <div class="engagement-badge">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h3>Neutralité & transparence</h3>
-                                <p>Nous n'avons pas d'intérêt à "remplir une formation". Notre boussole, c'est la cohérence de votre projet dans la durée.</p>
+                        
+                        <div class="financing-options-row slide-up">
+                            <div class="financing-pill active" data-target="cpf">
+                                <span class="pill-icon">💳</span>
+                                <span class="pill-text">CPF</span>
+                                <span class="pill-badge">Le + utilisé</span>
                             </div>
-                            <div class="engagement-card scale-in" style="animation-delay: 0.2s">
-                                <div class="engagement-icon">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                                <div class="engagement-badge">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h3>Efficacité</h3>
-                                <p>Des échanges cadrés, un livrable utile, et un passage de relais propre vers le bon organisme.</p>
+                            <div class="financing-pill" data-target="plan">
+                                <span class="pill-icon">🏢</span>
+                                <span class="pill-text">Plan entreprise</span>
                             </div>
-                            <div class="engagement-card scale-in" style="animation-delay: 0.3s">
-                                <div class="engagement-icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="engagement-badge">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <h3>Qualité vérifiable</h3>
-                                <p>Partenaires Qualiopi, démarche conforme à une charte déontologique et avis clients vérifiés.</p>
+                            <div class="financing-pill" data-target="opco">
+                                <span class="pill-icon">🤝</span>
+                                <span class="pill-text">OPCO</span>
                             </div>
+                            <div class="financing-pill" data-target="france-travail">
+                                <span class="pill-icon">📋</span>
+                                <span class="pill-text">France Travail</span>
+                            </div>
+                        </div>
+                        
+                        <div class="financing-details-panel" id="financing-details">
+                            <div class="financing-detail active" id="detail-cpf">
+                                <h4>💳 Compte Personnel de Formation (CPF)</h4>
+                                <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion. Connectez-vous sur moncompteformation.gouv.fr pour connaître votre solde et réserver votre bilan directement en ligne.</p>
+                                
+                                <p>Le CPF est un dispositif universel qui accumule des droits à la formation tout au long de votre vie professionnelle, à raison de 500€ par an (800€ pour les personnes peu qualifiées), dans la limite de 5000€. Ces droits restent acquis même en cas de changement d'employeur ou de période de chômage.</p>
+                                
+                                <p>La procédure est entièrement digitalisée : vous créez votre compte, consultez votre solde disponible, choisissez votre organisme de formation certifié Qualiopi, et validez votre inscription en quelques clics. Le paiement est direct et vous n'avez aucune avance de frais à faire. C'est la solution la plus simple et la plus autonome pour financer votre bilan de compétences.</p>
+                                <span class="detail-tag">✓ Pour tous les actifs</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="financing-detail" id="detail-plan">
+                                <h4>🏢 Plan de développement des compétences</h4>
+                                <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne ou préparer une mobilité professionnelle. Parlez-en à votre service RH pour connaître les modalités de prise en charge.</p>
+                                
+                                <p>Le plan de développement des compétences est un outil stratégique qui permet aux entreprises d'accompagner leurs collaborateurs dans leur évolution professionnelle. Ce dispositif peut être mobilisé pour un projet de reconversion interne, une montée en compétences ou une réflexion sur votre orientation professionnelle.</p>
+                                
+                                <p>L'avantage principal : vous gardez votre statut de salarié et continuez à être rémunéré pendant votre bilan. Votre employeur peut même prévoir des aménagements d'horaires pour faciliter vos rendez-vous. Cette démarche témoigne d'un engagement mutuel dans votre développement professionnel.</p>
+                                <span class="detail-tag">✓ Salariés en poste</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="financing-detail" id="detail-opco">
+                                <h4>🤝 OPCO - Opérateurs de Compétences</h4>
+                                <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre et à monter le dossier de demande. Un accompagnement personnalisé pour maximiser vos chances d'obtenir le financement.</p>
+                                
+                                <p>Les OPCO sont des organismes agréés par l'État qui collectent les contributions des entreprises et financent les actions de formation. Il existe 11 OPCO en France, chacun correspondant à un secteur d'activité spécifique (commerce, industrie, services, etc.).</p>
+                                
+                                <p>Les TPE et PME peuvent bénéficier d'une prise en charge totale ou partielle du coût du bilan de compétences. Nous vous accompagnons dans toutes les étapes : identification de votre OPCO, constitution du dossier administratif, suivi de la demande et gestion des échanges.</p>
+                                <span class="detail-tag">✓ TPE/PME</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="financing-detail" id="detail-france-travail">
+                                <h4>📋 Aide France Travail</h4>
+                                <p>Pour les demandeurs d'emploi : AIF (Aide Individuelle à la Formation) ou abondement CPF possible selon votre projet. Votre conseiller France Travail peut vous orienter vers la solution la plus adaptée à votre situation.</p>
+                                
+                                <p>L'AIF est une aide financière individuelle qui peut prendre en charge tout ou partie du coût de votre bilan de compétences lorsque les autres dispositifs ne suffisent pas. Si vous disposez déjà de droits CPF mais que votre solde est insuffisant, France Travail peut abonder votre compte pour compléter le financement manquant.</p>
+                                
+                                <p>La décision dépend de plusieurs critères : votre projet professionnel, la pertinence du bilan dans votre parcours de retour à l'emploi, et votre situation personnelle. Il est essentiel de présenter votre projet de manière structurée à votre conseiller pour maximiser vos chances d'obtenir un financement. Nous pouvons vous aider à préparer cette demande.</p>
+                                <span class="detail-tag">✓ Demandeurs d'emploi</span>
+                                <div class="financing-promise-inline">
+                                    <div class="promise-icon">✓</div>
+                                    <div class="promise-text">
+                                        <strong>Notre promesse :</strong> vous donner une vision claire des options, 
+                                        pour que l'argent ne soit ni un tabou, ni un frein.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="section-cta">
+                            <a href="#contact" class="btn btn-orange btn-lg"><i class="fas fa-compass"></i> Découvrir mes options</a>
                         </div>
                     </div>
                 </section>
 
-                <!-- Wave divider -->
+                <!-- Wave → Section contact (fond blanc) -->
                 <div class="wave-divider">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M0,60 C300,20 600,90 900,50 C1050,30 1150,70 1200,50 L1200,120 L0,120 Z" class="wave-contact"></path>
                     </svg>
                 </div>
-
-                <!-- Important à savoir -->
-                <section class="important-note">
-                    <div class="container">
-                        <div class="note-box slide-up">
-                            <div class="note-icon">
-                                <i class="fas fa-info-circle"></i>
-                            </div>
-                            <div class="note-content">
-                                <strong>Important :</strong> L'accompagnement VAE (dossier de validation + préparation au jury) est ensuite réalisé avec l'organisme / l'accompagnateur choisi. Notre rôle est de sécuriser votre démarche en amont.
-                            </div>
-                            <div class="note-decoration">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- CTA Final + Formulaire -->
                 <section class="final-cta" id="contact">
@@ -505,6 +550,22 @@ export class VaePage extends Component {
                 this.handleFormSubmit();
             });
         }
+        this.initFinancingPills();
+    }
+
+    initFinancingPills() {
+        const pills = this.findAll('.financing-pill');
+        const details = this.findAll('.financing-detail');
+        pills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const target = pill.dataset.target;
+                pills.forEach(p => p.classList.remove('active'));
+                details.forEach(d => d.classList.remove('active'));
+                pill.classList.add('active');
+                const detail = this.find(`#detail-${target}`);
+                if (detail) detail.classList.add('active');
+            });
+        });
     }
 
     handleFormSubmit() {

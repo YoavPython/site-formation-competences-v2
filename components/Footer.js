@@ -56,8 +56,11 @@ export class Footer extends Component {
                             </ul>
                         </div>
                         <div class="footer-links">
-                            <h5>Liens utiles</h5>
+                            <h5>Le Groupe</h5>
                             <ul>
+                                <li><a href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                                <li><a href="/faq">FAQ</a></li>
                                 <li><a href="/#temoignages">Témoignages</a></li>
                                 <li><a href="/#contact">Contact</a></li>
                             </ul>
@@ -66,6 +69,16 @@ export class Footer extends Component {
                             <h5>Certification</h5>
                             <a href="/assets/documents/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
                                 <img src="/assets/images/qualiopi.jpeg" alt="Certification Qualiopi" class="qualiopi-logo">
+                            </a>
+                        </div>
+                        <div class="footer-avis-verifies">
+                            <h5>Avis clients</h5>
+                            <a href="https://www.avis-verifies.com" target="_blank" rel="noopener noreferrer" class="avis-verifies-badge" title="Avis Vérifiés - 5/5">
+                                <span class="avis-rating">5/5</span>
+                                <span class="avis-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                <span class="avis-count">1 avis clients</span>
+                                <span class="avis-label">Avis Vérifiés®</span>
+                                <span class="avis-cta">AVIS CLIENTS</span>
                             </a>
                         </div>
                     </div>

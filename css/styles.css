@@ -2105,6 +2105,61 @@ ul {
     opacity: 0.9;
 }
 
+/* Footer Avis Vérifiés */
+.footer-avis-verifies h5 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.avis-verifies-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    background: #2d3748;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 12px;
+    min-width: 100px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.avis-verifies-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.avis-verifies-badge .avis-rating {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.avis-verifies-badge .avis-stars {
+    color: #f59e0b;
+    font-size: 0.7rem;
+}
+
+.avis-verifies-badge .avis-count,
+.avis-verifies-badge .avis-label {
+    font-size: 0.6rem;
+    opacity: 0.95;
+}
+
+.avis-verifies-badge .avis-cta {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+}
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;

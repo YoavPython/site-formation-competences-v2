@@ -278,6 +278,143 @@
     line-height: 1.6;
 }
 
+/* FAQ Accordion */
+.faq-accordion-item .faq-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary, #170682);
+    cursor: pointer;
+}
+
+.faq-accordion-item .faq-chevron {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-accordion-item.open .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-answer-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 0 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.faq-accordion-item.open .faq-answer-panel {
+    max-height: 500px;
+}
+
+/* Qui sommes-nous stats */
+.stats-grid-qui {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-items: center;
+}
+
+.stat-card-qui {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    min-width: 180px;
+}
+
+.stat-number-qui {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-orange, #ff6900);
+    line-height: 1.2;
+}
+
+.stat-label-qui {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Blog page */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.blog-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255,105,0,0.15) 0%, rgba(23,6,130,0.1) 100%);
+    color: var(--color-orange, #ff6900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.blog-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary, #170682);
+    line-height: 1.35;
+}
+
+.blog-card-excerpt {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.blog-card-link {
+    font-weight: 600;
+    color: var(--color-orange, #ff6900);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-card-link:hover {
+    text-decoration: underline;
+}
+
+.blog-cta {
+    margin-top: 3rem;
+}
+
 /* Benefits Section */
 .benefits-section {
     margin: 3rem 0;
