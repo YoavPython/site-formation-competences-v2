@@ -21,12 +21,27 @@ cd gfc-formation-competences
 npm install
 ```
 
-3. Lancer le serveur de développement
+3. Lancer le serveur (obligatoire : Express, pas de serveur statique)
 ```bash
 npm start
 ```
+Ou en mode dev avec rechargement : `npm run dev`
 
-Le site sera accessible à l'adresse : http://localhost:8080
+Le site sera accessible à : http://localhost:8080
+
+**Important** : Les URLs `/blog`, `/actu`, `/faq`, `/qui-sommes-nous`, etc. ne fonctionnent **que** avec ce serveur Node (Express). N’utilisez pas `npm run old-start` (http-server), ni "Open with Live Server" dans l’éditeur, sinon vous obtiendrez « Cannot GET /blog » ou « Cannot GET /actu ». Pour vérifier que le bon serveur tourne : ouvrez http://localhost:8080/api/server-check (réponse attendue : server=express, ok=true). Sinon, un autre programme utilise le port 8080 ; voir la section Dépannage ci-dessous.
+
+## Dépannage : « Cannot GET /blog » ou « Cannot GET /actu »
+
+1. **Vérifier le serveur** : ouvrez http://localhost:8080/api/server-check  
+   - Si vous voyez `{"server":"express","ok":true}` → le bon serveur tourne ; si /blog ou /actu ne s’affichent pas, rechargez la page ou vérifiez le cache.
+   - Si vous voyez une erreur ou « Cannot GET /api/server-check » → un autre serveur utilise le port 8080.
+
+2. **Libérer le port 8080** (puis relancer `npm start`) :
+   - Linux / macOS : `lsof -i :8080` pour voir le processus, puis `kill <PID>` (ou `pkill -f "node server.js"` et `pkill -f "http-server"`).
+   - Fermez tout onglet ou terminal qui aurait lancé un autre serveur (Live Server, http-server, ou un ancien `npm start`).
+
+3. **Lancer uniquement le serveur Express** : dans le dossier du projet, exécutez `npm start` (ou `node server.js`). Ne lancez pas « Open with Live Server » ni `npm run old-start`.
 
 ## 📁 Structure du projet
 

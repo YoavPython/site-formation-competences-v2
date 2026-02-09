@@ -1,15 +1,9 @@
-import BasePage from './BasePage.js';
+import { Component } from '../js/core/Component.js';
 
-export class MentionsLegalesPage extends BasePage {
-    constructor() {
-        super();
-        this.title = 'Mentions Légales - Groupe Formation Compétences';
-    }
-
-    render() {
+export class MentionsLegalesPage extends Component {
+    template() {
         return `
             <div class="page-content legal-page">
-                <!-- Hero Section -->
                 <section class="legal-hero">
                     <div class="container">
                         <h1 class="fade-in">Mentions légales</h1>
@@ -17,52 +11,21 @@ export class MentionsLegalesPage extends BasePage {
                     </div>
                 </section>
 
-                <!-- Contenu légal -->
                 <section class="legal-content">
                     <div class="container">
                         <div class="legal-section">
                             <h2>Éditeur du site</h2>
                             <div class="legal-info-grid">
-                                <div class="info-item">
-                                    <strong>Dénomination sociale :</strong>
-                                    <span>GROUPE FORMATION COMPETENCES</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Forme juridique :</strong>
-                                    <span>SASU, société par actions simplifiée unipersonnelle</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Capital social :</strong>
-                                    <span>500,00 €</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Siège social :</strong>
-                                    <span>16 RUE CUVIER, 69006 LYON</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Date de création :</strong>
-                                    <span>09/08/2022</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>SIREN :</strong>
-                                    <span>918 325 796</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>SIRET (siège) :</strong>
-                                    <span>918 325 796 00012</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>RCS :</strong>
-                                    <span>918 325 796 R.C.S. Lyon</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>N° TVA intracommunautaire :</strong>
-                                    <span>FR84918325796</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Email :</strong>
-                                    <span><a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></span>
-                                </div>
+                                <div class="info-item"><strong>Dénomination sociale :</strong> GROUPE FORMATION COMPETENCES</div>
+                                <div class="info-item"><strong>Forme juridique :</strong> SASU, société par actions simplifiée unipersonnelle</div>
+                                <div class="info-item"><strong>Capital social :</strong> 500,00 €</div>
+                                <div class="info-item"><strong>Siège social :</strong> 16 RUE CUVIER, 69006 LYON</div>
+                                <div class="info-item"><strong>Date de création :</strong> 09/08/2022</div>
+                                <div class="info-item"><strong>SIREN :</strong> 918 325 796</div>
+                                <div class="info-item"><strong>SIRET (siège) :</strong> 918 325 796 00012</div>
+                                <div class="info-item"><strong>RCS :</strong> 918 325 796 R.C.S. Lyon</div>
+                                <div class="info-item"><strong>N° TVA intracommunautaire :</strong> FR84918325796</div>
+                                <div class="info-item"><strong>Email :</strong> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></div>
                             </div>
                         </div>
 
@@ -76,27 +39,21 @@ export class MentionsLegalesPage extends BasePage {
                         <div class="legal-section">
                             <h2>Protection des données personnelles</h2>
                             <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
-                            
-                            <div class="data-info">
-                                <p><strong>Responsable du traitement :</strong> Groupe Formation Compétences</p>
-                                <p><strong>Finalité du traitement :</strong> Gestion des demandes de contact et d'information</p>
-                                <p><strong>Base légale :</strong> Consentement de la personne concernée</p>
-                            </div>
-
+                            <p><strong>Responsable du traitement :</strong> Groupe Formation Compétences</p>
+                            <p><strong>Finalité du traitement :</strong> Gestion des demandes de contact et d'information</p>
+                            <p><strong>Base légale :</strong> Consentement de la personne concernée</p>
                             <p>Pour exercer vos droits, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a></p>
                         </div>
 
                         <div class="legal-section">
                             <h2>Cookies</h2>
                             <p>Ce site utilise des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits fichiers texte stockés sur votre appareil qui nous permettent de reconnaître votre navigateur et de mémoriser certaines informations.</p>
-                            
                             <p><strong>Types de cookies utilisés :</strong></p>
                             <ul class="cookies-list">
                                 <li>Cookies techniques nécessaires au fonctionnement du site</li>
                                 <li>Cookies analytiques pour comprendre l'utilisation du site</li>
                                 <li>Cookies de préférences pour mémoriser vos choix</li>
                             </ul>
-
                             <p>Vous pouvez désactiver les cookies dans les paramètres de votre navigateur, mais cela peut affecter votre expérience de navigation.</p>
                         </div>
 

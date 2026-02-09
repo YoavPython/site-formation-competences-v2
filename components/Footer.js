@@ -1,5 +1,9 @@
 import { Component } from '../js/core/Component.js';
 
+// URL de votre page Avis Vérifiés (récupérée dans l'espace client Avis Vérifiés).
+// Si vide, le bloc Avis Vérifiés dans le footer ne s'affiche pas.
+const AVIS_VERIFIES_PAGE_URL = '';
+
 export class Footer extends Component {
     template() {
         return `
@@ -52,7 +56,6 @@ export class Footer extends Component {
                             <ul>
                                 <li><a href="/mentions-legales" target="_blank" rel="noopener noreferrer">Mentions légales</a></li>
                                 <li><a href="/politique-confidentialite" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a></li>
-                                <li><a href="/cgv" target="_blank" rel="noopener noreferrer">CGV</a></li>
                             </ul>
                         </div>
                         <div class="footer-links">
@@ -70,16 +73,17 @@ export class Footer extends Component {
                             <a href="/assets/documents/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
                                 <img src="/assets/images/qualiopi.jpeg" alt="Certification Qualiopi" class="qualiopi-logo">
                             </a>
-                        </div>
-                        <div class="footer-avis-verifies">
-                            <h5>Avis clients</h5>
-                            <a href="https://www.avis-verifies.com" target="_blank" rel="noopener noreferrer" class="avis-verifies-badge" title="Avis Vérifiés - 5/5">
-                                <span class="avis-rating">5/5</span>
-                                <span class="avis-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                                <span class="avis-count">1 avis clients</span>
-                                <span class="avis-label">Avis Vérifiés®</span>
-                                <span class="avis-cta">AVIS CLIENTS</span>
-                            </a>
+                            ${AVIS_VERIFIES_PAGE_URL ? `
+                            <div class="footer-avis-verifies" style="margin-top: 1rem;">
+                                <h5>Avis clients</h5>
+                                <a href="${AVIS_VERIFIES_PAGE_URL}" target="_blank" rel="noopener noreferrer" class="avis-verifies-badge" title="Avis Vérifiés - voir nos avis clients">
+                                    <span class="avis-rating">5/5</span>
+                                    <span class="avis-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                    <span class="avis-label">Avis Vérifiés®</span>
+                                    <span class="avis-cta">Avis clients</span>
+                                </a>
+                            </div>
+                            ` : ''}
                         </div>
                     </div>
                     <div class="footer-bottom">

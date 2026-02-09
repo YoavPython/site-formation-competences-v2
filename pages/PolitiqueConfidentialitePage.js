@@ -1,15 +1,9 @@
-import BasePage from './BasePage.js';
+import { Component } from '../js/core/Component.js';
 
-export class PolitiqueConfidentialitePage extends BasePage {
-    constructor() {
-        super();
-        this.title = 'Politique de Confidentialité - Groupe Formation Compétences';
-    }
-
-    render() {
+export class PolitiqueConfidentialitePage extends Component {
+    template() {
         return `
             <div class="page-content legal-page">
-                <!-- Hero Section -->
                 <section class="legal-hero">
                     <div class="container">
                         <h1 class="fade-in">Politique de confidentialité</h1>
@@ -17,156 +11,122 @@ export class PolitiqueConfidentialitePage extends BasePage {
                     </div>
                 </section>
 
-                <!-- Contenu -->
                 <section class="legal-content">
                     <div class="container">
                         <div class="legal-section">
-                            <h2>1. Introduction</h2>
-                            <p>La présente politique de confidentialité a pour but de vous informer sur la manière dont Groupe Formation Compétences collecte et traite vos données personnelles, dans le respect du Règlement Général sur la Protection des Données (RGPD) et de la loi Informatique et Libertés.</p>
-                            <p>Nous attachons une grande importance à la protection de vos données personnelles et nous nous engageons à les traiter de manière licite, loyale et transparente.</p>
+                            <h2>1. Cadre juridique</h2>
+                            <p>La présente politique de confidentialité est établie conformément au :</p>
+                            <ul class="cookies-list">
+                                <li><strong>Règlement (UE) 2016/679 du 27 avril 2016</strong> (RGPD) relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données.</li>
+                                <li><strong>Loi n° 78-17 du 6 janvier 1978</strong> relative à l'informatique, aux fichiers et aux libertés (dite « Loi Informatique et Libertés »), modifiée par la loi n° 2018-493 du 20 juin 2018 et le décret n° 2019-536 du 29 mai 2019.</li>
+                            </ul>
+                            <p>En France, la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> est l'autorité de contrôle compétente pour veiller au respect de ces textes.</p>
                         </div>
 
                         <div class="legal-section">
                             <h2>2. Responsable du traitement</h2>
-                            <div class="data-info">
-                                <p><strong>Raison sociale :</strong> GROUPE FORMATION COMPETENCES</p>
-                                <p><strong>Siège social :</strong> 16 RUE CUVIER, 69006 LYON</p>
-                                <p><strong>SIREN :</strong> 918 325 796</p>
-                                <p><strong>Email :</strong> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></p>
-                                <p><strong>DPO :</strong> <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a></p>
+                            <div class="legal-info-grid">
+                                <div class="info-item"><strong>Raison sociale :</strong> GROUPE FORMATION COMPETENCES</div>
+                                <div class="info-item"><strong>Forme juridique :</strong> SASU</div>
+                                <div class="info-item"><strong>Siège social :</strong> 16 RUE CUVIER, 69006 LYON</div>
+                                <div class="info-item"><strong>SIREN :</strong> 918 325 796</div>
+                                <div class="info-item"><strong>Contact :</strong> <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a></div>
+                                <div class="info-item"><strong>Délégué à la protection des données (DPO) :</strong> <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a></div>
                             </div>
                         </div>
 
                         <div class="legal-section">
                             <h2>3. Données collectées</h2>
-                            <p>Nous collectons les données personnelles suivantes :</p>
+                            <p>Nous sommes susceptibles de collecter les catégories de données suivantes :</p>
                             <ul class="cookies-list">
                                 <li><strong>Données d'identification :</strong> nom, prénom</li>
-                                <li><strong>Coordonnées :</strong> adresse email, numéro de téléphone</li>
-                                <li><strong>Données professionnelles :</strong> situation professionnelle, objectifs de formation</li>
-                                <li><strong>Données de navigation :</strong> adresse IP, type de navigateur, pages visitées</li>
+                                <li><strong>Coordonnées :</strong> adresse électronique, numéro de téléphone</li>
+                                <li><strong>Données relatives à votre situation :</strong> situation professionnelle, objectif (bilan de compétences, VAE, etc.)</li>
+                                <li><strong>Données de navigation :</strong> adresse IP, type de navigateur, pages consultées (cookies)</li>
+                            </ul>
+                            <p>Les données sont collectées de manière minimale et proportionnée aux finalités poursuivies.</p>
+                        </div>
+
+                        <div class="legal-section">
+                            <h2>4. Finalités et bases légales</h2>
+                            <p>Vos données sont traitées pour les finalités suivantes, sur les bases légales indiquées :</p>
+                            <ul class="cookies-list">
+                                <li><strong>Réponse aux demandes de contact et d'information</strong> — exécution de mesures précontractuelles / intérêt légitime</li>
+                                <li><strong>Gestion de l'accompagnement</strong> (bilan de compétences, VAE) — exécution du contrat</li>
+                                <li><strong>Envoi d'informations sur nos services</strong> — consentement (révocable à tout moment)</li>
+                                <li><strong>Respect des obligations légales et réglementaires</strong> (comptabilité, fiscalité) — obligation légale</li>
+                                <li><strong>Amélioration du site et des services</strong> — intérêt légitime (cookies analytiques, sous réserve de votre consentement lorsque celui-ci est requis)</li>
                             </ul>
                         </div>
 
                         <div class="legal-section">
-                            <h2>4. Finalités du traitement</h2>
-                            <p>Vos données personnelles sont collectées pour les finalités suivantes :</p>
+                            <h2>5. Destinataires et transferts</h2>
+                            <p>Vos données sont destinées aux services internes habilités de Groupe Formation Compétences. Elles peuvent être transmises à :</p>
                             <ul class="cookies-list">
-                                <li>Répondre à vos demandes d'information et de contact</li>
-                                <li>Vous proposer un accompagnement personnalisé adapté à votre situation</li>
-                                <li>Gérer votre dossier de bilan de compétences ou de VAE</li>
-                                <li>Améliorer nos services et notre site web</li>
-                                <li>Respecter nos obligations légales et réglementaires</li>
-                                <li>Vous envoyer des informations sur nos services (avec votre consentement)</li>
+                                <li>Des organismes partenaires (formation, bilan, VAE) avec votre accord explicite</li>
+                                <li>Des organismes de financement (CPF, OPCO, France Travail) dans le cadre strict de votre dossier</li>
+                                <li>Des sous-traitants (hébergement, outils techniques) soumis à des obligations contractuelles de confidentialité et de sécurité</li>
+                                <li>Les autorités compétentes en cas d'obligation légale</li>
                             </ul>
+                            <p>Vos données sont hébergées au sein de l'<strong>Union européenne</strong>. Aucun transfert hors UE n'est effectué sans garanties appropriées (décision d'adéquation, clauses contractuelles types, etc.).</p>
                         </div>
 
                         <div class="legal-section">
-                            <h2>5. Base légale du traitement</h2>
-                            <p>Le traitement de vos données repose sur les bases légales suivantes :</p>
+                            <h2>6. Durée de conservation</h2>
+                            <p>Conformément aux recommandations de la CNIL et aux obligations légales françaises :</p>
                             <ul class="cookies-list">
-                                <li><strong>Consentement :</strong> pour l'envoi d'informations commerciales</li>
-                                <li><strong>Exécution d'un contrat :</strong> pour la gestion de votre bilan de compétences</li>
-                                <li><strong>Obligation légale :</strong> pour le respect des obligations comptables et fiscales</li>
-                                <li><strong>Intérêt légitime :</strong> pour l'amélioration de nos services</li>
+                                <li><strong>Prospects / demandes de contact :</strong> 3 ans à compter du dernier contact (recommandation CNIL)</li>
+                                <li><strong>Dossiers clients (contrats, facturation) :</strong> 10 ans à compter de la clôture (obligations comptables et fiscales françaises)</li>
+                                <li><strong>Cookies :</strong> 13 mois maximum pour les cookies soumis au consentement (recommandation CNIL)</li>
                             </ul>
+                            <p>À l'issue de ces durées, les données sont supprimées ou anonymisées.</p>
                         </div>
 
                         <div class="legal-section">
-                            <h2>6. Destinataires des données</h2>
-                            <p>Vos données personnelles sont destinées aux services internes de Groupe Formation Compétences.</p>
-                            <p>Elles peuvent également être transmises à :</p>
+                            <h2>7. Vos droits (RGPD et Loi Informatique et Libertés)</h2>
+                            <p>Vous disposez des droits suivants :</p>
                             <ul class="cookies-list">
-                                <li>Nos organismes partenaires de formation (avec votre accord)</li>
-                                <li>Les organismes de financement (CPF, OPCO, France Travail) dans le cadre de votre dossier</li>
-                                <li>Nos prestataires techniques (hébergement, analytics) sous engagement de confidentialité</li>
-                                <li>Les autorités compétentes sur demande légale</li>
+                                <li><strong>Droit d'accès</strong> (art. 15 RGPD, art. 49 de la loi 78-17) : obtenir la confirmation qu'un traitement existe et en recevoir une copie</li>
+                                <li><strong>Droit de rectification</strong> (art. 16 RGPD) : faire corriger des données inexactes ou incomplètes</li>
+                                <li><strong>Droit à l'effacement</strong> (art. 17 RGPD) : obtenir la suppression de vos données dans les cas prévus par la loi</li>
+                                <li><strong>Droit à la limitation du traitement</strong> (art. 18 RGPD)</li>
+                                <li><strong>Droit d'opposition</strong> (art. 21 RGPD, art. 56 de la loi 78-17) : vous opposer au traitement pour des motifs légitimes</li>
+                                <li><strong>Droit à la portabilité</strong> (art. 20 RGPD) : recevoir vos données dans un format structuré et couramment utilisé</li>
+                                <li><strong>Droit de retirer votre consentement</strong> à tout moment lorsque le traitement est fondé sur le consentement</li>
                             </ul>
+                            <p><strong>Exercice des droits :</strong> adressez votre demande par email à <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a> ou par courrier à GROUPE FORMATION COMPETENCES, 16 RUE CUVIER, 69006 LYON.</p>
+                            <p>Conformément au RGPD (art. 12), nous nous engageons à vous répondre <strong>dans un délai d'un mois</strong> à compter de la réception de votre demande. Ce délai peut être prolongé de deux mois en cas de demandes complexes ou nombreuses ; vous serez alors informé.</p>
+                            <p><strong>Spécificité française – Directives relatives au sort des données après le décès :</strong> conformément à l'article 40-1 de la loi 78-17, vous pouvez définir des directives relatives au sort de vos données personnelles après votre décès (transmission à un tiers désigné ou suppression). Ces directives peuvent être enregistrées auprès d'un tiers de confiance certifié par la CNIL.</p>
                         </div>
 
                         <div class="legal-section">
-                            <h2>7. Durée de conservation</h2>
-                            <p>Vos données sont conservées pendant les durées suivantes :</p>
-                            <ul class="cookies-list">
-                                <li><strong>Demandes de contact :</strong> 3 ans à compter du dernier contact</li>
-                                <li><strong>Dossiers de formation :</strong> durée légale de conservation (documents comptables : 10 ans)</li>
-                                <li><strong>Cookies :</strong> 13 mois maximum</li>
-                            </ul>
-                            <p>À l'issue de ces durées, vos données sont supprimées ou anonymisées.</p>
-                        </div>
-
-                        <div class="legal-section">
-                            <h2>8. Vos droits</h2>
-                            <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-                            <ul class="cookies-list">
-                                <li><strong>Droit d'accès :</strong> obtenir la confirmation que vos données sont traitées et en obtenir une copie</li>
-                                <li><strong>Droit de rectification :</strong> faire corriger vos données inexactes ou incomplètes</li>
-                                <li><strong>Droit à l'effacement :</strong> obtenir la suppression de vos données dans certaines conditions</li>
-                                <li><strong>Droit à la limitation :</strong> demander la limitation du traitement de vos données</li>
-                                <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données pour des raisons légitimes</li>
-                                <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
-                                <li><strong>Droit de retirer votre consentement :</strong> à tout moment pour les traitements basés sur le consentement</li>
-                            </ul>
-                            
+                            <h2>8. Réclamation auprès de la CNIL</h2>
+                            <p>Si vous estimez que le traitement de vos données personnelles constitue une violation du RGPD ou de la Loi Informatique et Libertés, vous avez le droit d'introduire une <strong>réclamation auprès de la CNIL</strong> (autorité de contrôle française) :</p>
                             <div class="data-info">
-                                <p><strong>Pour exercer vos droits :</strong></p>
-                                <p>Envoyez un email à : <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a></p>
-                                <p>Ou écrivez-nous à : GROUPE FORMATION COMPETENCES - 16 RUE CUVIER, 69006 LYON</p>
-                                <p>Nous nous engageons à vous répondre dans un délai d'un mois.</p>
-                            </div>
-                        </div>
-
-                        <div class="legal-section">
-                            <h2>9. Réclamation</h2>
-                            <p>Si vous estimez que vos droits ne sont pas respectés, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) :</p>
-                            <div class="data-info">
-                                <p>CNIL - 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07</p>
+                                <p><strong>CNIL</strong> – Commission Nationale de l'Informatique et des Libertés</p>
+                                <p>3 Place de Fontenoy – TSA 80715 – 75334 PARIS CEDEX 07</p>
                                 <p>Téléphone : 01 53 73 22 22</p>
-                                <p>Site web : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
+                                <p>Site : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">www.cnil.fr</a></p>
                             </div>
                         </div>
 
                         <div class="legal-section">
-                            <h2>10. Sécurité des données</h2>
-                            <p>Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées pour garantir un niveau de sécurité adapté au risque, notamment :</p>
-                            <ul class="cookies-list">
-                                <li>Chiffrement des données sensibles (SSL/TLS)</li>
-                                <li>Contrôle d'accès aux données (authentification, autorisation)</li>
-                                <li>Sauvegardes régulières</li>
-                                <li>Sensibilisation du personnel à la protection des données</li>
-                            </ul>
+                            <h2>9. Sécurité</h2>
+                            <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour assurer un niveau de sécurité adapté au risque : contrôle d'accès, sauvegardes, sensibilisation du personnel, et pour les échanges sur le site, utilisation du protocole HTTPS (chiffrement).</p>
                         </div>
 
                         <div class="legal-section">
-                            <h2>11. Cookies</h2>
-                            <p>Notre site utilise des cookies pour améliorer votre expérience. Les cookies sont de petits fichiers texte déposés sur votre appareil lors de votre visite.</p>
-                            
-                            <h3>Types de cookies utilisés :</h3>
-                            <ul class="cookies-list">
-                                <li><strong>Cookies essentiels :</strong> nécessaires au fonctionnement du site (navigation, sécurité)</li>
-                                <li><strong>Cookies analytiques :</strong> nous permettent de mesurer l'audience et d'améliorer le site</li>
-                                <li><strong>Cookies de préférence :</strong> mémorisent vos choix (langue, région)</li>
-                            </ul>
-
-                            <p>Vous pouvez à tout moment configurer votre navigateur pour refuser les cookies. Cependant, cela peut limiter certaines fonctionnalités du site.</p>
+                            <h2>10. Cookies</h2>
+                            <p>Le site utilise des cookies pour le fonctionnement technique, la mesure d'audience et, le cas échéant, la mémorisation de vos préférences. Conformément à la réglementation française (Loi 78-17 et lignes directrices CNIL), les cookies non strictement nécessaires requièrent votre consentement. Vous pouvez à tout moment modifier vos choix via les paramètres de votre navigateur ou notre outil de gestion des cookies si présent.</p>
                         </div>
 
                         <div class="legal-section">
-                            <h2>12. Transferts de données hors UE</h2>
-                            <p>Vos données personnelles sont hébergées sur des serveurs situés au sein de l'Union Européenne. Nous ne transférons pas vos données en dehors de l'UE, sauf dans les cas suivants avec garanties appropriées :</p>
-                            <ul class="cookies-list">
-                                <li>Utilisation de services cloud conformes au RGPD</li>
-                                <li>Clauses contractuelles types approuvées par la Commission européenne</li>
-                            </ul>
-                        </div>
-
-                        <div class="legal-section">
-                            <h2>13. Modifications</h2>
-                            <p>Nous nous réservons le droit de modifier la présente politique de confidentialité à tout moment. Les modifications entreront en vigueur dès leur publication sur cette page. Nous vous encourageons à consulter régulièrement cette page pour prendre connaissance des éventuelles modifications.</p>
+                            <h2>11. Modifications</h2>
+                            <p>Nous nous réservons le droit d'adapter la présente politique de confidentialité pour refléter les évolutions juridiques ou de nos pratiques. Toute modification sera publiée sur cette page avec indication de la date de mise à jour. Nous vous invitons à la consulter régulièrement.</p>
                         </div>
 
                         <div class="legal-footer">
-                            <p><em>Dernière mise à jour : Décembre 2025</em></p>
+                            <p><em>Dernière mise à jour : Septembre 2025</em></p>
                         </div>
                     </div>
                 </section>

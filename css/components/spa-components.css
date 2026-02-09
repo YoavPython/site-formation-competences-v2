@@ -49,6 +49,20 @@
     margin: 1rem 0 2rem;
 }
 
+/* Page 404 dédiée (hero) */
+.error-page .error-code {
+    display: block;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--color-orange, #ff6900);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.error-page-content {
+    text-align: center;
+}
+
 /* Page Heroes */
 .page-hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -350,7 +364,213 @@
     color: #555;
 }
 
+/* Qui sommes-nous : avantages */
+.qui-avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.qui-avantage-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.qui-avantage-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.qui-avantage-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255,105,0,0.15) 0%, rgba(23,6,130,0.1) 100%);
+    color: var(--color-orange, #ff6900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.qui-avantage-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary, #170682);
+}
+
+.qui-avantage-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Qui sommes-nous : valeurs (Audace, Bienveillance, Écoute) */
+.qui-valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.qui-valeur-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--color-orange, #ff6900);
+}
+
+.qui-valeur-badge {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-orange, #ff6900);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qui-valeur-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary, #170682);
+}
+
+.qui-valeur-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
 /* Blog page */
+.blog-section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary, #170682);
+    margin-bottom: 2.5rem;
+}
+
+.blog-grid-sample {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.blog-card-sample {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card-sample:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.blog-card-sample .blog-card-link-wrap {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-card-image {
+    width: 100%;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card-sample:hover .blog-card-image img {
+    transform: scale(1.03);
+}
+
+.blog-card-body {
+    padding: 1.35rem 1.5rem;
+}
+
+.blog-card-category {
+    display: inline-block;
+    background: rgba(147, 112, 219, 0.2);
+    color: #5a3d8a;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.blog-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-primary, #170682);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+}
+
+.blog-card-excerpt {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.blog-card-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-orange, #ff6900) 0%, #e55a00 100%);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.blog-card-author {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-orange, #ff6900);
+}
+
+.blog-card-date {
+    font-size: 0.8rem;
+    color: #888;
+    margin-left: auto;
+}
+
+.blog-cta {
+    margin-top: 3rem;
+}
+
+/* Legacy blog card (keep for compatibility) */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -363,56 +583,6 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.blog-card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, rgba(255,105,0,0.15) 0%, rgba(23,6,130,0.1) 100%);
-    color: var(--color-orange, #ff6900);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
-
-.blog-card-title {
-    font-size: 1.15rem;
-    margin-bottom: 0.75rem;
-    color: var(--color-primary, #170682);
-    line-height: 1.35;
-}
-
-.blog-card-excerpt {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.blog-card-link {
-    font-weight: 600;
-    color: var(--color-orange, #ff6900);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.blog-card-link:hover {
-    text-decoration: underline;
-}
-
-.blog-cta {
-    margin-top: 3rem;
 }
 
 /* Benefits Section */
@@ -541,7 +711,597 @@
     }
 }
 
+/* ========================================
+   Landing page Actu (CPF - info 1er mars)
+   ======================================== */
+.actu-landing {
+    background: #F6F6F6;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
 
+.actu-band {
+    height: 8px;
+    background: #000091;
+}
+
+.actu-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.actu-header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.actu-label {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000091;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.actu-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #161616;
+    line-height: 1.3;
+}
+
+.actu-intro {
+    padding: 32px 40px;
+}
+
+.actu-intro p {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #161616;
+}
+
+.actu-intro p:last-of-type {
+    margin-bottom: 0;
+}
+
+.actu-strong {
+    margin-top: 24px !important;
+}
+
+.actu-link {
+    color: #000091;
+    text-decoration: underline;
+}
+
+.actu-illustration {
+    background: #F5F5FE;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.actu-illustration-emoji {
+    margin: 0;
+    font-size: 64px;
+    line-height: 1;
+}
+
+.actu-illustration-title {
+    margin: 16px 0 0 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #161616;
+}
+
+.actu-illustration-sub {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+    color: #666666;
+}
+
+.actu-section-title {
+    margin: 0 0 20px 0;
+    padding: 0 40px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #161616;
+}
+
+.actu-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 40px 32px;
+}
+
+.actu-card {
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.actu-card-avant {
+    background: #E8EDFF;
+}
+
+.actu-card-apres {
+    background: #FEF4F4;
+}
+
+.actu-card-label {
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.actu-card-avant .actu-card-label {
+    color: #000091;
+}
+
+.actu-card-apres .actu-card-label {
+    color: #CE0500;
+}
+
+.actu-card-desc {
+    margin: 0 0 4px 0;
+    font-size: 13px;
+    color: #666666;
+}
+
+.actu-card-value {
+    margin: 0 0 16px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #161616;
+}
+
+.actu-card-big {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.actu-card-big-green {
+    color: #18753C;
+}
+
+.actu-card-big-red {
+    color: #CE0500;
+}
+
+.actu-detail {
+    margin: 0 40px 32px;
+    background: #F6F6F6;
+    border-radius: 8px;
+    padding: 20px 24px;
+}
+
+.actu-detail-title {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.actu-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.actu-table td {
+    padding: 6px 0;
+    font-size: 14px;
+    color: #161616;
+}
+
+.actu-table-right {
+    text-align: right;
+    font-weight: 600;
+}
+
+.actu-info-box {
+    margin: 0 40px 32px;
+    background: #FEF7DA;
+    border-left: 4px solid #D64D00;
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+}
+
+.actu-info-title {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #161616;
+}
+
+.actu-info-box p:last-child {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #3A3A3A;
+}
+
+.actu-cta-box {
+    margin: 0 40px 40px;
+    background: #F5F5FE;
+    border-radius: 8px;
+    padding: 32px;
+    text-align: center;
+}
+
+.actu-cta-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #161616;
+}
+
+.actu-cta-text {
+    margin: 0 0 24px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+}
+
+.btn-actu {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff !important;
+    background: #000091;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-actu:hover {
+    background: #1212a3;
+}
+
+.actu-footer-text {
+    padding: 0 40px 40px;
+}
+
+.actu-footer-text p {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #3A3A3A;
+}
+
+.actu-footer-text p:last-child {
+    margin-bottom: 0;
+    color: #161616;
+}
+
+@media (max-width: 768px) {
+    .actu-container { margin: 0; box-shadow: none; }
+    .actu-header, .actu-intro, .actu-section-title,
+    .actu-cards, .actu-detail, .actu-info-box, .actu-cta-box, .actu-footer-text {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .actu-cards { grid-template-columns: 1fr; }
+}
+
+/* Banderole verte au-dessus de la navbar (page Actu) */
+.actu-top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background: #18753c;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actu-top-banner p {
+    margin: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Décaler la navbar sous la banderole quand elle est visible */
+body.has-actu-banner .navbar {
+    top: 48px;
+}
+
+/* Éviter que le contenu passe sous banderole + navbar */
+body.has-actu-banner .actu-landing {
+    padding-top: 7rem;
+}
+
+/* ========================================
+   Landing Actu – Bilan de compétences
+   ======================================== */
+.actu-bilan .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.actu-bilan .actu-h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #161616;
+    margin: 0 0 1rem 0;
+    line-height: 1.25;
+}
+
+.actu-bilan .actu-h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #161616;
+    margin: 0 0 1rem 0;
+}
+
+.actu-bilan .actu-lead {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #3A3A3A;
+    margin: 0 0 0.75rem 0;
+}
+
+.actu-bilan .actu-check-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.actu-bilan .actu-check-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #161616;
+}
+
+.actu-bilan .actu-check-list li i {
+    color: var(--color-orange, #ff6900);
+    flex-shrink: 0;
+}
+
+.actu-hero-bilan {
+    padding: 3rem 0;
+    background: #fff;
+}
+
+.actu-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.actu-hero-visual img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.actu-bilan .actu-section {
+    padding: 2.5rem 0;
+}
+
+.actu-bilan .actu-intro {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 1.5rem 0;
+}
+
+.actu-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.actu-step-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.actu-step-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    background: var(--color-orange, #ff6900);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.actu-step-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #161616;
+    margin: 0 0 0.5rem 0;
+}
+
+.actu-step-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.actu-three-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.actu-mini-card {
+    background: #F5F5FE;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.actu-mini-card i {
+    font-size: 2rem;
+    color: var(--color-orange, #ff6900);
+    margin-bottom: 0.75rem;
+}
+
+.actu-mini-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #161616;
+    margin: 0 0 0.25rem 0;
+}
+
+.actu-mini-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+.actu-cta-center {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.actu-bilan .actu-note {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.actu-legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.actu-legal-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.actu-legal-content .actu-h2 {
+    margin-bottom: 1rem;
+}
+
+.actu-legal-content p {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #3A3A3A;
+}
+
+.actu-form-cta {
+    background: #F5F5FE;
+}
+
+.actu-faq-list {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.actu-faq-item {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.actu-faq-btn {
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #161616;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actu-faq-btn::after {
+    content: '\f078';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: #666;
+    transition: transform 0.2s ease;
+}
+
+.actu-faq-item.open .actu-faq-btn::after {
+    transform: rotate(180deg);
+}
+
+.actu-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    padding: 0 0 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #3A3A3A;
+}
+
+.actu-faq-item.open .actu-faq-answer {
+    max-height: 300px;
+}
+
+.actu-faq-answer {
+    padding: 0 0 1rem 0;
+}
+
+.btn-orange {
+    background: var(--color-orange, #ff6900) !important;
+    color: #fff !important;
+    border: none;
+}
+
+.btn-orange:hover {
+    background: #e55e00 !important;
+    color: #fff !important;
+}
+
+@media (max-width: 900px) {
+    .actu-hero-grid { grid-template-columns: 1fr; }
+    .actu-hero-visual { order: -1; }
+    .actu-steps-grid { grid-template-columns: 1fr 1fr; }
+    .actu-three-cards { grid-template-columns: 1fr; }
+    .actu-legal-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .actu-steps-grid { grid-template-columns: 1fr; }
+}
 
 
 

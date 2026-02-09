@@ -4,40 +4,64 @@ export class BlogPage extends Component {
     template() {
         const articles = [
             {
-                title: 'Bilan de compétences : les nouvelles tendances d’accompagnement',
-                excerpt: 'Les méthodologies évoluent pour mieux accompagner les bénéficiaires dans leur parcours de développement professionnel. Point sur les formats qui ont fait leurs preuves.',
-                icon: 'fa-lightbulb'
+                image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop',
+                category: 'Bilan',
+                title: 'Formez-vous aux métiers qui recruteront en 2025 !',
+                excerpt: 'Découvrez comment un bilan de compétences peut vous orienter vers les secteurs porteurs.',
+                author: 'Hannah Attali',
+                authorInitial: 'H',
+                date: 'Il y a 2 mois'
             },
             {
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+                category: 'Accompagnement',
+                title: 'Le blended : la méthode indispensable pour votre évolution',
+                excerpt: 'Entretiens en visio et à distance : une approche flexible pour clarifier votre projet professionnel.',
+                author: 'Hannah Attali',
+                authorInitial: 'H',
+                date: 'Il y a 3 mois'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop',
+                category: 'Financement',
+                title: "Qu'est-ce qui change en 2025 pour le financement du bilan ?",
+                excerpt: 'Découvrez les évolutions prévues pour le CPF et les autres dispositifs de financement.',
+                author: 'Yaël',
+                authorInitial: 'Y',
+                date: 'Il y a 4 mois'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop',
+                category: 'VAE',
                 title: 'VAE : quelles certifications dans les secteurs qui recrutent ?',
-                excerpt: 'Analyse des opportunités de VAE dans les secteurs porteurs et conseils pour choisir la certification la plus adaptée à votre profil.',
-                icon: 'fa-award'
+                excerpt: 'Analyse des opportunités de VAE et conseils pour choisir la certification adaptée à votre profil.',
+                author: 'Formation Compétences',
+                authorInitial: 'F',
+                date: 'Il y a 5 mois'
             },
             {
-                title: 'Financer son bilan de compétences : CPF, entreprise, OPCO',
-                excerpt: 'Guide pratique pour comprendre vos droits et les démarches (CPF, plan entreprise, OPCO, France Travail) afin de financer votre bilan sans reste à charge.',
-                icon: 'fa-wallet'
-            },
-            {
+                image: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=600&h=400&fit=crop',
+                category: 'Reconversion',
                 title: 'Reconversion : bien préparer son bilan pour éviter les pièges',
-                excerpt: 'Techniques éprouvées pour aborder sereinement un bilan de compétences et en tirer un plan d’action concret, sans se perdre dans les options.',
-                icon: 'fa-route'
+                excerpt: 'Techniques éprouvées pour aborder sereinement un bilan et en tirer un plan d\'action concret.',
+                author: 'Hannah Attali',
+                authorInitial: 'H',
+                date: 'Il y a 5 mois'
             },
             {
+                image: 'https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=400&fit=crop',
+                category: 'Qualité',
                 title: 'Qualiopi et qualité : ce qui change pour vous',
-                excerpt: 'Point sur les exigences qualité et la certification Qualiopi : pourquoi choisir un organisme certifié pour votre bilan ou votre VAE.',
-                icon: 'fa-certificate'
-            },
-            {
-                title: 'Témoignage : « Mon bilan m’a aidée à y voir clair »',
-                excerpt: 'Retour d’expérience d’une personne accompagnée par notre réseau : du flou au projet structuré, avec un organisme adapté à sa situation.',
-                icon: 'fa-quote-left'
+                excerpt: 'Pourquoi choisir un organisme certifié pour votre bilan ou votre VAE.',
+                author: 'Yaël',
+                authorInitial: 'Y',
+                date: 'Il y a 6 mois'
             }
         ];
 
         return `
             <div class="blog-page">
-                <section class="hero hero-page">
+                <section class="hero hero-page hero-blog">
                     <div class="hero-page-overlay"></div>
                     <div class="container">
                         <div class="hero-page-content">
@@ -46,29 +70,32 @@ export class BlogPage extends Component {
                                 <span>Conseils & actualités</span>
                             </div>
                             <h1 class="hero-title fade-in">Blog</h1>
-                            <p class="hero-page-subtitle slide-up">Conseils d’experts, analyses et retours d’expérience pour votre projet professionnel</p>
+                            <p class="hero-page-subtitle slide-up">Conseils d'experts, analyses et retours d'expérience pour votre projet professionnel</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="blog-content">
                     <div class="container">
-                        <div class="section-header">
-                            <div class="section-icon bounce-in">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <h2 class="section-title fade-in">Derniers articles</h2>
-                            <p class="section-subtitle slide-up">Explorez nos contenus sur le bilan de compétences, la VAE et l’évolution de carrière.</p>
-                        </div>
-                        <div class="blog-grid">
+                        <h2 class="blog-section-title fade-in">Tous nos articles</h2>
+                        <div class="blog-grid-sample">
                             ${articles.map((art, i) => `
-                                <article class="blog-card slide-up" style="animation-delay: ${i * 0.08}s">
-                                    <div class="blog-card-icon">
-                                        <i class="fas ${art.icon}"></i>
-                                    </div>
-                                    <h3 class="blog-card-title">${art.title}</h3>
-                                    <p class="blog-card-excerpt">${art.excerpt}</p>
-                                    <a href="/#contact" class="blog-card-link">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                                <article class="blog-card-sample slide-up" style="animation-delay: ${i * 0.06}s">
+                                    <a href="/#contact" class="blog-card-link-wrap">
+                                        <div class="blog-card-image">
+                                            <img src="${art.image}" alt="" loading="lazy">
+                                        </div>
+                                        <div class="blog-card-body">
+                                            <span class="blog-card-category">${art.category}</span>
+                                            <h3 class="blog-card-title">${art.title}</h3>
+                                            ${art.excerpt ? `<p class="blog-card-excerpt">${art.excerpt}</p>` : ''}
+                                            <div class="blog-card-meta">
+                                                <span class="blog-card-avatar">${art.authorInitial}</span>
+                                                <span class="blog-card-author">${art.author}</span>
+                                                <span class="blog-card-date">${art.date}</span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </article>
                             `).join('')}
                         </div>

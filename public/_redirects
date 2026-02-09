@@ -4,6 +4,11 @@
 /                          /index.html                 200
 /bilan-de-competences      /bilan-competences.html     200
 /vae                       /vae.html                   200
+/mentions-legales          /mentions-legales.html      200
+/qui-sommes-nous           /qui-sommes-nous.html       200
+/faq                       /faq.html                   200
+/blog                      /blog.html                  200
+/politique-confidentialite /politique-confidentialite.html 200
 
 # Redirection des assets (pour s'assurer qu'ils sont trouvés)
 /css/*                     /css/:splat                 200
@@ -12,8 +17,8 @@
 /pages/*                   /pages/:splat               200
 /assets/*                  /assets/:splat              200
 
-# Fallback pour toutes les autres routes
-/*                         /index.html                 200
+# Page 404 pour les routes inconnues
+/*                         /404.html                   404
 
 
 

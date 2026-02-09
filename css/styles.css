@@ -3072,6 +3072,79 @@ ul {
     font-size: 1rem;
 }
 
+/* Homepage trust logos (Qualiopi + Avis Vérifiés) */
+.home-trust-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(23, 6, 130, 0.08);
+}
+
+.home-logo-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--primary-blue);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.home-logo-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.home-logo-qualiopi img {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.home-logo-qualiopi span {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.home-logo-avis {
+    background: #2d3748;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    min-width: 120px;
+}
+
+.home-logo-avis:hover {
+    color: white;
+}
+
+.home-logo-avis .home-avis-rating {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.home-logo-avis .home-avis-stars {
+    color: #f59e0b;
+    font-size: 0.75rem;
+}
+
+.home-logo-avis .home-avis-label {
+    font-size: 0.7rem;
+    opacity: 0.95;
+}
+
+.home-logo-avis .home-avis-cta {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 @media (max-width: 768px) {
     .trust-badges {
         gap: var(--spacing-sm);
@@ -3088,6 +3161,16 @@ ul {
     
     .need-content p {
         font-size: 1.05rem;
+    }
+    
+    .home-trust-logos {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    
+    .home-logo-qualiopi img {
+        height: 44px;
     }
 }
 

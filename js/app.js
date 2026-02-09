@@ -37,8 +37,7 @@ async function initApp() {
         .register('/bilan-competences', () => import('../pages/BilanCompetencesPage.js').then(m => new m.BilanCompetencesPage()))
         .register('/vae', () => import('../pages/VaePage.js').then(m => new m.VaePage()))
         .register('/mentions-legales', () => import('../pages/MentionsLegalesPage.js').then(m => new m.MentionsLegalesPage()))
-        .register('/politique-confidentialite', () => import('../pages/PolitiqueConfidentialitePage.js').then(m => new m.PolitiqueConfidentialitePage()))
-        .register('/cgv', () => import('../pages/CgvPage.js').then(m => new m.CgvPage()));
+        .register('/politique-confidentialite', () => import('../pages/PolitiqueConfidentialitePage.js').then(m => new m.PolitiqueConfidentialitePage()));
     
     // Hook après changement de route
     router.onAfterRouteChange((route) => {
@@ -63,8 +62,7 @@ function updatePageTitle(path) {
         '/bilan-competences': 'Bilan de Compétences - Groupe Formation Compétences',
         '/vae': 'VAE - Validation des Acquis de l\'Expérience - Groupe Formation Compétences',
         '/mentions-legales': 'Mentions Légales - Groupe Formation Compétences',
-        '/politique-confidentialite': 'Politique de Confidentialité - Groupe Formation Compétences',
-        '/cgv': 'CGV - Groupe Formation Compétences'
+        '/politique-confidentialite': 'Politique de Confidentialité - Groupe Formation Compétences'
     };
     
     document.title = titles[path] || 'Groupe Formation Compétences';

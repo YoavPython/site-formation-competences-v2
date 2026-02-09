@@ -730,11 +730,10 @@ export class BilanCompetencesPage extends Component {
             const scrollY = window.scrollY + navbar.offsetHeight;
             
             if (scrollY > heroBottom - 50) {
-                // On a dépassé le hero → glass effect
+                // En scroll : navbar par défaut (fond lisible, texte foncé) — pas navbar-scrolled sur BDC
                 navbar.classList.remove('navbar-hero');
-                navbar.classList.add('navbar-scrolled');
+                navbar.classList.remove('navbar-scrolled');
             } else {
-                // On est sur le hero → fond blanc
                 navbar.classList.add('navbar-hero');
                 navbar.classList.remove('navbar-scrolled');
             }
