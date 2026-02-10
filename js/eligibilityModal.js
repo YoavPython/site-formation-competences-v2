@@ -16,21 +16,25 @@ function getModalHTML() {
             <h2 id="eligibility-modal-title" class="eligibility-modal-title">Vérifier votre éligibilité</h2>
             <p class="eligibility-modal-desc">Ce formulaire sera transmis à nos équipes selon les directives strictes et respectueuses du RGPD et la protection de vos données personnelles.</p>
             <form class="eligibility-form" novalidate>
-                <div class="eligibility-form-group">
-                    <label for="elig-prenom">Prénom <span class="required">*</span></label>
-                    <input type="text" id="elig-prenom" name="prenom" required placeholder="Votre prénom">
+                <div class="eligibility-form-row">
+                    <div class="eligibility-form-group">
+                        <label for="elig-prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="elig-prenom" name="prenom" required placeholder="Votre prénom">
+                    </div>
+                    <div class="eligibility-form-group">
+                        <label for="elig-nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="elig-nom" name="nom" required placeholder="Votre nom">
+                    </div>
                 </div>
-                <div class="eligibility-form-group">
-                    <label for="elig-nom">Nom <span class="required">*</span></label>
-                    <input type="text" id="elig-nom" name="nom" required placeholder="Votre nom">
-                </div>
-                <div class="eligibility-form-group">
-                    <label for="elig-email">Email <span class="required">*</span></label>
-                    <input type="email" id="elig-email" name="email" required placeholder="votre@email.fr">
-                </div>
-                <div class="eligibility-form-group">
-                    <label for="elig-tel">Téléphone <span class="required">*</span></label>
-                    <input type="tel" id="elig-tel" name="telephone" required placeholder="Votre numéro">
+                <div class="eligibility-form-row">
+                    <div class="eligibility-form-group">
+                        <label for="elig-email">Email <span class="required">*</span></label>
+                        <input type="email" id="elig-email" name="email" required placeholder="votre@email.fr">
+                    </div>
+                    <div class="eligibility-form-group">
+                        <label for="elig-tel">Téléphone <span class="required">*</span></label>
+                        <input type="tel" id="elig-tel" name="telephone" required placeholder="Votre numéro">
+                    </div>
                 </div>
                 <div class="eligibility-form-group">
                     <label for="elig-statut">Quel est votre statut ? <span class="required">*</span></label>
