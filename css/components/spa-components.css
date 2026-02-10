@@ -1085,6 +1085,7 @@ body.has-actu-banner .actu-landing {
 
 .actu-landing.actu-bilan {
     background: var(--actu-lavande);
+    font-family: 'Poppins', sans-serif;
 }
 
 .actu-bilan .container {
