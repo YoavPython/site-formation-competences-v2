@@ -34,7 +34,7 @@ async function initApp() {
     // Configurer les routes
     router
         .register('/', () => import('../pages/HomePage.js').then(m => new m.HomePage()))
-        .register('/bilan-competences', () => import('../pages/BilanCompetencesPage.js').then(m => new m.BilanCompetencesPage()))
+        .register('/bilan-de-competences', () => import('../pages/BilanCompetencesPage.js').then(m => new m.BilanCompetencesPage()))
         .register('/vae', () => import('../pages/VaePage.js').then(m => new m.VaePage()))
         .register('/mentions-legales', () => import('../pages/MentionsLegalesPage.js').then(m => new m.MentionsLegalesPage()))
         .register('/politique-confidentialite', () => import('../pages/PolitiqueConfidentialitePage.js').then(m => new m.PolitiqueConfidentialitePage()));
@@ -59,7 +59,7 @@ async function initApp() {
 function updatePageTitle(path) {
     const titles = {
         '/': 'Accueil - Formation Compétences',
-        '/bilan-competences': 'Bilan de Compétences - Formation Compétences',
+        '/bilan-de-competences': 'Bilan de Compétences - Formation Compétences',
         '/vae': 'VAE - Validation des Acquis de l\'Expérience - Formation Compétences',
         '/qui-sommes-nous': 'Qui sommes-nous ? - Formation Compétences',
         '/blog': 'Blog - Formation Compétences',

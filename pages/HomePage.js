@@ -39,7 +39,7 @@ export class HomePage extends Component {
                                     le dispositif d'accompagnement le plus adapté à votre situation.
                                 </p>
                                 <div class="hero-cta">
-                                    <a href="/bilan-competences" class="btn btn-primary btn-lg">Réservez un bilan de compétences</a>
+                                    <a href="/bilan-de-competences" class="btn btn-primary btn-lg">Réservez un bilan de compétences</a>
                                     <a href="/vae" class="btn btn-secondary btn-lg">Validez vos acquis avec une V.A.E</a>
                                 </div>
                             </div>

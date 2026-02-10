@@ -49,7 +49,7 @@ export class Footer extends Component {
                         <div class="footer-offers">
                             <h5>Nos offres</h5>
                             <ul>
-                                <li><a href="/bilan-competences">Bilan de compétences</a></li>
+                                <li><a href="/bilan-de-competences">Bilan de compétences</a></li>
                                 <li><a href="/vae">Validation des acquis (VAE)</a></li>
                             </ul>
                             <h5>Informations légales</h5>

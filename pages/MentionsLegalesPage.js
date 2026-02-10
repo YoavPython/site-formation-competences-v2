@@ -16,7 +16,7 @@ export class MentionsLegalesPage extends Component {
                         <div class="legal-section">
                             <h2>Éditeur du site</h2>
                             <div class="legal-info-grid">
-                                <div class="info-item"><strong>Dénomination sociale :</strong> FORMATION COMPETENCES</div>
+                                <div class="info-item"><strong>Dénomination sociale :</strong> GROUPE FORMATION COMPETENCES</div>
                                 <div class="info-item"><strong>Forme juridique :</strong> SASU, société par actions simplifiée unipersonnelle</div>
                                 <div class="info-item"><strong>Capital social :</strong> 500,00 €</div>
                                 <div class="info-item"><strong>Siège social :</strong> 16 RUE CUVIER, 69006 LYON</div>
@@ -39,7 +39,7 @@ export class MentionsLegalesPage extends Component {
                         <div class="legal-section">
                             <h2>Protection des données personnelles</h2>
                             <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
-                            <p><strong>Responsable du traitement :</strong> Formation Compétences</p>
+                            <p><strong>Responsable du traitement :</strong> Groupe Formation Compétences</p>
                             <p><strong>Finalité du traitement :</strong> Gestion des demandes de contact et d'information</p>
                             <p><strong>Base légale :</strong> Consentement de la personne concernée</p>
                             <p>Pour exercer vos droits, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:dpo@groupe-formation-competences.fr">dpo@groupe-formation-competences.fr</a></p>
@@ -61,7 +61,7 @@ export class MentionsLegalesPage extends Component {
                             <h2>Limitation de responsabilité</h2>
                             <p>Les informations contenues sur ce site sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes.</p>
                             <p>Si vous constatez une lacune, erreur ou ce qui paraît être un dysfonctionnement, merci de bien vouloir le signaler par email à <a href="mailto:contact@groupe-formation-competences.fr">contact@groupe-formation-competences.fr</a>, en décrivant le problème de la manière la plus précise possible.</p>
-                            <p>Formation Compétences ne saurait être tenu pour responsable de l'utilisation et de l'interprétation de l'information contenue dans ce site.</p>
+                            <p>Groupe Formation Compétences ne saurait être tenu pour responsable de l'utilisation et de l'interprétation de l'information contenue dans ce site.</p>
                         </div>
 
                         <div class="legal-section">

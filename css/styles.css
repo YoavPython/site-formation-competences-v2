@@ -4038,13 +4038,12 @@ ul {
 }
 
 .legal-section a {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .legal-section a:hover {
-    color: var(--primary-blue);
     text-decoration: underline;
 }
 
@@ -5463,7 +5462,7 @@ ul {
 }
 
 .info-item a {
-    color: var(--primary-orange);
+    color: var(--primary-blue);
     text-decoration: none;
 }
 

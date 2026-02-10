@@ -1,6 +1,9 @@
+# Site statique : pas de build, tout le repo est publié (public/, css/, js/, etc.).
+# Dans Netlify > Build & deploy : Publish directory = . (si "Not set", définir explicitement).
 [build]
   publish = "."
-  
+
+# Pages HTML (SPA entry points)
 [[redirects]]
   from = "/"
   to = "/public/index.html"
@@ -16,7 +19,37 @@
   to = "/public/vae.html"
   status = 200
 
-# Servir les fichiers statiques depuis leur emplacement
+[[redirects]]
+  from = "/qui-sommes-nous"
+  to = "/public/qui-sommes-nous.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/public/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/public/blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/actu"
+  to = "/public/actu.html"
+  status = 200
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/public/mentions-legales.html"
+  status = 200
+
+[[redirects]]
+  from = "/politique-confidentialite"
+  to = "/public/politique-confidentialite.html"
+  status = 200
+
+# Assets et fichiers statiques (à la racine du repo)
 [[redirects]]
   from = "/css/*"
   to = "/css/:splat"
@@ -47,7 +80,7 @@
   to = "/public/favicon.svg"
   status = 200
 
-# Fallback
+# Fallback SPA : toute autre URL charge l’index (le routeur client gère la 404)
 [[redirects]]
   from = "/*"
   to = "/public/index.html"

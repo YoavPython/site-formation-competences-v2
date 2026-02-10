@@ -6,6 +6,7 @@
 import { Navbar } from '../components/Navbar.js';
 import { Footer } from '../components/Footer.js';
 import { ActuPage } from '../pages/ActuPage.js';
+import { initEligibilityModal } from './eligibilityModal.js';
 
 async function initPage() {
     const navbarRoot = document.getElementById('navbar-root');
@@ -23,7 +24,9 @@ async function initPage() {
         const footer = new Footer();
         footer.render(footerRoot);
     }
+    initEligibilityModal();
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        if (anchor.hasAttribute('data-open-eligibility-modal')) return;
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
