@@ -54,7 +54,7 @@ export class ActuPage extends Component {
                                 <a href="#" class="btn btn-actu-primary" data-open-eligibility-modal>Vérifier votre éligibilité <i class="fas fa-arrow-right"></i></a>
                             </div>
                             <div class="actu-hero-visual">
-                                <img src="/assets/images/hero.png" alt="Bilan de compétences">
+                                <img src="/assets/images/actu-bilan-duo.png" alt="Bilan de compétences">
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ export class ActuPage extends Component {
                     <div class="container">
                         <div class="actu-legal-grid">
                             <div class="actu-legal-image">
-                                <img src="/assets/images/hero.png" alt="Bilan de compétences">
+                                <img src="/assets/images/actu-bilan-duo.png" alt="Accompagnement bilan de compétences">
                             </div>
                             <div class="actu-legal-content">
                                 <h2 class="actu-h2">Le bilan de compétences : mieux se connaître pour booster sa carrière</h2>

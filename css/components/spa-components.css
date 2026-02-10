@@ -1365,7 +1365,7 @@ body.has-actu-banner .actu-landing {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 2rem;
-    align-items: start;
+    align-items: center;
 }
 
 .actu-legal-image img {
