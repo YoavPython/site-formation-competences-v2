@@ -1,5 +1,5 @@
-# Site statique : pas de build, tout le repo est publié (public/, css/, js/, etc.).
-# Dans Netlify > Build & deploy : Publish directory = . (si "Not set", définir explicitement).
+# Site statique : pas de build, tout le repo est publie (public/, css/, js/, etc.).
+# Dans Netlify > Build & deploy : Publish directory = . (si "Not set", definir explicitement).
 [build]
   publish = "."
 
@@ -49,7 +49,7 @@
   to = "/public/politique-confidentialite.html"
   status = 200
 
-# Assets et fichiers statiques (à la racine du repo)
+# Assets et fichiers statiques (a la racine du repo)
 [[redirects]]
   from = "/css/*"
   to = "/css/:splat"
@@ -80,11 +80,14 @@
   to = "/public/favicon.svg"
   status = 200
 
-# Fallback SPA : toute autre URL charge l’index (le routeur client gère la 404)
+# Page de confirmation (email CPF)
+[[redirects]]
+  from = "/confirmation.html"
+  to = "/cpf-email/confirmation.html"
+  status = 200
+
+# Fallback SPA : toute autre URL charge l'index (le routeur client gere la 404)
 [[redirects]]
   from = "/*"
   to = "/public/index.html"
   status = 200
-
-
-
