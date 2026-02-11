@@ -109,6 +109,19 @@
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://hook.eu1.make.com/pgehgn78c7c5f6piuc9itlh8o0ko9k83', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    event: 'clic_securiser_financement',
+                    page: window.location.href,
+                    timestamp: new Date().toISOString()
+                })
+            }).catch(function() {});
+        });
+    </script>
 </head>
 <body>
     <div class="card">
