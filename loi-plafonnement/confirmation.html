@@ -111,11 +111,24 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            var params = new URLSearchParams(window.location.search);
+            var contactId = params.get('id') || '';
+            var prenom = params.get('prenom') || '';
+
+            // Afficher le prénom si disponible
+            if (prenom) {
+                var h1 = document.querySelector('h1');
+                h1.textContent = prenom + ', votre demande a bien été enregistrée';
+            }
+
+            // Envoyer le webhook avec l'ID du contact
             fetch('https://hook.eu1.make.com/pgehgn78c7c5f6piuc9itlh8o0ko9k83', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     event: 'clic_securiser_financement',
+                    contact_id: contactId,
+                    prenom: prenom,
                     page: window.location.href,
                     timestamp: new Date().toISOString()
                 })
