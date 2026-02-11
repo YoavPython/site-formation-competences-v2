@@ -80,10 +80,10 @@
   to = "/public/favicon.svg"
   status = 200
 
-# Page de confirmation (email CPF)
+# Loi plafonnement CPF
 [[redirects]]
   from = "/confirmation.html"
-  to = "/cpf-email/confirmation.html"
+  to = "/loi-plafonnement/confirmation.html"
   status = 200
 
 # Fallback SPA : toute autre URL charge l'index (le routeur client gere la 404)
