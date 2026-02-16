@@ -35,6 +35,11 @@
   status = 200
 
 [[redirects]]
+  from = "/formation-ia"
+  to = "/public/formation-ia.html"
+  status = 200
+
+[[redirects]]
   from = "/actu"
   to = "/public/actu.html"
   status = 200
