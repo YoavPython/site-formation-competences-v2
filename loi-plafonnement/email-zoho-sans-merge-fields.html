@@ -1,3 +1,6 @@
+<!-- Version SANS aucun ${...} : colle ce fichier dans Zoho pour pouvoir ENREGISTRER.
+     Après enregistrement : en mode visuel, utilise "Insérer un champ de fusion" pour
+     ajouter le Prénom après "Bonjour " et le Gestionnaire en signature. NE PAS toucher au bouton. -->
     <div style="display: none; max-height: 0; overflow: hidden;">
         CPF &amp; Bilan de compétences : plafonnement du financement — sécurisez avant le 1er mars. Anticipez dès maintenant.
     </div>
@@ -21,7 +24,7 @@
                                             Information CPF
                                         </p>
                                         <h1 style="margin: 0; font-size: 22px; font-weight: 700; color: #161616; line-height: 1.3;">
-                                            CPF &amp; Biljean de compétences : plafonnement du financement — sécurisez avant le 1er mars
+                                            CPF &amp; Bilan de compétences : plafonnement du financement — sécurisez avant le 1er mars
                                         </h1>
                                     </td>
                                 </tr>
@@ -44,7 +47,7 @@
                             </table>
                             
                             <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 1.7; color: #161616;">
-                                Bonjour ${Contacts.First Name},
+                                Bonjour,
                             </p>
                             <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 1.7; color: #161616;">
                                 Vous avez demandé des informations pour réaliser un bilan de compétences.
@@ -185,11 +188,7 @@
                                         </p>
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center">
                                             <tr>
-                                                <td style="border-radius: 4px; background-color: #000091;">
-                                                    <a href="https://www.formation-competences.fr/loi-plafonnement/confirmation.html?id=${Contacts.ID Contact}&amp;prenom=${Contacts.First Name}&amp;nom=${Contacts.Last Name}&amp;email=${Contacts.Email}" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #FFFFFF; text-decoration: none;">
-                                                        Je sécurise mon financement CPF
-                                                    </a>
-                                                </td>
+                                                <td style="border-radius: 4px; background-color: #000091;"><a href="https://www.formation-competences.fr/loi-plafonnement/confirmation.html" target="_blank" rel="noopener" style="display: block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #FFFFFF; text-decoration: none; text-align: center;">Je sécurise mon financement CPF</a></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -204,7 +203,7 @@
                                 À très bientôt,
                             </p>
                             <p style="margin: 0; font-size: 16px; color: #161616;">
-                                <strong>${Contacts.Gestionnaire du Contact}</strong><br>
+                                <strong>L'équipe Formation Compétences</strong><br>
                                 Groupe Formation Compétences
                             </p>
                         </td>

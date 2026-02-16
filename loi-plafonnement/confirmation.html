@@ -110,6 +110,32 @@
         }
     </style>
     <script>
+        /**
+         * Hash une chaîne en SHA-256 (hex).
+         * @param {string} str - Chaîne à hasher
+         * @returns {Promise<string>} Hash hexadécimal
+         */
+        function hashString(str) {
+            if (!str) return Promise.resolve('');
+            return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
+                .then(function(buffer) {
+                    return Array.from(new Uint8Array(buffer))
+                        .map(function(b) { return b.toString(16).padStart(2, '0'); })
+                        .join('');
+                });
+        }
+
+        /**
+         * Récupère un paramètre d'URL et retourne son hash SHA-256.
+         * @param {string} paramName - Nom du paramètre (ex: 'prenom', 'siq_ename')
+         * @returns {Promise<string>} Hash du paramètre, ou '' si absent
+         */
+        function getHashedUrlParam(paramName) {
+            var params = new URLSearchParams(window.location.search);
+            var value = params.get(paramName) || '';
+            return hashString(value);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             var params = new URLSearchParams(window.location.search);
             var contactId = params.get('id') || '';

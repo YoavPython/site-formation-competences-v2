@@ -64,6 +64,13 @@ app.get('/actu/', (req, res) => {
     res.redirect(301, '/actu');
 });
 
+app.get('/formation-ia', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'formation-ia.html'));
+});
+app.get('/formation-ia/', (req, res) => {
+    res.redirect(301, '/formation-ia');
+});
+
 // Servir les fichiers du dossier public si besoin
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
@@ -82,7 +89,7 @@ const server = app.listen(PORT, () => {
     console.log(`\n[Express] Serveur démarré sur http://localhost:${PORT}`);
     console.log('  → Les routes /blog, /actu, /faq, etc. ne fonctionnent QU\'avec ce serveur.');
     console.log('  → N\'utilisez PAS : http-server, live-server, ou "Open with Live Server".\n');
-    console.log('URLs : / | /bilan-de-competences | /vae | /qui-sommes-nous | /faq | /blog | /actu');
+    console.log('URLs : / | /bilan-de-competences | /vae | /formation-ia | /qui-sommes-nous | /faq | /blog | /actu');
     console.log('Test : http://localhost:' + PORT + '/api/server-check\n');
 });
 

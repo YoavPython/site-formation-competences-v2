@@ -53,6 +53,7 @@ export class Navbar extends Component {
                                 <ul class="dropdown-menu">
                                     <li><a href="/bilan-de-competences">Bilan de compétences</a></li>
                                     <li><a href="/vae">VAE</a></li>
+                                    <li><a href="/formation-ia">Formations IA</a></li>
                                 </ul>
                             </li>
                             <li><a href="/#approche">Notre approche</a></li>

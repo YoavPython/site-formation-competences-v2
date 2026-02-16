@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CPF - Plafonnement du financement</title>
+</head>
+<body style="margin: 0; padding: 0;">
     <div style="display: none; max-height: 0; overflow: hidden;">
         CPF &amp; Bilan de compétences : plafonnement du financement — sécurisez avant le 1er mars. Anticipez dès maintenant.
     </div>
@@ -44,7 +53,7 @@
                             </table>
                             
                             <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 1.7; color: #161616;">
-                                Bonjour ${Contacts.First Name},
+                                Bonjour $[FNAME]$,
                             </p>
                             <p style="margin: 0 0 16px 0; font-size: 16px; line-height: 1.7; color: #161616;">
                                 Vous avez demandé des informations pour réaliser un bilan de compétences.
@@ -186,7 +195,7 @@
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center">
                                             <tr>
                                                 <td style="border-radius: 4px; background-color: #000091;">
-                                                    <a href="https://www.formation-competences.fr/loi-plafonnement/confirmation.html?id=${Contacts.ID Contact}&amp;prenom=${Contacts.First Name}&amp;nom=${Contacts.Last Name}&amp;email=${Contacts.Email}" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #FFFFFF; text-decoration: none;">
+                                                    <a href="https://www.formation-competences.fr/loi-plafonnement/confirmation.html" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #FFFFFF; text-decoration: none;">
                                                         Je sécurise mon financement CPF
                                                     </a>
                                                 </td>
@@ -204,7 +213,7 @@
                                 À très bientôt,
                             </p>
                             <p style="margin: 0; font-size: 16px; color: #161616;">
-                                <strong>${Contacts.Gestionnaire du Contact}</strong><br>
+                                <strong>Votre conseiller</strong><br>
                                 Groupe Formation Compétences
                             </p>
                         </td>
@@ -237,3 +246,5 @@
             </td>
         </tr>
     </table>
+</body>
+</html>

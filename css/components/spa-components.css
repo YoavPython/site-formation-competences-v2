@@ -1635,5 +1635,332 @@ body.has-actu-banner .actu-landing {
     transform: scale(0.99);
 }
 
+/* ============================================================
+   FORMATION IA PAGE
+   ============================================================ */
+
+.formation-ia-page {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+}
+
+/* Hero */
+.hero-formation-ia {
+    background: linear-gradient(135deg, #0a0e27 0%, #0d1b3e 40%, #0a1628 100%);
+    min-height: 65vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-formation-ia .hero-page-overlay {
+    background: radial-gradient(ellipse at 70% 50%, rgba(0, 100, 255, 0.12) 0%, transparent 70%);
+}
+
+.hero-formation-ia .text-accent {
+    color: #FF380D;
+}
+
+/* Sections IA */
+.ia-section {
+    padding: 5rem 0;
+}
+
+.ia-section:nth-child(even) {
+    background: #f8f9fc;
+}
+
+.ia-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #161616;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+.ia-section-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    max-width: 900px;
+    margin-bottom: 1rem;
+}
+
+/* Domaines Grid */
+.ia-domaines-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+}
+
+.ia-domaines-image img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 16px;
+}
+
+.ia-domaine-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    align-items: flex-start;
+}
+
+.ia-domaine-icon {
+    flex-shrink: 0;
+    color: #1a5cba;
+    font-size: 1.2rem;
+    margin-top: 0.15rem;
+}
+
+.ia-domaine-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin: 0 0 0.35rem 0;
+}
+
+.ia-domaine-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* Métiers Section */
+.ia-metiers-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: center;
+}
+
+.ia-metiers-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.ia-metiers-list li {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.ia-metiers-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #1a5cba;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.ia-metiers-list li strong {
+    color: #161616;
+}
+
+.ia-metiers-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 16px;
+}
+
+/* Collectif Section */
+.ia-collectif-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.ia-collectif-logo img {
+    width: 100%;
+    max-width: 250px;
+}
+
+.ia-collectif-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.ia-collectif-services {
+    margin-top: 1.5rem;
+}
+
+.ia-service-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.ia-service-icon {
+    flex-shrink: 0;
+    color: #1a5cba;
+    font-size: 1.2rem;
+    margin-top: 0.15rem;
+}
+
+.ia-service-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin: 0 0 0.35rem 0;
+}
+
+.ia-service-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+/* Formations Section */
+.ia-formations-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+.ia-formation-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    align-items: flex-start;
+}
+
+.ia-formation-icon {
+    flex-shrink: 0;
+    color: #1a5cba;
+    font-size: 1.2rem;
+    margin-top: 0.15rem;
+}
+
+.ia-formation-content h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin: 0 0 0.35rem 0;
+}
+
+.ia-formation-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+}
+
+.ia-formations-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 16px;
+}
+
+/* CTA Section */
+.ia-contact {
+    background: linear-gradient(135deg, #0a0e27 0%, #0d1b3e 100%) !important;
+    text-align: center;
+}
+
+.ia-cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ia-cta-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.ia-cta-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.ia-cta-box .btn-primary {
+    background: #FF380D;
+    border: none;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+}
+
+.ia-cta-box .btn-primary:hover {
+    background: #e02e08;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ia-domaines-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ia-domaines-image {
+        text-align: center;
+    }
+
+    .ia-domaines-image img {
+        max-width: 260px;
+    }
+
+    .ia-metiers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ia-metiers-image {
+        text-align: center;
+        order: -1;
+    }
+
+    .ia-metiers-image img {
+        max-width: 280px;
+    }
+
+    .ia-collectif-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .ia-collectif-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .ia-collectif-logo img {
+        max-width: 200px;
+    }
+
+    .ia-collectif-services {
+        text-align: left;
+    }
+
+    .ia-formations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ia-formations-image {
+        text-align: center;
+    }
+
+    .ia-formations-image img {
+        max-width: 260px;
+    }
+
+    .ia-section-title {
+        font-size: 1.6rem;
+    }
+}
+
 
 
