@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Compétences — Maquette Redesign Complète</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --orange: #e8613a;
+            --orange-soft: #fff0ec;
+            --orange-glow: rgba(232,97,58,0.08);
+            --blue: #2b325e;
+            --blue-soft: #f0f1f6;
+            --green: #2d9d6a;
+            --green-soft: #edf8f2;
+            --cream: #fdfbf8;
+            --warm-gray: #f8f6f3;
+            --text: #1e2235;
+            --text-sec: #5a6178;
+            --text-muted: #8b90a3;
+            --border: #ece9e4;
+            --white: #ffffff;
+            --shadow-s: 0 2px 20px rgba(30,34,53,0.04);
+            --shadow-m: 0 4px 32px rgba(30,34,53,0.06);
+            --shadow-l: 0 8px 40px rgba(30,34,53,0.1);
+            --r: 16px; --r-s: 10px; --r-l: 24px;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 16px; line-height: 1.7;
+            color: var(--text); background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+        h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; }
+
+        /* === NAV === */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 0; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .nav.scrolled { background: rgba(255,255,255,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+        .nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.15rem; color: var(--blue); }
+        .nav-logo span { color: var(--orange); }
+        .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+        .nav-links a { font-size: 0.86rem; font-weight: 500; color: var(--text-sec); transition: color 0.2s; cursor: pointer; }
+        .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+        .nav-cta { background: var(--orange)!important; color: white!important; padding: 0.5rem 1.2rem!important; border-radius: 100px!important; font-weight: 600!important; font-size: 0.84rem!important; transition: transform 0.2s, box-shadow 0.2s!important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,97,58,0.3); }
+
+        /* === SHARED === */
+        .page { display: none; }
+        .page.active { display: block; }
+        .section { padding: 5.5rem 0; }
+        .section-alt { background: var(--warm-gray); }
+        .section-dark { background: var(--blue); color: white; }
+        .section-label { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--orange); font-weight: 700; margin-bottom: 1rem; display: block; }
+        .section-title { font-size: 2.4rem; font-weight: 800; color: var(--blue); margin-bottom: 0.8rem; }
+        .section-dark .section-title { color: white; }
+        .section-sub { font-size: 1.05rem; color: var(--text-sec); max-width: 600px; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header .section-sub { margin: 0 auto; }
+
+        .separator { display: flex; align-items: center; justify-content: center; padding: 0.5rem 2rem; }
+        .sep-line { height: 1px; width: 80px; background: linear-gradient(90deg,transparent,var(--border),transparent); }
+        .sep-dot { width: 5px; height: 5px; background: var(--orange); border-radius: 50%; margin: 0 1rem; opacity: 0.4; }
+
+        .btn-p { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--orange); color: white; padding: 0.85rem 1.8rem; border-radius: 100px; font-size: 0.93rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.25s; font-family: inherit; }
+        .btn-p:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,97,58,0.3); }
+        .btn-g { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--text); padding: 0.85rem 1.8rem; border-radius: 100px; font-size: 0.93rem; font-weight: 500; border: 1.5px solid var(--border); cursor: pointer; transition: all 0.25s; font-family: inherit; }
+        .btn-g:hover { border-color: var(--blue); background: var(--blue-soft); }
+        .btn-w { background: white; color: var(--blue); }
+        .btn-w:hover { background: #f0f0f0; border-color: white; }
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .trust-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--warm-gray); padding: 1.3rem 0; }
+        .trust-strip .container { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.83rem; color: var(--text-sec); font-weight: 500; }
+        .trust-item i { color: var(--orange); font-size: 0.85rem; }
+
+        .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; box-shadow: var(--shadow-s); transition: all 0.3s; }
+        .card:hover { box-shadow: var(--shadow-m); transform: translateY(-3px); }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; } .reveal-d4 { transition-delay: 0.4s; }
+
+        /* === HERO (shared) === */
+        .hero-page { min-height: 50vh; display: flex; align-items: center; padding: 8rem 0 4rem; position: relative; overflow: hidden; }
+        .hero-page .hero-label { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--white); border: 1px solid var(--border); padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--text-sec); margin-bottom: 1.5rem; box-shadow: var(--shadow-s); }
+        .hero-page .hero-label i { color: var(--orange); font-size: 0.72rem; }
+        .hero-page h1 { font-size: 3rem; font-weight: 800; color: var(--blue); margin-bottom: 1.2rem; max-width: 680px; }
+        .hero-page h1 em { font-style: normal; color: var(--orange); }
+        .hero-page .hero-desc { font-size: 1.1rem; color: var(--text-sec); line-height: 1.8; max-width: 560px; margin-bottom: 2rem; }
+
+        /* === FORMS (shared) === */
+        .form-card { background: var(--white); border-radius: var(--r-l); padding: 2.5rem; border: 1px solid var(--border); box-shadow: var(--shadow-m); }
+        .form-card h3 { font-size: 1.25rem; color: var(--blue); margin-bottom: 0.4rem; }
+        .form-card > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.4rem; }
+        .fg { margin-bottom: 0.9rem; }
+        .fg input, .fg select, .fg textarea { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--border); border-radius: var(--r-s); font-size: 0.9rem; font-family: inherit; color: var(--text); background: var(--white); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange-glow); }
+        .fg input::placeholder, .fg textarea::placeholder { color: var(--text-muted); }
+        .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+        .f-consent { display: flex; align-items: flex-start; gap: 0.5rem; margin: 1rem 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+        .f-consent input { margin-top: 3px; accent-color: var(--orange); }
+        .f-submit { width: 100%; padding: 0.9rem; background: var(--orange); color: white; border: none; border-radius: var(--r-s); font-size: 0.93rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.25s; }
+        .f-submit:hover { background: #d4552f; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,97,58,0.3); }
+
+        .contact-split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: start; }
+        .contact-info h2 { font-size: 2.2rem; font-weight: 800; color: var(--blue); margin-bottom: 1rem; }
+        .contact-info p { font-size: 1rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 1.8rem; }
+        .contact-perks { display: flex; flex-direction: column; gap: 0.9rem; }
+        .contact-perk { display: flex; align-items: center; gap: 0.7rem; font-size: 0.9rem; color: var(--text-sec); }
+        .contact-perk i { width: 30px; height: 30px; border-radius: 8px; background: var(--orange-soft); display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 0.75rem; }
+
+        /* === FINANCING TABS (shared) === */
+        .fin-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .fin-tab { padding: 0.55rem 1.2rem; border-radius: 100px; border: 1.5px solid var(--border); background: var(--white); font-size: 0.86rem; font-weight: 500; color: var(--text-sec); cursor: pointer; transition: all 0.25s; font-family: inherit; }
+        .fin-tab:hover { border-color: var(--orange); color: var(--orange); }
+        .fin-tab.active { background: var(--orange); color: white; border-color: var(--orange); }
+        .fin-panel { max-width: 680px; margin: 0 auto; background: var(--warm-gray); border-radius: var(--r); padding: 2.2rem; border: 1px solid var(--border); }
+        .fin-panel h4 { font-size: 1.1rem; color: var(--blue); margin-bottom: 0.8rem; }
+        .fin-panel p { font-size: 0.93rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 0.7rem; }
+        .fin-tag { display: inline-block; padding: 0.25rem 0.7rem; background: var(--orange-soft); color: var(--orange); border-radius: 100px; font-size: 0.78rem; font-weight: 600; margin-top: 0.4rem; }
+
+        /* ============================================================
+           PAGE: HOME
+           ============================================================ */
+        .home-hero { min-height: 94vh; display: flex; align-items: center; position: relative; overflow: hidden; background: linear-gradient(165deg, var(--blue) 0%, #1f2444 60%, #2b325e 100%); color: white; }
+        .home-hero::before { content: ''; position: absolute; top: -30%; right: -15%; width: 70%; height: 160%; background: radial-gradient(ellipse at center, rgba(232,97,58,0.12) 0%, transparent 65%); pointer-events: none; }
+        .home-hero::after { content: ''; position: absolute; bottom: -5%; left: -10%; width: 50%; height: 60%; background: radial-gradient(ellipse at center, rgba(203,255,234,0.06) 0%, transparent 65%); pointer-events: none; }
+        .home-hero-inner { position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto; padding: 7rem 0 4rem; }
+        .home-hero h1 { font-size: 3.4rem; font-weight: 800; color: white; margin-bottom: 1.5rem; line-height: 1.1; }
+        .home-hero h1 em { font-style: normal; color: var(--orange); position: relative; }
+        .home-hero .hero-desc { font-size: 1.15rem; color: rgba(255,255,255,0.75); max-width: 620px; margin: 0 auto 2.5rem; line-height: 1.8; }
+        .home-hero .btn-row { justify-content: center; }
+
+        .home-hero-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 4rem; }
+        .hh-card { background: rgba(255,255,255,0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--r); padding: 1.4rem; text-align: center; transition: background 0.3s; }
+        .hh-card:hover { background: rgba(255,255,255,0.12); }
+        .hh-card i { font-size: 1.3rem; color: var(--orange); margin-bottom: 0.6rem; display: block; }
+        .hh-card p { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+        .need-section .need-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+        .need-section h2 { font-size: 2.4rem; color: var(--blue); margin-bottom: 1.2rem; }
+        .need-section p { font-size: 1.05rem; color: var(--text-sec); line-height: 1.85; margin-bottom: 1rem; }
+        .need-section p strong { color: var(--text); }
+        .need-highlight { background: var(--orange-soft); border-left: 3px solid var(--orange); padding: 1.2rem 1.5rem; border-radius: 0 var(--r-s) var(--r-s) 0; margin: 1.5rem 0; text-align: left; font-weight: 500; color: var(--text); }
+
+        .steps-section .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .step-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: all 0.3s; }
+        .step-card:hover { box-shadow: var(--shadow-m); transform: translateY(-4px); }
+        .step-card-top { padding: 1.2rem 1.5rem 0; display: flex; align-items: center; gap: 0.8rem; }
+        .step-num { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.1rem; color: white; }
+        .step-card:nth-child(1) .step-num { background: var(--orange); }
+        .step-card:nth-child(2) .step-num { background: var(--blue); }
+        .step-card:nth-child(3) .step-num { background: var(--green); }
+        .step-card-top h3 { font-size: 1.1rem; color: var(--blue); }
+        .step-card-body { padding: 1rem 1.5rem 1.5rem; }
+        .step-card-body ul { list-style: none; }
+        .step-card-body li { font-size: 0.9rem; color: var(--text-sec); padding: 0.3rem 0; display: flex; align-items: flex-start; gap: 0.5rem; }
+        .step-card-body li::before { content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; margin-top: 0.5rem; background: var(--border); }
+        .step-card:nth-child(1) li::before { background: var(--orange); }
+        .step-card:nth-child(2) li::before { background: var(--blue); }
+        .step-card:nth-child(3) li::before { background: var(--green); }
+        .step-outcome { margin-top: 0.8rem; padding: 0.7rem 1rem; border-radius: var(--r-s); font-size: 0.85rem; font-weight: 500; }
+        .step-card:nth-child(1) .step-outcome { background: var(--orange-soft); color: var(--orange); border-left: 3px solid var(--orange); }
+        .step-card:nth-child(2) .step-outcome { background: var(--blue-soft); color: var(--blue); border-left: 3px solid var(--blue); }
+        .step-card:nth-child(3) .step-outcome { background: var(--green-soft); color: var(--green); border-left: 3px solid var(--green); }
+
+        .method-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .m-card { text-align: center; padding: 2.2rem 1.8rem; }
+        .m-card .m-num { font-family: 'Plus Jakarta Sans'; font-size: 3rem; font-weight: 800; opacity: 0.08; line-height: 1; margin-bottom: 0.5rem; color: var(--blue); }
+        .m-card h3 { font-size: 1.1rem; color: var(--blue); margin-bottom: 0.8rem; }
+        .m-card p { font-size: 0.9rem; color: var(--text-sec); line-height: 1.7; }
+
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .testi-card { padding: 2rem; }
+        .testi-card .stars { color: #f5a623; font-size: 0.85rem; margin-bottom: 1rem; }
+        .testi-card blockquote { font-size: 0.93rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+        .testi-author { display: flex; align-items: center; gap: 0.7rem; }
+        .testi-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--orange); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; font-family: 'Plus Jakarta Sans'; }
+        .testi-name { font-size: 0.85rem; }
+        .testi-name strong { color: var(--text); display: block; }
+        .testi-name span { color: var(--text-muted); font-size: 0.8rem; }
+
+        /* ============================================================
+           PAGE: BILAN
+           ============================================================ */
+        .bilan-hero { background: linear-gradient(165deg, var(--cream) 0%, var(--white) 40%, var(--orange-soft) 100%); }
+        .bilan-hero-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: 4rem; align-items: center; }
+        .hero-card-stack { display: flex; flex-direction: column; gap: 1rem; }
+        .hcs-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 1.6rem; box-shadow: var(--shadow-m); }
+        .hcs-label { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; margin-bottom: 0.3rem; }
+        .hcs-value { font-family: 'Plus Jakarta Sans'; font-size: 1.8rem; font-weight: 800; color: var(--blue); }
+        .hcs-value span { color: var(--orange); }
+        .hcs-sub { font-size: 0.86rem; color: var(--text-sec); margin-top: 0.2rem; }
+        .hcs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .hcs-mini { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-s); padding: 1.1rem; text-align: center; box-shadow: var(--shadow-s); }
+        .hcs-mini .mn { font-family: 'Plus Jakarta Sans'; font-size: 1.4rem; font-weight: 800; color: var(--orange); }
+        .hcs-mini .ml { font-size: 0.76rem; color: var(--text-muted); }
+
+        .editorial-content { max-width: 760px; margin: 0 auto; }
+        .editorial-content h2 { font-size: 2.4rem; color: var(--blue); margin-bottom: 1.3rem; }
+        .editorial-content p { font-size: 1.05rem; color: var(--text-sec); line-height: 1.85; margin-bottom: 1rem; }
+        .editorial-content p strong { color: var(--text); }
+        .pull-quote { position: relative; margin: 2.5rem 0; padding: 2rem 0 2rem 2.2rem; border-left: 3px solid var(--orange); }
+        .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--blue); line-height: 1.5; margin: 0; }
+
+        .method-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+        .method-step { display: grid; gap: 2.5rem; align-items: center; background: var(--white); border-radius: var(--r-l); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-s); transition: box-shadow 0.3s; }
+        .method-step:hover { box-shadow: var(--shadow-m); }
+        .method-step:nth-child(odd) { grid-template-columns: 0.32fr 1fr; }
+        .method-step:nth-child(even) { grid-template-columns: 1fr 0.32fr; }
+        .ms-accent { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.5rem 1.5rem; text-align: center; }
+        .method-step:nth-child(1) .ms-accent { background: linear-gradient(135deg, #fff5f2, #fff0ec); }
+        .method-step:nth-child(2) .ms-accent { background: linear-gradient(135deg, #f0f1f6, #e8e9f0); }
+        .ms-sn { font-family: 'Plus Jakarta Sans'; font-size: 4rem; font-weight: 800; opacity: 0.1; line-height: 1; color: var(--blue); margin-bottom: 0.3rem; }
+        .ms-icon { width: 50px; height: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; }
+        .method-step:nth-child(1) .ms-icon { background: var(--orange); }
+        .method-step:nth-child(2) .ms-icon { background: var(--blue); }
+        .ms-body { padding: 2.2rem 2.5rem 2.2rem 0; }
+        .method-step:nth-child(even) .ms-body { padding: 2.2rem 0 2.2rem 2.5rem; }
+        .ms-body h3 { font-size: 1.3rem; color: var(--blue); margin-bottom: 0.8rem; }
+        .ms-body p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 1.2rem; }
+        .ms-body ul { list-style: none; padding: 0; }
+        .ms-body li { padding: 0.35rem 0; font-size: 0.9rem; color: var(--text-sec); display: flex; gap: 0.6rem; align-items: flex-start; }
+        .ms-body li::before { content: ''; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; margin-top: 0.55rem; }
+        .method-step:nth-child(1) .ms-body li::before { background: var(--orange); }
+        .method-step:nth-child(2) .ms-body li::before { background: var(--blue); }
+        .ms-outcome { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; background: var(--warm-gray); border-radius: var(--r-s); font-size: 0.86rem; color: var(--text); font-weight: 500; }
+        .method-step:nth-child(1) .ms-outcome { border-left: 3px solid var(--orange); }
+        .method-step:nth-child(2) .ms-outcome { border-left: 3px solid var(--blue); }
+
+        .promises-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .promise-card { padding: 1.8rem; position: relative; }
+        .promise-card::before { content: ''; position: absolute; top: 0; left: 1.5rem; right: 1.5rem; height: 3px; border-radius: 0 0 3px 3px; opacity: 0; transition: opacity 0.3s; }
+        .promise-card:hover::before { opacity: 1; }
+        .promise-card:nth-child(1)::before { background: var(--orange); }
+        .promise-card:nth-child(2)::before { background: var(--blue); }
+        .promise-card:nth-child(3)::before { background: var(--green); }
+        .promise-card:nth-child(4)::before { background: #d4a017; }
+        .promise-card h4 { font-size: 1rem; color: var(--blue); margin-bottom: 0.5rem; }
+        .promise-card p { font-size: 0.88rem; color: var(--text-sec); line-height: 1.7; }
+
+        .audience-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+        .audience-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .audience-list li { display: flex; align-items: flex-start; gap: 0.9rem; padding: 1rem 1.2rem; background: var(--white); border-radius: var(--r-s); border: 1px solid var(--border); font-size: 0.93rem; color: var(--text-sec); transition: all 0.25s; }
+        .audience-list li:hover { border-color: var(--orange); transform: translateX(4px); }
+        .li-icon { width: 34px; height: 34px; min-width: 34px; border-radius: 9px; background: var(--orange-soft); display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 0.8rem; }
+        .a-quote { background: var(--white); border-radius: var(--r); padding: 2.2rem; border: 1px solid var(--border); box-shadow: var(--shadow-s); margin-bottom: 1.2rem; }
+        .a-quote blockquote { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--blue); line-height: 1.6; margin-bottom: 1rem; }
+        .a-quote-author { font-size: 0.83rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.6rem; }
+
+        /* ============================================================
+           PAGE: VAE
+           ============================================================ */
+        .vae-hero { background: linear-gradient(165deg, var(--cream) 0%, var(--white) 50%, var(--green-soft) 100%); }
+        .vae-steps { display: flex; flex-direction: column; gap: 1.5rem; }
+        .vae-step { display: grid; grid-template-columns: 0.3fr 1fr; gap: 2.5rem; background: var(--white); border-radius: var(--r-l); border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow-s); transition: box-shadow 0.3s; }
+        .vae-step:hover { box-shadow: var(--shadow-m); }
+        .vae-step-left { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+        .vae-step:nth-child(1) .vae-step-left { background: linear-gradient(135deg, #fff5f2, #fff0ec); }
+        .vae-step:nth-child(2) .vae-step-left { background: linear-gradient(135deg, var(--blue-soft), #e0e2ed); }
+        .vae-step:nth-child(3) .vae-step-left { background: linear-gradient(135deg, var(--green-soft), #d4f0e0); }
+        .vae-step-right { padding: 2.2rem 2.5rem 2.2rem 0; }
+        .vae-step-right h3 { font-size: 1.2rem; color: var(--blue); margin-bottom: 0.3rem; }
+        .vae-step-right .step-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 500; }
+        .vae-step-right ul { list-style: none; padding: 0; }
+        .vae-step-right li { padding: 0.3rem 0; font-size: 0.9rem; color: var(--text-sec); display: flex; gap: 0.6rem; align-items: flex-start; }
+        .vae-step-right li i { color: var(--green); margin-top: 0.3rem; font-size: 0.75rem; }
+        .vae-outcome { margin-top: 1rem; padding: 0.7rem 1rem; background: var(--warm-gray); border-radius: var(--r-s); font-size: 0.86rem; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+
+        .vae-audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .vae-aud-card { text-align: center; padding: 2rem 1.5rem; }
+        .vae-aud-card .aud-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--green-soft); color: var(--green); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.1rem; }
+        .vae-aud-card p { font-size: 0.9rem; color: var(--text-sec); line-height: 1.6; }
+        .vae-aud-card p strong { color: var(--text); }
+
+        /* ============================================================
+           PAGE: FORMATION IA
+           ============================================================ */
+        .ia-hero { background: linear-gradient(165deg, #1a1e3a 0%, var(--blue) 100%); color: white; }
+        .ia-hero h1 { color: white; }
+        .ia-hero h1 em { color: #67e8f9; }
+        .ia-hero .hero-desc { color: rgba(255,255,255,0.7); }
+        .ia-hero .hero-label { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+        .ia-hero .hero-label i { color: #67e8f9; }
+
+        .ia-domains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
+        .ia-domain { text-align: center; padding: 2rem 1.2rem; }
+        .ia-domain .dom-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.2rem; color: white; }
+        .ia-domain:nth-child(1) .dom-icon { background: #e74c3c; }
+        .ia-domain:nth-child(2) .dom-icon { background: #3498db; }
+        .ia-domain:nth-child(3) .dom-icon { background: #2ecc71; }
+        .ia-domain:nth-child(4) .dom-icon { background: var(--orange); }
+        .ia-domain:nth-child(5) .dom-icon { background: #9b59b6; }
+        .ia-domain h4 { font-size: 0.95rem; color: var(--blue); margin-bottom: 0.4rem; }
+        .ia-domain p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+        .ia-formations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .ia-f-card { padding: 2rem; display: flex; gap: 1.2rem; align-items: flex-start; }
+        .ia-f-icon { width: 44px; height: 44px; min-width: 44px; border-radius: 12px; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .ia-f-card h4 { font-size: 1.05rem; color: var(--blue); margin-bottom: 0.4rem; }
+        .ia-f-card p { font-size: 0.88rem; color: var(--text-sec); line-height: 1.7; }
+
+        /* ============================================================
+           PAGE: NOTRE APPROCHE
+           ============================================================ */
+        .approche-hero { background: linear-gradient(165deg, var(--cream), var(--white), var(--blue-soft)); }
+        .approche-manifesto { max-width: 760px; margin: 0 auto; }
+        .approche-manifesto h2 { font-size: 2.4rem; color: var(--blue); margin-bottom: 1.2rem; }
+        .approche-manifesto p { font-size: 1.05rem; color: var(--text-sec); line-height: 1.85; margin-bottom: 1rem; }
+
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .pillar-card { padding: 2.2rem; text-align: center; position: relative; overflow: hidden; }
+        .pillar-card::after { content: ''; position: absolute; bottom: 0; left: 2rem; right: 2rem; height: 3px; border-radius: 3px 3px 0 0; }
+        .pillar-card:nth-child(1)::after { background: var(--orange); }
+        .pillar-card:nth-child(2)::after { background: var(--blue); }
+        .pillar-card:nth-child(3)::after { background: var(--green); }
+        .pillar-badge { display: inline-block; padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+        .pillar-card:nth-child(1) .pillar-badge { background: var(--orange-soft); color: var(--orange); }
+        .pillar-card:nth-child(2) .pillar-badge { background: var(--blue-soft); color: var(--blue); }
+        .pillar-card:nth-child(3) .pillar-badge { background: var(--green-soft); color: var(--green); }
+        .pillar-card h3 { font-size: 1.1rem; color: var(--blue); margin-bottom: 0.7rem; }
+        .pillar-card p { font-size: 0.9rem; color: var(--text-sec); line-height: 1.7; }
+
+        .network-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .network-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .net-stat { text-align: center; padding: 1.5rem; }
+        .net-stat .ns-num { font-family: 'Plus Jakarta Sans'; font-size: 2.2rem; font-weight: 800; color: var(--orange); }
+        .net-stat .ns-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+        .commitments-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        .commit-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem 1.5rem; background: var(--white); border-radius: var(--r-s); border: 1px solid var(--border); }
+        .commit-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: white; }
+        .commit-item:nth-child(1) .commit-icon { background: var(--orange); }
+        .commit-item:nth-child(2) .commit-icon { background: var(--blue); }
+        .commit-item:nth-child(3) .commit-icon { background: var(--green); }
+        .commit-item:nth-child(4) .commit-icon { background: #d4a017; }
+        .commit-item h4 { font-size: 0.95rem; color: var(--blue); margin-bottom: 0.2rem; }
+        .commit-item p { font-size: 0.88rem; color: var(--text-sec); line-height: 1.6; }
+
+        /* ============================================================
+           PAGE: FAQ
+           ============================================================ */
+        .faq-hero { background: linear-gradient(165deg, var(--cream), var(--white)); }
+        .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
+        .faq-item { border: 1px solid var(--border); border-radius: var(--r-s); overflow: hidden; transition: border-color 0.3s; }
+        .faq-item.open { border-color: var(--orange); }
+        .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.4rem; background: var(--white); border: none; font-size: 0.95rem; font-weight: 600; font-family: inherit; color: var(--text); cursor: pointer; text-align: left; transition: background 0.2s; }
+        .faq-q:hover { background: var(--warm-gray); }
+        .faq-q i { color: var(--text-muted); transition: transform 0.3s; font-size: 0.8rem; }
+        .faq-item.open .faq-q i { transform: rotate(180deg); color: var(--orange); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s; }
+        .faq-item.open .faq-a { max-height: 300px; padding: 0 1.4rem 1.2rem; }
+        .faq-a p { font-size: 0.92rem; color: var(--text-sec); line-height: 1.8; }
+
+        /* ============================================================
+           PAGE: BLOG
+           ============================================================ */
+        .blog-hero { background: linear-gradient(165deg, var(--cream), var(--white)); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .blog-card { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); background: var(--white); transition: all 0.3s; }
+        .blog-card:hover { box-shadow: var(--shadow-m); transform: translateY(-4px); }
+        .blog-card img { width: 100%; height: 180px; object-fit: cover; }
+        .blog-card-body { padding: 1.3rem 1.5rem; }
+        .blog-cat { display: inline-block; padding: 0.2rem 0.6rem; background: var(--orange-soft); color: var(--orange); border-radius: 100px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+        .blog-card h3 { font-size: 1.05rem; color: var(--blue); margin-bottom: 0.5rem; line-height: 1.3; }
+        .blog-card p { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 0.8rem; }
+        .blog-meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--text-muted); }
+        .blog-av { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; }
+
+        /* ============================================================
+           PAGE: ACTU
+           ============================================================ */
+        .actu-hero { background: linear-gradient(165deg, var(--orange), #d4552f); color: white; text-align: center; }
+        .actu-hero h1 { color: white; max-width: 100%; }
+        .actu-hero .hero-desc { color: rgba(255,255,255,0.85); margin-left: auto; margin-right: auto; }
+        .actu-hero .hero-label { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); color: white; }
+        .actu-hero .hero-label i { color: white; }
+
+        .actu-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .actu-step { text-align: center; padding: 2rem 1.5rem; }
+        .actu-step-n { width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.1rem; margin: 0 auto 1rem; }
+        .actu-step h4 { font-size: 0.95rem; color: var(--blue); margin-bottom: 0.4rem; }
+        .actu-step p { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; }
+
+        .actu-legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .actu-legal-text h2 { font-size: 2rem; color: var(--blue); margin-bottom: 1rem; }
+        .actu-legal-text p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.8; margin-bottom: 0.8rem; }
+        .actu-checks { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+        .actu-checks li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--text-sec); }
+        .actu-checks li i { color: var(--green); }
+
+        /* === FOOTER === */
+        .footer { padding: 2.5rem 0; border-top: 1px solid var(--border); text-align: center; font-size: 0.82rem; color: var(--text-muted); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .bilan-hero-grid, .audience-grid, .contact-split, .network-grid, .actu-legal-grid { grid-template-columns: 1fr; }
+            .hero-card-stack, .audience-visual { display: none; }
+            .home-hero-cards { grid-template-columns: 1fr 1fr; }
+            .steps-section .steps-grid, .method-cards-row, .testi-grid, .pillar-grid, .ia-formations-grid { grid-template-columns: 1fr 1fr; }
+            .ia-domains { grid-template-columns: repeat(3, 1fr); }
+            .promises-grid, .vae-audience-grid, .actu-steps-grid { grid-template-columns: 1fr 1fr; }
+            .method-step:nth-child(odd), .method-step:nth-child(even) { grid-template-columns: 1fr; }
+            .ms-body, .method-step:nth-child(even) .ms-body { padding: 2rem; }
+            .vae-step { grid-template-columns: 1fr; }
+            .vae-step-right { padding: 1.5rem 2rem 2rem; }
+            .blog-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .home-hero h1 { font-size: 2.4rem; }
+            .hero-page h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.9rem; }
+            .home-hero-cards, .steps-section .steps-grid, .method-cards-row, .testi-grid, .ia-domains, .promises-grid, .vae-audience-grid, .pillar-grid, .ia-formations-grid, .actu-steps-grid, .blog-grid { grid-template-columns: 1fr; }
+            .f-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .btn-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+    <div class="container">
+        <a class="nav-logo" onclick="showPage('home')">Formation <span>Compétences</span></a>
+        <div class="nav-links">
+            <a onclick="showPage('home')">Accueil</a>
+            <a onclick="showPage('bilan')">Bilan</a>
+            <a onclick="showPage('vae')">VAE</a>
+            <a onclick="showPage('ia')">Formation IA</a>
+            <a onclick="showPage('approche')">Notre approche</a>
+            <a onclick="showPage('faq')">FAQ</a>
+            <a onclick="showPage('blog')">Blog</a>
+            <a onclick="showPage('actu')">Actu</a>
+            <a class="nav-cta" onclick="showPage('home')">Être rappelé</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: HOME                                                 ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page active" id="p-home">
+    <section class="home-hero">
+        <div class="container">
+            <div class="home-hero-inner">
+                <div class="hero-label"><i class="fas fa-shield-alt"></i> Réseau certifié Qualiopi</div>
+                <h1>Clarifiez votre parcours professionnel avec un accompagnement <em>expert et personnalisé</em></h1>
+                <p class="hero-desc">Nous vous aidons à structurer votre projet, identifier vos besoins réels et choisir le dispositif d'accompagnement le plus adapté à votre situation.</p>
+                <div class="btn-row">
+                    <a class="btn-p" onclick="showPage('bilan')"><i class="fas fa-compass"></i> Bilan de compétences</a>
+                    <a class="btn-g btn-w" onclick="showPage('vae')"><i class="fas fa-award"></i> Validation des acquis (VAE)</a>
+                </div>
+                <div class="home-hero-cards reveal">
+                    <div class="hh-card"><i class="fas fa-network-wired"></i><p>Réseau d'organismes partenaires certifiés Qualiopi</p></div>
+                    <div class="hh-card"><i class="fas fa-balance-scale"></i><p>Respect d'une charte déontologique stricte</p></div>
+                    <div class="hh-card"><i class="fas fa-check-circle"></i><p>Avis clients vérifiés</p></div>
+                    <div class="hh-card"><i class="fas fa-laptop"></i><p>Accompagnement possible 100% à distance</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section need-section">
+        <div class="container">
+            <div class="need-inner reveal">
+                <span class="section-label">Votre situation</span>
+                <h2>Vous êtes à un tournant de votre carrière ?</h2>
+                <p>Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer dans votre vie professionnelle ? Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou <strong>faire le point sur vos compétences</strong>, nous comprenons que ce n'est pas toujours facile de savoir par où commencer.</p>
+                <div class="need-highlight"><strong>C'est exactement pour cela que nous sommes là.</strong> Nous vous aidons à y voir clair, à identifier le bon dispositif, et à construire un parcours qui a du sens pour vous.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-strip">
+        <div class="container">
+            <div class="trust-item"><i class="fas fa-award"></i> Certifié Qualiopi</div>
+            <div class="trust-item"><i class="fas fa-lock"></i> Données sécurisées</div>
+            <div class="trust-item"><i class="fas fa-user-check"></i> Conseillers certifiés</div>
+            <div class="trust-item"><i class="fas fa-hand-holding-heart"></i> 100% gratuit</div>
+        </div>
+    </div>
+
+    <section class="section steps-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Notre méthode</span>
+                <h2 class="section-title">3 entretiens pour changer le cours de votre vie.</h2>
+                <p class="section-sub">Un accompagnement 100% personnalisé pour choisir le bon dispositif et le bon organisme.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-card-top"><div class="step-num">1</div><h3>Comprendre votre situation</h3></div>
+                    <div class="step-card-body">
+                        <ul>
+                            <li>Nous reprenons votre contexte actuel, votre parcours et vos transitions passées</li>
+                            <li>Nous intégrons vos contraintes réelles (temps, budget, mobilité)</li>
+                            <li>Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser</li>
+                        </ul>
+                        <div class="step-outcome">Poser des bases solides pour éviter le bilan « par défaut »</div>
+                    </div>
+                </div>
+                <div class="step-card reveal reveal-d1">
+                    <div class="step-card-top"><div class="step-num">2</div><h3>Vous aider à y voir clair</h3></div>
+                    <div class="step-card-body">
+                        <ul>
+                            <li>Nous cadrons votre besoin : bilan ? formation ? VAE ? autre dispositif ?</li>
+                            <li>Nous mettons à plat des pistes réalistes, pas des rêves</li>
+                            <li>Nous vérifions la cohérence globale : contraintes, prérequis, financement</li>
+                        </ul>
+                        <div class="step-outcome">Vous savez ce qui est possible, et ce qui ne l'est pas (encore)</div>
+                    </div>
+                </div>
+                <div class="step-card reveal reveal-d2">
+                    <div class="step-card-top"><div class="step-num">3</div><h3>Vous orienter vers le bon partenaire</h3></div>
+                    <div class="step-card-body">
+                        <ul>
+                            <li>Nous formalisons vos critères de choix (objectifs, modalités, timing)</li>
+                            <li>Nous vous aidons à choisir le dispositif le plus adapté</li>
+                            <li>Nous vous mettons en relation avec un organisme certifié et pertinent</li>
+                        </ul>
+                        <div class="step-outcome">Vous démarrez en sachant où vous allez, avec qui, et pourquoi</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><a class="btn-p reveal"><i class="fas fa-arrow-right"></i> Je veux clarifier mon projet professionnel</a></div>
+        </div>
+    </section>
+
+    <section class="section section-dark" style="padding:4rem 0;">
+        <div class="container" style="text-align:center">
+            <h2 style="font-size:2rem;margin-bottom:0.5rem">Chaque parcours est unique. <span style="color:var(--orange)">Le vôtre commence ici.</span></h2>
+            <p style="opacity:0.7;font-size:1rem">Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Témoignages</span>
+                <h2 class="section-title">Ils nous ont fait confiance</h2>
+                <p class="section-sub">Quelques personnes que nous avons aidées à sortir de la confusion.</p>
+            </div>
+            <div class="testi-grid">
+                <div class="card testi-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>« Je savais que j'avais besoin de changement, mais impossible de savoir par où commencer. En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule demander. »</blockquote>
+                    <div class="testi-author"><div class="testi-avatar">P</div><div class="testi-name"><strong>Paul, 38 ans</strong><span>Cadre en entreprise</span></div></div>
+                </div>
+                <div class="card testi-card reveal reveal-d1">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>« J'avais peur de tout envoyer valser. Ma conseillère m'a aidée à poser les choses calmement, à préciser mon projet et à choisir un bilan adapté. Aujourd'hui, je sais où je vais. »</blockquote>
+                    <div class="testi-author"><div class="testi-avatar">S</div><div class="testi-name"><strong>Sylvie, 45 ans</strong><span>Salariée depuis 20 ans</span></div></div>
+                </div>
+                <div class="card testi-card reveal reveal-d2">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>« J'avais repéré plein de formations, toutes avaient l'air géniales… et c'est le problème. La prépa m'a permis de trier, de vérifier ce qui était réaliste et cohérent. »</blockquote>
+                    <div class="testi-author"><div class="testi-avatar">E</div><div class="testi-name"><strong>Eve, 32 ans</strong><span>En réflexion de reconversion</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="home-fin">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Financement</span>
+                <h2 class="section-title">Votre bilan peut être 100% financé</h2>
+            </div>
+            <div class="fin-tabs reveal" data-group="home">
+                <button class="fin-tab active" onclick="showFin('home','cpf',this)">CPF</button>
+                <button class="fin-tab" onclick="showFin('home','plan',this)">Plan entreprise</button>
+                <button class="fin-tab" onclick="showFin('home','opco',this)">OPCO</button>
+                <button class="fin-tab" onclick="showFin('home','ft',this)">France Travail</button>
+            </div>
+            <div class="fin-panel reveal">
+                <div class="fin-content" data-group="home" data-id="cpf"><h4>Compte Personnel de Formation (CPF)</h4><p>Utilisez vos droits acquis tout au long de votre carrière. 500€/an cumulés, jusqu'à 5 000€. Procédure 100% digitalisée sur moncompteformation.gouv.fr.</p><span class="fin-tag">Pour tous les actifs</span></div>
+                <div class="fin-content" data-group="home" data-id="plan" style="display:none"><h4>Plan de développement des compétences</h4><p>Votre employeur finance votre bilan. Vous gardez votre statut et votre rémunération. Parlez-en à votre service RH.</p><span class="fin-tag">Salariés en poste</span></div>
+                <div class="fin-content" data-group="home" data-id="opco" style="display:none"><h4>OPCO — Opérateurs de Compétences</h4><p>Financement via votre branche professionnelle. Prise en charge totale ou partielle pour TPE/PME. Nous vous accompagnons dans les démarches.</p><span class="fin-tag">TPE / PME</span></div>
+                <div class="fin-content" data-group="home" data-id="ft" style="display:none"><h4>Aide France Travail</h4><p>AIF ou abondement CPF possible. Nous vous aidons à structurer votre demande auprès de votre conseiller.</p><span class="fin-tag">Demandeurs d'emploi</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="home-contact">
+        <div class="container">
+            <div class="contact-split">
+                <div class="contact-info reveal">
+                    <h2>Et si on en parlait ?</h2>
+                    <p>Un premier échange permet de comprendre votre contexte, vérifier si un bilan est pertinent, et vous orienter vers le bon parcours.</p>
+                    <div class="contact-perks">
+                        <div class="contact-perk"><i class="fas fa-shield-alt"></i> Sans engagement</div>
+                        <div class="contact-perk"><i class="fas fa-clock"></i> Réponse sous 24 heures</div>
+                        <div class="contact-perk"><i class="fas fa-hand-holding-heart"></i> Pré-bilan entièrement gratuit</div>
+                    </div>
+                </div>
+                <div class="form-card reveal reveal-d2">
+                    <h3>Parlez-nous de votre situation</h3>
+                    <p>Quelques informations pour vous orienter vers le bon parcours.</p>
+                    <form onsubmit="return false;">
+                        <div class="f-row"><div class="fg"><input placeholder="Prénom et nom *" required></div><div class="fg"><input type="tel" placeholder="Téléphone *" required></div></div>
+                        <div class="fg"><input type="email" placeholder="Adresse email *" required></div>
+                        <div class="fg"><select required><option value="">Votre situation actuelle *</option><option>Salarié(e)</option><option>Demandeur d'emploi</option><option>Indépendant(e)</option><option>Autre</option></select></div>
+                        <div class="fg"><select required><option value="">Votre objectif principal *</option><option>Faire le point sur ma carrière</option><option>Évoluer dans mon entreprise</option><option>Me reconvertir</option><option>Sécuriser une décision</option></select></div>
+                        <div class="fg"><textarea rows="3" placeholder="Un mot sur votre situation (facultatif)"></textarea></div>
+                        <label class="f-consent"><input type="checkbox" required><span>J'accepte que mes données soient utilisées pour me recontacter.</span></label>
+                        <button type="submit" class="f-submit">Envoyer ma demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: BILAN DE COMPÉTENCES                                 ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-bilan">
+    <section class="hero-page bilan-hero">
+        <div class="container">
+            <div class="bilan-hero-grid">
+                <div>
+                    <div class="hero-label"><i class="fas fa-shield-alt"></i> Accompagnement sur-mesure</div>
+                    <h1>Un bilan de compétences <em>construit pour vous</em>, pas un produit catalogue.</h1>
+                    <p class="hero-desc">Nous partons de votre situation réelle — contraintes, temporalité, projet — pour dimensionner un accompagnement qui a du sens.</p>
+                    <div class="btn-row"><a class="btn-p"><i class="fas fa-phone-alt"></i> Être rappelé gratuitement</a><a class="btn-g">Découvrir notre méthode</a></div>
+                </div>
+                <div class="hero-card-stack">
+                    <div class="hcs-card"><div class="hcs-label">Notre approche</div><div class="hcs-value">Le bilan <span>juste</span></div><div class="hcs-sub">Adapté à votre situation, pas à un programme standard</div></div>
+                    <div class="hcs-row"><div class="hcs-mini"><div class="mn">500+</div><div class="ml">Accompagnements</div></div><div class="hcs-mini"><div class="mn">4.9/5</div><div class="ml">Satisfaction</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-strip"><div class="container"><div class="trust-item"><i class="fas fa-award"></i> Certifié Qualiopi</div><div class="trust-item"><i class="fas fa-lock"></i> Données sécurisées</div><div class="trust-item"><i class="fas fa-user-check"></i> Conseillers certifiés</div><div class="trust-item"><i class="fas fa-hand-holding-heart"></i> Pré-bilan 100% gratuit</div></div></div>
+
+    <section class="section">
+        <div class="container"><div class="editorial-content reveal">
+            <span class="section-label">Pourquoi nous sommes différents</span>
+            <h2>Vous avez probablement déjà vu des formules « Essentiel / Premium / Intégral ».</h2>
+            <p>Des packages identiques maquillés en trois niveaux, des bilans 100% en ligne avec ateliers collectifs, des parcours hybrides. Ces approches ont leurs qualités.</p>
+            <p><strong>Notre choix est différent.</strong> Ne pas partir d'un programme standard, mais dimensionner le bilan à partir de votre besoin réel. C'est ce que nous appelons <strong>le « bilan juste »</strong>.</p>
+            <div class="pull-quote"><p>Nous partons d'un socle maximal de ressources possibles, puis nous retirons ce qui n'est pas utile à votre situation.</p></div>
+        </div></div>
+    </section>
+
+    <div class="separator"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Notre méthode</span><h2 class="section-title">Un bilan en 2 étapes claires</h2><p class="section-sub">Pas de flou, pas de surprise.</p></div>
+            <div class="method-steps">
+                <div class="method-step reveal">
+                    <div class="ms-accent"><div class="ms-sn">01</div><div class="ms-icon"><i class="fas fa-clipboard-check"></i></div></div>
+                    <div class="ms-body"><h3>Le pré-bilan Formation Compétences</h3><p>Avant toute proposition, nous réalisons un pré-bilan structuré.</p><ul><li>Formulaires avancés adaptés à votre statut</li><li>Analyse de votre contexte professionnel</li><li>Objectifs réels : faire le point, évoluer, se reconvertir</li><li>Contraintes de rythme et de disponibilité</li><li>Niveau de maturité de projet</li></ul><div class="ms-outcome"><i class="fas fa-bullseye"></i> Vous proposer le bon niveau d'accompagnement.</div></div>
+                </div>
+                <div class="method-step reveal">
+                    <div class="ms-body"><h3>La Marge de Personnalisation Encadrée (MPE)</h3><p>Votre situation est analysée selon 7 critères opérationnels :</p><ul><li>Contraintes d'exécution et délais</li><li>Niveau d'expertise requis</li><li>Complexité du projet</li><li>Outillage d'évaluation</li><li>Investigation terrain</li><li>Besoins d'accessibilité</li><li>Charge de travail et suivi</li></ul><div class="ms-outcome"><i class="fas fa-check-double"></i> Durée justifiée objectivement, sans inflation artificielle.</div></div>
+                    <div class="ms-accent"><div class="ms-sn">02</div><div class="ms-icon"><i class="fas fa-sliders-h"></i></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" style="padding:4rem 0;text-align:center"><div class="container"><h2 style="font-size:2rem">Notre promesse : le bilan <span style="color:var(--orange)">juste</span>.</h2><p style="opacity:0.7;max-width:500px;margin:0.5rem auto 0">Le tarif reflète les moyens réellement engagés. Ni plus, ni moins.</p></div></section>
+
+    <section class="section">
+        <div class="container">
+            <div class="promises-grid">
+                <div class="card promise-card reveal"><h4>Juste en contenu</h4><p>Vous ne payez pas pour des outils ou des tests superflus.</p></div>
+                <div class="card promise-card reveal reveal-d1"><h4>Juste en durée</h4><p>10h, 12h, 18h ou 24h selon une analyse objectivée.</p></div>
+                <div class="card promise-card reveal reveal-d2"><h4>Juste en méthode</h4><p>Plus votre situation est complexe, plus l'ingénierie est adaptée.</p></div>
+                <div class="card promise-card reveal reveal-d3"><h4>Juste en coût</h4><p>Le tarif reflète les moyens réellement engagés.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="audience-grid">
+                <div class="reveal">
+                    <span class="section-label">Pour qui ?</span>
+                    <h2 style="font-size:2.2rem;font-weight:800;color:var(--blue);margin-bottom:1.5rem">Ce bilan s'adresse à ceux qui refusent le standard.</h2>
+                    <ul class="audience-list">
+                        <li><span class="li-icon"><i class="fas fa-user-times"></i></span><span>Vous <strong>refusez les bilans standardisés</strong></span></li>
+                        <li><span class="li-icon"><i class="fas fa-question-circle"></i></span><span>Vous <strong>hésitez entre plusieurs orientations</strong></span></li>
+                        <li><span class="li-icon"><i class="fas fa-exclamation-triangle"></i></span><span>Vous vivez une <strong>situation complexe ou contrainte</strong></span></li>
+                        <li><span class="li-icon"><i class="fas fa-search-dollar"></i></span><span>Vous voulez <strong>comprendre précisément</strong> ce que vous achetez</span></li>
+                    </ul>
+                </div>
+                <div class="audience-visual reveal reveal-d2">
+                    <div class="a-quote"><blockquote>« En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule et quel cadre de bilan demander. »</blockquote><div class="a-quote-author"><div class="testi-avatar">P</div><span>Paul, 38 ans — cadre en entreprise</span></div></div>
+                    <div class="hcs-row"><div class="hcs-mini"><div class="mn">500+</div><div class="ml">Accompagnements</div></div><div class="hcs-mini"><div class="mn">4.9/5</div><div class="ml">Satisfaction</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="bilan-contact">
+        <div class="container"><div class="contact-split">
+            <div class="contact-info reveal"><h2>Et maintenant ?</h2><p>Un premier échange permet de comprendre votre contexte, vérifier si un bilan est pertinent, et vous indiquer vers quelle durée nous nous orienterions.</p><div class="contact-perks"><div class="contact-perk"><i class="fas fa-shield-alt"></i> Sans engagement</div><div class="contact-perk"><i class="fas fa-clock"></i> Réponse sous 24h</div></div></div>
+            <div class="form-card reveal reveal-d2"><h3>Parlez-nous de votre situation</h3><p>Quelques questions pour vous orienter vers le bon parcours.</p><form onsubmit="return false;"><div class="f-row"><div class="fg"><input placeholder="Prénom et nom *" required></div><div class="fg"><input type="tel" placeholder="Téléphone *" required></div></div><div class="fg"><input type="email" placeholder="Adresse email *" required></div><div class="fg"><select required><option value="">Votre situation *</option><option>Salarié(e)</option><option>Demandeur d'emploi</option><option>Indépendant(e)</option><option>Autre</option></select></div><div class="fg"><select required><option value="">Votre objectif *</option><option>Faire le point</option><option>Évoluer</option><option>Me reconvertir</option><option>Sécuriser une décision</option></select></div><div class="fg"><textarea rows="3" placeholder="Votre message (facultatif)"></textarea></div><label class="f-consent"><input type="checkbox" required><span>J'accepte que mes données soient utilisées pour me recontacter.</span></label><button type="submit" class="f-submit">Je souhaite être rappelé(e)</button></form></div>
+        </div></div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: VAE                                                  ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-vae">
+    <section class="hero-page vae-hero">
+        <div class="container">
+            <div class="hero-label"><i class="fas fa-certificate"></i> Certification officielle</div>
+            <h1>Faites reconnaître votre expérience avec une <em>VAE sur-mesure</em></h1>
+            <p class="hero-desc">Obtenez un diplôme ou un titre professionnel en faisant valider vos compétences acquises sur le terrain — sans repartir en formation.</p>
+            <div class="btn-row"><a class="btn-p"><i class="fas fa-phone-alt"></i> Être rappelé</a><a class="btn-g">Découvrir notre méthode VAE</a></div>
+        </div>
+    </section>
+
+    <div class="trust-strip"><div class="container"><div class="trust-item"><i class="fas fa-check-circle"></i> 85% taux de validation</div><div class="trust-item"><i class="fas fa-clock"></i> 6–12 mois en moyenne</div><div class="trust-item"><i class="fas fa-award"></i> Certification RNCP</div><div class="trust-item"><i class="fas fa-hand-holding-heart"></i> Diagnostic gratuit</div></div></div>
+
+    <section class="section">
+        <div class="container"><div class="editorial-content reveal">
+            <span class="section-label">La VAE en bref</span>
+            <h2>Votre expérience vaut un diplôme.</h2>
+            <p>La VAE vous permet d'obtenir une certification RNCP (titre, diplôme, blocs de compétences) <strong>sans repartir en formation</strong>, en faisant valider les compétences acquises sur le terrain.</p>
+            <div class="pull-quote"><p>Votre expérience parle. Nous vous aidons à la faire entendre.</p></div>
+        </div></div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Notre méthode</span><h2 class="section-title">Notre méthode VAE en 3 temps</h2><p class="section-sub">Un accompagnement structuré pour maximiser vos chances de validation.</p></div>
+            <div class="vae-steps">
+                <div class="vae-step reveal">
+                    <div class="vae-step-left"><div class="ms-sn">01</div><div class="ms-icon" style="background:var(--orange)"><i class="fas fa-bullseye"></i></div></div>
+                    <div class="vae-step-right"><h3>Mettre votre objectif au clair</h3><div class="step-subtitle">Et éviter la VAE « au mauvais diplôme »</div><ul><li><i class="fas fa-check-circle"></i> Clarifier votre objectif réel : diplôme complet, blocs, évolution</li><li><i class="fas fa-check-circle"></i> Identifier ce qui est vraiment « validable » dans votre expérience</li><li><i class="fas fa-check-circle"></i> Poser la question centrale : quelle certification doit prouver quoi ?</li></ul><div class="vae-outcome"><i class="fas fa-compass"></i> Un cap clair, avant de vous lancer dans des mois de dossier.</div></div>
+                </div>
+                <div class="vae-step reveal">
+                    <div class="vae-step-left"><div class="ms-sn">02</div><div class="ms-icon" style="background:var(--blue)"><i class="fas fa-lock"></i></div></div>
+                    <div class="vae-step-right"><h3>Verrouiller la bonne certification</h3><div class="step-subtitle">Référentiel + faisabilité + stratégie</div><ul><li><i class="fas fa-check-circle"></i> Alignement expérience ↔ référentiel</li><li><i class="fas fa-check-circle"></i> Périmètre de validation (total vs blocs, niveau, spécialité)</li><li><i class="fas fa-check-circle"></i> Faisabilité concrète : preuves, temps, rythme, financement</li></ul><div class="vae-outcome"><i class="fas fa-file-contract"></i> Recommandation argumentée : certification + stratégie de validation.</div></div>
+                </div>
+                <div class="vae-step reveal">
+                    <div class="vae-step-left"><div class="ms-sn">03</div><div class="ms-icon" style="background:var(--green)"><i class="fas fa-rocket"></i></div></div>
+                    <div class="vae-step-right"><h3>Lancer la suite sans vous perdre</h3><div class="step-subtitle">Plan de route + dossier + mise en relation</div><ul><li><i class="fas fa-check-circle"></i> Feuille de route (étapes, timing, jalons, vigilance)</li><li><i class="fas fa-check-circle"></i> Plan de preuves à rassembler et documenter</li><li><i class="fas fa-check-circle"></i> Mise en relation avec un accompagnateur partenaire</li></ul><div class="vae-outcome"><i class="fas fa-flag-checkered"></i> Vous démarrez votre VAE avec une trajectoire claire jusqu'au jury.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Pour qui ?</span><h2 class="section-title">La VAE est faite pour vous si…</h2></div>
+            <div class="vae-audience-grid">
+                <div class="card vae-aud-card reveal"><div class="aud-icon"><i class="fas fa-award"></i></div><p>Vos compétences sont <strong>déjà prouvées sur le terrain</strong></p></div>
+                <div class="card vae-aud-card reveal reveal-d1"><div class="aud-icon"><i class="fas fa-graduation-cap"></i></div><p>Vous voulez <strong>obtenir un diplôme reconnu</strong></p></div>
+                <div class="card vae-aud-card reveal reveal-d2"><div class="aud-icon"><i class="fas fa-rocket"></i></div><p>Vous souhaitez <strong>accélérer une évolution</strong></p></div>
+                <div class="card vae-aud-card reveal reveal-d3"><div class="aud-icon"><i class="fas fa-briefcase"></i></div><p>Vous avez une <strong>expérience solide</strong> à faire reconnaître</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="vae-contact">
+        <div class="container"><div class="contact-split">
+            <div class="contact-info reveal"><h2>Prêt à faire reconnaître votre expérience ?</h2><p>Un premier échange gratuit pour clarifier votre objectif, vérifier la faisabilité et identifier la bonne certification.</p><div class="contact-perks"><div class="contact-perk"><i class="fas fa-shield-alt"></i> Sans engagement</div><div class="contact-perk"><i class="fas fa-clock"></i> Diagnostic gratuit</div></div></div>
+            <div class="form-card reveal reveal-d2"><h3>Parlez-nous de votre expérience</h3><p>Nous vous aidons à choisir la bonne voie.</p><form onsubmit="return false;"><div class="f-row"><div class="fg"><input placeholder="Prénom et nom *" required></div><div class="fg"><input type="tel" placeholder="Téléphone *" required></div></div><div class="fg"><input type="email" placeholder="Email *" required></div><div class="fg"><select required><option value="">Votre situation *</option><option>Salarié(e)</option><option>Demandeur d'emploi</option><option>Indépendant(e)</option></select></div><div class="fg"><select required><option value="">Années d'expérience *</option><option>1 à 3 ans</option><option>3 à 5 ans</option><option>5 à 10 ans</option><option>Plus de 10 ans</option></select></div><div class="fg"><textarea rows="3" placeholder="Diplôme visé + brève description (facultatif)"></textarea></div><label class="f-consent"><input type="checkbox" required><span>J'accepte que mes données soient utilisées pour me recontacter.</span></label><button type="submit" class="f-submit">Vérifier ma faisabilité VAE</button></form></div>
+        </div></div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: FORMATION IA                                         ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-ia">
+    <section class="hero-page ia-hero">
+        <div class="container">
+            <div class="hero-label"><i class="fas fa-brain"></i> Intelligence Artificielle</div>
+            <h1>Formez-vous aux métiers de <em>l'intelligence artificielle</em></h1>
+            <p class="hero-desc">Développez vos compétences en IA et préparez-vous aux métiers de demain avec des formations concrètes et certifiantes.</p>
+            <div class="btn-row"><a class="btn-p"><i class="fas fa-phone-alt"></i> Contactez-nous</a><a class="btn-g btn-w">Découvrir les formations</a></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Domaines d'application</span><h2 class="section-title">L'IA transforme tous les secteurs</h2><p class="section-sub">Des opportunités dans chaque domaine.</p></div>
+            <div class="ia-domains">
+                <div class="card ia-domain reveal"><div class="dom-icon"><i class="fas fa-heartbeat"></i></div><h4>Santé</h4><p>Diagnostic, recherche médicale, assistance chirurgicale</p></div>
+                <div class="card ia-domain reveal reveal-d1"><div class="dom-icon"><i class="fas fa-car"></i></div><h4>Transports</h4><p>Conduite autonome, logistique, gestion du trafic</p></div>
+                <div class="card ia-domain reveal reveal-d2"><div class="dom-icon"><i class="fas fa-chart-line"></i></div><h4>Finance</h4><p>Détection de fraude, trading, analyse de risques</p></div>
+                <div class="card ia-domain reveal reveal-d3"><div class="dom-icon"><i class="fas fa-bullhorn"></i></div><h4>Marketing</h4><p>Personnalisation, recommandations, campagnes optimisées</p></div>
+                <div class="card ia-domain reveal reveal-d4"><div class="dom-icon"><i class="fas fa-bolt"></i></div><h4>Énergie</h4><p>Réseaux intelligents, efficacité énergétique, renouvelables</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" style="padding:4rem 0;text-align:center"><div class="container"><h2 style="font-size:2rem">Le collectif <span style="color:#67e8f9">Symetric AI</span></h2><p style="opacity:0.7;max-width:600px;margin:0.5rem auto 0">Des experts multi-domaines en IA, issus du monde académique et de l'industrie, au service de vos projets et de votre montée en compétences.</p></div></section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Catalogue</span><h2 class="section-title">Nos formations IA</h2><p class="section-sub">Des parcours adaptés à chaque profil.</p></div>
+            <div class="ia-formations-grid">
+                <div class="card ia-f-card reveal"><div class="ia-f-icon"><i class="fas fa-bullhorn"></i></div><div><h4>IA pour le Marketing Digital</h4><p>Optimisez vos stratégies marketing, améliorez la personnalisation et prédisez les comportements consommateurs grâce à l'IA.</p></div></div>
+                <div class="card ia-f-card reveal reveal-d1"><div class="ia-f-icon"><i class="fas fa-comments"></i></div><div><h4>ChatGPT & IA Générative</h4><p>Maîtrisez les modèles de langage pour créer des chatbots intelligents et automatiser la production de contenu.</p></div></div>
+                <div class="card ia-f-card reveal reveal-d2"><div class="ia-f-icon"><i class="fas fa-code"></i></div><div><h4>IA pour Développeurs</h4><p>Algorithmes d'apprentissage, modèles prédictifs, intégration de l'IA dans vos applications existantes.</p></div></div>
+                <div class="card ia-f-card reveal reveal-d3"><div class="ia-f-icon"><i class="fas fa-chess-queen"></i></div><div><h4>IA pour Décideurs</h4><p>Comprenez les principes de l'IA et son impact business pour prendre des décisions stratégiques éclairées.</p></div></div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><a class="btn-p reveal" onclick="showPage('home')"><i class="fas fa-paper-plane"></i> Contactez-nous</a></div>
+        </div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: NOTRE APPROCHE                                       ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-approche">
+    <section class="hero-page approche-hero">
+        <div class="container">
+            <div class="hero-label"><i class="fas fa-compass"></i> Notre philosophie</div>
+            <h1>Nous ne vendons pas de bilans. Nous vous aidons à <em>choisir le bon</em>.</h1>
+            <p class="hero-desc">Formation Compétences est né d'un constat simple : trop de personnes démarrent un bilan ou une VAE sans savoir si c'est le bon dispositif, le bon format, ou le bon organisme.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container"><div class="approche-manifesto reveal">
+            <span class="section-label">Notre raison d'être</span>
+            <h2>Le marché de l'accompagnement professionnel est opaque.</h2>
+            <p>Des centaines d'organismes proposent des bilans de compétences. Des dizaines de formules existent. Comment savoir laquelle est faite pour vous ? Comment distinguer un accompagnement sérieux d'un produit marketing ?</p>
+            <p><strong>C'est le problème que nous résolvons.</strong> Nous intervenons <em>en amont</em> de votre parcours — pas pour vous vendre un bilan, mais pour vous aider à comprendre ce dont vous avez réellement besoin, et vous orienter vers le bon partenaire.</p>
+            <div class="pull-quote"><p>Nous sommes le GPS avant le voyage. Pas l'agence de voyage elle-même.</p></div>
+            <p>Notre rôle est celui d'un <strong>tiers de confiance</strong> : nous analysons votre situation, structurons votre projet, et vous mettons en relation avec un organisme certifié Qualiopi qui correspond à votre profil. Gratuitement, sans engagement.</p>
+        </div></div>
+    </section>
+
+    <div class="separator"><div class="sep-line"></div><div class="sep-dot"></div><div class="sep-line"></div></div>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Nos valeurs</span><h2 class="section-title">Trois principes qui guident chaque échange</h2></div>
+            <div class="pillar-grid">
+                <div class="card pillar-card reveal"><div class="pillar-badge">Audace</div><h3>Poser les vraies questions</h3><p>Nous ne nous contentons pas de prendre votre demande au premier degré. Nous creusons, nous confrontons, nous challengeons — pour que votre projet repose sur des fondations solides, pas sur des envies passagères.</p></div>
+                <div class="card pillar-card reveal reveal-d1"><div class="pillar-badge">Bienveillance</div><h3>Accompagner sans juger</h3><p>Chaque situation est unique. Nous accueillons vos doutes, vos contradictions et vos hésitations comme des éléments normaux du processus. Pas de pression commerciale, pas de jugement.</p></div>
+                <div class="card pillar-card reveal reveal-d2"><div class="pillar-badge">Écoute</div><h3>Comprendre avant de proposer</h3><p>Nous ne proposons jamais de solution avant d'avoir compris votre contexte en profondeur. C'est ce qui nous permet de recommander le bon dispositif — pas celui qui nous arrange.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="network-grid">
+                <div class="reveal">
+                    <span class="section-label">Notre réseau</span>
+                    <h2 style="font-size:2.2rem;color:var(--blue);margin-bottom:1rem">Un réseau d'organismes partenaires, pas un organisme unique.</h2>
+                    <p style="font-size:1rem;color:var(--text-sec);line-height:1.8;margin-bottom:1.5rem">Contrairement à un centre de bilan classique, nous travaillons avec <strong>un réseau de partenaires certifiés Qualiopi</strong>. Cela nous permet de vous orienter vers l'organisme le plus pertinent pour votre profil, votre secteur, vos contraintes.</p>
+                    <p style="font-size:1rem;color:var(--text-sec);line-height:1.8">Nous ne sommes pas juge et partie. Notre seul intérêt est que <strong>vous trouviez le bon accompagnement</strong>.</p>
+                </div>
+                <div class="network-stats reveal reveal-d2">
+                    <div class="card net-stat"><div class="ns-num">30+</div><div class="ns-label">Organismes partenaires</div></div>
+                    <div class="card net-stat"><div class="ns-num">180+</div><div class="ns-label">Collaborateurs dans le réseau</div></div>
+                    <div class="card net-stat"><div class="ns-num">25 000+</div><div class="ns-label">Accompagnements réalisés</div></div>
+                    <div class="card net-stat"><div class="ns-num">4.9/5</div><div class="ns-label">Satisfaction clients</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" style="padding:4rem 0;text-align:center"><div class="container"><h2 style="font-size:2rem">Réseau certifié <span style="color:var(--orange)">Qualiopi</span>. Avis clients vérifiés.</h2><p style="opacity:0.7;max-width:500px;margin:0.5rem auto 0">La qualité n'est pas un argument marketing. C'est un engagement contractuel.</p></div></section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Engagements</span><h2 class="section-title">Ce que nous vous garantissons</h2></div>
+            <div class="commitments-list" style="max-width:700px;margin:0 auto">
+                <div class="commit-item reveal"><div class="commit-icon"><i class="fas fa-eye"></i></div><div><h4>Transparence totale</h4><p>Vous savez exactement ce que nous faisons, pourquoi nous le recommandons, et comment nous sommes rémunérés.</p></div></div>
+                <div class="commit-item reveal reveal-d1"><div class="commit-icon"><i class="fas fa-ban"></i></div><div><h4>Zéro pression commerciale</h4><p>Nous ne vendons rien. Si un bilan n'est pas pertinent pour vous, nous vous le dirons.</p></div></div>
+                <div class="commit-item reveal reveal-d2"><div class="commit-icon"><i class="fas fa-user-shield"></i></div><div><h4>Confidentialité absolue</h4><p>Vos données et vos échanges restent strictement confidentiels. RGPD respecté à la lettre.</p></div></div>
+                <div class="commit-item reveal reveal-d3"><div class="commit-icon"><i class="fas fa-handshake"></i></div><div><h4>Suivi jusqu'au démarrage</h4><p>Nous ne vous lâchons pas après l'orientation. Nous restons disponibles jusqu'à ce que vous soyez bien lancé.</p></div></div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><a class="btn-p reveal" onclick="showPage('home')"><i class="fas fa-phone-alt"></i> Être rappelé par un conseiller</a></div>
+        </div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: FAQ                                                  ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-faq">
+    <section class="hero-page faq-hero">
+        <div class="container">
+            <div class="hero-label"><i class="fas fa-question-circle"></i> Réponses à vos questions</div>
+            <h1>Questions fréquentes</h1>
+            <p class="hero-desc">Tout ce que vous devez savoir sur le bilan de compétences, la VAE et nos services.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="faq-list">
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Qu'est-ce qu'un bilan de compétences ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>Le bilan de compétences est un dispositif encadré par le Code du travail. Il permet de faire le point sur vos compétences, aptitudes et motivations pour définir un projet professionnel ou de formation. Il se déroule avec un organisme certifié Qualiopi et peut être financé via le CPF, le plan entreprise, les OPCO ou France Travail.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Qu'est-ce que la VAE ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>La Validation des Acquis de l'Expérience permet d'obtenir tout ou partie d'un diplôme ou titre professionnel en faisant valider votre expérience. Vous constituez un dossier et passez devant un jury, sans repartir en formation.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Comment financer mon bilan ou ma VAE ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>Plusieurs options : le CPF (Compte Personnel de Formation), le plan de développement des compétences de votre entreprise, les OPCO ou France Travail. Nous vous expliquons les démarches et identifions la solution la plus adaptée.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Votre accompagnement est-il gratuit ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>Oui. Notre rôle est de vous aider à clarifier votre projet et à choisir le bon dispositif. Cet accompagnement préalable est gratuit et sans engagement. Les frais éventuels concernent ensuite le bilan ou la VAE réalisé par l'organisme partenaire.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Que signifie « certifié Qualiopi » ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>Qualiopi est la certification qualité des prestataires de formation et de bilan de compétences. Elle garantit le sérieux des processus, la compétence des intervenants et le respect des règles. Nous travaillons uniquement avec des organismes certifiés Qualiopi.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Combien de temps dure un bilan ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>La durée varie selon votre situation (souvent entre 10h et 24h). Lors de notre premier échange, nous vous aidons à cerner le niveau d'accompagnement adapté à votre projet et vos contraintes.</p></div></div>
+                <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)"><span>Peut-on faire un bilan ou une VAE à distance ?</span><i class="fas fa-chevron-down"></i></button><div class="faq-a"><p>Oui. Beaucoup de nos partenaires proposent un accompagnement 100% à distance en visio. Nous prenons en compte vos contraintes pour vous orienter vers une formule adaptée.</p></div></div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><a class="btn-p reveal" onclick="showPage('home')"><i class="fas fa-phone-alt"></i> Une autre question ? Contactez-nous</a></div>
+        </div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: BLOG                                                 ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-blog">
+    <section class="hero-page blog-hero">
+        <div class="container">
+            <div class="hero-label"><i class="fas fa-newspaper"></i> Conseils & actualités</div>
+            <h1>Blog</h1>
+            <p class="hero-desc">Analyses, retours d'expérience et conseils d'experts pour éclairer votre projet professionnel.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="blog-grid">
+                <div class="blog-card reveal">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">Bilan</span><h3>Formez-vous aux métiers qui recruteront en 2025</h3><p>Découvrez comment un bilan de compétences peut vous orienter vers les secteurs porteurs.</p><div class="blog-meta"><div class="blog-av">H</div> Hannah Attali · Il y a 2 mois</div></div>
+                </div>
+                <div class="blog-card reveal reveal-d1">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">Accompagnement</span><h3>Le blended : la méthode indispensable pour votre évolution</h3><p>Entretiens en visio et à distance : une approche flexible pour clarifier votre projet.</p><div class="blog-meta"><div class="blog-av">H</div> Hannah Attali · Il y a 3 mois</div></div>
+                </div>
+                <div class="blog-card reveal reveal-d2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">Financement</span><h3>Qu'est-ce qui change en 2025 pour le financement du bilan ?</h3><p>Les évolutions prévues pour le CPF et les autres dispositifs.</p><div class="blog-meta"><div class="blog-av">Y</div> Yaël · Il y a 4 mois</div></div>
+                </div>
+                <div class="blog-card reveal">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">VAE</span><h3>VAE : quelles certifications dans les secteurs qui recrutent ?</h3><p>Analyse des opportunités et conseils pour choisir la bonne certification.</p><div class="blog-meta"><div class="blog-av">F</div> Formation Compétences · Il y a 5 mois</div></div>
+                </div>
+                <div class="blog-card reveal reveal-d1">
+                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">Reconversion</span><h3>Bien préparer son bilan pour éviter les pièges</h3><p>Techniques éprouvées pour aborder sereinement un bilan et en tirer un plan d'action concret.</p><div class="blog-meta"><div class="blog-av">H</div> Hannah Attali · Il y a 5 mois</div></div>
+                </div>
+                <div class="blog-card reveal reveal-d2">
+                    <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=400&fit=crop" alt="">
+                    <div class="blog-card-body"><span class="blog-cat">Qualité</span><h3>Qualiopi et qualité : ce qui change pour vous</h3><p>Pourquoi choisir un organisme certifié pour votre bilan ou votre VAE.</p><div class="blog-meta"><div class="blog-av">Y</div> Yaël · Il y a 6 mois</div></div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><a class="btn-p reveal" onclick="showPage('home')"><i class="fas fa-compass"></i> Parler de mon projet</a></div>
+        </div>
+    </section>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: ACTU                                                 ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="p-actu">
+    <section class="hero-page actu-hero">
+        <div class="container" style="text-align:center">
+            <div class="hero-label"><i class="fas fa-bolt"></i> Actualité</div>
+            <h1>Faites votre bilan de compétences <em style="color:white;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.3)">gratuitement</em></h1>
+            <p class="hero-desc" style="margin-left:auto;margin-right:auto">Le bilan de compétences, dispositif reconnu et encadré par l'État, vous permet d'analyser vos compétences et motivations pour définir un projet professionnel solide et réaliste.</p>
+            <div class="btn-row" style="justify-content:center"><a class="btn-p" style="background:white;color:var(--orange)" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> Vérifier votre éligibilité</a></div>
+        </div>
+    </section>
+
+    <div class="trust-strip"><div class="container"><div class="trust-item"><i class="fas fa-check-circle"></i> Éligible au CPF</div><div class="trust-item"><i class="fas fa-building"></i> Éligible à l'OPCO</div><div class="trust-item"><i class="fas fa-hand-holding-heart"></i> Gratuit et sans engagement</div><div class="trust-item"><i class="fas fa-user-check"></i> Un coach dédié en ligne</div></div></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-label">Comment ça marche</span><h2 class="section-title">Le bilan de compétences en 4 étapes</h2><p class="section-sub">Un parcours structuré pour analyser vos compétences et construire votre projet.</p></div>
+            <div class="actu-steps-grid">
+                <div class="card actu-step reveal"><div class="actu-step-n">1</div><h4>Réception de votre candidature</h4><p>Après avoir rempli le formulaire ci-dessous</p></div>
+                <div class="card actu-step reveal reveal-d1"><div class="actu-step-n">2</div><h4>Analyse de votre parcours</h4><p>On fait le point sur votre expérience, vos motivations et vos aspirations</p></div>
+                <div class="card actu-step reveal reveal-d2"><div class="actu-step-n">3</div><h4>Identification des compétences</h4><p>Tests, échanges et outils personnalisés pour découvrir vos atouts</p></div>
+                <div class="card actu-step reveal reveal-d3"><div class="actu-step-n">4</div><h4>Construction du projet</h4><p>Un projet clair, réaliste et motivant : reconversion, formation ou évolution</p></div>
+            </div>
+            <div style="text-align:center;margin-top:2rem"><a class="btn-p reveal" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> Vérifier votre éligibilité</a><p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.6rem">Gratuit et sans engagement</p></div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="actu-legal-grid">
+                <div class="reveal">
+                    <span class="section-label">Cadre légal</span>
+                    <h2 style="font-size:2rem;color:var(--blue);margin-bottom:1rem">Le bilan de compétences : mieux se connaître pour booster sa carrière</h2>
+                    <p style="font-size:0.95rem;color:var(--text-sec);line-height:1.8;margin-bottom:0.8rem">Le Code du travail stipule que les actions permettant de réaliser un bilan de compétences ont pour objet de permettre aux travailleurs d'analyser leurs compétences professionnelles et personnelles ainsi que leurs aptitudes et motivations.</p>
+                    <ul class="actu-checks">
+                        <li><i class="fas fa-check-circle"></i> Finançable via votre CPF</li>
+                        <li><i class="fas fa-check-circle"></i> Plan de Développement des Compétences de votre entreprise</li>
+                        <li><i class="fas fa-check-circle"></i> Rendez-vous de présentation gratuit et sans engagement</li>
+                        <li><i class="fas fa-check-circle"></i> Environnement confidentiel et convivial</li>
+                    </ul>
+                </div>
+                <div class="reveal reveal-d2" style="display:flex;flex-direction:column;gap:1rem">
+                    <div class="card" style="text-align:center;padding:2rem"><div style="font-family:'Plus Jakarta Sans';font-size:2.5rem;font-weight:800;color:var(--orange)">75%</div><div style="font-size:0.88rem;color:var(--text-sec)">des personnes ayant réalisé un bilan sont satisfaites de leurs nouveaux objectifs</div></div>
+                    <div class="card" style="padding:1.5rem"><h4 style="font-size:1rem;color:var(--blue);margin-bottom:0.5rem">Un parcours adapté</h4><p style="font-size:0.88rem;color:var(--text-sec);line-height:1.7">Unique, adapté, 100% en ligne. Un accompagnement sur-mesure, à votre rythme, avec une expérience humaine et personnalisée.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="text-align:center">
+        <div class="container reveal">
+            <h2 class="section-title">Utilisez le solde de votre CPF pour votre bilan</h2>
+            <p class="section-sub" style="margin:0 auto 2rem">Ce formulaire sera transmis à nos équipes dans le strict respect du RGPD.</p>
+            <a class="btn-p" onclick="showPage('home')"><i class="fas fa-phone-alt"></i> Être rappelé par un conseiller</a>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.6rem">Gratuit et sans engagement</p>
+        </div>
+    </section>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <p>Formation Compétences — Maquette redesign complète · Accueil · Bilan · VAE · Formation IA · Notre approche · FAQ · Blog · Actu</p>
+    </div>
+</footer>
+
+<script>
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('p-' + id).classList.add('active');
+    document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => a.classList.remove('active'));
+    const links = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    const map = {home:0,bilan:1,vae:2,ia:3,approche:4,faq:5,blog:6,actu:7};
+    if (map[id] !== undefined && links[map[id]]) links[map[id]].classList.add('active');
+    window.scrollTo({top: 0, behavior: 'instant'});
+    setTimeout(initReveals, 100);
+}
+
+function showFin(group, id, btn) {
+    btn.closest('.fin-tabs').querySelectorAll('.fin-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.fin-content[data-group="'+group+'"]').forEach(c => c.style.display = 'none');
+    const target = document.querySelector('.fin-content[data-group="'+group+'"][data-id="'+id+'"]');
+    if (target) target.style.display = 'block';
+}
+
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+function initReveals() {
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.12});
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+}
+initReveals();
+showPage('home');
+</script>
+</body>
+</html>
