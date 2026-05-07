@@ -3,6 +3,8 @@
  * Ouverture via liens avec data-open-eligibility-modal
  */
 
+import { submitLeadFromForm } from './leadSubmit.js';
+
 const MODAL_ID = 'eligibility-modal';
 
 function getModalHTML() {
@@ -81,18 +83,13 @@ function closeEligibilityModal() {
     document.body.style.overflow = '';
 }
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-    }
-    const formData = new FormData(form);
-    // TODO: envoi réel (API) si besoin
-    closeEligibilityModal();
-    form.reset();
-    alert('Merci pour votre demande ! Un conseiller vous contactera dans les plus brefs délais.');
+    await submitLeadFromForm(form, {
+        formType: 'eligibility-modal',
+        successMessage: 'Votre demande a bien été reçue. Nous étudions votre éligibilité et vous recontactons sous 24h ouvrées.',
+    });
 }
 
 function initEligibilityModal() {

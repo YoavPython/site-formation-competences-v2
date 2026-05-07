@@ -2,6 +2,8 @@
    Styles pour l'architecture SPA
    ======================================== */
 
+@import url('./lead-form.css');
+
 /* Loading State */
 .loading {
     display: flex;

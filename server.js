@@ -1,7 +1,16 @@
+try { require('dotenv').config(); } catch (_) { /* dotenv optionnel */ }
+
 const express = require('express');
 const path = require('path');
+const leadsRouter = require('./src/leads/routes');
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.set('trust proxy', 1);
+app.use(express.json({ limit: '64kb' }));
+app.use(express.urlencoded({ extended: true, limit: '64kb' }));
+
+app.use('/api', leadsRouter);
 
 // Servir les fichiers statiques (CSS, JS, images, etc.)
 app.use('/css', express.static(path.join(__dirname, 'css')));

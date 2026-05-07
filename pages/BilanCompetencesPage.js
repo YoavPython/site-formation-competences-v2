@@ -1,4 +1,5 @@
 import { Component } from '../js/core/Component.js';
+import { submitLeadFromForm } from '../js/leadSubmit.js';
 
 export class BilanCompetencesPage extends Component {
     constructor() {
@@ -703,12 +704,13 @@ export class BilanCompetencesPage extends Component {
         });
     }
 
-    handleFormSubmit() {
-        const formData = new FormData(this.find('.contact-form'));
-        const data = Object.fromEntries(formData);
-        console.log('Données du formulaire:', data);
-        alert('Merci pour votre demande ! Un conseiller vous contactera dans les plus brefs délais.');
-        this.find('.contact-form').reset();
+    async handleFormSubmit() {
+        const form = this.find('.contact-form');
+        if (!form) return;
+        await submitLeadFromForm(form, {
+            formType: 'bilan-competences',
+            successMessage: 'Merci pour votre demande de bilan de compétences. Un conseiller analysera votre situation et vous recontactera sous 24h ouvrées.',
+        });
     }
 
     onMount() {

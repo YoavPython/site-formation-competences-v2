@@ -1,4 +1,5 @@
 import { Component } from '../js/core/Component.js';
+import { submitLeadFromForm } from '../js/leadSubmit.js';
 
 export class HomePage extends Component {
     constructor() {
@@ -778,19 +779,13 @@ export class HomePage extends Component {
         updateCarousel();
     }
 
-    handleFormSubmit() {
-        // Récupérer les données du formulaire
-        const formData = new FormData(this.find('.contact-form'));
-        const data = Object.fromEntries(formData);
-        
-        // Ici, vous pouvez envoyer les données à votre backend
-        console.log('Données du formulaire:', data);
-        
-        // Afficher un message de succès
-        alert('Merci pour votre demande ! Un conseiller vous contactera dans les plus brefs délais.');
-        
-        // Réinitialiser le formulaire
-        this.find('.contact-form').reset();
+    async handleFormSubmit() {
+        const form = this.find('.contact-form');
+        if (!form) return;
+        await submitLeadFromForm(form, {
+            formType: 'home-contact',
+            successMessage: 'Merci pour votre demande ! Un conseiller vous contactera sous 24h ouvrées pour clarifier votre situation et vous orienter vers le bon dispositif.',
+        });
     }
 
     onMount() {
