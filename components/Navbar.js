@@ -99,8 +99,10 @@ export class Navbar extends Component {
 
             navMenu.addEventListener('click', (e) => {
                 const link = e.target.closest('a');
-                if (link && this.state.mobileMenuOpen) {
-                    setMenuOpen(false);
+                if (link) {
+                    // Sur clic sur un lien : ferme tous les dropdowns ouverts ET le menu mobile
+                    this.findAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+                    if (this.state.mobileMenuOpen) setMenuOpen(false);
                 }
             });
         }
@@ -124,7 +126,10 @@ export class Navbar extends Component {
         });
 
         const onOutsideClick = (e) => {
-            if (!e.target.closest('.dropdown')) {
+            // Ferme les dropdowns dès que le clic n'est pas sur un dropdown-toggle
+            // (i.e. cliquer ailleurs dans la page, ou sur le fond du menu mobile, ou sur un autre lien).
+            const isToggle = e.target.closest('.dropdown-toggle');
+            if (!isToggle) {
                 this.findAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
         };
