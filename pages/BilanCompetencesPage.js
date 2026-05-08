@@ -619,19 +619,19 @@ export class BilanCompetencesPage extends Component {
             <div class="form-group">
                 <div class="input-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="name" placeholder="Votre nom et prénom *" required>
+                    <input type="text" name="name" placeholder="Votre nom et prénom *" required autocomplete="name" autocapitalize="words" enterkeyhint="next">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-icon">
                     <i class="fas fa-envelope"></i>
-                    <input type="email" name="email" placeholder="Votre email *" required>
+                    <input type="email" name="email" placeholder="Votre email *" required autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" enterkeyhint="next">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-icon">
                     <i class="fas fa-phone"></i>
-                    <input type="tel" name="phone" placeholder="Votre téléphone *" required>
+                    <input type="tel" name="phone" placeholder="Votre téléphone *" required autocomplete="tel" inputmode="tel" enterkeyhint="next">
                 </div>
             </div>
             <div class="form-group">

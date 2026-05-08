@@ -21,21 +21,21 @@ function getModalHTML() {
                 <div class="eligibility-form-row">
                     <div class="eligibility-form-group">
                         <label for="elig-prenom">Prénom <span class="required">*</span></label>
-                        <input type="text" id="elig-prenom" name="prenom" required placeholder="Votre prénom">
+                        <input type="text" id="elig-prenom" name="prenom" required placeholder="Votre prénom" autocomplete="given-name" autocapitalize="words" enterkeyhint="next">
                     </div>
                     <div class="eligibility-form-group">
                         <label for="elig-nom">Nom <span class="required">*</span></label>
-                        <input type="text" id="elig-nom" name="nom" required placeholder="Votre nom">
+                        <input type="text" id="elig-nom" name="nom" required placeholder="Votre nom" autocomplete="family-name" autocapitalize="words" enterkeyhint="next">
                     </div>
                 </div>
                 <div class="eligibility-form-row">
                     <div class="eligibility-form-group">
                         <label for="elig-email">Email <span class="required">*</span></label>
-                        <input type="email" id="elig-email" name="email" required placeholder="votre@email.fr">
+                        <input type="email" id="elig-email" name="email" required placeholder="votre@email.fr" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" enterkeyhint="next">
                     </div>
                     <div class="eligibility-form-group">
                         <label for="elig-tel">Téléphone <span class="required">*</span></label>
-                        <input type="tel" id="elig-tel" name="telephone" required placeholder="Votre numéro">
+                        <input type="tel" id="elig-tel" name="telephone" required placeholder="Votre numéro" autocomplete="tel" inputmode="tel" enterkeyhint="next">
                     </div>
                 </div>
                 <div class="eligibility-form-group">

@@ -74,35 +74,77 @@ export class Navbar extends Component {
     }
 
     attachEvents() {
-        // Toggle menu mobile
+        const navMenu = this.find('.nav-menu');
         const mobileToggle = this.find('.mobile-menu-toggle');
+
+        const setMenuOpen = (open) => {
+            this.setState({ mobileMenuOpen: open });
+            document.body.classList.toggle('mobile-menu-open', open);
+            if (mobileToggle) {
+                mobileToggle.setAttribute('aria-expanded', String(open));
+                mobileToggle.classList.toggle('is-active', open);
+            }
+        };
+
         if (mobileToggle) {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            mobileToggle.setAttribute('aria-controls', 'primary-navigation');
             mobileToggle.addEventListener('click', () => {
-                this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
+                setMenuOpen(!this.state.mobileMenuOpen);
             });
         }
 
-        // Gérer les dropdowns
+        if (navMenu) {
+            navMenu.setAttribute('id', 'primary-navigation');
+
+            navMenu.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (link && this.state.mobileMenuOpen) {
+                    setMenuOpen(false);
+                }
+            });
+        }
+
         const dropdownToggles = this.findAll('.dropdown-toggle');
         dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
+            toggle.setAttribute('role', 'button');
+            toggle.setAttribute('tabindex', '0');
+            const onActivate = (e) => {
                 e.preventDefault();
                 const dropdown = toggle.parentElement;
+                this.findAll('.dropdown.active').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('active');
+                });
                 dropdown.classList.toggle('active');
+            };
+            toggle.addEventListener('click', onActivate);
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') onActivate(e);
             });
         });
 
-        // Fermer les dropdowns quand on clique ailleurs
-        document.addEventListener('click', (e) => {
+        const onOutsideClick = (e) => {
             if (!e.target.closest('.dropdown')) {
-                this.findAll('.dropdown.active').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
+                this.findAll('.dropdown.active').forEach(d => d.classList.remove('active'));
             }
-        });
+        };
+        const onEscape = (e) => {
+            if (e.key !== 'Escape') return;
+            this.findAll('.dropdown.active').forEach(d => d.classList.remove('active'));
+            if (this.state.mobileMenuOpen) setMenuOpen(false);
+        };
+
+        document.addEventListener('click', onOutsideClick);
+        document.addEventListener('keydown', onEscape);
+
+        this._cleanupHandlers = () => {
+            document.removeEventListener('click', onOutsideClick);
+            document.removeEventListener('keydown', onEscape);
+            document.body.classList.remove('mobile-menu-open');
+        };
     }
 
     onDestroy() {
-        // Nettoyer les event listeners globaux si nécessaire
+        if (typeof this._cleanupHandlers === 'function') this._cleanupHandlers();
     }
 }

@@ -82,23 +82,35 @@ function initAnimations() {
 function initHeroVideo() {
     const heroVideo = document.querySelector('.hero-video');
     if (!heroVideo) return;
-    
+
+    // Désactive l'autoplay sur connexion lente ou en mode économiseur de données.
+    // Évite de pomper la 4G/5G d'un visiteur mobile qui n'a rien demandé.
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const slowNetwork = conn && (conn.saveData || ['slow-2g', '2g', '3g'].includes(conn.effectiveType));
+    if (slowNetwork) {
+        heroVideo.removeAttribute('autoplay');
+        heroVideo.pause();
+        return;
+    }
+
+    // Respecte la préférence "réduire les animations"
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        heroVideo.removeAttribute('autoplay');
+        heroVideo.pause();
+        return;
+    }
+
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // La vidéo est visible, on la relance
-                heroVideo.play().catch(() => {
-                    // Ignorer les erreurs (ex: autoplay bloqué)
-                });
+                heroVideo.play().catch(() => {});
             } else {
-                // La vidéo est hors écran, on la met en pause pour économiser les ressources
                 heroVideo.pause();
             }
         });
-    }, {
-        threshold: 0.1 // Déclencher quand 10% de la vidéo est visible
-    });
-    
+    }, { threshold: 0.1 });
+
     videoObserver.observe(heroVideo);
 }
 
