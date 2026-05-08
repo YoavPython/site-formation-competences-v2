@@ -1,0 +1,222 @@
+/* ========================================================================
+   Responsive Fixes — Formation Compétences
+   ------------------------------------------------------------------------
+   Fichier dédié aux corrections responsive identifiées lors de l'audit.
+   Importé en fin de cascade depuis spa-components.css : ses règles
+   surchargent celles de styles.css sans le modifier directement.
+
+   Pour désactiver l'ensemble des fixes : commenter l'@import dans
+   css/components/spa-components.css. Aucune autre modification ne
+   touche styles.css.
+
+   STYLE DES BOUTONS : volontairement non touché (identité de marque).
+   ======================================================================== */
+
+
+/* ========================================================================
+   Fix #2 — Container 1600px → 1280px (lecture confortable, hero impactant)
+   ======================================================================== */
+.container {
+    max-width: 1280px;
+}
+
+/* Variante optionnelle pour les rares blocs qui veulent toute la largeur */
+.container.container-wide,
+.container-wide {
+    max-width: 1440px;
+}
+
+
+/* ========================================================================
+   Fix #7 — Hiérarchie typographique : h1 plus punchy
+   ------------------------------------------------------------------------
+   Conserve l'ordre desktop > tablette > mobile > petit-mobile.
+   Texte du hero homepage (sur vidéo) gagne en présence sans changer
+   le contenu.
+   ======================================================================== */
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.875rem; }
+    h3 { font-size: 1.375rem; }
+
+    .hero-video-bg .hero-title { font-size: 2.5rem; line-height: 1.15; }
+    .hero-video-bg .hero-subtitle { font-size: 1.0625rem; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.125rem; }
+    h2 { font-size: 1.625rem; }
+    h3 { font-size: 1.25rem; }
+
+    .hero-video-bg .hero-title { font-size: 2.125rem; }
+    .hero-video-bg .hero-subtitle { font-size: 1rem; }
+}
+
+
+/* ========================================================================
+   Fix #3 — CTA hero pages internes (Bilan / VAE / FormationIA)
+   ------------------------------------------------------------------------
+   La règle générique `.hero-cta` force flex-wrap:nowrap ; sur mobile
+   les 2 boutons sont compressés (texte 0.85rem, icônes cachées). On
+   passe en wrap dès qu'on a moins de place et en column en mobile.
+   La page d'accueil (.hero-video-bg .hero-cta) reste prioritaire
+   et conserve son comportement déjà bon.
+   ======================================================================== */
+
+@media (max-width: 1023px) {
+    .hero-cta:not(.hero-video-bg .hero-cta) {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-cta:not(.hero-video-bg .hero-cta) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .hero-cta:not(.hero-video-bg .hero-cta) .btn {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        white-space: normal; /* autorise le retour à la ligne sur petit mobile */
+        font-size: 1rem;
+        padding: 0.875rem 1.25rem;
+    }
+
+    .hero-cta:not(.hero-video-bg .hero-cta) .btn i {
+        display: inline-block; /* on récupère les icônes, pas besoin de les masquer */
+    }
+}
+
+
+/* ========================================================================
+   Fix #4 — Cartes réassurance hero (.hero-reassurance + .hero-card)
+   ------------------------------------------------------------------------
+   Avant : 4 cartes en flex-wrap:nowrap (tablette) + stack vertical
+           (mobile, ~600px de scroll).
+   Après : 4 sur 1 ligne en desktop ; grille 2×2 en tablette/mobile,
+           1 colonne uniquement sur très petit mobile (< 380px).
+   ======================================================================== */
+
+@media (max-width: 1199px) {
+    .hero-reassurance {
+        flex-wrap: wrap;
+    }
+    .hero-card {
+        white-space: normal; /* autorise le wrap du texte si besoin */
+    }
+}
+
+@media (max-width: 1023px) {
+    .hero-reassurance {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+    .hero-card {
+        width: auto !important;
+        max-width: none !important;
+        justify-content: flex-start;
+        padding: 0.75rem 0.875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-reassurance {
+        flex-direction: initial !important; /* annule le column de styles.css ligne 704 */
+        align-items: stretch !important;
+        padding: 0 0.5rem !important;
+    }
+    .hero-card {
+        font-size: 0.78rem;
+    }
+    .hero-card p {
+        font-size: 0.78rem;
+    }
+}
+
+/* Très petit mobile : 1 colonne (lisibilité prioritaire) */
+@media (max-width: 380px) {
+    .hero-reassurance {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================================================
+   Fix #5 — Largeurs fixes (image hero + dropdowns)
+   ======================================================================== */
+
+@media (max-width: 1199px) {
+    .hero-image-circle {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        aspect-ratio: 3 / 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image-circle {
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        margin: 0 auto;
+    }
+
+    .dropdown-menu {
+        min-width: 100% !important;
+        white-space: normal !important;
+    }
+}
+
+
+/* ========================================================================
+   Fix #6 — Hero en mode paysage mobile
+   ------------------------------------------------------------------------
+   `min-height: 70vh` pose problème en orientation paysage (~414px) :
+   la vidéo s'écrase. On garantit une hauteur lisible.
+   ======================================================================== */
+
+.hero-video-bg {
+    min-height: max(70vh, 540px);
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-video-bg {
+        min-height: 540px;
+        padding-top: 6rem;
+    }
+}
+
+
+/* ========================================================================
+   Fix #1 (transverse) — Garde-fous anti-débordement horizontal
+   ------------------------------------------------------------------------
+   Les overflow horizontaux non désirés sont une plaie sur mobile.
+   On pose un garde-fou global et on ramène les `min-width` rebelles
+   à un comportement plus souple sur petit écran.
+   ======================================================================== */
+
+html, body {
+    overflow-x: clip; /* clip > hidden : ne crée pas de contexte de défilement */
+}
+
+@media (max-width: 480px) {
+    [class*="container"],
+    section,
+    .hero-content,
+    .hero-wrapper {
+        max-width: 100% !important;
+    }
+
+    /* Min-width rebelles susceptibles de déborder en 320-375px */
+    .min-width-rebel-fix,
+    .testimonial-card,
+    .step-card {
+        min-width: 0 !important;
+    }
+}
