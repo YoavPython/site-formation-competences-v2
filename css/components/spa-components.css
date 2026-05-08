@@ -2,8 +2,8 @@
    Styles pour l'architecture SPA
    ======================================== */
 
-@import url('./lead-form.css');
-@import url('../responsive-fixes.css');
+@import url('./lead-form.css?v=20260508a');
+@import url('../responsive-fixes.css?v=20260508a');
 
 /* Loading State */
 .loading {

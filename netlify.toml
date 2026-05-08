@@ -3,6 +3,21 @@
 [build]
   publish = "."
 
+# Netlify Functions (backend serverless : capture leads -> Zoho CRM)
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# === API : capture des leads (DOIT etre AVANT le fallback SPA /*) ===
+[[redirects]]
+  from = "/api/leads"
+  to = "/.netlify/functions/leads"
+  status = 200
+  force = true
+
 # Pages HTML (SPA entry points)
 [[redirects]]
   from = "/"

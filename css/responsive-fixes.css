@@ -208,28 +208,31 @@
         max-height: 100vh;
         margin: 0;
         padding: 6rem 1.5rem 2.5rem !important;
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 1) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
         box-shadow: none !important;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
         gap: 0 !important;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        opacity: 0;
+        opacity: 0 !important;
+        visibility: hidden !important;
         transform: translateY(-12px);
-        pointer-events: none;
-        transition: opacity 240ms ease, transform 240ms ease;
+        pointer-events: none !important;
+        transition: opacity 240ms ease, transform 240ms ease, visibility 0s 240ms;
         z-index: 999;
         display: flex !important;
     }
 
     .nav-menu.active {
-        opacity: 1;
+        opacity: 1 !important;
+        visibility: visible !important;
         transform: translateY(0);
-        pointer-events: auto;
+        pointer-events: auto !important;
+        transition: opacity 240ms ease, transform 240ms ease, visibility 0s 0s;
     }
 
     .nav-menu > li {
