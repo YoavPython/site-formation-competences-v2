@@ -194,6 +194,222 @@
 
 
 /* ========================================================================
+   Fix #8 — Menu mobile amélioré (animation, lock scroll, accessibilité)
+   ======================================================================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        max-height: 100dvh;
+        max-height: 100vh;
+        margin: 0;
+        padding: 6rem 1.5rem 2.5rem !important;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: none !important;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0 !important;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        opacity: 0;
+        transform: translateY(-12px);
+        pointer-events: none;
+        transition: opacity 240ms ease, transform 240ms ease;
+        z-index: 999;
+        display: flex !important;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-menu > li {
+        width: 100%;
+        list-style: none;
+        border-bottom: 1px solid rgba(43, 51, 94, 0.1);
+    }
+    .nav-menu > li:last-child { border-bottom: 0; padding-top: 1rem; }
+
+    .nav-menu a,
+    .nav-menu .dropdown-toggle {
+        display: block;
+        width: 100%;
+        padding: 1rem 0.5rem !important;
+        font-size: 1.0625rem !important;
+        min-height: 48px;
+    }
+
+    .nav-menu .nav-cta {
+        background: var(--primary-orange) !important;
+        color: white !important;
+        text-align: center;
+        border-radius: 25px 28px 26px 29px !important;
+        margin-top: 0.5rem;
+        padding: 1rem 1.25rem !important;
+        box-shadow: 4px 4px 0 rgba(255, 106, 74, 0.25) !important;
+    }
+
+    /* Dropdowns en mode liste imbriquée */
+    .nav-menu .dropdown-menu {
+        position: static !important;
+        opacity: 0;
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 280ms ease, opacity 200ms ease;
+        background: rgba(43, 51, 94, 0.04) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        transform: none !important;
+        min-width: 0 !important;
+        white-space: normal !important;
+        border-radius: 8px;
+    }
+    .nav-menu .dropdown.active > .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        max-height: 400px;
+        padding: 0.25rem 0 0.5rem !important;
+        margin-top: 0.5rem !important;
+    }
+    .nav-menu .dropdown-menu a {
+        padding: 0.875rem 1rem !important;
+        font-size: 1rem !important;
+        min-height: 44px;
+    }
+
+    .mobile-menu-toggle {
+        z-index: 1001;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
+        align-items: center;
+        gap: 5px !important;
+    }
+    .mobile-menu-toggle.is-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-toggle.is-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .mobile-menu-toggle span {
+        transition: transform 240ms ease, opacity 200ms ease;
+    }
+
+    /* Empêche le scroll du body quand le menu est ouvert */
+    body.mobile-menu-open {
+        overflow: hidden;
+        touch-action: none;
+    }
+}
+
+/* ========================================================================
+   Fix #9 — Touch targets >= 44px (Apple HIG / WCAG)
+   ======================================================================== */
+@media (max-width: 1023px) and (pointer: coarse), (max-width: 768px) {
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-orange,
+    .btn-form-submit {
+        min-height: 44px;
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+    }
+
+    .nav-menu a,
+    .footer a,
+    .dropdown-menu a {
+        min-height: 44px;
+    }
+
+    .financing-pill,
+    .fin-pill {
+        min-height: 44px;
+        padding: 0.75rem 1rem !important;
+    }
+
+    .carousel-btn {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .carousel-dot {
+        min-width: 24px;
+        min-height: 24px;
+    }
+}
+
+/* ========================================================================
+   Fix #10 — Formulaire mobile (taille tactile, focus visible)
+   ======================================================================== */
+@media (max-width: 768px) {
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea,
+    .eligibility-form input,
+    .eligibility-form select,
+    .eligibility-form textarea {
+        font-size: 16px; /* iOS : empêche le zoom auto */
+        padding: 0.875rem 1rem;
+        min-height: 48px;
+        border-radius: 10px;
+    }
+
+    .contact-form textarea,
+    .eligibility-form textarea {
+        min-height: 110px;
+    }
+
+    .contact-form button[type="submit"],
+    .eligibility-form .eligibility-form-submit {
+        width: 100%;
+        min-height: 52px;
+        font-size: 1rem;
+    }
+
+    .contact-form .form-group.checkbox-group label,
+    .eligibility-form-group label.checkbox {
+        gap: 0.625rem;
+        align-items: flex-start;
+        line-height: 1.45;
+    }
+
+    .contact-form-wrapper,
+    .form-card {
+        padding: 1.5rem !important;
+    }
+}
+
+/* ========================================================================
+   Fix #11 — Focus visible accessible (clavier + lecteurs d'écran)
+   ======================================================================== */
+.btn:focus-visible,
+button:focus-visible,
+.nav-menu a:focus-visible,
+.financing-pill:focus-visible,
+.fin-pill:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+/* ========================================================================
    Fix #1 (transverse) — Garde-fous anti-débordement horizontal
    ------------------------------------------------------------------------
    Les overflow horizontaux non désirés sont une plaie sur mobile.

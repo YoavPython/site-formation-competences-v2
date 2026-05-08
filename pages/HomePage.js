@@ -24,7 +24,7 @@ export class HomePage extends Component {
                 <section class="hero hero-video-bg">
                     <!-- Vidéo en arrière-plan -->
                     <div class="hero-video-container">
-                        <video autoplay muted loop playsinline class="hero-video">
+                        <video autoplay muted loop playsinline preload="metadata" class="hero-video" aria-hidden="true">
                             <source src="/assets/videos/hero-video.webm" type="video/webm">
                             <source src="/assets/videos/Création_Vidéo_Bilan_Compétences_France.mp4" type="video/mp4">
                         </video>
@@ -594,13 +594,13 @@ export class HomePage extends Component {
     renderForm() {
         return `
             <div class="form-group">
-                <input type="text" name="name" placeholder="Votre nom et prénom *" required>
+                <input type="text" name="name" placeholder="Votre nom et prénom *" required autocomplete="name" autocapitalize="words" enterkeyhint="next">
             </div>
             <div class="form-group">
-                <input type="email" name="email" placeholder="Votre email *" required>
+                <input type="email" name="email" placeholder="Votre email *" required autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" enterkeyhint="next">
             </div>
             <div class="form-group">
-                <input type="tel" name="phone" placeholder="Votre téléphone *" required>
+                <input type="tel" name="phone" placeholder="Votre téléphone *" required autocomplete="tel" inputmode="tel" enterkeyhint="next">
             </div>
             <div class="form-group">
                 <select name="situation" required>
@@ -773,9 +773,46 @@ export class HomePage extends Component {
         // Pause au survol
         carousel.addEventListener('mouseenter', stopAutoplay);
         carousel.addEventListener('mouseleave', startAutoplay);
-        
-        // Démarrer l'autoplay
-        startAutoplay();
+
+        // Swipe tactile (mobile/tablette)
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchDeltaX = 0;
+        let isSwiping = false;
+        const SWIPE_THRESHOLD = 40;
+
+        track.addEventListener('touchstart', (e) => {
+            if (e.touches.length !== 1) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchDeltaX = 0;
+            isSwiping = false;
+            stopAutoplay();
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (e.touches.length !== 1) return;
+            const dx = e.touches[0].clientX - touchStartX;
+            const dy = e.touches[0].clientY - touchStartY;
+            if (!isSwiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+                isSwiping = true;
+            }
+            touchDeltaX = dx;
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+            if (isSwiping && Math.abs(touchDeltaX) > SWIPE_THRESHOLD) {
+                if (touchDeltaX < 0) nextSlide();
+                else prevSlide();
+            }
+            isSwiping = false;
+            touchDeltaX = 0;
+            startAutoplay();
+        });
+
+        // Démarrer l'autoplay (sauf si l'utilisateur préfère réduire les animations)
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reducedMotion) startAutoplay();
         updateCarousel();
     }
 
