@@ -82,6 +82,11 @@ app.get('/formation-ia/', (req, res) => {
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// Maquette V2 (preview design) — uniquement présente sur la branche redesign
+app.get('/v2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'maquette-v2.html'));
+});
+
 // Diagnostic : route réservée au serveur Express (pour vérifier qu'on n'utilise pas http-server)
 app.get('/api/server-check', (req, res) => {
     res.json({ server: 'express', ok: true });

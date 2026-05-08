@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maquette V2 — Formation Compétences</title>
+<meta name="description" content="Préparez votre bilan de compétences avec un accompagnement expert et personnalisé.">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/css/v2/maquette-v2.css">
+</head>
+<body>
+
+<!-- Bandeau preview (utilitaire pour comparer avec /) -->
+<div class="preview-banner">
+    🎨 Maquette V2 (branche <code>redesign/v2-homepage-mockup</code>) — Comparer avec
+    <a href="/">la version actuelle</a> · Cette page est un mockup, le formulaire n'envoie pas encore vers Zoho.
+</div>
+
+<!-- Navbar -->
+<nav class="nav" id="nav">
+    <div class="container">
+        <a href="/" class="nav-brand">Formation Compétences</a>
+        <div class="nav-links">
+            <a href="#methode">La méthode</a>
+            <a href="#temoignages">Témoignages</a>
+            <a href="#financement">Financement</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">Prendre rendez-vous</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+    <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline>
+            <source src="/assets/videos/hero-video.webm" type="video/webm">
+            <source src="/assets/videos/Création_Vidéo_Bilan_Compétences_France.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-inner">
+        <div class="hero-content">
+            <h1>
+                Clarifiez votre <span class="accent">parcours professionnel</span>
+                avec un accompagnement expert et personnalisé
+            </h1>
+            <p class="hero-sub">
+                Nous vous aidons à structurer votre projet, identifier vos besoins réels et choisir
+                le dispositif d'accompagnement le plus adapté à votre situation.
+            </p>
+            <div class="hero-cta">
+                <a href="/bilan-de-competences" class="btn btn-primary btn-lg">
+                    Réservez un bilan de compétences
+                </a>
+                <a href="/vae" class="btn btn-ghost-light btn-lg">
+                    Validez vos acquis avec une V.A.E
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-trust">
+            <div class="trust">
+                <i class="fas fa-network-wired"></i>
+                <span>Réseau d'organismes partenaires certifiés Qualiopi</span>
+            </div>
+            <div class="trust">
+                <i class="fas fa-balance-scale"></i>
+                <span>Respect d'une charte déontologique stricte</span>
+            </div>
+            <div class="trust">
+                <i class="fas fa-check-circle"></i>
+                <span>Avis clients vérifiés</span>
+            </div>
+            <div class="trust">
+                <i class="fas fa-laptop"></i>
+                <span>Accompagnement possible 100% à distance</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     SECTION 1 — Tournant de carrière (intro)
+     ============================================================ -->
+<section class="section bg-warm">
+    <div class="container">
+        <div class="intro-block">
+            <div class="intro-icon"><i class="fas fa-lightbulb"></i></div>
+            <h2>Vous êtes à un tournant de votre carrière ?</h2>
+            <p>
+                Envie de changement, besoin de reconnaissance, ou simplement le sentiment que quelque chose doit évoluer dans votre vie professionnelle ?
+                Que vous souhaitiez <strong>changer de métier</strong>, <strong>valider vos acquis par un diplôme (VAE)</strong>, ou
+                <strong>faire le point sur vos compétences</strong> avec un bilan, nous comprenons que ce n'est pas toujours facile de savoir par où commencer.
+            </p>
+            <div class="intro-highlight">
+                <strong>C'est exactement pour cela que nous sommes là.</strong>
+                Nous vous aidons à y voir clair, à identifier le bon dispositif, et à construire un parcours qui a du sens pour vous.
+            </div>
+
+            <div class="trust-badges">
+                <div class="trust-badge"><i class="fas fa-award"></i><span>Certifié Qualiopi</span></div>
+                <div class="trust-badge"><i class="fas fa-shield-alt"></i><span>Données sécurisées</span></div>
+                <div class="trust-badge"><i class="fas fa-user-check"></i><span>Conseillers certifiés</span></div>
+                <div class="trust-badge"><i class="fas fa-hand-holding-heart"></i><span>100% gratuit</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — 3 entretiens (avec photos humaines)
+     ============================================================ -->
+<section class="section bg-white" id="methode">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow eyebrow-orange">Notre approche</span>
+            <h2>3 entretiens pour changer le cours de votre vie</h2>
+            <p class="lede">
+                Un accompagnement 100% personnalisé pour choisir le bon dispositif et le bon organisme.
+            </p>
+        </div>
+
+        <div class="steps">
+            <article class="step">
+                <div class="step-image">
+                    <span class="step-num">1</span>
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop" alt="Comprendre votre situation">
+                </div>
+                <div class="step-body">
+                    <h3>Comprendre votre situation</h3>
+                    <ul>
+                        <li>Vous n'êtes pas qu'un CV : nous reprenons votre contexte actuel, votre parcours et vos transitions passées.</li>
+                        <li>Nous intégrons vos contraintes réelles (temps, rythme, budget, mobilité, vie perso).</li>
+                        <li>Nous clarifions votre intention : faire le point, évoluer, pivoter, sécuriser, confirmer un cap…</li>
+                    </ul>
+                    <div class="step-result step-result-objectif">
+                        <strong>Objectif</strong>
+                        Poser des bases solides pour éviter le bilan ou la formation "par défaut".
+                    </div>
+                </div>
+            </article>
+
+            <article class="step">
+                <div class="step-image">
+                    <span class="step-num">2</span>
+                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?w=800&h=600&fit=crop" alt="Vous aider à y voir clair">
+                </div>
+                <div class="step-body">
+                    <h3>Vous aider à y voir clair</h3>
+                    <ul>
+                        <li>Nous cadrons votre besoin : bilan ? formation ? VAE ? autre dispositif ?</li>
+                        <li>Nous mettons à plat des pistes réalistes, pas des rêves.</li>
+                        <li>Nous vérifions la cohérence globale : contraintes, prérequis, modalités et financement.</li>
+                    </ul>
+                    <div class="step-result step-result-resultat">
+                        <strong>Résultat</strong>
+                        Vous savez où vous en êtes, ce qui est possible, et ce qui ne l'est pas (encore).
+                    </div>
+                </div>
+            </article>
+
+            <article class="step">
+                <div class="step-image">
+                    <span class="step-num">3</span>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Vous orienter vers le bon dispositif">
+                </div>
+                <div class="step-body">
+                    <h3>Vous orienter vers le bon dispositif et le bon partenaire</h3>
+                    <ul>
+                        <li>Nous formalisons vos critères de choix (objectifs, modalités, timing, contraintes).</li>
+                        <li>Nous vous aidons à choisir le dispositif le plus adapté à votre situation.</li>
+                        <li>Si vous le souhaitez, nous vous mettons en relation avec un organisme partenaire pertinent, sérieux et certifié.</li>
+                    </ul>
+                    <div class="step-result step-result-resultat">
+                        <strong>Résultat</strong>
+                        Quand vous démarrez, vous savez où vous allez, avec qui, et pourquoi.
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="#contact" class="btn btn-primary btn-lg">
+                <i class="fas fa-arrow-right"></i> Je veux clarifier mon projet professionnel
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — Méthode 3 temps (sur fond bleu)
+     ============================================================ -->
+<section class="section bg-blue">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow eyebrow-mint">La méthode</span>
+            <h2>Une méthode en 3 temps</h2>
+            <p class="lede" style="color: rgba(255,255,255,0.85);">
+                Un accompagnement structuré pour clarifier, valider et concrétiser votre projet professionnel.
+            </p>
+        </div>
+
+        <div class="method">
+            <div class="method-card">
+                <div class="method-num">01</div>
+                <h3>Mettre votre demande au clair</h3>
+                <p>
+                    Vous arrivez avec des questions floues, parfois contradictoires.
+                    Nous vous aidons à formuler LA question centrale :
+                    "Qu'est-ce que je veux vraiment que ce bilan change pour moi ?"
+                </p>
+            </div>
+            <div class="method-card">
+                <div class="method-num">02</div>
+                <h3>Verrouiller le bon format</h3>
+                <p>
+                    Nous positionnons votre entrée avec une grille claire basée sur 3 critères :
+                    parcours professionnel, disponibilités réelles, maturité du projet.
+                    Résultat : une formule recommandée et justifiée noir sur blanc.
+                </p>
+            </div>
+            <div class="method-card">
+                <div class="method-num">03</div>
+                <h3>Lancer la suite sans perte de temps</h3>
+                <p>
+                    On sécurise le démarrage sans interférer avec le travail du consultant :
+                    compte rendu de pré-inscription, brief de démarrage,
+                    et mise en relation avec un organisme partenaire Qualiopi.
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="#contact" class="btn btn-primary btn-lg">
+                <i class="fas fa-rocket"></i> Démarrer mon accompagnement personnalisé
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     BANDEROLE CITATION
+     ============================================================ -->
+<section class="quote-banner">
+    <blockquote>
+        <i class="fas fa-quote-left"></i>
+        <span class="accent">Chaque parcours est unique.</span>
+        Le vôtre commence ici.
+        <i class="fas fa-quote-right"></i>
+    </blockquote>
+</section>
+
+<!-- ============================================================
+     TÉMOIGNAGES
+     ============================================================ -->
+<section class="section bg-warm" id="temoignages">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow eyebrow-yellow">Témoignages</span>
+            <h2>Quelques personnes que nous avons aidées</h2>
+            <p class="lede">À sortir de la confusion et à trouver leur voie.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <article class="testimonial testimonial-mauve">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    Je savais que j'avais besoin de changement, mais impossible de savoir par où commencer.
+                    En 3 entretiens, j'ai compris ce que je voulais vraiment, et surtout quelle formule et quel cadre de bilan demander.
+                    Formation Compétences m'a orienté vers un organisme hyper sérieux, adapté à mon profil.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">P</div>
+                    <div>
+                        <h4>Paul – 38 ans</h4>
+                        <p>Cadre en entreprise</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial testimonial-yellow">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    J'avais peur de tout envoyer valser, peur de me tromper de formation, peur de "ne pas être légitime".
+                    Ma conseillère m'a aidée à poser les choses calmement, à préciser mon projet et à choisir un bilan adapté.
+                    Aujourd'hui, je sais où je vais, avec un organisme partenaire qui connaît vraiment mon secteur.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <div>
+                        <h4>Sylvie – 45 ans</h4>
+                        <p>Salariée depuis 20 ans dans la même structure</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial testimonial-mint">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    J'avais repéré plein de formations en ligne, toutes avaient l'air géniales… et c'est justement ça le problème.
+                    La Prépa avec Formation Compétences m'a permis de trier, de vérifier ce qui était finançable, réaliste, et cohérent avec ma vie perso.
+                    Résultat : un parcours construit, pas un coup de tête.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">E</div>
+                    <div>
+                        <h4>Eve – 32 ans</h4>
+                        <p>En réflexion de reconversion</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial testimonial-blue">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    Après 15 ans dans le même secteur, je sentais qu'il était temps de changer. Mais changer pour quoi ?
+                    La préparation m'a permis de clarifier mes envies, mes compétences transférables et de construire un projet réaliste.
+                    Aujourd'hui, je suis serein dans ma transition.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div>
+                        <h4>Marc – 41 ans</h4>
+                        <p>Manager dans l'industrie</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial testimonial-mauve">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    Concilier vie de famille et projet professionnel semblait impossible.
+                    La prépa m'a permis de construire un projet adapté à ma réalité, avec des solutions de financement que je ne connaissais pas.
+                    C'est exactement ce dont j'avais besoin.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">L</div>
+                    <div>
+                        <h4>Laura – 35 ans</h4>
+                        <p>Mère de famille en reconversion</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial testimonial-yellow">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    À mon âge, se reconvertir fait peur. L'équipe m'a montré que mon expérience était une richesse, pas un frein.
+                    Ils m'ont aidé à valoriser mon parcours et à trouver une nouvelle voie qui me ressemble. Je repars confiant.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">T</div>
+                    <div>
+                        <h4>Thomas – 52 ans</h4>
+                        <p>Commercial depuis 25 ans</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="#contact" class="btn btn-secondary btn-lg">
+                <i class="fas fa-arrow-right"></i> Rejoindre nos clients satisfaits
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FINANCEMENT
+     ============================================================ -->
+<section class="section bg-mint" id="financement">
+    <div class="container container-narrow">
+        <div class="section-header">
+            <span class="eyebrow">💰 Financement</span>
+            <h2>Votre bilan peut être <span style="color: var(--orange);">100% financé</span></h2>
+            <p class="lede">Pas de mauvaise surprise. On vous explique tout.</p>
+        </div>
+
+        <div class="financing-pills">
+            <button class="fin-pill is-active" data-target="cpf">
+                <span>💳</span> CPF
+                <span class="fin-pill-badge">Le + utilisé</span>
+            </button>
+            <button class="fin-pill" data-target="plan"><span>🏢</span> Plan entreprise</button>
+            <button class="fin-pill" data-target="opco"><span>🤝</span> OPCO</button>
+            <button class="fin-pill" data-target="france-travail"><span>📋</span> France Travail</button>
+        </div>
+
+        <div class="fin-detail is-active" id="fin-cpf">
+            <h3>💳 Compte Personnel de Formation (CPF)</h3>
+            <p>Utilisez vos droits acquis tout au long de votre carrière. Accessible à tous les actifs, même en reconversion. Connectez-vous sur moncompteformation.gouv.fr pour connaître votre solde et réserver votre bilan directement en ligne.</p>
+            <p>Le CPF est un dispositif universel qui accumule des droits à la formation tout au long de votre vie professionnelle, à raison de 500€ par an (800€ pour les personnes peu qualifiées), dans la limite de 5000€.</p>
+            <span class="tag">✓ Pour tous les actifs</span>
+            <div class="fin-promise">
+                <i class="fas fa-check-circle"></i>
+                <div><strong>Notre promesse :</strong> vous donner une vision claire des options, pour que l'argent ne soit ni un tabou, ni un frein.</div>
+            </div>
+        </div>
+
+        <div class="fin-detail" id="fin-plan">
+            <h3>🏢 Plan de développement des compétences</h3>
+            <p>Votre employeur finance votre bilan dans le cadre de son plan de formation. Idéal pour évoluer en interne ou préparer une mobilité professionnelle. Parlez-en à votre service RH pour connaître les modalités de prise en charge.</p>
+            <p>Avantage : vous gardez votre statut de salarié et continuez à être rémunéré pendant votre bilan.</p>
+            <span class="tag">✓ Salariés en poste</span>
+            <div class="fin-promise">
+                <i class="fas fa-check-circle"></i>
+                <div><strong>Notre promesse :</strong> vous donner une vision claire des options, pour que l'argent ne soit ni un tabou, ni un frein.</div>
+            </div>
+        </div>
+
+        <div class="fin-detail" id="fin-opco">
+            <h3>🤝 OPCO - Opérateurs de Compétences</h3>
+            <p>Financement via l'organisme de votre branche professionnelle. Nous vous aidons à identifier le vôtre et à monter le dossier de demande.</p>
+            <p>Les TPE et PME peuvent bénéficier d'une prise en charge totale ou partielle du coût du bilan de compétences.</p>
+            <span class="tag">✓ TPE/PME</span>
+            <div class="fin-promise">
+                <i class="fas fa-check-circle"></i>
+                <div><strong>Notre promesse :</strong> vous donner une vision claire des options, pour que l'argent ne soit ni un tabou, ni un frein.</div>
+            </div>
+        </div>
+
+        <div class="fin-detail" id="fin-france-travail">
+            <h3>📋 Aide France Travail</h3>
+            <p>Pour les demandeurs d'emploi : AIF (Aide Individuelle à la Formation) ou abondement CPF possible selon votre projet. Votre conseiller France Travail peut vous orienter vers la solution la plus adaptée à votre situation.</p>
+            <span class="tag">✓ Demandeurs d'emploi</span>
+            <div class="fin-promise">
+                <i class="fas fa-check-circle"></i>
+                <div><strong>Notre promesse :</strong> vous donner une vision claire des options, pour que l'argent ne soit ni un tabou, ni un frein.</div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="#contact" class="btn btn-primary btn-lg">
+                <i class="fas fa-compass"></i> Découvrir mes options
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL + FORMULAIRE
+     ============================================================ -->
+<section class="section bg-warm" id="contact">
+    <div class="container">
+        <div class="final-cta">
+            <div class="final-cta-promises">
+                <span class="eyebrow eyebrow-orange">Nos engagements</span>
+                <h2>Pour votre réussite</h2>
+                <ul>
+                    <li><span><strong>Clarté totale</strong>Vous savez exactement ce que vous venez chercher dans un bilan</span></li>
+                    <li><span><strong>Choix éclairé</strong>Vous ne choisissez plus votre organisme au hasard</span></li>
+                    <li><span><strong>Expertise neutre</strong>Un conseiller indépendant qui connaît les dispositifs et les acteurs du marché</span></li>
+                </ul>
+                <div class="final-cta-reassurance">
+                    <span class="reassurance-item"><i class="fas fa-shield-alt"></i> Sans engagement</span>
+                    <span class="reassurance-item"><i class="fas fa-clock"></i> Réponse sous 24h</span>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3>Parlez-nous de votre situation</h3>
+                <p class="form-lede">Quelques questions pour nous permettre de vous orienter vers le bon type de parcours.</p>
+                <form class="form-grid" onsubmit="event.preventDefault(); alert('Maquette : le formulaire ne soumet pas encore. À brancher sur /api/leads après validation visuelle.');">
+                    <input type="text" name="name" placeholder="Votre nom et prénom *" required>
+                    <input type="email" name="email" placeholder="Votre email *" required>
+                    <input type="tel" name="phone" placeholder="Votre téléphone *" required>
+                    <select name="situation" required>
+                        <option value="">Votre situation actuelle *</option>
+                        <option value="salarie">Salarié(e)</option>
+                        <option value="demandeur-emploi">Demandeur d'emploi</option>
+                        <option value="independant">Indépendant(e)</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <select name="objectif" required>
+                        <option value="">Votre objectif principal *</option>
+                        <option value="reconversion">Reconversion professionnelle</option>
+                        <option value="evolution">Évolution de carrière</option>
+                        <option value="validation">Validation d'acquis (VAE)</option>
+                        <option value="creation">Création d'entreprise</option>
+                        <option value="bilan">Faire le point sur mes compétences</option>
+                        <option value="formation">Monter en compétences</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                    <textarea name="message" rows="4" placeholder="Votre message (facultatif)"></textarea>
+                    <label class="checkbox">
+                        <input type="checkbox" name="consent" required>
+                        <span>J'accepte que mes données soient utilisées pour me recontacter dans le cadre de ma demande.</span>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        Envoyer ma demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (minimal, pour fermer la page proprement)
+     ============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4 style="color: var(--orange); margin-bottom: 0.5rem; text-transform: none; letter-spacing: 0; font-size: 1.25rem; font-weight: 800;">Formation Compétences</h4>
+                <p>Accompagnement expert pour votre bilan de compétences, votre VAE, ou votre projet de reconversion. Certifié Qualiopi.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/bilan-de-competences">Bilan de compétences</a></li>
+                    <li><a href="/vae">VAE</a></li>
+                    <li><a href="/formation-ia">Formation IA</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/actu">Actualités</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="/qui-sommes-nous">Qui sommes-nous</a></li>
+                    <li><a href="/mentions-legales">Mentions légales</a></li>
+                    <li><a href="/politique-confidentialite">Confidentialité</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Formation Compétences. Tous droits réservés.</span>
+            <span>Maquette V2 — branche redesign/v2-homepage-mockup</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+        if (window.scrollY > 30) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Financement pills
+    document.querySelectorAll('.fin-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            const target = pill.dataset.target;
+            document.querySelectorAll('.fin-pill').forEach(p => p.classList.remove('is-active'));
+            document.querySelectorAll('.fin-detail').forEach(d => d.classList.remove('is-active'));
+            pill.classList.add('is-active');
+            const detail = document.getElementById('fin-' + target);
+            if (detail) detail.classList.add('is-active');
+        });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const id = a.getAttribute('href');
+            const target = id.length > 1 ? document.querySelector(id) : null;
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
