@@ -13,6 +13,7 @@
    ======================================================================== */
 
 
+
 /* ========================================================================
    Fix #2 — Container 1600px → 1280px (lecture confortable, hero impactant)
    ======================================================================== */
@@ -393,6 +394,105 @@
         padding: 1.5rem !important;
     }
 }
+
+/* ========================================================================
+   Fix #12 — DÉBORDEMENT HORIZONTAL MOBILE (cause profonde)
+   ------------------------------------------------------------------------
+   Plusieurs largeurs/paddings hard-codés provoquaient un overflow-x
+   visible (et nos garde-fous overflow:clip masquaient seulement) :
+     - .testimonial-card min-width: 350px (vs viewport 375px)
+     - .testimonials-carousel padding: 2rem 5rem (= 160px latéral)
+     - .contact-form-wrapper padding 3rem + border 3px + box-shadow
+       6px + rotate(-0.5deg) → débordement latéral
+     - .container padding: 0 3rem (= 96px sur 375px viewport)
+   On normalise tout pour que le contenu tienne SANS scroll horizontal.
+   ======================================================================== */
+
+@media (max-width: 768px) {
+    /* Container : padding latéral mesuré */
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Carrousel témoignages : full width, plus de padding latéral */
+    .testimonials-carousel {
+        padding: 1.5rem 0 !important;
+        width: 100% !important;
+        overflow: hidden;
+    }
+    .testimonials-track {
+        gap: 2rem !important; /* aligné sur le hardcode JS (32px) pour éviter un drift de swipe */
+        padding: 0 1rem;
+    }
+    .testimonials-track .testimonial-card,
+    .testimonials-track .vae-testimonial {
+        min-width: 0 !important;
+        max-width: none !important;
+        width: calc(100vw - 2rem) !important;
+        flex-shrink: 0 !important;
+        flex-basis: auto !important;
+    }
+
+    /* Boutons précédent/suivant cachés sur mobile : on swipe */
+    .testimonials-carousel .carousel-btn,
+    .testimonials-carousel .carousel-btn-prev,
+    .testimonials-carousel .carousel-btn-next {
+        display: none !important;
+    }
+
+    /* Form contact : pleine largeur, sans rotation ni ombre démesurée */
+    .contact-form-wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 0 !important;
+        transform: none !important;
+        border-width: 2px !important;
+        box-shadow: 4px 4px 0 rgba(255, 106, 74, 0.22) !important;
+        border-radius: 20px !important;
+    }
+
+    /* Empêche la moindre largeur fixe rebelle de pousser le layout */
+    body, main, section, .container {
+        max-width: 100vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 0.875rem !important;
+        padding-right: 0.875rem !important;
+    }
+    .testimonials-track {
+        gap: 2rem !important; /* idem : aligné sur le hardcode JS */
+        padding: 0 0.875rem;
+    }
+    .testimonials-track .testimonial-card,
+    .testimonials-track .vae-testimonial {
+        width: calc(100vw - 1.75rem) !important;
+    }
+    .contact-form-wrapper {
+        padding: 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    /* Cards et blocs aux paddings généreux : on resserre */
+    .step-card,
+    .method-card,
+    .testimonial-card,
+    .financing-detail,
+    .financing-options-row,
+    .financing-pill {
+        padding: 1.25rem !important;
+    }
+}
+
+/* Anti-overflow universel : la racine ne dépasse jamais */
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
 
 /* ========================================================================
    Fix #11 — Focus visible accessible (clavier + lecteurs d'écran)
