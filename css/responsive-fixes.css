@@ -495,6 +495,192 @@ html, body {
 
 
 /* ========================================================================
+   Fix #13 — REFONTE MOBILE des 2 encadrés du bas (CTA bleu + form orange)
+   ------------------------------------------------------------------------
+   Inspiration : la page /formation-ia (sobre, lisible, sans effets cartoon
+   agressifs). Sur mobile, on neutralise les border 3px, ombres flat,
+   rotations et fonds criards. Padding et tailles harmonisés.
+   ======================================================================== */
+
+@media (max-width: 768px) {
+
+    /* Section conteneuse : padding latéral et plus d'écart fond/contenu */
+    .final-cta {
+        padding: 2.5rem 0 3rem !important;
+    }
+
+    .cta-content {
+        gap: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* --- Encadré bleu : "Nos engagements" --- */
+    .cta-benefits {
+        background: white !important;
+        padding: 1.5rem 1.25rem !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(43, 51, 94, 0.12) !important;
+        box-shadow: 0 4px 16px rgba(43, 51, 94, 0.08) !important;
+        margin-bottom: 0 !important;
+    }
+
+    .cta-benefits h3 {
+        font-size: 1.25rem !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+        line-height: 1.3;
+    }
+
+    .cta-benefits ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .cta-benefits li {
+        gap: 0.75rem !important;
+        padding: 0.625rem 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        align-items: flex-start !important;
+    }
+
+    .cta-benefits li::before {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        font-size: 0.85rem !important;
+        margin-top: 0.125rem;
+    }
+
+    .cta-benefits li strong {
+        white-space: normal !important; /* autorise le retour à la ligne en mobile */
+        display: block;
+        margin-bottom: 0.125rem;
+    }
+
+    .cta-reassurance {
+        flex-direction: column !important;
+        gap: 0.625rem !important;
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+
+    .reassurance-item {
+        font-size: 0.95rem;
+    }
+
+    /* --- Encadré orange : wrapper du formulaire --- */
+    .contact-form-wrapper {
+        background: white !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 1.5rem 1.25rem !important;
+        margin: 0 !important;
+        transform: none !important;
+        border: 1px solid rgba(255, 106, 74, 0.25) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 16px rgba(255, 106, 74, 0.10) !important;
+    }
+
+    .contact-form-wrapper .form-header {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-form-wrapper h3 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.5rem !important;
+        line-height: 1.3;
+    }
+
+    .contact-form-wrapper > p {
+        font-size: 0.95rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.25rem !important;
+        color: #4a5568;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 0.75rem;
+    }
+
+    .contact-form .form-group.checkbox-group label {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #4a5568;
+    }
+
+    /* Bouton submit : full width sobre, pas d'ombre flat décalée */
+    .contact-form button[type="submit"],
+    .contact-form .btn-orange {
+        width: 100% !important;
+        font-size: 1rem !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 12px !important;
+        border-width: 0 !important;
+        box-shadow: 0 4px 12px rgba(255, 106, 74, 0.25) !important;
+    }
+
+    .contact-form button[type="submit"]:hover,
+    .contact-form .btn-orange:hover {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 16px rgba(255, 106, 74, 0.35) !important;
+    }
+}
+
+
+/* ========================================================================
+   Fix #14 — NAVBAR MOBILE : 3 corrections
+     (a) Couleurs harmonisées (menu + dropdowns en blanc cohérent)
+     (b) Logo +25% sur mobile
+     (c) Click outside : géré côté Navbar.js (déjà en place)
+   ======================================================================== */
+
+@media (max-width: 768px) {
+
+    /* Logo +25% (90px → 112px) */
+    .logo-svg {
+        width: 112px !important;
+    }
+
+    /* Menu mobile : blanc opaque uniforme (plus de gris) */
+    .nav-menu {
+        background: rgba(255, 255, 255, 1) !important; /* opaque, pas semi-transparent */
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08) !important;
+    }
+
+    /* Dropdown ouvert : même blanc + indent visuelle subtile */
+    .nav-menu .dropdown-menu {
+        background: rgba(43, 51, 94, 0.03) !important;
+        border-radius: 10px !important;
+    }
+
+    .nav-menu .dropdown-menu a {
+        color: var(--primary-blue, #2b325e) !important;
+    }
+
+    /* Toggle : rester visible et cliquable au-dessus de la modale */
+    .mobile-menu-toggle {
+        z-index: 1001 !important;
+    }
+
+    /* Pour les dropdowns desktop qui pourraient apparaître sur tablette */
+    .navbar:not(.navbar-scrolled) .dropdown-menu {
+        background: white !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Sur très petit mobile, on garde le logo lisible mais sans envahir */
+    .logo-svg {
+        width: 100px !important;
+    }
+}
+
+
+/* ========================================================================
    Fix #11 — Focus visible accessible (clavier + lecteurs d'écran)
    ======================================================================== */
 .btn:focus-visible,
