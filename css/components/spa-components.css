@@ -3,6 +3,7 @@
    ======================================== */
 
 @import url('./lead-form.css');
+@import url('../responsive-fixes.css');
 
 /* Loading State */
 .loading {

@@ -1,0 +1,27 @@
+/* ========================================================================
+   Design Tokens — Formation Compétences (v2)
+   ------------------------------------------------------------------------
+   Variables utilitaires (espacements, motion, largeurs).
+   La palette de couleurs et le style des boutons restent dans styles.css :
+   le style "cartoon assumé" des CTA (coins asymétriques, ombres flat
+   décalées, rebond au hover) fait partie de l'identité de marque et
+   ne doit PAS être modifié sans validation explicite.
+   ======================================================================== */
+
+:root {
+    /* ----- Motion ----- */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+    --motion-fast: 120ms;
+    --motion-normal: 220ms;
+    --motion-slow: 360ms;
+
+    /* ----- Espacements complémentaires ----- */
+    --space-3xl: 5rem;
+    --space-4xl: 7rem;
+
+    /* ----- Largeurs de contenu ----- */
+    --content-narrow: 720px;
+    --content-default: 1200px;
+    --content-wide: 1440px;
+}
