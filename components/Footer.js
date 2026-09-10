@@ -70,7 +70,7 @@ export class Footer extends Component {
                         </div>
                         <div class="footer-certification">
                             <h5>Certification</h5>
-                            <a href="/assets/documents/QUALIOPI ADLF.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
+                            <a href="/assets/documents/certificat-qualiopi-groupe-formation-competences.pdf" target="_blank" rel="noopener noreferrer" class="qualiopi-link">
                                 <img src="/assets/images/qualiopi.jpeg" alt="Certification Qualiopi" class="qualiopi-logo">
                             </a>
                             ${AVIS_VERIFIES_PAGE_URL ? `
