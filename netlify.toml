@@ -3,6 +3,10 @@
 [build]
   publish = "."
 
+# Nécessaire pour que Netlify Forms parse le HTML au déploiement
+[build.processing]
+  skip_processing = false
+
 # Netlify Functions (backend serverless : capture leads -> Zoho CRM)
 [build.environment]
   NODE_VERSION = "20"

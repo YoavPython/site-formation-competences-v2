@@ -42,8 +42,16 @@
     <!-- Exemple : <script src="https://cl.avis-verifies.com/fr/VOTRE_ID/script.js" async></script> -->
 
     <!-- Enregistrement Netlify Forms : landing Lilmod (soumission AJAX depuis lilmod-2e3f4a5.html) -->
-    <form name="lilmod-rappel" netlify netlify-honeypot="bot-field" hidden>
-        <input type="hidden" name="form-name" value="lilmod-rappel">
+    <form
+        name="lilmod-rappel"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action="/lilmod-2e3f4a5"
+        style="display:none"
+        aria-hidden="true"
+    >
+        <p><label>bot-field <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <input name="nom" type="text">
         <input name="telephone" type="tel">
         <input name="email" type="email">
@@ -51,7 +59,7 @@
         <input name="consent" type="text">
         <input name="source" type="text">
         <input name="page_url" type="text">
-        <input name="bot-field">
+        <input name="message" type="text">
     </form>
 </body>
 </html>
