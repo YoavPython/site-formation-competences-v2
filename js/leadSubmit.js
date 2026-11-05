@@ -22,7 +22,7 @@ function readUtmFromUrl() {
     return utm;
 }
 
-function showSuccess(formEl, opts = {}) {
+export function showSuccess(formEl, opts = {}) {
     const wrapper = formEl.closest('.contact-form-wrapper, .eligibility-modal-box') || formEl.parentElement;
     if (!wrapper) {
         formEl.style.display = 'none';
@@ -53,7 +53,7 @@ function showSuccess(formEl, opts = {}) {
     wrapper.appendChild(block);
 }
 
-function showError(formEl, message) {
+export function showError(formEl, message) {
     const submitBtn = formEl.querySelector('button[type="submit"]');
     let alertEl = formEl.querySelector('.lead-error-banner');
     if (!alertEl) {
@@ -66,7 +66,7 @@ function showError(formEl, message) {
     alertEl.style.display = 'block';
 }
 
-function setLoading(formEl, loading) {
+export function setLoading(formEl, loading) {
     const submitBtn = formEl.querySelector('button[type="submit"]');
     if (!submitBtn) return;
 
@@ -105,18 +105,15 @@ function readForm(formEl) {
 }
 
 /**
+ * Envoie le lead vers /api/leads sans gérer l’UI (loading / succès / erreur).
  * @param {HTMLFormElement} formEl
  * @param {object} opts
  * @param {string} opts.formType
- * @param {string} [opts.successMessage]
  */
-export async function submitLeadFromForm(formEl, opts = {}) {
+export async function postLeadFromForm(formEl, opts = {}) {
     if (!formEl) return { ok: false, error: 'Form introuvable' };
 
     ensureHoneypot(formEl);
-
-    const errBanner = formEl.querySelector('.lead-error-banner');
-    if (errBanner) errBanner.style.display = 'none';
 
     if (formEl.checkValidity && !formEl.checkValidity()) {
         formEl.reportValidity();
@@ -131,7 +128,6 @@ export async function submitLeadFromForm(formEl, opts = {}) {
         utm: readUtmFromUrl(),
     };
 
-    setLoading(formEl, true);
     try {
         const response = await fetch(ENDPOINT, {
             method: 'POST',
@@ -145,23 +141,48 @@ export async function submitLeadFromForm(formEl, opts = {}) {
             const msg = json.error
                 || (json.errors && Object.values(json.errors).join(' '))
                 || 'Une erreur est survenue. Merci de réessayer.';
-            showError(formEl, msg);
-            setLoading(formEl, false);
-            return { ok: false, error: msg, response: json };
+            return { ok: false, error: msg, response: json, payload };
         }
 
-        showSuccess(formEl, { message: opts.successMessage });
         try {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({ event: 'lead_submit', form_type: payload.formType, mode: json.mode });
         } catch (_) {}
-        return { ok: true, mode: json.mode, simulated: json.simulated };
+        return { ok: true, mode: json.mode, simulated: json.simulated, payload };
     } catch (err) {
         console.error('[lead] submit error', err);
-        showError(formEl, 'Connexion impossible. Vérifiez votre réseau et réessayez.');
-        setLoading(formEl, false);
         return { ok: false, error: err.message };
     }
+}
+
+/**
+ * @param {HTMLFormElement} formEl
+ * @param {object} opts
+ * @param {string} opts.formType
+ * @param {string} [opts.successMessage]
+ */
+export async function submitLeadFromForm(formEl, opts = {}) {
+    if (!formEl) return { ok: false, error: 'Form introuvable' };
+
+    const errBanner = formEl.querySelector('.lead-error-banner');
+    if (errBanner) errBanner.style.display = 'none';
+
+    setLoading(formEl, true);
+    const result = await postLeadFromForm(formEl, opts);
+
+    if (result.validation) {
+        setLoading(formEl, false);
+        return result;
+    }
+
+    if (!result.ok) {
+        showError(formEl, result.error);
+        setLoading(formEl, false);
+        return result;
+    }
+
+    showSuccess(formEl, { message: opts.successMessage });
+    return result;
 }
 
 export default submitLeadFromForm;

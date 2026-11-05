@@ -121,7 +121,20 @@
             <h2>Votre prochain chapitre<br>commence par un échange.</h2>
             <p>Laissez vos coordonnées pour être rappelé(e) par un conseiller Lilmod.</p>
             <div class="contact-form-wrapper">
-                <form id="contact" novalidate>
+                <form
+                    id="contact"
+                    name="lilmod-rappel"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    netlify
+                    novalidate
+                >
+                    <input type="hidden" name="form-name" value="lilmod-rappel">
+                    <input type="hidden" name="source" value="landing-lilmod-bilan">
+                    <p hidden aria-hidden="true">
+                        <label>Ne pas remplir : <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                    </p>
                     <label class="field">Votre prénom et nom *
                         <input name="nom" autocomplete="name" required maxlength="100" placeholder="Camille Dupont">
                     </label>

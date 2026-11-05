@@ -40,5 +40,18 @@
 
     <!-- Avis Vérifiés : collez ici le script fourni par votre espace client Avis Vérifiés (voir docs/INTEGRATION-AVIS-VERIFIES.md) -->
     <!-- Exemple : <script src="https://cl.avis-verifies.com/fr/VOTRE_ID/script.js" async></script> -->
+
+    <!-- Enregistrement Netlify Forms : landing Lilmod (soumission AJAX depuis lilmod-s73_.html) -->
+    <form name="lilmod-rappel" netlify netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="lilmod-rappel">
+        <input name="nom" type="text">
+        <input name="telephone" type="tel">
+        <input name="email" type="email">
+        <input name="disponibilite" type="text">
+        <input name="consent" type="text">
+        <input name="source" type="text">
+        <input name="page_url" type="text">
+        <input name="bot-field">
+    </form>
 </body>
 </html>
