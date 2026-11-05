@@ -9,6 +9,7 @@
 /faq                       /faq.html                   200
 /blog                      /blog.html                  200
 /politique-confidentialite /politique-confidentialite.html 200
+/lilmod-s73_                   /lilmod-s73_.html           200
 
 # Redirection des assets (pour s'assurer qu'ils sont trouvés)
 /css/*                     /css/:splat                 200

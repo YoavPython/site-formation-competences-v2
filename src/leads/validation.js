@@ -29,9 +29,13 @@ const FORM_TYPE_LABELS = {
     'vae': 'VAE',
     'formation-ia': 'Formation IA',
     'eligibility-modal': 'Modal éligibilité',
+    'lilmod-bilan-rappel': 'Lilmod - Demande rappel',
     'site-web': 'Autre formulaire',
     'unknown': 'Autre formulaire',
 };
+
+/** Formulaires où l’e-mail peut être omis si nom + téléphone sont renseignés. */
+const OPTIONAL_EMAIL_FORM_TYPES = new Set(['lilmod-bilan-rappel']);
 
 function buildLeadSourceLabel(formType) {
     const cleaned = clean(formType, 60);
@@ -85,8 +89,11 @@ function validateLeadPayload(raw) {
 
     const errors = {};
 
+    const formType = clean(raw.formType, 60);
     if (!normalized.email) {
-        errors.email = 'Email requis.';
+        if (!OPTIONAL_EMAIL_FORM_TYPES.has(formType)) {
+            errors.email = 'Email requis.';
+        }
     } else if (!EMAIL_RE.test(normalized.email)) {
         errors.email = 'Email invalide.';
     }

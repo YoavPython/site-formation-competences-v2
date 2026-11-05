@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lilmod — Donnez un nouvel élan à votre carrière</title>
+    <meta name="description" content="Faites le point sur votre avenir avec le bilan de compétences Lilmod. Demandez un échange gratuit et sans engagement.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/components/lead-form.css">
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: #192d38; background: #fcfbf7; font: 16px/1.6 Arial, sans-serif; }
+        a { color: inherit; }
+        header, main, footer { max-width: 1200px; margin: auto; padding: 24px 32px; }
+        header { display: flex; align-items: center; justify-content: space-between; }
+        header img { width: 145px; }
+        nav { display: flex; gap: 28px; align-items: center; }
+        nav a { text-decoration: none; font-size: 14px; }
+        .btn, button[type="submit"] {
+            background: #f79416; color: #192d38; padding: 16px 24px; border: 0; border-radius: 8px;
+            font-weight: 700; text-decoration: none; cursor: pointer; display: inline-block;
+        }
+        .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; padding: 55px 0 70px; }
+        .eyebrow { color: #08758f; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; }
+        h1 { font-size: clamp(40px, 4.6vw, 65px); line-height: 1.08; letter-spacing: -2.5px; margin: 24px 0; }
+        h1 em { color: #057d9a; font-style: normal; }
+        h2 { font-size: 36px; line-height: 1.2; letter-spacing: -1px; }
+        p { color: #566771; }
+        .lead { font-size: 19px; max-width: 520px; }
+        .pills { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0; }
+        .pills span { font-size: 13px; padding: 7px 12px; background: #e9f1f0; border-radius: 30px; }
+        .note { border-left: 3px solid #f79416; padding-left: 20px; margin-top: 40px; }
+        .form-panel {
+            background: white; border: 1px solid #e5e9e8; border-radius: 18px; padding: 32px;
+            box-shadow: 0 20px 65px #193a4110; position: relative;
+        }
+        .form-panel::before {
+            content: ''; position: absolute; top: 0; left: 32px; right: 32px; height: 4px;
+            background: #0786a4; border-radius: 4px;
+        }
+        .form-panel h2 { font-size: 26px; margin: 12px 0; }
+        .form-panel p { font-size: 14px; }
+        .field { display: block; font-size: 13px; font-weight: bold; margin: 16px 0; }
+        input, select {
+            width: 100%; padding: 13px; border: 1px solid #cdd8da; border-radius: 6px;
+            font: 16px Arial, sans-serif; margin-top: 6px; background: #fff;
+        }
+        input:focus, select:focus { outline: 2px solid #09829d; }
+        .check { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; line-height: 1.6; margin: 22px 0; }
+        .check input { width: 18px; flex-shrink: 0; margin-top: 2px; }
+        .contact-form-wrapper form button[type="submit"] { width: 100%; }
+        .small { font-size: 11px !important; }
+        .strip {
+            border-top: 1px solid #dce4e3; border-bottom: 1px solid #dce4e3; padding: 25px 0;
+            display: flex; justify-content: space-between; gap: 20px; font-size: 14px;
+        }
+        .section { padding: 75px 0; }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+        .cards article { padding: 28px 0; border-top: 2px solid #b7d0d5; }
+        .num { color: #07839d; font-size: 14px; }
+        .cards h3 { font-size: 21px; }
+        .banner {
+            background: #143d4b; border-radius: 18px; padding: 44px; color: white;
+            display: flex; justify-content: space-between; gap: 30px; align-items: center;
+        }
+        .banner p { color: #d3e3e7; }
+        .banner h2 { margin: 0; }
+        details { border-bottom: 1px solid #dce4e3; padding: 20px 0; }
+        summary { font-weight: bold; cursor: pointer; }
+        footer {
+            border-top: 1px solid #dce4e3; font-size: 12px;
+            display: flex; justify-content: space-between; gap: 25px;
+        }
+        footer img { width: 110px; }
+        dialog { max-width: 680px; border: 0; border-radius: 16px; padding: 30px; max-height: 85vh; }
+        dialog::backdrop { background: #102d3aa8; }
+        dialog p { font-size: 14px; }
+        .contact-form-wrapper .lead-success-block { margin-top: 0; text-align: left; }
+        @media (max-width: 800px) {
+            header, main, footer { padding: 20px; }
+            nav a:not(.btn) { display: none; }
+            .hero { grid-template-columns: 1fr; gap: 30px; padding: 30px 0; }
+            .cards { grid-template-columns: 1fr; gap: 10px; }
+            .strip, .banner, footer { flex-direction: column; }
+            .section { padding: 45px 0; }
+            h2 { font-size: 29px; }
+            .form-panel { padding: 24px; }
+            h1 { letter-spacing: -1.5px; }
+        }
+    </style>
+    <script type="module" src="/js/lilmod-loader.js"></script>
+</head>
+<body>
+<header>
+    <a href="#" aria-label="Lilmod accueil"><img src="/assets/lilmod/logo.png" alt="Lilmod"></a>
+    <nav>
+        <a href="#parcours">Le bilan de compétences</a>
+        <a href="#questions">Vos questions</a>
+        <a class="btn" href="#rappel">Parlons de votre avenir ↗</a>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <div>
+            <span class="eyebrow">Votre avenir professionnel commence ici</span>
+            <h1>Et si la suite<br>vous ressemblait<br><em>vraiment ?</em></h1>
+            <p class="lead">Prenez du recul. Révélez vos forces. Construisez un projet professionnel qui a du sens pour vous, avec le bilan de compétences Lilmod.</p>
+            <div class="pills">
+                <span>✓ 100 % à distance</span>
+                <span>✓ Accompagnement personnalisé</span>
+            </div>
+            <a class="btn" href="#rappel">Je fais le premier pas →</a>
+            <p class="small">Un premier échange gratuit, sans engagement.</p>
+            <div class="note">Changer de voie, évoluer ou retrouver du sens :<br><strong>vous n’avez pas à avancer seul.</strong></div>
+        </div>
+        <div class="form-panel" id="rappel">
+            <span class="eyebrow">Faisons connaissance</span>
+            <h2>Votre prochain chapitre<br>commence par un échange.</h2>
+            <p>Laissez vos coordonnées pour être rappelé(e) par un conseiller Lilmod.</p>
+            <div class="contact-form-wrapper">
+                <form id="contact" novalidate>
+                    <label class="field">Votre prénom et nom *
+                        <input name="nom" autocomplete="name" required maxlength="100" placeholder="Camille Dupont">
+                    </label>
+                    <label class="field">Votre téléphone *
+                        <input name="telephone" type="tel" autocomplete="tel" required pattern="[+0-9 ().-]{8,22}" placeholder="06 12 34 56 78">
+                    </label>
+                    <label class="field">Votre adresse e-mail (facultatif)
+                        <input name="email" type="email" autocomplete="email" placeholder="camille@exemple.fr">
+                    </label>
+                    <label class="field">Votre disponibilité (facultatif)
+                        <select name="disponibilite">
+                            <option>Sans préférence</option>
+                            <option>Le matin</option>
+                            <option>Entre 12 h et 14 h</option>
+                            <option>L’après-midi</option>
+                        </select>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" name="consent" required>
+                        <span>J’accepte que Lilmod et son prestataire Formation Compétence utilisent ces informations pour me recontacter et préciser mon besoin concernant ma demande de bilan de compétences. Je peux retirer mon consentement à tout moment. <a href="#confidentialite" data-open-privacy>Confidentialité et droits</a>.</span>
+                    </label>
+                    <button type="submit">Envoyer ma demande de rappel →</button>
+                    <p class="small">Vos données sont transmises de façon sécurisée à Formation Compétence, prestataire de Lilmod, uniquement pour traiter votre demande.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="strip">
+        <strong>Un accompagnement à votre rythme</strong>
+        <span>↗ Entièrement à distance</span>
+        <span>◎ Un parcours personnalisé</span>
+        <span>◇ Des échanges confidentiels</span>
+    </div>
+    <section class="section" id="parcours">
+        <span class="eyebrow">Faire le point, pour aller plus loin</span>
+        <h2>De vos questions à un projet concret.</h2>
+        <p>Un parcours pour mieux vous connaître et éclairer vos prochaines décisions.</p>
+        <div class="cards">
+            <article>
+                <span class="num">01 / COMPRENDRE</span>
+                <h3>Poser les bonnes questions</h3>
+                <p>Clarifiez vos attentes, votre situation et ce que vous souhaitez faire évoluer dans votre vie professionnelle.</p>
+            </article>
+            <article>
+                <span class="num">02 / EXPLORER</span>
+                <h3>Faire émerger vos forces</h3>
+                <p>Explorez vos compétences, vos motivations et vos aspirations pour identifier des pistes qui vous correspondent.</p>
+            </article>
+            <article>
+                <span class="num">03 / CONSTRUIRE</span>
+                <h3>Dessiner votre prochaine étape</h3>
+                <p>Transformez votre réflexion en un projet professionnel et un plan d’action personnalisé.</p>
+            </article>
+        </div>
+    </section>
+    <section class="banner">
+        <div>
+            <span class="eyebrow" style="color:#ffb44d">Un premier pas tout simple</span>
+            <h2>Vous n’avez pas besoin<br>d’avoir toutes les réponses.</h2>
+            <p>Échangeons sur votre situation et vos envies.</p>
+        </div>
+        <a class="btn" href="#rappel">Parler à un conseiller →</a>
+    </section>
+    <section class="section" id="questions">
+        <span class="eyebrow">Vos questions, simplement</span>
+        <h2>Avant de vous lancer.</h2>
+        <details>
+            <summary>À qui s’adresse le bilan de compétences ?</summary>
+            <p>À toute personne souhaitant faire le point sur son parcours, envisager une évolution ou explorer une reconversion. Le premier échange permet de préciser votre besoin.</p>
+        </details>
+        <details>
+            <summary>Comment se passe l’accompagnement à distance ?</summary>
+            <p>Les entretiens sont planifiés avec vous selon vos contraintes. Votre conseiller vous présente les modalités et le déroulement du parcours.</p>
+        </details>
+        <details>
+            <summary>Quelles solutions de financement sont possibles ?</summary>
+            <p>Lilmod vous aide à explorer les possibilités adaptées à votre situation. Les conditions et l’éligibilité sont à vérifier individuellement avant toute inscription.</p>
+        </details>
+        <details>
+            <summary>La demande de rappel m’engage-t-elle ?</summary>
+            <p>Non. Ce premier échange est gratuit et sans engagement. Il vous permet de découvrir l’accompagnement et de poser vos questions.</p>
+        </details>
+    </section>
+</main>
+<footer>
+    <div>
+        <img src="/assets/lilmod/logo.png" alt="Lilmod">
+        <p>Votre potentiel. Votre direction. Votre avenir.</p>
+    </div>
+    <div>
+        Lilmod · SIRET 91182949700013<br>
+        37 rue Saint Sébastien, 13006 Marseille<br>
+        <a href="mailto:contact@lilmod-formation.fr">contact@lilmod-formation.fr</a> ·
+        <a href="tel:0970708331">09 70 70 83 31</a>
+    </div>
+    <div>
+        <a href="#confidentialite" data-open-privacy>Confidentialité &amp; mentions</a><br>
+        <a href="https://lilmod-formation.fr/" rel="noopener">Site Lilmod Formation ↗</a>
+    </div>
+</footer>
+<dialog id="confidentialite">
+    <button type="button" onclick="this.closest('dialog').close()" aria-label="Fermer">Fermer ×</button>
+    <h2>Vos données, en toute transparence.</h2>
+    <p>Responsable de la demande : Lilmod, SIRET 91182949700013, 37 rue Saint Sébastien, 13006 Marseille. Contact : contact@lilmod-formation.fr.</p>
+    <p>Les informations saisies dans ce formulaire sont transmises de façon sécurisée à Formation Compétence, prestataire externe intervenant pour le compte de Lilmod, afin de traiter votre demande de rappel. Les champs marqués * sont nécessaires pour vous recontacter.</p>
+    <p>Les données comprennent votre nom, votre téléphone, votre e-mail éventuel, vos disponibilités et votre accord pour répondre à votre demande. La finalité est la gestion de votre demande de rappel, sur la base de votre consentement.</p>
+    <p>Les personnes habilitées de Formation Compétence et de Lilmod utilisent ces informations pour vous recontacter et qualifier votre demande. Les données sont conservées le temps du traitement de la demande, puis supprimées au plus tard six mois après le dernier échange si aucun accompagnement ne débute.</p>
+    <p>Vous pouvez retirer votre consentement et exercer vos droits (accès, rectification, effacement, limitation, portabilité) en écrivant à contact@lilmod-formation.fr. Réclamation possible auprès de la CNIL sur <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</p>
+</dialog>
+</body>
+</html>

@@ -69,6 +69,12 @@
   to = "/public/politique-confidentialite.html"
   status = 200
 
+# Landing partenaire Lilmod (URL campagne, non indexée)
+[[redirects]]
+  from = "/lilmod-s73_"
+  to = "/public/lilmod-s73_.html"
+  status = 200
+
 # Assets et fichiers statiques (a la racine du repo)
 [[redirects]]
   from = "/css/*"

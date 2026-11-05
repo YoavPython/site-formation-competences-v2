@@ -80,6 +80,10 @@ app.get('/formation-ia/', (req, res) => {
     res.redirect(301, '/formation-ia');
 });
 
+app.get('/lilmod-s73_', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'lilmod-s73_.html'));
+});
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Diagnostic : route réservée au serveur Express (pour vérifier qu'on n'utilise pas http-server)
