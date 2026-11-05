@@ -69,16 +69,20 @@
   to = "/public/politique-confidentialite.html"
   status = 200
 
-# Landing partenaire Lilmod (URL campagne longue, non indexée)
+# Landing partenaire Lilmod (URL campagne, non indexée)
 [[redirects]]
-  from = "/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0"
-  to = "/public/lilmod-s73_.html"
+  from = "/lilmod-2e3f4a5"
+  to = "/public/lilmod-2e3f4a5.html"
   status = 200
 
-# Ancienne URL courte → canonique longue
 [[redirects]]
   from = "/lilmod-s73_"
-  to = "/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0"
+  to = "/lilmod-2e3f4a5"
+  status = 301
+
+[[redirects]]
+  from = "/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0"
+  to = "/lilmod-2e3f4a5"
   status = 301
 
 # Assets et fichiers statiques (a la racine du repo)

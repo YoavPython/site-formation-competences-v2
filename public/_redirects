@@ -9,8 +9,9 @@
 /faq                       /faq.html                   200
 /blog                      /blog.html                  200
 /politique-confidentialite /politique-confidentialite.html 200
-/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0  /lilmod-s73_.html  200
-/lilmod-s73_  /partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0  301
+/lilmod-2e3f4a5                   /lilmod-2e3f4a5.html        200
+/lilmod-s73_                      /lilmod-2e3f4a5             301
+/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0  /lilmod-2e3f4a5  301
 
 # Redirection des assets (pour s'assurer qu'ils sont trouvés)
 /css/*                     /css/:splat                 200

@@ -80,16 +80,23 @@ app.get('/formation-ia/', (req, res) => {
     res.redirect(301, '/formation-ia');
 });
 
-const LILMOD_LANDING_PATH =
-    '/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0';
+const LILMOD_LANDING_PATH = '/lilmod-2e3f4a5';
+const LILMOD_LANDING_FILE = 'lilmod-2e3f4a5.html';
 
 app.get(LILMOD_LANDING_PATH, (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'lilmod-s73_.html'));
+    res.sendFile(path.join(__dirname, 'public', LILMOD_LANDING_FILE));
 });
 
 app.get('/lilmod-s73_', (req, res) => {
     res.redirect(301, LILMOD_LANDING_PATH);
 });
+
+app.get(
+    '/partenaires/lilmod/bilan-competences/demande-rappel/2026-q4/s73_xf8a2b1c4d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0',
+    (req, res) => {
+        res.redirect(301, LILMOD_LANDING_PATH);
+    },
+);
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
