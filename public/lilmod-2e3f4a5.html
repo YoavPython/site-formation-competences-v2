@@ -79,6 +79,55 @@
         dialog::backdrop { background: #102d3aa8; }
         dialog p { font-size: 14px; }
         .contact-form-wrapper .lead-success-block { margin-top: 0; text-align: left; }
+        [hidden] { display: none !important; }
+        .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 36px 0; }
+        .facts div { background: #fff; border: 1px solid #e5e9e8; border-radius: 14px; padding: 20px; }
+        .facts strong { display: block; font-size: 28px; color: #143d4b; letter-spacing: -.5px; }
+        .facts span { font-size: 13px; color: #566771; }
+        .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .prog-grid h3, .steps-title { font-size: 21px; margin: 0 0 10px; }
+        .ticks { list-style: none; padding: 0; margin: 0; }
+        .ticks li { padding: 6px 0 6px 26px; position: relative; color: #566771; font-size: 15px; }
+        .ticks li::before { content: '✓'; position: absolute; left: 0; color: #07839d; font-weight: bold; }
+        .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
+        .steps li {
+            display: grid; grid-template-columns: 170px 1fr; gap: 24px; background: #fff;
+            border: 1px solid #e5e9e8; border-radius: 14px; padding: 20px 24px;
+        }
+        .steps .when { font-weight: bold; }
+        .steps .when span { display: block; color: #07839d; font-size: 13px; font-weight: normal; }
+        .steps p { margin: 0; font-size: 15px; }
+        .steps p + p { margin-top: 6px; }
+        .prog-more { margin-top: 28px; }
+        .prog-more ul { color: #566771; font-size: 15px; }
+        .panel-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+        .btn-outline { background: transparent; border: 2px solid #f79416; padding: 14px 22px; }
+        .docs { margin-top: 28px; font-size: 14px; display: flex; gap: 8px 22px; flex-wrap: wrap; }
+        .docs strong { width: 100%; }
+        @media (max-width: 800px) {
+            .facts { grid-template-columns: 1fr 1fr; }
+            .prog-grid { grid-template-columns: 1fr; }
+            .steps li { grid-template-columns: 1fr; gap: 6px; }
+        }
+        .cookie-banner {
+            position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 720px; margin: auto;
+            background: #fff; border: 1px solid #dce4e3; border-radius: 14px; padding: 22px 24px;
+            box-shadow: 0 20px 60px #102d3a33; font-size: 14px;
+        }
+        .cookie-banner h2 { font-size: 18px; letter-spacing: 0; margin: 0 0 6px; }
+        .cookie-banner p { margin: 0 0 14px; font-size: 13px; }
+        .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cookie-actions button {
+            flex: 1 1 140px; padding: 12px 16px; border-radius: 8px; font-weight: 700; cursor: pointer;
+            border: 2px solid #192d38; background: #fff; color: #192d38; font-size: 14px;
+        }
+        .cookie-actions button[data-cookie-action="accept"],
+        .cookie-actions button[data-cookie-action="refuse"] { background: #192d38; color: #fff; }
+        .cookie-prefs { border-top: 1px solid #dce4e3; margin-top: 16px; padding-top: 12px; }
+        .cookie-row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; padding: 8px 0; font-size: 13px; }
+        .cookie-row input { width: 20px; height: 20px; margin: 2px 0 0; flex-shrink: 0; }
+        .cookie-row span { color: #566771; display: block; }
+        .link-btn { background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; color: inherit; }
         @media (max-width: 800px) {
             header, main, footer { padding: 20px; }
             nav a:not(.btn) { display: none; }
@@ -92,12 +141,15 @@
         }
     </style>
     <script type="module" src="/js/lilmod-loader.js"></script>
+    <script type="module" src="/js/lilmod-cookies.js"></script>
+    <script type="module" src="/js/lilmod-resources.js"></script>
 </head>
 <body>
 <header>
     <a href="#" aria-label="Lilmod accueil"><img src="/assets/lilmod/logo.png" alt="Lilmod"></a>
     <nav>
         <a href="#parcours">Le bilan de compétences</a>
+        <a href="#programme">Le programme</a>
         <a href="#questions">Vos questions</a>
         <a class="btn" href="#rappel">Parlons de votre avenir ↗</a>
     </nav>
@@ -190,6 +242,113 @@
             </article>
         </div>
     </section>
+    <section class="section" id="programme">
+        <span class="eyebrow">Programme de formation</span>
+        <h2>Le programme du bilan de compétences.</h2>
+        <p>Analyser vos compétences professionnelles et personnelles, vos aptitudes et vos motivations pour définir un projet professionnel et, le cas échéant, un projet de formation.</p>
+        <div class="facts">
+            <div><strong>13 h</strong><span>d’accompagnement au total</span></div>
+            <div><strong>7 h + 6 h</strong><span>en individuel + ateliers collectifs</span></div>
+            <div><strong>100 %</strong><span>en visioconférence</span></div>
+            <div><strong>1 750 €</strong><span>finançable par le CPF</span></div>
+        </div>
+        <div class="prog-grid">
+            <div>
+                <h3>Pour qui ?</h3>
+                <p>Toute personne souhaitant mener une réflexion sur son parcours professionnel : salarié, demandeur d’emploi, travailleur indépendant. Également ouvert aux personnes rencontrant des problématiques de santé et/ou de handicap, bénéficiaires ou non d’une RQTH. Aucun prérequis. En français.</p>
+                <h3>Points forts</h3>
+                <ul class="ticks">
+                    <li>Un accompagnement individualisé et confidentiel</li>
+                    <li>Un cadre bienveillant : écoute active, non-jugement, co-construction</li>
+                    <li>Une alternance de temps individuels et d’ateliers collectifs</li>
+                    <li>Une mise en perspective concrète avec la réalité du marché</li>
+                    <li>Un document de synthèse et un plan d’action concret</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Objectifs</h3>
+                <ul class="ticks">
+                    <li>Faire le point sur votre situation professionnelle</li>
+                    <li>Identifier vos ressources, vos freins, vos valeurs et vos besoins</li>
+                    <li>Mettre en lumière vos compétences, vos talents et vos appuis</li>
+                    <li>Clarifier vos motivations et vos aspirations</li>
+                    <li>Définir des pistes de projets cohérentes avec votre profil</li>
+                    <li>Confronter ces pistes à la réalité de l’environnement professionnel</li>
+                    <li>Construire un plan d’action réaliste et progressif</li>
+                    <li>Sécuriser vos choix et avancer avec davantage de confiance</li>
+                </ul>
+            </div>
+        </div>
+        <h3 class="steps-title" style="margin-top:48px">Déroulement</h3>
+        <p>Trois phases, précédées d’un entretien préalable et suivies d’un rendez-vous de suivi.</p>
+        <ol class="steps">
+            <li>
+                <div class="when">Entretien préalable<span>30 min</span></div>
+                <div><p>Recueil de vos besoins et attentes, présentation du consultant et du bilan : durée, méthode, programme, coût et modalités.</p><p>Remise des documents contractuels avant démarrage.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase préliminaire<span>2 heures</span></div>
+                <div><p>Définir vos besoins, clarifier vos objectifs, comprendre vos attentes et motivations.</p><p>Entretien individuel sur votre parcours et votre contexte, présentation des outils et co-construction du cadre d’accompagnement.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase d’investigation<span>7 heures</span></div>
+                <div><p>Explorer votre parcours et vos aspirations, identifier compétences, aptitudes, valeurs et leviers d’évolution.</p><p>Entretiens approfondis, exercices guidés, questionnaires, recherches documentaires et ateliers collectifs. Confrontation des pistes à la réalité du marché.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase de conclusion<span>4 heures</span></div>
+                <div><p>Établir un projet professionnel réaliste, identifier les conditions de réussite et les étapes de mise en œuvre.</p><p>Élaboration du document de synthèse, construction du plan d’action, entretien de restitution.</p></div>
+            </li>
+            <li>
+                <div class="when">Suivi post-bilan<span>15 à 45 min</span></div>
+                <div><p>Faire le point sur la mise en œuvre du plan d’action et recadrer le projet si nécessaire, par téléphone ou en visioconférence.</p></div>
+            </li>
+        </ol>
+        <div class="prog-more">
+            <details>
+                <summary>Résultats attendus</summary>
+                <ul>
+                    <li>Une synthèse personnalisée, strictement confidentielle et co-construite avec vous</li>
+                    <li>Un projet professionnel clair et aligné</li>
+                    <li>Un plan d’action structuré</li>
+                    <li>Une meilleure confiance dans vos choix</li>
+                    <li>Une vision plus lisible de vos compétences, motivations et possibilités d’évolution</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Méthodes et modalités d’évaluation</summary>
+                <ul>
+                    <li>Tests psychométriques : personnalité, aptitudes cognitives, intérêts professionnels</li>
+                    <li>Questionnaires d’auto-évaluation : compétences, motivations, valeurs professionnelles</li>
+                    <li>Entretiens individuels semi-directifs et entretiens de restitution</li>
+                    <li>Grilles d’analyse, fiches métiers et formations, plateformes (ONISEP, France Travail…)</li>
+                    <li>Évaluation : analyse des besoins en début de bilan, point à chaque séance, questionnaire de satisfaction à chaud, questionnaire de suivi à 6 mois</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Modalités et délais d’accès</summary>
+                <p>L’accès au bilan se fait après un premier échange permettant d’analyser votre demande, vos besoins et l’adéquation de la prestation. Le calendrier, la durée, le tarif et les conditions de réalisation sont précisés avant le démarrage. En cas de financement par le CPF, le délai de rétractation applicable sur la plateforme est respecté.</p>
+            </details>
+            <details>
+                <summary>Accessibilité et situation de handicap</summary>
+                <p>Une attention particulière est portée aux personnes en situation de handicap. Signalez vos besoins spécifiques en amont afin d’étudier les aménagements nécessaires pour suivre l’accompagnement dans les meilleures conditions.</p>
+            </details>
+            <details>
+                <summary>Confidentialité</summary>
+                <p>Le bilan est réalisé avec votre consentement, dans le strict respect de la confidentialité. Les résultats détaillés et le document de synthèse vous appartiennent exclusivement et ne peuvent être communiqués à un tiers sans votre accord exprès.</p>
+            </details>
+        </div>
+        <div class="panel-actions">
+            <a class="btn" href="/assets/lilmod/programme-bilan-competences-lilmod.pdf" target="_blank" rel="noopener">Télécharger le programme complet (PDF)</a>
+            <a class="btn btn-outline" data-mcf href="#" target="_blank" rel="noopener" hidden>S’inscrire sur Mon Compte Formation ↗</a>
+            <a class="btn btn-outline" href="#rappel">Être rappelé(e) →</a>
+        </div>
+        <div class="docs">
+            <strong>Documents utiles</strong>
+            <a href="https://lilmod-formation.fr/wp-content/uploads/2024/11/LIVRET-DACCUEIL-BILAN-DE-COMPETENCE.pdf" target="_blank" rel="noopener">Livret d’accueil (PDF) ↗</a>
+            <a href="https://lilmod-formation.fr/wp-content/uploads/2024/11/Charte-Ethique-et-Deontologique-du-Bilan-de-Competences-Reglement-Interieur.pdf" target="_blank" rel="noopener">Charte éthique &amp; règlement intérieur (PDF) ↗</a>
+            <a href="https://lilmod-formation.fr/wp-content/uploads/2025/04/certificate_3377_OF_Ind_1_RN8133_250401_214941.pdf" target="_blank" rel="noopener">Certificat Qualiopi (PDF) ↗</a>
+        </div>
+    </section>
     <section class="banner">
         <div>
             <span class="eyebrow" style="color:#ffb44d">Un premier pas tout simple</span>
@@ -232,6 +391,7 @@
     </div>
     <div>
         <a href="#confidentialite" data-open-privacy>Confidentialité &amp; mentions</a><br>
+        <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a><br>
         <a href="https://lilmod-formation.fr/" rel="noopener">Site Lilmod Formation ↗</a>
     </div>
 </footer>
@@ -242,7 +402,31 @@
     <p>Les informations saisies dans ce formulaire sont transmises de façon sécurisée à Formation Compétence, prestataire externe intervenant pour le compte de Lilmod, afin de traiter votre demande de rappel. Les champs marqués * sont nécessaires pour vous recontacter.</p>
     <p>Les données comprennent votre nom, votre téléphone, votre e-mail éventuel, vos disponibilités et votre accord pour répondre à votre demande. La finalité est la gestion de votre demande de rappel, sur la base de votre consentement.</p>
     <p>Les personnes habilitées de Formation Compétence et de Lilmod utilisent ces informations pour vous recontacter et qualifier votre demande. Les données sont conservées le temps du traitement de la demande, puis supprimées au plus tard six mois après le dernier échange si aucun accompagnement ne débute.</p>
+    <h3>Cookies</h3>
+    <p>Cette page utilise des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. Les cookies de mesure d’audience ne sont déposés qu’avec votre accord, que vous pouvez donner, refuser ou retirer à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
     <p>Vous pouvez retirer votre consentement et exercer vos droits (accès, rectification, effacement, limitation, portabilité) en écrivant à contact@lilmod-formation.fr. Réclamation possible auprès de la CNIL sur <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</p>
 </dialog>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
+    <h2 id="cookie-title">Vos préférences cookies</h2>
+    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, des cookies de mesure d’audience pour l’améliorer. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
+    <div class="cookie-actions">
+        <button type="button" data-cookie-action="refuse">Tout refuser</button>
+        <button type="button" data-cookie-action="customize">Personnaliser</button>
+        <button type="button" data-cookie-action="accept">Tout accepter</button>
+    </div>
+    <div class="cookie-prefs" data-cookie-prefs hidden>
+        <div class="cookie-row">
+            <div><strong>Strictement nécessaires</strong><span>Fonctionnement et sécurité de la page. Toujours actifs.</span></div>
+            <input type="checkbox" checked disabled aria-label="Cookies strictement nécessaires (toujours actifs)">
+        </div>
+        <label class="cookie-row">
+            <div><strong>Mesure d’audience</strong><span>Statistiques anonymes de fréquentation.</span></div>
+            <input type="checkbox" name="cookie-audience">
+        </label>
+        <div class="cookie-actions">
+            <button type="button" data-cookie-action="save">Enregistrer mes choix</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
