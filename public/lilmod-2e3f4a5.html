@@ -79,6 +79,38 @@
         dialog::backdrop { background: #102d3aa8; }
         dialog p { font-size: 14px; }
         .contact-form-wrapper .lead-success-block { margin-top: 0; text-align: left; }
+        [hidden] { display: none !important; }
+        .resources { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px; }
+        .resource { background: #fff; border: 1px solid #e5e9e8; border-radius: 18px; padding: 32px; }
+        .resource h3 { font-size: 21px; margin: 10px 0; }
+        .btn-outline { background: transparent; border: 2px solid #f79416; }
+        .mcf-list { display: grid; gap: 14px; margin-top: 18px; }
+        .mcf-link {
+            display: grid; gap: 2px; padding: 16px 18px; border: 1px solid #cdd8da; border-radius: 10px;
+            text-decoration: none; transition: border-color .2s;
+        }
+        .mcf-link:hover, .mcf-link:focus-visible { border-color: #0786a4; }
+        .mcf-link span { font-size: 13px; color: #566771; }
+        .mcf-link em { font-style: normal; font-size: 13px; font-weight: bold; color: #057d9a; }
+        .cookie-banner {
+            position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 720px; margin: auto;
+            background: #fff; border: 1px solid #dce4e3; border-radius: 14px; padding: 22px 24px;
+            box-shadow: 0 20px 60px #102d3a33; font-size: 14px;
+        }
+        .cookie-banner h2 { font-size: 18px; letter-spacing: 0; margin: 0 0 6px; }
+        .cookie-banner p { margin: 0 0 14px; font-size: 13px; }
+        .cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .cookie-actions button {
+            flex: 1 1 140px; padding: 12px 16px; border-radius: 8px; font-weight: 700; cursor: pointer;
+            border: 2px solid #192d38; background: #fff; color: #192d38; font-size: 14px;
+        }
+        .cookie-actions button[data-cookie-action="accept"],
+        .cookie-actions button[data-cookie-action="refuse"] { background: #192d38; color: #fff; }
+        .cookie-prefs { border-top: 1px solid #dce4e3; margin-top: 16px; padding-top: 12px; }
+        .cookie-row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; padding: 8px 0; font-size: 13px; }
+        .cookie-row input { width: 20px; height: 20px; margin: 2px 0 0; flex-shrink: 0; }
+        .cookie-row span { color: #566771; display: block; }
+        .link-btn { background: none; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; color: inherit; }
         @media (max-width: 800px) {
             header, main, footer { padding: 20px; }
             nav a:not(.btn) { display: none; }
@@ -92,12 +124,15 @@
         }
     </style>
     <script type="module" src="/js/lilmod-loader.js"></script>
+    <script type="module" src="/js/lilmod-cookies.js"></script>
+    <script type="module" src="/js/lilmod-resources.js"></script>
 </head>
 <body>
 <header>
     <a href="#" aria-label="Lilmod accueil"><img src="/assets/lilmod/logo.png" alt="Lilmod"></a>
     <nav>
         <a href="#parcours">Le bilan de compétences</a>
+        <a href="#programme">Programme &amp; CPF</a>
         <a href="#questions">Vos questions</a>
         <a class="btn" href="#rappel">Parlons de votre avenir ↗</a>
     </nav>
@@ -190,6 +225,27 @@
             </article>
         </div>
     </section>
+    <section class="section" id="programme" hidden>
+        <span class="eyebrow">Tout savoir avant de vous inscrire</span>
+        <h2>Le programme et l’inscription CPF.</h2>
+        <p>Consultez le détail du bilan de compétences Lilmod et retrouvez la formation sur Mon Compte Formation.</p>
+        <div class="resources">
+            <article class="resource" data-programme hidden>
+                <span class="num">PROGRAMME DE FORMATION</span>
+                <h3>Le déroulé complet du bilan</h3>
+                <p>Objectifs, phases, durée, modalités d’accompagnement et d’évaluation : tout le programme en un document.</p>
+                <a class="btn" data-programme-link href="#" download target="_blank" rel="noopener">
+                    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Télécharger le programme (PDF)
+                </a>
+            </article>
+            <article class="resource" data-mcf hidden>
+                <span class="num">MON COMPTE FORMATION</span>
+                <h3>Mobilisez votre CPF</h3>
+                <p>Consultez la fiche de la formation et votre solde sur la plateforme officielle moncompteformation.gouv.fr.</p>
+                <div class="mcf-list" data-mcf-list></div>
+            </article>
+        </div>
+    </section>
     <section class="banner">
         <div>
             <span class="eyebrow" style="color:#ffb44d">Un premier pas tout simple</span>
@@ -232,6 +288,7 @@
     </div>
     <div>
         <a href="#confidentialite" data-open-privacy>Confidentialité &amp; mentions</a><br>
+        <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a><br>
         <a href="https://lilmod-formation.fr/" rel="noopener">Site Lilmod Formation ↗</a>
     </div>
 </footer>
@@ -242,7 +299,31 @@
     <p>Les informations saisies dans ce formulaire sont transmises de façon sécurisée à Formation Compétence, prestataire externe intervenant pour le compte de Lilmod, afin de traiter votre demande de rappel. Les champs marqués * sont nécessaires pour vous recontacter.</p>
     <p>Les données comprennent votre nom, votre téléphone, votre e-mail éventuel, vos disponibilités et votre accord pour répondre à votre demande. La finalité est la gestion de votre demande de rappel, sur la base de votre consentement.</p>
     <p>Les personnes habilitées de Formation Compétence et de Lilmod utilisent ces informations pour vous recontacter et qualifier votre demande. Les données sont conservées le temps du traitement de la demande, puis supprimées au plus tard six mois après le dernier échange si aucun accompagnement ne débute.</p>
+    <h3>Cookies</h3>
+    <p>Cette page utilise uniquement des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. Les cookies de mesure d’audience ne sont déposés qu’avec votre accord, que vous pouvez donner, refuser ou retirer à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
     <p>Vous pouvez retirer votre consentement et exercer vos droits (accès, rectification, effacement, limitation, portabilité) en écrivant à contact@lilmod-formation.fr. Réclamation possible auprès de la CNIL sur <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</p>
 </dialog>
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
+    <h2 id="cookie-title">Vos préférences cookies</h2>
+    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, des cookies de mesure d’audience pour l’améliorer. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
+    <div class="cookie-actions">
+        <button type="button" data-cookie-action="refuse">Tout refuser</button>
+        <button type="button" data-cookie-action="customize">Personnaliser</button>
+        <button type="button" data-cookie-action="accept">Tout accepter</button>
+    </div>
+    <div class="cookie-prefs" data-cookie-prefs hidden>
+        <div class="cookie-row">
+            <div><strong>Strictement nécessaires</strong><span>Fonctionnement et sécurité de la page. Toujours actifs.</span></div>
+            <input type="checkbox" checked disabled aria-label="Cookies strictement nécessaires (toujours actifs)">
+        </div>
+        <label class="cookie-row">
+            <div><strong>Mesure d’audience</strong><span>Statistiques anonymes de fréquentation.</span></div>
+            <input type="checkbox" name="cookie-audience">
+        </label>
+        <div class="cookie-actions">
+            <button type="button" data-cookie-action="save">Enregistrer mes choix</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
