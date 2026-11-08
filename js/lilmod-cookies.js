@@ -3,8 +3,9 @@
  *
  * - « Tout accepter » et « Tout refuser » au même niveau, sans case pré-cochée.
  * - Choix mémorisé 6 mois (localStorage), modifiable à tout moment via [data-open-cookies].
- * - Aucun traceur n'est déposé avant consentement : les scripts optionnels doivent
- *   s'abonner via window.lilmodConsent.onChange(cb) et ne se charger que si consent.audience === true.
+ * - Aucun traceur n'est déposé avant consentement : les contenus optionnels s'abonnent via
+ *   window.lilmodConsent.onChange(cb) et ne se chargent que si la catégorie concernée est à true
+ *   (audience : mesure d'audience ; embeds : programmes intégrés depuis gamma.app).
  */
 const STORAGE_KEY = 'lilmod_cookie_consent';
 const MAX_AGE_MS = 1000 * 60 * 60 * 24 * 182; // ~6 mois
@@ -22,8 +23,8 @@ function readConsent() {
     }
 }
 
-function saveConsent(audience) {
-    const data = { necessary: true, audience: Boolean(audience), date: Date.now() };
+function saveConsent(audience, embeds) {
+    const data = { necessary: true, audience: Boolean(audience), embeds: Boolean(embeds), date: Date.now() };
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch {
@@ -40,6 +41,13 @@ let current = readConsent();
 
 window.lilmodConsent = {
     get: () => current,
+    /** Accepte une seule catégorie (ex. clic sur « Afficher le programme »). */
+    allow(category) {
+        const next = { audience: Boolean(current?.audience), embeds: Boolean(current?.embeds), [category]: true };
+        saveConsent(next.audience, next.embeds);
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.hidden = true;
+    },
     onChange(cb) {
         listeners.push(cb);
         if (current) cb(current);
@@ -51,9 +59,11 @@ function init() {
     if (!banner) return;
     const prefs = banner.querySelector('[data-cookie-prefs]');
     const audienceToggle = banner.querySelector('input[name="cookie-audience"]');
+    const embedsToggle = banner.querySelector('input[name="cookie-embeds"]');
 
     const open = (showPrefs = false) => {
         if (audienceToggle) audienceToggle.checked = Boolean(current?.audience);
+        if (embedsToggle) embedsToggle.checked = Boolean(current?.embeds);
         if (prefs) prefs.hidden = !showPrefs;
         banner.hidden = false;
     };
@@ -62,10 +72,10 @@ function init() {
     banner.addEventListener('click', (event) => {
         const action = event.target.closest('[data-cookie-action]')?.dataset.cookieAction;
         if (!action) return;
-        if (action === 'accept') { saveConsent(true); close(); }
-        if (action === 'refuse') { saveConsent(false); close(); }
+        if (action === 'accept') { saveConsent(true, true); close(); }
+        if (action === 'refuse') { saveConsent(false, false); close(); }
         if (action === 'customize') { if (prefs) prefs.hidden = !prefs.hidden; }
-        if (action === 'save') { saveConsent(audienceToggle?.checked); close(); }
+        if (action === 'save') { saveConsent(audienceToggle?.checked, embedsToggle?.checked); close(); }
     });
 
     document.querySelectorAll('[data-open-cookies]').forEach((link) => {

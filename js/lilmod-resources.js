@@ -1,17 +1,18 @@
 /**
- * Landing Lilmod — programme PDF et liens Mon Compte Formation (CPF).
+ * Landing Lilmod — programmes des 3 bilans (présentations Gamma intégrées) et liens Mon Compte Formation.
  *
- * Pour activer :
- *  1. Déposer le programme dans assets/lilmod/ sous le nom PROGRAMME_PDF ci-dessous.
- *  2. Renseigner MCF_LINKS avec la ou les fiches formation moncompteformation.gouv.fr.
- * Tant qu'un élément n'est pas disponible, son bloc reste masqué (aucun lien cassé publié).
+ * - Les programmes viennent de https://lilmod-formation.fr/nos-formations/ (iframes gamma.app).
+ *   gamma.app étant un service tiers, l'iframe n'est chargée qu'avec le consentement « Contenus intégrés ».
+ * - MCF_LINKS : fiches moncompteformation.gouv.fr par parcours. Tant qu'une URL est vide,
+ *   le bouton CPF correspondant reste masqué (aucun lien cassé publié).
  */
-const PROGRAMME_PDF = '/assets/lilmod/programme-bilan-competences-lilmod.pdf';
 
-/** @type {{ label: string, detail?: string, url: string }[]} */
-const MCF_LINKS = [
-    // { label: 'Bilan de compétences — 24 h', detail: '100 % à distance', url: 'https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/recherche/...' },
-];
+/** @type {Record<string, string>} id du parcours → URL de la fiche Mon Compte Formation */
+const MCF_LINKS = {
+    'droit-au-but': '',
+    'transition-eclairee': '',
+    'vision-360': '',
+};
 
 function isMcfUrl(url) {
     try {
@@ -22,53 +23,59 @@ function isMcfUrl(url) {
     }
 }
 
-async function initProgramme() {
-    const block = document.querySelector('[data-programme]');
-    if (!block) return false;
-    try {
-        const res = await fetch(PROGRAMME_PDF, { method: 'HEAD' });
-        const type = res.headers.get('content-type') || '';
-        if (!res.ok || !type.includes('pdf')) return false;
-    } catch {
-        return false;
-    }
-    block.querySelectorAll('a[data-programme-link]').forEach((a) => { a.href = PROGRAMME_PDF; });
-    block.hidden = false;
-    return true;
+function initTabs(root) {
+    const tabs = [...root.querySelectorAll('[role="tab"]')];
+    const select = (tab, focus = false) => {
+        tabs.forEach((t) => {
+            const on = t === tab;
+            t.setAttribute('aria-selected', String(on));
+            t.tabIndex = on ? 0 : -1;
+            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        if (focus) tab.focus();
+    };
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab));
+        tab.addEventListener('keydown', (e) => {
+            const delta = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+            if (!delta) return;
+            e.preventDefault();
+            select(tabs[(i + delta + tabs.length) % tabs.length], true);
+        });
+    });
+}
+
+function syncEmbeds(consent) {
+    const allowed = Boolean(consent?.embeds);
+    document.querySelectorAll('[data-gamma]').forEach((frame) => {
+        const placeholder = frame.parentElement.querySelector('[data-embed-placeholder]');
+        if (allowed && !frame.src) frame.src = frame.dataset.gamma;
+        if (!allowed && frame.src) frame.removeAttribute('src');
+        frame.hidden = !allowed;
+        if (placeholder) placeholder.hidden = allowed;
+    });
 }
 
 function initMcf() {
-    const block = document.querySelector('[data-mcf]');
-    const list = block?.querySelector('[data-mcf-list]');
-    const links = MCF_LINKS.filter((l) => l && l.label && isMcfUrl(l.url));
-    if (!block || !list || links.length === 0) return false;
-    list.replaceChildren(...links.map(({ label, detail, url }) => {
-        const a = document.createElement('a');
-        a.className = 'mcf-link';
-        a.href = url;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        const strong = document.createElement('strong');
-        strong.textContent = label;
-        a.append(strong);
-        if (detail) {
-            const span = document.createElement('span');
-            span.textContent = detail;
-            a.append(span);
+    document.querySelectorAll('[data-mcf]').forEach((a) => {
+        const url = MCF_LINKS[a.dataset.mcf];
+        if (url && isMcfUrl(url)) {
+            a.href = url;
+            a.hidden = false;
         }
-        const cta = document.createElement('em');
-        cta.textContent = 'Voir sur Mon Compte Formation ↗';
-        a.append(cta);
-        return a;
-    }));
-    block.hidden = false;
-    return true;
+    });
 }
 
-async function init() {
+function init() {
     const section = document.getElementById('programme');
-    const [hasPdf, hasMcf] = await Promise.all([initProgramme(), Promise.resolve(initMcf())]);
-    if (section && (hasPdf || hasMcf)) section.hidden = false;
+    if (!section) return;
+    initTabs(section);
+    initMcf();
+    section.querySelectorAll('[data-allow-embeds]').forEach((btn) => {
+        btn.addEventListener('click', () => window.lilmodConsent?.allow('embeds'));
+    });
+    syncEmbeds(window.lilmodConsent?.get());
+    window.lilmodConsent?.onChange(syncEmbeds);
 }
 
 if (document.readyState === 'loading') {
