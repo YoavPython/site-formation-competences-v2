@@ -4,7 +4,7 @@
  * Renseigner MCF_URL avec la fiche moncompteformation.gouv.fr de la formation.
  * Tant qu'elle est vide, le bouton reste masqué (aucun lien cassé publié).
  */
-const MCF_URL = '';
+const MCF_URL = 'https://www.moncompteformation.gouv.fr/espace-prive/html/#/formation/recherche/91182949700013_LILMODBC13/91182949700013_LILMODBC13?contexteFormation=ACTIVITE_PROFESSIONNELLE';
 
 function isMcfUrl(url) {
     try {
