@@ -80,31 +80,34 @@
         dialog p { font-size: 14px; }
         .contact-form-wrapper .lead-success-block { margin-top: 0; text-align: left; }
         [hidden] { display: none !important; }
-        .tablist { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 36px; }
-        .tablist button {
-            padding: 12px 20px; border-radius: 30px; border: 1px solid #cdd8da; background: #fff;
-            font: 700 15px Arial, sans-serif; color: #192d38; cursor: pointer;
+        .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 36px 0; }
+        .facts div { background: #fff; border: 1px solid #e5e9e8; border-radius: 14px; padding: 20px; }
+        .facts strong { display: block; font-size: 28px; color: #143d4b; letter-spacing: -.5px; }
+        .facts span { font-size: 13px; color: #566771; }
+        .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .prog-grid h3, .steps-title { font-size: 21px; margin: 0 0 10px; }
+        .ticks { list-style: none; padding: 0; margin: 0; }
+        .ticks li { padding: 6px 0 6px 26px; position: relative; color: #566771; font-size: 15px; }
+        .ticks li::before { content: '✓'; position: absolute; left: 0; color: #07839d; font-weight: bold; }
+        .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
+        .steps li {
+            display: grid; grid-template-columns: 170px 1fr; gap: 24px; background: #fff;
+            border: 1px solid #e5e9e8; border-radius: 14px; padding: 20px 24px;
         }
-        .tablist button small { display: block; font-weight: 400; font-size: 12px; color: #566771; }
-        .tablist button[aria-selected="true"] { background: #143d4b; border-color: #143d4b; color: #fff; }
-        .tablist button[aria-selected="true"] small { color: #d3e3e7; }
-        .tabpanel { background: #fff; border: 1px solid #e5e9e8; border-radius: 18px; padding: 28px; margin-top: 18px; }
-        .tabpanel h3 { font-size: 22px; margin: 0 0 6px; }
-        .embed { position: relative; margin: 20px 0; border-radius: 12px; overflow: hidden; background: #e9f1f0; aspect-ratio: 16 / 10; }
-        .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-        .embed-placeholder {
-            position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            text-align: center; padding: 24px; gap: 6px;
-        }
-        .embed-placeholder p { max-width: 460px; font-size: 14px; }
-        .panel-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .steps .when { font-weight: bold; }
+        .steps .when span { display: block; color: #07839d; font-size: 13px; font-weight: normal; }
+        .steps p { margin: 0; font-size: 15px; }
+        .steps p + p { margin-top: 6px; }
+        .prog-more { margin-top: 28px; }
+        .prog-more ul { color: #566771; font-size: 15px; }
+        .panel-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
         .btn-outline { background: transparent; border: 2px solid #f79416; padding: 14px 22px; }
         .docs { margin-top: 28px; font-size: 14px; display: flex; gap: 8px 22px; flex-wrap: wrap; }
         .docs strong { width: 100%; }
         @media (max-width: 800px) {
-            .embed { aspect-ratio: 3 / 4; }
-            .tabpanel { padding: 18px; }
-            .tablist button { flex: 1 1 100%; text-align: left; border-radius: 12px; }
+            .facts { grid-template-columns: 1fr 1fr; }
+            .prog-grid { grid-template-columns: 1fr; }
+            .steps li { grid-template-columns: 1fr; gap: 6px; }
         }
         .cookie-banner {
             position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 50; max-width: 720px; margin: auto;
@@ -146,7 +149,7 @@
     <a href="#" aria-label="Lilmod accueil"><img src="/assets/lilmod/logo.png" alt="Lilmod"></a>
     <nav>
         <a href="#parcours">Le bilan de compétences</a>
-        <a href="#programme">Nos programmes</a>
+        <a href="#programme">Le programme</a>
         <a href="#questions">Vos questions</a>
         <a class="btn" href="#rappel">Parlons de votre avenir ↗</a>
     </nav>
@@ -240,67 +243,104 @@
         </div>
     </section>
     <section class="section" id="programme">
-        <span class="eyebrow">Nos parcours</span>
-        <h2>Trois bilans, selon votre besoin.</h2>
-        <p>Clarté rapide, transition réfléchie ou exploration complète : découvrez le programme détaillé de chaque formule.</p>
-        <div class="tablist" role="tablist" aria-label="Programmes des bilans de compétences">
-            <button type="button" role="tab" id="tab-droit-au-but" aria-controls="panel-droit-au-but" aria-selected="true">Droit au but<small>Pour faire le point rapidement</small></button>
-            <button type="button" role="tab" id="tab-transition-eclairee" aria-controls="panel-transition-eclairee" aria-selected="false" tabindex="-1">Transition éclairée<small>Pour préparer une évolution</small></button>
-            <button type="button" role="tab" id="tab-vision-360" aria-controls="panel-vision-360" aria-selected="false" tabindex="-1">Vision 360<small>Pour une exploration complète</small></button>
+        <span class="eyebrow">Programme de formation</span>
+        <h2>Le programme du bilan de compétences.</h2>
+        <p>Analyser vos compétences professionnelles et personnelles, vos aptitudes et vos motivations pour définir un projet professionnel et, le cas échéant, un projet de formation.</p>
+        <div class="facts">
+            <div><strong>13 h</strong><span>d’accompagnement au total</span></div>
+            <div><strong>7 h + 6 h</strong><span>en individuel + ateliers collectifs</span></div>
+            <div><strong>100 %</strong><span>en visioconférence</span></div>
+            <div><strong>1 750 €</strong><span>finançable par le CPF</span></div>
         </div>
-        <div class="tabpanel" role="tabpanel" id="panel-droit-au-but" aria-labelledby="tab-droit-au-but">
-            <span class="num">PROGRAMME DE FORMATION</span>
-            <h3>Bilan de compétences — Droit au but</h3>
-            <p>Un bilan resserré pour gagner en clarté rapidement et valider une orientation.</p>
-            <div class="embed">
-                <iframe data-gamma="https://gamma.app/embed/95mxt4b0q4djqwe" title="Programme du bilan de compétences Droit au but" allow="fullscreen" loading="lazy" hidden></iframe>
-                <div class="embed-placeholder" data-embed-placeholder>
-                    <strong>Programme « Droit au but »</strong>
-                    <p>Ce programme est hébergé par le service Gamma, susceptible de déposer des cookies. Il s’affiche après votre accord.</p>
-                    <button type="button" class="btn" data-allow-embeds>Afficher le programme</button>
-                </div>
+        <div class="prog-grid">
+            <div>
+                <h3>Pour qui ?</h3>
+                <p>Toute personne souhaitant mener une réflexion sur son parcours professionnel : salarié, demandeur d’emploi, travailleur indépendant. Également ouvert aux personnes rencontrant des problématiques de santé et/ou de handicap, bénéficiaires ou non d’une RQTH. Aucun prérequis. En français.</p>
+                <h3>Points forts</h3>
+                <ul class="ticks">
+                    <li>Un accompagnement individualisé et confidentiel</li>
+                    <li>Un cadre bienveillant : écoute active, non-jugement, co-construction</li>
+                    <li>Une alternance de temps individuels et d’ateliers collectifs</li>
+                    <li>Une mise en perspective concrète avec la réalité du marché</li>
+                    <li>Un document de synthèse et un plan d’action concret</li>
+                </ul>
             </div>
-            <div class="panel-actions">
-                <a class="btn" href="#rappel">Être rappelé(e) pour ce bilan →</a>
-                <a class="btn btn-outline" data-mcf="droit-au-but" href="#" target="_blank" rel="noopener" hidden>S’inscrire sur Mon Compte Formation ↗</a>
-                <a class="btn btn-outline" href="https://gamma.app/embed/95mxt4b0q4djqwe" target="_blank" rel="noopener">Ouvrir en plein écran ↗</a>
-            </div>
-        </div>
-        <div class="tabpanel" role="tabpanel" id="panel-transition-eclairee" aria-labelledby="tab-transition-eclairee" hidden>
-            <span class="num">PROGRAMME DE FORMATION</span>
-            <h3>Bilan de compétences — Transition éclairée</h3>
-            <p>Un parcours pour prendre le temps de construire une transition professionnelle réfléchie.</p>
-            <div class="embed">
-                <iframe data-gamma="https://gamma.app/embed/fldslja4o2v8ib0" title="Programme du bilan de compétences Transition éclairée" allow="fullscreen" loading="lazy" hidden></iframe>
-                <div class="embed-placeholder" data-embed-placeholder>
-                    <strong>Programme « Transition éclairée »</strong>
-                    <p>Ce programme est hébergé par le service Gamma, susceptible de déposer des cookies. Il s’affiche après votre accord.</p>
-                    <button type="button" class="btn" data-allow-embeds>Afficher le programme</button>
-                </div>
-            </div>
-            <div class="panel-actions">
-                <a class="btn" href="#rappel">Être rappelé(e) pour ce bilan →</a>
-                <a class="btn btn-outline" data-mcf="transition-eclairee" href="#" target="_blank" rel="noopener" hidden>S’inscrire sur Mon Compte Formation ↗</a>
-                <a class="btn btn-outline" href="https://gamma.app/embed/fldslja4o2v8ib0" target="_blank" rel="noopener">Ouvrir en plein écran ↗</a>
+            <div>
+                <h3>Objectifs</h3>
+                <ul class="ticks">
+                    <li>Faire le point sur votre situation professionnelle</li>
+                    <li>Identifier vos ressources, vos freins, vos valeurs et vos besoins</li>
+                    <li>Mettre en lumière vos compétences, vos talents et vos appuis</li>
+                    <li>Clarifier vos motivations et vos aspirations</li>
+                    <li>Définir des pistes de projets cohérentes avec votre profil</li>
+                    <li>Confronter ces pistes à la réalité de l’environnement professionnel</li>
+                    <li>Construire un plan d’action réaliste et progressif</li>
+                    <li>Sécuriser vos choix et avancer avec davantage de confiance</li>
+                </ul>
             </div>
         </div>
-        <div class="tabpanel" role="tabpanel" id="panel-vision-360" aria-labelledby="tab-vision-360" hidden>
-            <span class="num">PROGRAMME DE FORMATION</span>
-            <h3>Bilan de compétences — Vision 360</h3>
-            <p>Le bilan le plus complet, pour explorer en profondeur votre parcours, vos aspirations et vos pistes d’avenir.</p>
-            <div class="embed">
-                <iframe data-gamma="https://gamma.app/embed/yxb3hgzfozmtnf5" title="Programme du bilan de compétences Vision 360" allow="fullscreen" loading="lazy" hidden></iframe>
-                <div class="embed-placeholder" data-embed-placeholder>
-                    <strong>Programme « Vision 360 »</strong>
-                    <p>Ce programme est hébergé par le service Gamma, susceptible de déposer des cookies. Il s’affiche après votre accord.</p>
-                    <button type="button" class="btn" data-allow-embeds>Afficher le programme</button>
-                </div>
-            </div>
-            <div class="panel-actions">
-                <a class="btn" href="#rappel">Être rappelé(e) pour ce bilan →</a>
-                <a class="btn btn-outline" data-mcf="vision-360" href="#" target="_blank" rel="noopener" hidden>S’inscrire sur Mon Compte Formation ↗</a>
-                <a class="btn btn-outline" href="https://gamma.app/embed/yxb3hgzfozmtnf5" target="_blank" rel="noopener">Ouvrir en plein écran ↗</a>
-            </div>
+        <h3 class="steps-title" style="margin-top:48px">Déroulement</h3>
+        <p>Trois phases, précédées d’un entretien préalable et suivies d’un rendez-vous de suivi.</p>
+        <ol class="steps">
+            <li>
+                <div class="when">Entretien préalable<span>30 min</span></div>
+                <div><p>Recueil de vos besoins et attentes, présentation du consultant et du bilan : durée, méthode, programme, coût et modalités.</p><p>Remise des documents contractuels avant démarrage.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase préliminaire<span>2 heures</span></div>
+                <div><p>Définir vos besoins, clarifier vos objectifs, comprendre vos attentes et motivations.</p><p>Entretien individuel sur votre parcours et votre contexte, présentation des outils et co-construction du cadre d’accompagnement.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase d’investigation<span>7 heures</span></div>
+                <div><p>Explorer votre parcours et vos aspirations, identifier compétences, aptitudes, valeurs et leviers d’évolution.</p><p>Entretiens approfondis, exercices guidés, questionnaires, recherches documentaires et ateliers collectifs. Confrontation des pistes à la réalité du marché.</p></div>
+            </li>
+            <li>
+                <div class="when">Phase de conclusion<span>4 heures</span></div>
+                <div><p>Établir un projet professionnel réaliste, identifier les conditions de réussite et les étapes de mise en œuvre.</p><p>Élaboration du document de synthèse, construction du plan d’action, entretien de restitution.</p></div>
+            </li>
+            <li>
+                <div class="when">Suivi post-bilan<span>15 à 45 min</span></div>
+                <div><p>Faire le point sur la mise en œuvre du plan d’action et recadrer le projet si nécessaire, par téléphone ou en visioconférence.</p></div>
+            </li>
+        </ol>
+        <div class="prog-more">
+            <details>
+                <summary>Résultats attendus</summary>
+                <ul>
+                    <li>Une synthèse personnalisée, strictement confidentielle et co-construite avec vous</li>
+                    <li>Un projet professionnel clair et aligné</li>
+                    <li>Un plan d’action structuré</li>
+                    <li>Une meilleure confiance dans vos choix</li>
+                    <li>Une vision plus lisible de vos compétences, motivations et possibilités d’évolution</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Méthodes et modalités d’évaluation</summary>
+                <ul>
+                    <li>Tests psychométriques : personnalité, aptitudes cognitives, intérêts professionnels</li>
+                    <li>Questionnaires d’auto-évaluation : compétences, motivations, valeurs professionnelles</li>
+                    <li>Entretiens individuels semi-directifs et entretiens de restitution</li>
+                    <li>Grilles d’analyse, fiches métiers et formations, plateformes (ONISEP, France Travail…)</li>
+                    <li>Évaluation : analyse des besoins en début de bilan, point à chaque séance, questionnaire de satisfaction à chaud, questionnaire de suivi à 6 mois</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Modalités et délais d’accès</summary>
+                <p>L’accès au bilan se fait après un premier échange permettant d’analyser votre demande, vos besoins et l’adéquation de la prestation. Le calendrier, la durée, le tarif et les conditions de réalisation sont précisés avant le démarrage. En cas de financement par le CPF, le délai de rétractation applicable sur la plateforme est respecté.</p>
+            </details>
+            <details>
+                <summary>Accessibilité et situation de handicap</summary>
+                <p>Une attention particulière est portée aux personnes en situation de handicap. Signalez vos besoins spécifiques en amont afin d’étudier les aménagements nécessaires pour suivre l’accompagnement dans les meilleures conditions.</p>
+            </details>
+            <details>
+                <summary>Confidentialité</summary>
+                <p>Le bilan est réalisé avec votre consentement, dans le strict respect de la confidentialité. Les résultats détaillés et le document de synthèse vous appartiennent exclusivement et ne peuvent être communiqués à un tiers sans votre accord exprès.</p>
+            </details>
+        </div>
+        <div class="panel-actions">
+            <a class="btn" href="/assets/lilmod/programme-bilan-competences-lilmod.pdf" target="_blank" rel="noopener">Télécharger le programme complet (PDF)</a>
+            <a class="btn btn-outline" data-mcf href="#" target="_blank" rel="noopener" hidden>S’inscrire sur Mon Compte Formation ↗</a>
+            <a class="btn btn-outline" href="#rappel">Être rappelé(e) →</a>
         </div>
         <div class="docs">
             <strong>Documents utiles</strong>
@@ -363,12 +403,12 @@
     <p>Les données comprennent votre nom, votre téléphone, votre e-mail éventuel, vos disponibilités et votre accord pour répondre à votre demande. La finalité est la gestion de votre demande de rappel, sur la base de votre consentement.</p>
     <p>Les personnes habilitées de Formation Compétence et de Lilmod utilisent ces informations pour vous recontacter et qualifier votre demande. Les données sont conservées le temps du traitement de la demande, puis supprimées au plus tard six mois après le dernier échange si aucun accompagnement ne débute.</p>
     <h3>Cookies</h3>
-    <p>Cette page utilise des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. Les programmes de formation sont hébergés par le service tiers Gamma (gamma.app), qui peut déposer ses propres cookies : ils ne sont chargés qu’avec votre accord. Il en va de même pour les cookies de mesure d’audience. Vous pouvez donner, refuser ou retirer votre accord à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
+    <p>Cette page utilise des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. Les cookies de mesure d’audience ne sont déposés qu’avec votre accord, que vous pouvez donner, refuser ou retirer à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
     <p>Vous pouvez retirer votre consentement et exercer vos droits (accès, rectification, effacement, limitation, portabilité) en écrivant à contact@lilmod-formation.fr. Réclamation possible auprès de la CNIL sur <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</p>
 </dialog>
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
     <h2 id="cookie-title">Vos préférences cookies</h2>
-    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, des cookies de services tiers (affichage des programmes) et de mesure d’audience. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
+    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, des cookies de mesure d’audience pour l’améliorer. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
     <div class="cookie-actions">
         <button type="button" data-cookie-action="refuse">Tout refuser</button>
         <button type="button" data-cookie-action="customize">Personnaliser</button>
@@ -379,10 +419,6 @@
             <div><strong>Strictement nécessaires</strong><span>Fonctionnement et sécurité de la page. Toujours actifs.</span></div>
             <input type="checkbox" checked disabled aria-label="Cookies strictement nécessaires (toujours actifs)">
         </div>
-        <label class="cookie-row">
-            <div><strong>Contenus intégrés</strong><span>Affichage des programmes hébergés par Gamma (gamma.app).</span></div>
-            <input type="checkbox" name="cookie-embeds">
-        </label>
         <label class="cookie-row">
             <div><strong>Mesure d’audience</strong><span>Statistiques anonymes de fréquentation.</span></div>
             <input type="checkbox" name="cookie-audience">
