@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             form,
             zohoErr
                 || netlifyErr
-                || 'Une erreur est survenue. Merci de réessayer ou appelez le 09 70 70 83 31.',
+                || 'Une erreur est survenue. Merci de réessayer ou appelez le +33 9 70 70 83 31.',
         );
     });
 
