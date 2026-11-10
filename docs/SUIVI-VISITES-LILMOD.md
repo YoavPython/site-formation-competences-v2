@@ -17,10 +17,13 @@ en général 1 à 10 minutes après la fin de la visite.
 
 1. **Archive permanente** : chaque visite est enregistrée dans Netlify Blobs (store `lilmod-visits-archive`)
    avec le statut de l'envoi, que l'e-mail parte ou non. Conservation 13 mois, purge automatique.
-2. **Alerte de secours** : au premier échec Brevo d'une visite, une soumission « lilmod-alerte-suivi » est
-   déposée dans **Netlify > Forms** avec le récapitulatif et l'erreur. Pour la recevoir par e-mail :
-   Netlify > Site configuration > Notifications > Emails and webhooks > Form submission notifications >
-   Add notification > Email notification, formulaire `lilmod-alerte-suivi`.
+2. **Alertes de secours** au premier échec Brevo d'une visite :
+   - **GitHub** : une issue « Alerte suivi landing Lilmod : les e-mails Brevo ne partent plus » est ouverte
+     dans le dépôt (puis un commentaire par visite concernée), **sans aucune donnée personnelle** : date,
+     type de visite, erreur et lien vers `/api/visits`. GitHub notifie par e-mail et sur l'application mobile.
+     Fermer l'issue une fois le problème réglé. Nécessite `GITHUB_ALERT_TOKEN`.
+   - **Netlify Forms** : une copie du récapitulatif est déposée dans le formulaire `lilmod-alerte-suivi`
+     (Netlify > Forms). La notification e-mail de Netlify Forms est réservée aux offres payantes.
 3. **Nouvel essai** Brevo toutes les 5 min pendant 24 h, puis statut « non envoyé » dans l'archive.
 4. **Historique** : `https://www.formation-competences.fr/api/visits` avec l'en-tête `X-Admin-Token`
    (ou `?token=…`). Filtres : `?status=failed`, `?status=abandoned`, `?months=13`, `&format=json`.
@@ -40,6 +43,7 @@ en général 1 à 10 minutes après la fin de la visite.
 | `NOTIFY_FROM` | Adresse d'expéditeur **vérifiée** dans Brevo (Senders & IP > Senders). |
 | `NOTIFY_FROM_NAME` | Optionnel, défaut « Suivi landing Lilmod ». |
 | `NOTIFY_EMAILS` | Destinataires, séparés par des virgules. |
+| `GITHUB_ALERT_TOKEN` | Jeton GitHub *fine-grained* : dépôt `site-formation-competences-v2` uniquement, permission **Issues : Read and write**. |
 | `VISITS_ADMIN_TOKEN` | Mot de passe (16 caractères minimum) de la page d'historique `/api/visits`. Absent : page désactivée. |
 
 Tant que ces variables manquent, rien n'est envoyé : les e-mails sont seulement écrits dans les logs de la fonction

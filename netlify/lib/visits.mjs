@@ -11,11 +11,13 @@
  *   NOTIFY_FROM        adresse d'expéditeur vérifiée dans Brevo.
  *   NOTIFY_FROM_NAME   nom d'expéditeur (défaut : « Suivi landing Lilmod »).
  *   VISITS_ADMIN_TOKEN mot de passe de la page /api/visits (historique). Absent : page désactivée.
+ *   GITHUB_ALERT_TOKEN jeton GitHub (alerte sans donnée personnelle) (fine-grained, « Issues : Read and write » sur le dépôt) pour l'alerte de secours.
+ *   GITHUB_ALERT_REPO  dépôt des alertes (défaut : YoavPython/site-formation-competences-v2).
  *
  * Filet de sécurité : chaque visite est archivée (store « lilmod-visits-archive », 13 mois) quel que soit
- * le résultat de l'envoi. Si Brevo échoue, une alerte est déposée dans le formulaire Netlify
- * « lilmod-alerte-suivi » (Netlify > Forms, notification e-mail configurable par Netlify), et l'envoi
- * Brevo est retenté toutes les 5 min pendant 24 h.
+ * le résultat de l'envoi. Si Brevo échoue : alerte GitHub (issue « alerte-suivi », notifiée par GitHub
+ * par e-mail et sur mobile) et copie dans le formulaire Netlify « lilmod-alerte-suivi » (Netlify > Forms) ;
+ * l'envoi Brevo est retenté toutes les 5 min pendant 24 h.
  */
 
 export const STORE_NAME = 'lilmod-visits';
@@ -307,8 +309,65 @@ export async function sendReport(report, env = process.env, fetchImpl = fetch) {
     return { ok: true };
 }
 
-/** Alerte de secours (Brevo en échec) : soumission du formulaire Netlify « lilmod-alerte-suivi ». */
+/**
+ * Alerte GitHub : une issue ouverte « alerte-suivi » regroupe les échecs (une issue tant que le problème
+ * n'est pas résolu, un commentaire par visite concernée). GitHub notifie par e-mail et sur mobile.
+ */
+export async function sendGithubAlert(report, failure, env = process.env, fetchImpl = fetch) {
+    if (!env.GITHUB_ALERT_TOKEN) return { ok: false, skipped: true };
+    const repo = env.GITHUB_ALERT_REPO || 'YoavPython/site-formation-competences-v2';
+    const api = `https://api.github.com/repos/${repo}`;
+    const headers = {
+        authorization: `Bearer ${env.GITHUB_ALERT_TOKEN}`,
+        accept: 'application/vnd.github+json',
+        'x-github-api-version': '2022-11-28',
+        'user-agent': 'lilmod-visits-alert',
+        'content-type': 'application/json',
+    };
+    const error = `Brevo ${failure.status ?? ''} ${failure.error ?? ''}`.trim().slice(0, 300);
+    // Aucune donnée personnelle dans GitHub : type de visite, date et erreur seulement.
+    // Le détail reste dans l'archive privée (/api/visits).
+    const kind = /Demande de rappel/.test(report.subject) ? 'Demande de rappel' : /Visite/.test(report.subject) ? 'Visite' : 'Ouverture';
+    const when = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', dateStyle: 'short', timeStyle: 'short' }).format(new Date());
+    const body = `${when} — ${kind} non notifiée par e-mail. Erreur : \`${error.replace(/`/g, "'")}\`. Détail : https://www.formation-competences.fr/api/visits?status=failed`;
+    try {
+        const TITLE = 'Alerte suivi landing Lilmod : les e-mails Brevo ne partent plus';
+        const list = await fetchImpl(`${api}/issues?state=open&per_page=50`, { headers });
+        const open = list.ok ? (await list.json()).find((i) => i.title === TITLE && !i.pull_request) : null;
+        const create = (labels) => fetchImpl(`${api}/issues`, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify({
+                    title: TITLE,
+                    ...(labels ? { labels: ['alerte-suivi'] } : {}),
+                    body: `Les récapitulatifs de visite ne peuvent pas être envoyés par Brevo. Les visites sont archivées et visibles sur la page privée /api/visits ; l'envoi est retenté pendant 24 h. Aucune donnée personnelle n'est publiée ici.\n\nVérifier la clé \`BREVO_API_KEY\`, l'expéditeur \`NOTIFY_FROM\` et le quota Brevo. Fermer cette issue une fois le problème résolu.\n\n---\n\n${body}`,
+                }),
+            });
+        let res;
+        if (open) {
+            res = await fetchImpl(`${api}/issues/${open.number}/comments`, { method: 'POST', headers, body: JSON.stringify({ body }) });
+        } else {
+            res = await create(true);
+            if (!res.ok) res = await create(false); // étiquette refusée par le jeton : issue sans étiquette
+        }
+        if (!res.ok) console.error('[visits] alerte GitHub', res.status, (await res.text().catch(() => '')).slice(0, 200));
+        return { ok: res.ok };
+    } catch (err) {
+        console.error('[visits] alerte GitHub en échec', err?.message);
+        return { ok: false };
+    }
+}
+
+/** Alertes de secours (Brevo en échec) : GitHub + copie dans le formulaire Netlify « lilmod-alerte-suivi ». */
 export async function sendFallbackAlert(report, failure, env = process.env, fetchImpl = fetch) {
+    const [github, form] = await Promise.all([
+        sendGithubAlert(report, failure, env, fetchImpl),
+        sendNetlifyFormAlert(report, failure, env, fetchImpl),
+    ]);
+    return { ok: github.ok || form.ok, github: github.ok, form: form.ok };
+}
+
+async function sendNetlifyFormAlert(report, failure, env = process.env, fetchImpl = fetch) {
     const base = env.URL || env.DEPLOY_PRIME_URL;
     if (!base) {
         console.error('[visits] alerte de secours impossible (URL du site inconnue)');
