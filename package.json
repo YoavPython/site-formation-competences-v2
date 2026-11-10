@@ -21,6 +21,7 @@
     "live-server": "^1.2.2"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.9",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }

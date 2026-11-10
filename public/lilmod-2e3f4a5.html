@@ -143,6 +143,7 @@
     <script type="module" src="/js/lilmod-loader.js"></script>
     <script type="module" src="/js/lilmod-cookies.js"></script>
     <script type="module" src="/js/lilmod-resources.js"></script>
+    <script type="module" src="/js/lilmod-tracker.js"></script>
 </head>
 <body>
 <header>
@@ -402,12 +403,13 @@
     <p>Les données comprennent votre nom, votre téléphone, votre e-mail éventuel, vos disponibilités et votre accord pour répondre à votre demande. La finalité est la gestion de votre demande de rappel, sur la base de votre consentement.</p>
     <p>Les personnes habilitées de Formation Compétences et de Lilmod utilisent ces informations pour vous recontacter et qualifier votre demande. Les données sont conservées le temps du traitement de la demande, puis supprimées au plus tard six mois après le dernier échange si aucun accompagnement ne débute.</p>
     <h3>Cookies</h3>
-    <p>Cette page utilise des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. Les cookies de mesure d’audience ne sont déposés qu’avec votre accord, que vous pouvez donner, refuser ou retirer à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
+    <p>Cette page utilise des éléments strictement nécessaires à son fonctionnement (mémorisation de votre choix en matière de cookies, sécurité du formulaire), qui ne nécessitent pas votre consentement. L’ouverture de la page est enregistrée de façon minimale (date, page, provenance, type d’appareil, localisation approximative déduite par l’hébergeur, sans conservation de l’adresse IP).</p>
+    <p>Avec votre accord (« Mesure d’audience »), Formation Compétences enregistre en plus votre parcours sur cette page : sections consultées, clics, défilement, durée et étapes du formulaire, sans les valeurs saisies sauf lors de l’envoi effectif d’une demande de rappel. Ces informations sont transmises sous forme de récapitulatif aux équipes de Formation Compétences et de Lilmod pour améliorer l’accompagnement et traiter les demandes ; les données de suivi sont effacées de nos serveurs dès l’envoi du récapitulatif, qui est conservé au plus 13 mois. Vous pouvez donner, refuser ou retirer votre accord à tout moment via <a href="#cookie-banner" data-open-cookies>Gérer les cookies</a>. Votre choix est conservé 6 mois.</p>
     <p>Vous pouvez retirer votre consentement et exercer vos droits (accès, rectification, effacement, limitation, portabilité) en écrivant à contact@lilmod-formation.fr. Réclamation possible auprès de la CNIL sur <a href="https://www.cnil.fr/fr/plaintes">cnil.fr/fr/plaintes</a>.</p>
 </dialog>
 <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-live="polite" hidden>
     <h2 id="cookie-title">Vos préférences cookies</h2>
-    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, des cookies de mesure d’audience pour l’améliorer. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
+    <p>Nous utilisons des cookies nécessaires au fonctionnement de la page et, avec votre accord, une mesure d’audience de votre visite pour l’améliorer. Vous pouvez changer d’avis à tout moment. <button type="button" class="link-btn" data-open-privacy>En savoir plus</button></p>
     <div class="cookie-actions">
         <button type="button" data-cookie-action="refuse">Tout refuser</button>
         <button type="button" data-cookie-action="customize">Personnaliser</button>
@@ -419,7 +421,7 @@
             <input type="checkbox" checked disabled aria-label="Cookies strictement nécessaires (toujours actifs)">
         </div>
         <label class="cookie-row">
-            <div><strong>Mesure d’audience</strong><span>Statistiques anonymes de fréquentation.</span></div>
+            <div><strong>Mesure d’audience</strong><span>Suivi de votre visite sur cette page (sections consultées, clics, durée) pour améliorer notre accompagnement.</span></div>
             <input type="checkbox" name="cookie-audience">
         </label>
         <div class="cookie-actions">

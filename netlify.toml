@@ -22,6 +22,13 @@
   status = 200
   force = true
 
+# === API : suivi des visites de la landing Lilmod (AVANT le fallback SPA /*) ===
+[[redirects]]
+  from = "/api/track"
+  to = "/.netlify/functions/track"
+  status = 200
+  force = true
+
 # Pages HTML (SPA entry points)
 [[redirects]]
   from = "/"

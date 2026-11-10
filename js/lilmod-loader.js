@@ -78,6 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         prepareMessage(form);
+        const leadInfo = {
+            nom: form.querySelector('[name="nom"]')?.value || '',
+            telephone: form.querySelector('[name="telephone"]')?.value || '',
+            disponibilite: form.querySelector('[name="disponibilite"]')?.value || '',
+        };
         setLoading(form, true);
 
         const [netlifyResult, zohoResult] = await Promise.allSettled([
@@ -93,6 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             zohoResult.status === 'fulfilled'
             && zohoResult.value.ok === true
             && !zohoResult.value.validation;
+
+        // Suivi des visites (js/lilmod-tracker.js)
+        document.dispatchEvent(new CustomEvent(netlifyOk || zohoOk ? 'lilmod:lead' : 'lilmod:lead-error', { detail: leadInfo }));
 
         if (netlifyOk || zohoOk) {
             showSuccess(form, {
