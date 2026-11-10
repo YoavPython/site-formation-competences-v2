@@ -100,6 +100,11 @@ app.get(
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// Suivi des visites Lilmod : en production, Netlify Function (netlify/functions/track.mjs). En local, ignoré.
+app.post('/api/track', (req, res) => {
+    res.status(204).end();
+});
+
 // Diagnostic : route réservée au serveur Express (pour vérifier qu'on n'utilise pas http-server)
 app.get('/api/server-check', (req, res) => {
     res.json({ server: 'express', ok: true });
