@@ -29,6 +29,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/api/visits"
+  to = "/.netlify/functions/visits"
+  status = 200
+  force = true
+
 # Pages HTML (SPA entry points)
 [[redirects]]
   from = "/"

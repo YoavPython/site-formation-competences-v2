@@ -26,5 +26,12 @@
         <input type="text" name="message">
         <button type="submit">Envoyer</button>
     </form>
+    <!-- Alerte de secours du suivi des visites (Brevo en échec) : envoyée par netlify/lib/visits.mjs. -->
+    <form name="lilmod-alerte-suivi" method="POST" data-netlify="true" action="/">
+        <input type="text" name="sujet">
+        <input type="text" name="erreur">
+        <textarea name="recapitulatif"></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
 </body>
 </html>

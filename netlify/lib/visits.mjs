@@ -10,10 +10,19 @@
  *   NOTIFY_EMAILS      destinataires, séparés par des virgules.
  *   NOTIFY_FROM        adresse d'expéditeur vérifiée dans Brevo.
  *   NOTIFY_FROM_NAME   nom d'expéditeur (défaut : « Suivi landing Lilmod »).
+ *   VISITS_ADMIN_TOKEN mot de passe de la page /api/visits (historique). Absent : page désactivée.
+ *
+ * Filet de sécurité : chaque visite est archivée (store « lilmod-visits-archive », 13 mois) quel que soit
+ * le résultat de l'envoi. Si Brevo échoue, une alerte est déposée dans le formulaire Netlify
+ * « lilmod-alerte-suivi » (Netlify > Forms, notification e-mail configurable par Netlify), et l'envoi
+ * Brevo est retenté toutes les 5 min pendant 24 h.
  */
 
 export const STORE_NAME = 'lilmod-visits';
 export const PREFIX = 'v/';
+export const ARCHIVE_STORE_NAME = 'lilmod-visits-archive';
+export const ARCHIVE_PREFIX = 'a/';
+const ARCHIVE_MONTHS = 13;
 const IDLE_MS = 10 * 60 * 1000;          // visite terminée après 10 min sans signe de vie
 const AFTER_LEAVE_MS = 60 * 1000;        // ou 1 min après la fermeture de la page
 const MAX_VISIT_MS = 3 * 60 * 60 * 1000; // une visite est envoyée au plus tard 3 h après son début
@@ -273,7 +282,9 @@ export async function sendReport(report, env = process.env, fetchImpl = fetch) {
         console.log('[visits] dry run (BREVO_API_KEY, NOTIFY_FROM ou NOTIFY_EMAILS manquant)\n' + report.subject + '\n' + report.text);
         return { ok: true, dryRun: true };
     }
-    const res = await fetchImpl('https://api.brevo.com/v3/smtp/email', {
+    let res;
+    try {
+        res = await fetchImpl('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
         body: JSON.stringify({
@@ -283,16 +294,64 @@ export async function sendReport(report, env = process.env, fetchImpl = fetch) {
             htmlContent: report.html,
             textContent: report.text,
         }),
-    });
+        });
+    } catch (err) {
+        console.error('[visits] Brevo injoignable', err?.message);
+        return { ok: false, status: 0, error: err?.message || 'réseau' };
+    }
     if (!res.ok) {
-        console.error('[visits] Brevo', res.status, await res.text().catch(() => ''));
-        return { ok: false, status: res.status };
+        const detail = (await res.text().catch(() => '')).slice(0, 300);
+        console.error('[visits] Brevo', res.status, detail);
+        return { ok: false, status: res.status, error: detail };
     }
     return { ok: true };
 }
 
-/** Traite les visites terminées : envoi du récapitulatif puis suppression. */
-export async function flushVisits(store, { now = Date.now(), send = sendReport } = {}) {
+/** Alerte de secours (Brevo en échec) : soumission du formulaire Netlify « lilmod-alerte-suivi ». */
+export async function sendFallbackAlert(report, failure, env = process.env, fetchImpl = fetch) {
+    const base = env.URL || env.DEPLOY_PRIME_URL;
+    if (!base) {
+        console.error('[visits] alerte de secours impossible (URL du site inconnue)');
+        return { ok: false };
+    }
+    const body = new URLSearchParams({
+        'form-name': 'lilmod-alerte-suivi',
+        sujet: report.subject,
+        erreur: `Brevo ${failure.status ?? ''} ${failure.error ?? ''}`.trim().slice(0, 300),
+        recapitulatif: report.text.slice(0, 8000),
+    });
+    try {
+        const res = await fetchImpl(new URL('/', base), {
+            method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body: body.toString(),
+        });
+        return { ok: res.ok };
+    } catch (err) {
+        console.error('[visits] alerte de secours en échec', err?.message);
+        return { ok: false };
+    }
+}
+
+const monthKey = (t) => new Date(t).toISOString().slice(0, 7);
+export const archiveKey = (visit) => `${ARCHIVE_PREFIX}${monthKey(visit.events[0]?.t || Date.now())}/${visit.events[0]?.t || Date.now()}-${visit.sid}`;
+
+/** Supprime les archives de plus de 13 mois (vérifie les 3 mois au-delà de la limite). */
+async function purgeArchive(archive, now) {
+    for (let back = ARCHIVE_MONTHS + 1; back <= ARCHIVE_MONTHS + 3; back++) {
+        const d = new Date(now);
+        d.setUTCDate(1);
+        d.setUTCMonth(d.getUTCMonth() - back);
+        const { blobs } = await archive.list({ prefix: `${ARCHIVE_PREFIX}${monthKey(d)}/` });
+        await Promise.all(blobs.map((b) => archive.delete(b.key)));
+    }
+}
+
+/**
+ * Traite les visites terminées : archivage, envoi Brevo, alerte de secours si échec, puis suppression
+ * des données brutes (après succès, ou après 24 h d'échecs — l'archive est conservée dans tous les cas).
+ */
+export async function flushVisits(store, {
+    now = Date.now(), send = sendReport, archive = null, fallback = sendFallbackAlert,
+} = {}) {
     const keys = [];
     let cursor;
     do {
@@ -307,9 +366,61 @@ export async function flushVisits(store, { now = Date.now(), send = sendReport }
         const entries = await Promise.all(v.keys.map((k) => store.get(k, { type: 'json' }).catch(() => null)));
         const visit = mergeEntries(v.sid, entries);
         if (!v.idle && !v.tooLong && !hasLeft(visit)) continue;
-        const res = visit.events.length ? await send(buildReport(visit)) : { ok: true };
+        if (!visit.events.length) {
+            await Promise.all(v.keys.map((k) => store.delete(k)));
+            continue;
+        }
+        const report = buildReport(visit);
+        const key = archiveKey(visit);
+        const previous = archive ? await archive.get(key, { type: 'json' }).catch(() => null) : null;
+        const res = await send(report);
+        const record = {
+            sid: visit.sid,
+            start: visit.events[0].t,
+            subject: report.subject,
+            text: report.text,
+            events: visit.events,
+            geo: visit.geo,
+            ua: visit.ua,
+            consent: visit.consent,
+            status: res.ok ? (res.dryRun ? 'dryrun' : 'sent') : v.giveUp ? 'abandoned' : 'failed',
+            attempts: (previous?.attempts || 0) + 1,
+            lastError: res.ok ? previous?.lastError : `Brevo ${res.status ?? ''} ${res.error ?? ''}`.trim(),
+            fallbackSent: previous?.fallbackSent || false,
+            updatedAt: now,
+        };
+        if (!res.ok && !record.fallbackSent) {
+            record.fallbackSent = (await fallback(report, res)).ok;
+        }
+        if (archive) {
+            try {
+                await archive.setJSON(key, record);
+            } catch (err) {
+                console.error('[visits] archivage en échec', err?.message);
+            }
+        }
         if (res.ok || v.giveUp) await Promise.all(v.keys.map((k) => store.delete(k)));
-        results.push({ sid: v.sid, ok: res.ok, events: visit.events.length });
+        results.push({ sid: v.sid, status: record.status, events: visit.events.length, fallback: record.fallbackSent });
+    }
+    if (archive && new Date(now).getUTCHours() === 3 && new Date(now).getUTCMinutes() < 5) {
+        await purgeArchive(archive, now).catch((err) => console.error('[visits] purge', err?.message));
     }
     return results;
+}
+
+/** Liste les visites archivées, les plus récentes d'abord. */
+export async function listArchive(archive, { months = 2, now = Date.now(), status = null, limit = 200 } = {}) {
+    const out = [];
+    for (let back = 0; back < months; back++) {
+        const d = new Date(now);
+        d.setUTCDate(1);
+        d.setUTCMonth(d.getUTCMonth() - back);
+        const { blobs } = await archive.list({ prefix: `${ARCHIVE_PREFIX}${monthKey(d)}/` });
+        const records = await Promise.all(blobs.map((b) => archive.get(b.key, { type: 'json' }).catch(() => null)));
+        out.push(...records.filter(Boolean));
+    }
+    return out
+        .filter((r) => !status || r.status === status)
+        .sort((a, b) => b.start - a.start)
+        .slice(0, limit);
 }
